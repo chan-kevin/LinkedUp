@@ -7,19 +7,15 @@ import './SignupForm.css';
 function SignupFormPage() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
     const [errors, setErrors] = useState([]);
 
     if (sessionUser) return <Redirect to="/" />;
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (password === confirmPassword) {
-            setErrors([]);
-            return dispatch(sessionActions.signup({ username, email, password }))
+            return dispatch(sessionActions.signup({ email, password }))
             .catch(async (res) => {
                 let data;
                 try {
@@ -31,8 +27,6 @@ function SignupFormPage() {
                 else if (data) setErrors([data]);
                 else setErrors([res.statusText]);
             });
-        }
-        return setErrors(['Confirm Password field must be the same as the Password field']);
     }
 
     return (
@@ -50,16 +44,7 @@ function SignupFormPage() {
                 />
             </label>
             <label>
-                Username
-                <input
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Password
+                Password (6 or more characters)
                 <input
                     type="password"
                     value={password}
@@ -67,16 +52,7 @@ function SignupFormPage() {
                     required
                 />
             </label>
-            <label>
-                Confirm Password
-                <input
-                    type="password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
-                />
-            </label>
-            <button type="submit">Sign Up</button>
+            <button type="submit">Agree & Join</button>
     </form>
   );
 }   

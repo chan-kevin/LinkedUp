@@ -16,12 +16,11 @@ function HomePage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors([]);
     return dispatch(sessionActions.login({ credential, password }))
       .catch(async (res) => {
         let data;
         try {
-          data = await res.clone().json();
+          data = await res.json();
         } catch {
           data = await res.text();
         }
@@ -39,7 +38,7 @@ function HomePage() {
                     {errors.map(error => <li key={error}>{error}</li>)}
                 </ul>
 
-                <h1 class='homeHeading'>Welcome to your professional community</h1>
+                <h1 className='homeHeading'>Welcome to your professional community</h1>
 
                 <label className='homeLabel'>
                     Email or phone

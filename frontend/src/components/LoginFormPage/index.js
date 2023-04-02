@@ -15,12 +15,11 @@ function LoginFormPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors([]);
     return dispatch(sessionActions.login({ credential, password }))
       .catch(async (res) => {
         let data;
         try {
-          data = await res.clone().json();
+          data = await res.json();
         } catch {
           data = await res.text();
         }

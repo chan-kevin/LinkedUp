@@ -12,12 +12,14 @@ ApplicationRecord.transaction do
     User.create!(
       phone_number: '+123456789', 
       email: 'demo@user.io', 
+      first_name: 'Demo',
+      last_name: '1',
       password: 'password'
     )
   
     # More users
     # phone_numbers = []
-    10.times do 
+    5.times do 
         # phone_number = Faker::PhoneNumber.cell_phone_in_e164
         # while phone_numbers.include?(phone_number)
         #     phone_number = Faker::PhoneNumber.cell_phone_in_e164
@@ -29,6 +31,8 @@ ApplicationRecord.transaction do
         User.create!({
             phone_number: Faker::PhoneNumber.unique.cell_phone_in_e164,
             email: Faker::Internet.unique.email,
+            first_name: Faker::Name.first_name,
+            last_name: Faker::Name.last_name,
             password: 'password'
         }) 
     end
