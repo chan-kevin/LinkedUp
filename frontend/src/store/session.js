@@ -37,10 +37,15 @@ export const login = ({ credential, password }) => async dispatch => {
   return response;
 };
 
-export const signup = ({ username, email, password }) => async dispatch =>{
+export const signup = user => async dispatch =>{
+  const { email, password, firstName, lastName } = user;
   const response = await csrfFetch("/api/users", {
     method: "POST",
-    body: JSON.stringify({ username, email, password })
+    body: JSON.stringify({ 
+      user:{
+        email, password, firstName, lastName
+      }
+     })
   });
   const data = await response.json();
   storeCurrentUser(data.user);
