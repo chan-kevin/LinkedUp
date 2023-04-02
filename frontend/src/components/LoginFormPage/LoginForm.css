@@ -1,10 +1,10 @@
-form label {
+.signInForm label {
     display: block;
     margin-bottom: 10px;
     text-align: center;
 }
   
-form input {
+.signInForm input {
     display: block;
     padding: 5px;
     border: 1px solid #ccc;
@@ -14,7 +14,7 @@ form input {
     width: 250px;
 }
 
-form {
+.signInForm {
     display: flex;
     justify-content: center;
     align-items: center;

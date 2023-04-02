@@ -31,32 +31,37 @@ function HomePage() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map(error => <li key={error}>{error}</li>)}
-      </ul>
-      <label>
-        Username or Email
-        <input
-          type="text"
-          value={credential}
-          placeholder="enter username or email"
-          onChange={(e) => setCredential(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          placeholder="enter password"
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <div className='homePage'>
+        <form onSubmit={handleSubmit} className='homeLogin'>
+            <ul>
+                {errors.map(error => <li key={error}>{error}</li>)}
+            </ul>
+
+            <h1 class='homeHeading'>Welcome to your professional community</h1>
+
+            <label className='homeLabel'>
+                Email or phone
+            </label>
+            <input
+                type="text"
+                value={credential}
+                onChange={(e) => setCredential(e.target.value)}
+                required
+            />
+
+            <label className='homeLabel'>
+                Password
+            </label>
+            <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+            />
+
+            <button type="submit">Sign In</button>
+        </form>
+    </div>
   );
 }
 

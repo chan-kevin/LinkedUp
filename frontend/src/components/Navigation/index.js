@@ -1,18 +1,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navigation.css';
+import logo from './LinkedIn_logo.png'
 
 function Navigation() {
 
   return (
     <>
-      <ul className="nav">
-        <li>
-          <NavLink exact to="/">Home</NavLink>
-          <NavLink to="/login">Log In</NavLink>
-          <NavLink to="/signup">Sign Up</NavLink>
-        </li>
-      </ul>
+      <nav className="nav">
+          <NavLink exact to="/"><img src={logo} alt="home" /></NavLink>
+          <ul>
+            <li><NavLink to="/signup" className="homenav" id='signUpButton'>Join now</NavLink></li>
+            <li><NavLink to="/login" className="homenav" id='signInButton'>Sign in</NavLink></li>
+          </ul>
+      </nav>
     </>
   )
 }

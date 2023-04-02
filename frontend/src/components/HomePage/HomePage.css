@@ -1,27 +1,38 @@
-form label {
+.homePage {
+    /* max-width: 1128px;
+    display: flex;
+    position: relative;
+    width: 100%;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 40px;
+    min-height: 560px; */
+    padding-right: 42px;
+    align-self: flex-start;
+    flex-shrink: 0;
+    width: 55%;
+    position: relative;
     display: block;
-    margin-bottom: 10px;
-    text-align: center;
-}
-  
-form input {
-    display: block;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    box-sizing: border-box;
-    margin-top: 5px;
-    width: 250px;
 }
 
-form {
+.homeHeading {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 
+    'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 
+    'Lucida Grande', Helvetica, Arial, sans-serif;
+    font-size: 56px;
+    font-weight: 200;
+    color: #8f5849;
+    padding-bottom: 24px
+    /* vertical-align: baseline; */
+}
+
+.homeLogin {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     flex-direction: column;
 }
 
-button {
-    cursor: pointer;
+.homeLabel {
+    margin-bottom: 8px;
 }
