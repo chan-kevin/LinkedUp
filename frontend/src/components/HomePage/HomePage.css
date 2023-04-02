@@ -1,0 +1,27 @@
+form label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+}
+  
+form input {
+    display: block;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    width: 250px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+button {
+    cursor: pointer;
+}

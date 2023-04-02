@@ -18,7 +18,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 const Root = () => {
   return (
-    //test
     <Provider store={store}>
       <BrowserRouter>
         <App />
@@ -33,7 +32,6 @@ const renderApplication = () => {
     <React.StrictMode>
       <Root />
     </React.StrictMode>,
-    // document.getElementById('root')
   );
 }
 
