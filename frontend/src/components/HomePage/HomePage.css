@@ -1,20 +1,42 @@
 .homePage {
-    /* max-width: 1128px;
+    max-width: 1128px;
     display: flex;
     position: relative;
     width: 100%;
     align-items: center;
     flex-wrap: nowrap;
-    padding-left: 0;
-    padding-right: 0;
+    /* padding-left: 0;
+    padding-right: 0; */
+    margin: auto;
+    padding-top: 12px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
     padding-top: 40px;
-    min-height: 560px; */
-    padding-right: 42px;
+    min-height: 560px;
+}
+
+#homeImg {
+    flex-shrink: 1;
+    width: 700px;
+    height: 560px;
+    display: block;
+    z-index: -1;
+    position: relative;
+}
+
+.signIn {
+    /* padding-right: 42px;
     align-self: flex-start;
     flex-shrink: 0;
     width: 55%;
-    position: relative;
-    display: block;
+    position: relative; */
+    /* display: block; */
+    align-self: flex-start;
+    width: 55%;
+    flex-shrink: 0;
+    display: flex;
+    /* align-items: center; */
 }
 
 .homeHeading {
@@ -35,4 +57,15 @@
 
 .homeLabel {
     margin-bottom: 8px;
+}
+
+.homeLogin input {
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    font-size: 16px;
 }

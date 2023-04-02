@@ -3,6 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './HomePage.css';
+import background from './HomePage.svg'
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -32,35 +33,38 @@ function HomePage() {
 
   return (
     <div className='homePage'>
-        <form onSubmit={handleSubmit} className='homeLogin'>
-            <ul>
-                {errors.map(error => <li key={error}>{error}</li>)}
-            </ul>
+        <div className='signIn'>
+            <form onSubmit={handleSubmit} className='homeLogin'>
+                <ul>
+                    {errors.map(error => <li key={error}>{error}</li>)}
+                </ul>
 
-            <h1 class='homeHeading'>Welcome to your professional community</h1>
+                <h1 class='homeHeading'>Welcome to your professional community</h1>
 
-            <label className='homeLabel'>
-                Email or phone
-            </label>
-            <input
-                type="text"
-                value={credential}
-                onChange={(e) => setCredential(e.target.value)}
-                required
-            />
+                <label className='homeLabel'>
+                    Email or phone
+                </label>
+                <input
+                    type="text"
+                    value={credential}
+                    onChange={(e) => setCredential(e.target.value)}
+                    required
+                />
 
-            <label className='homeLabel'>
-                Password
-            </label>
-            <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-            />
+                <label className='homeLabel'>
+                    Password
+                </label>
+                <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
 
-            <button type="submit">Sign In</button>
-        </form>
+                <button type="submit">Sign In</button>
+            </form>
+            <img src={background} alt='background' id='homeImg'></img>
+        </div>
     </div>
   );
 }
