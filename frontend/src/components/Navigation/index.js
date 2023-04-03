@@ -28,7 +28,7 @@ function Navigation() {
           </ul>
           ) : null }
           {sessionUser ? (
-          <button onClick={logout}>Log Out</button>
+          <button onClick={logout} id='logout'>Log Out</button>
           ): null }
       </nav>
     </>
