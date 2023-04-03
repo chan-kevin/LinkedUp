@@ -60,11 +60,11 @@ function HomePage() {
                     required
                 />
 
-                <NavLink to='/forgot' className='forgotSignup'>Forgot Password?</NavLink>
+                <NavLink to='/forgot' className='forgotSignup' id='homeSignIn'>Forgot Password?</NavLink>
                 <button type="submit" id='signInSubmit'>Sign in</button>
             </form>
-            <img src={background} alt='background' id='homeImg'></img>
         </div>
+        <img src={background} alt='background' id='homeImg'></img>
     </div>
   );
 }
