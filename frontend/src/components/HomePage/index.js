@@ -38,7 +38,7 @@ function HomePage() {
                     {errors.map(error => <li key={error}>{error}</li>)}
                 </ul>
 
-                <h1 className='homeHeading'>Welcome to your professional community</h1>
+                <h1 className='fontFamily' id='homeHeading'>Welcome to your professional community</h1>
 
                 <label className='homeLabel'>
                     Email or phone

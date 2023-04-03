@@ -1,27 +1,86 @@
-.signInForm label {
-    display: block;
-    margin-bottom: 10px;
-    text-align: center;
+.fontFamily {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 
+    'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 
+    'Lucida Grande', Helvetica, Arial, sans-serif;
 }
-  
-.signInForm input {
-    display: block;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    box-sizing: border-box;
-    margin-top: 5px;
-    width: 250px;
+
+#signInSubmit {
+    height: 52px;
+    line-height: 52px;
+    color: #fff;
+    border-radius: 28px;
+    background: #0a66c2;
+    border-style: solid;
+    text-align: center;
+    font-size: 16px;
+    border: 0;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#signInSubmit:hover {
+    background: #084b8f;
+}
+
+#forgotPassword {
+    position: relative;
+    margin-top: 8px;
+    margin-bottom: 24px;
+    font-weight: 600;
+    display: inline-block;
+    color: #0073b1;
+    text-decoration: none;
+    border-radius: 28px;
+    height: 32px;
+    line-height: 32px;
+    left: -8px;
+    padding: 0 8px;
+    width: 45%;
+}
+
+#forgotPassword:hover {
+    color: #0a66c2;
+    background-color: #84c8ecba;
+}
+
+.signInPage {
+    padding-top: 10%;
 }
 
 .signInForm {
+    width: 352px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 24px;
+    border-radius: 8px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     flex-direction: column;
+    margin: 0 auto;
+    box-sizing: border-box;
+    /* justify-content: center; */
 }
 
-button {
-    cursor: pointer;
+.signInForm input {
+    font-size: 16px;
+    height: 52px;
+    border-radius: 4px;
+    margin-top: 6%;
+}
+
+.signInForm input:focus::placeholder {
+    transform: translateY(-80%);
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+    color: black;
+}
+
+#signIn {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 40px;
+}
+
+#signInDescription {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
 }

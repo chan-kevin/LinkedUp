@@ -60,7 +60,7 @@ function SignupFormPage() {
                 required
               />
             </label>
-            <button type="submit">Continue</button>
+            <button type="submit">Agree & Join</button>
           </form>
         );
       }
@@ -89,7 +89,7 @@ function SignupFormPage() {
                 required
               />
             </label>
-            <button type="submit">Agree & Join</button>
+            <button type="submit">Continue</button>
           </form>
         );
       }
@@ -101,31 +101,4 @@ function SignupFormPage() {
         </div>
       );
     }
-    
-    // return (
-    //     <form onSubmit={handleSubmit}>
-    //         <ul>
-    //             {errors.map(error => <li key={error}>{error}</li>)}
-    //         </ul>
-    //         <label>
-    //             Email
-    //             <input
-    //                 type="text"
-    //                 value={email}
-    //                 onChange={(e) => setEmail(e.target.value)}
-    //                 required
-    //             />
-    //         </label>
-    //         <label>
-    //             Password (6 or more characters)
-    //             <input
-    //                 type="password"
-    //                 value={password}
-    //                 onChange={(e) => setPassword(e.target.value)}
-    //                 required
-    //             />
-    //         </label>
-    //         <button type="submit">Agree & Join</button>
-    // </form> 
-
 export default SignupFormPage;
