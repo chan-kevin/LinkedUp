@@ -18,6 +18,21 @@ function SignupFormPage() {
 
     const handlePage1Submit = (e) => {
         e.preventDefault();
+
+        // const emailRegex = /\S+@\S+\.\S+/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        // const passwordRegex = /^[A-Za-z]\w{5,14}$/;
+        const passwordRegex = /^.{6,}$/;
+        if (!emailRegex.test(email)) {
+          setErrors(["Please enter a valid email"]);
+          return;
+        }
+        if (!passwordRegex.test(password)) {
+          setErrors(["Password must be at least 6 or more characters"]);
+          return;
+        }
+        
+        setErrors([])
         setPage(2);
       }
 
