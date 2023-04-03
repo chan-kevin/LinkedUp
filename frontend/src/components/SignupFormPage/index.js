@@ -124,10 +124,12 @@ function SignupFormPage() {
       }
     
       return (
-        <div className='fontFamily' id='signUpPage'>
+        <div className='fontFamily' id='pageBackground'>
             <h1 id='signUpTitle'>Make the most of your professional life</h1>
+            <div className='fontFamily' id='signUpPage'>
                 {page === 1 && renderPage1()}
                 {page === 2 && renderPage2()}
+            </div>
         </div>
       );
     }
