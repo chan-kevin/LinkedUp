@@ -1,10 +1,10 @@
-#fontFamily {
+.fontFamily {
     font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 
     'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 
     'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
-.nav {
+#nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -19,20 +19,20 @@
     max-width: 1128px;
 }
 
-.nav img {
+#logo {
     height: 34px;
 }
 
-.nav ul {
+#nav ul {
     display: flex;
     align-items: center;
 }
 
-.nav ul li {
+#nav ul li {
     margin-left: 5px;
 }
 
-.nav ul li:first-child{
+#nav ul li:first-child{
     margin-left: 0px;
 }
 

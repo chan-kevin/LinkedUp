@@ -31,7 +31,7 @@ function HomePage() {
   }
 
   return (
-    <div className='homePage' id='fontFamily'>
+    <div className='fontFamily' id='homePage'>
         <div className='signIn'>
             <form onSubmit={handleSubmit} className='homeLogin'>
                 <ul>

@@ -30,7 +30,7 @@ function LoginFormPage() {
   }
 
   return (
-    <div className='signInPage' id='fontFamily'>
+    <div className='fontFamily' id='signInPage'>
       <form className="signInForm" onSubmit={handleSubmit}>
         <ul>
           {errors.map(error => <li key={error}>{error}</li>)}

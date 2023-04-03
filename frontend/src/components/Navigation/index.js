@@ -10,8 +10,8 @@ function Navigation() {
 
   return (
     <>
-      <nav className="nav" id='fontFamily'>
-          <NavLink exact to="/"><img src={logo} alt="home" /></NavLink>
+      <nav className="fontFamily" id='nav'>
+          <NavLink exact to="/"><img src={logo} alt="home" id='logo'/></NavLink>
           {location.pathname === '/' ? (
           <ul>
             <li><NavLink to="/signup" className="homenav" id='signUpButton'>Join now</NavLink></li>

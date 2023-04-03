@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import './SignupForm.css';
 
@@ -38,66 +38,81 @@ function SignupFormPage() {
     }
     const renderPage1 = () => {
         return (
-          <form onSubmit={handlePage1Submit}>
-            <ul>
-              {errors.map(error => <li key={error}>{error}</li>)}
-            </ul>
-            <label>
-              Email
-              <input
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </label>
-            <label>
-              Password (6 or more characters)
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </label>
-            <button type="submit">Agree & Join</button>
-          </form>
+        <div id='firstPage'>
+            <form onSubmit={handlePage1Submit} className='subSignUpPage'>
+                <ul>
+                {errors.map(error => <li key={error}>{error}</li>)}
+                </ul>
+
+                <label>
+                Email
+                </label>
+                <input
+                    type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
+
+                <label>
+                Password (6 or more characters)
+                </label>
+                <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
+
+                <p id='terms'>By clicking Agree & Join, you agree to the LinkedIn User Agreement, Privacy Policy, 
+                    and Cookie Policy.</p>
+
+                <button type="submit" className='signUpSubmit'>Agree & Join</button>
+                <p id='hasAcc'>Already on LinkedIn? <NavLink to="/login" id='hasAccSignIn'>Sign in</NavLink></p>
+            </form>
+        </div>
         );
       }
     
       const renderPage2 = () => {
         return (
-          <form onSubmit={handlePage2Submit}>
-            <ul>
-              {errors.map(error => <li key={error}>{error}</li>)}
-            </ul>
-            <label>
-              First Name
-              <input
-                type="text"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                required
-              />
-            </label>
-            <label>
-              Last Name
-              <input
-                type="text"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                required
-              />
-            </label>
-            <button type="submit">Continue</button>
-          </form>
+        <div>
+            <form onSubmit={handlePage2Submit} className='subSignUpPage' id='signUpPage2'>
+                <ul>
+                {errors.map(error => <li key={error}>{error}</li>)}
+                </ul>
+
+                <label>
+                First Name
+                </label>
+                <input
+                    type="text"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    required
+                />
+
+                <label>
+                Last Name
+                </label>
+                <input
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    required
+                />
+
+                <button type="submit" className='signUpSubmit' id='signUpContinue'>Continue</button>
+            </form>
+        </div>
         );
       }
     
       return (
-        <div>
-          {page === 1 && renderPage1()}
-          {page === 2 && renderPage2()}
+        <div className='fontFamily' id='signUpPage'>
+            <h1 id='signUpTitle'>Make the most of your professional life</h1>
+                {page === 1 && renderPage1()}
+                {page === 2 && renderPage2()}
         </div>
       );
     }
