@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navigation.css';
-import logo from './LinkedIn_logo.png'
+import logo from './Linkedin_logo.png'
 import { useLocation } from 'react-router-dom';
 
 function Navigation() {
@@ -10,7 +10,7 @@ function Navigation() {
 
   return (
     <>
-      <nav className="nav">
+      <nav className="nav" id='fontFamily'>
           <NavLink exact to="/"><img src={logo} alt="home" /></NavLink>
           {location.pathname === '/' ? (
           <ul>

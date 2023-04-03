@@ -1,4 +1,4 @@
-.fontFamily {
+#fontFamily {
     font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 
     'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 
     'Lucida Grande', Helvetica, Arial, sans-serif;
@@ -22,25 +22,24 @@
     background: #084b8f;
 }
 
-#forgotPassword {
+.forgotSignup {
     position: relative;
     margin-top: 8px;
     margin-bottom: 24px;
     font-weight: 600;
-    display: inline-block;
     color: #0073b1;
     text-decoration: none;
     border-radius: 28px;
-    height: 32px;
     line-height: 32px;
     left: -8px;
     padding: 0 8px;
     width: 45%;
 }
 
-#forgotPassword:hover {
+.forgotSignup:hover {
     color: #0a66c2;
     background-color: #84c8ecba;
+    text-decoration: underline;
 }
 
 .signInPage {
@@ -83,4 +82,14 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
+}
+
+#newTo {
+    text-align: center;
+    margin: 32px;
+}
+
+#signUpIn {
+    left: 0;
+    padding: 10px;
 }

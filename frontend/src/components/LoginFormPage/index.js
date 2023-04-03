@@ -30,14 +30,14 @@ function LoginFormPage() {
   }
 
   return (
-    <div className='signInPage'>
+    <div className='signInPage' id='fontFamily'>
       <form className="signInForm" onSubmit={handleSubmit}>
         <ul>
           {errors.map(error => <li key={error}>{error}</li>)}
         </ul>
 
-        <h1 className='fontFamily' id='signIn'>Sign in</h1>
-        <p className='fontFamily' id='signInDescription'>Stay updated on your professional world</p>
+        <h1 id='signIn'>Sign in</h1>
+        <p id='signInDescription'>Stay updated on your professional world</p>
 
         <input
             type="text"
@@ -55,12 +55,12 @@ function LoginFormPage() {
             required
           />
 
-        <NavLink to='/forgot' className='fontFamily' id='forgotPassword'>Forgot Password?</NavLink>
+        <NavLink to='/forgot' className='forgotSignup'>Forgot Password?</NavLink>
 
-        <button type="submit" className='fontFamily' id='signInSubmit'>Sign in</button>
+        <button type="submit" id='signInSubmit'>Sign in</button>
       </form>
 
-      <p className='fontFamily'> New to LinkedIn? </p>
+      <div id='newTo'> New to LinkedIn? <NavLink to="/signup" className='forgotSignup' id='signUpIn'>Join now</NavLink> </div>
     </div>
   );
 }

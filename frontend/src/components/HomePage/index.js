@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import './HomePage.css';
 import background from './HomePage.svg'
 
@@ -31,14 +31,14 @@ function HomePage() {
   }
 
   return (
-    <div className='homePage'>
+    <div className='homePage' id='fontFamily'>
         <div className='signIn'>
             <form onSubmit={handleSubmit} className='homeLogin'>
                 <ul>
                     {errors.map(error => <li key={error}>{error}</li>)}
                 </ul>
 
-                <h1 className='fontFamily' id='homeHeading'>Welcome to your professional community</h1>
+                <h1 id='homeHeading'>Welcome to your professional community</h1>
 
                 <label className='homeLabel'>
                     Email or phone
@@ -60,7 +60,8 @@ function HomePage() {
                     required
                 />
 
-                <button type="submit">Sign In</button>
+                <NavLink to='/forgot' className='forgotSignup'>Forgot Password?</NavLink>
+                <button type="submit" id='signInSubmit'>Sign in</button>
             </form>
             <img src={background} alt='background' id='homeImg'></img>
         </div>
