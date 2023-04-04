@@ -17,7 +17,6 @@ function Navigation() {
       <nav className="fontFamily">
 
           {sessionUser ? (
-            <header id='headBackground'>
             <header className='fontFamily' id='loginHeader'>
               <div className='nav' id='withUserHome'>
                 <NavLink exact to="/"><img src={smallLogo} alt="home" id='withUserHomeLogo'/></NavLink>
@@ -26,7 +25,6 @@ function Navigation() {
                   <li><ProfileButton user={sessionUser} /></li>
                 </ul>
               </div>
-            </header>
             </header>
           ) : 
 

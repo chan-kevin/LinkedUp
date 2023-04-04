@@ -30,34 +30,41 @@
 #homeImg {
     width: 700px;
     height: 560px;
+    padding-top: 7%;
+    position: absolute;
+    right: -13%;
 }
 
 .signIn {
     align-self: flex-start;
-    width: 40%;
+    width: 50%;
     flex-shrink: 0;
     display: flex;
+    /* padding-top: 2%; */
 }
 
 #homeHeading {
     font-size: 56px;
     font-weight: 200;
     color: #8f5849;
-    padding-bottom: 24px
+    padding-bottom: 5px;
+    line-height: 125%;
     /* vertical-align: baseline; */
 }
 
 .homeLogin {
     display: flex;
     flex-direction: column;
+    z-index: 5;
 }
 
 .homeLabel {
     margin-bottom: 8px;
-    margin-top: 8%;
+    margin-top: 7%;
 }
 
 .homeLogin input {
+    width: 70%;
     border-radius: 4px;
     border-width: 1px;
     border-style: solid;
@@ -77,4 +84,36 @@
 
 #homeSignIn:hover {
     background-color: white
+}
+
+#homeSign, #homeGoogle, #homeNew {
+    width: 77%;
+    margin-bottom: 5%;
+}
+
+#homeBorder {
+    border-bottom: 1px solid rgba(0,0,0,0.6);
+}
+
+#homeGoogle, #homeNew {
+    margin-top: 5%;
+    background: white;
+    color: rgba(0,0,0,0.6);
+    border: 1px solid rgba(0,0,0,0.6);
+    margin-bottom: 3%;
+}
+
+#homeNew {
+    margin-top: 0;
+    text-decoration: none;
+}
+
+#homeGoogle:hover, #homeNew:hover {
+    color:rgba(0,0,0,0.8);
+    background:rgb(236, 233, 229)
+}
+
+#google {
+    width: 5%;
+    padding-right: 3%;
 }

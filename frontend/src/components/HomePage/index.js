@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Redirect } from 'react-router-dom';
 import './HomePage.css';
 import background from './HomePage.svg'
+import google from './google_logo.png'
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -14,8 +15,8 @@ function HomePage() {
 
   if (sessionUser) return <Redirect to="/" />;
 
-  const ele = document.getElementById('headBackground');
-  ele.style.backgroundColor = 'white';
+//   const ele = document.getElementById('headBackground');
+//   ele.style.backgroundColor = 'white';
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -65,7 +66,9 @@ function HomePage() {
                 />
 
                 <NavLink to='/forgot' className='forgotSignup' id='homeSignIn'>Forgot Password?</NavLink>
-                <button type="submit" id='signInSubmit'>Sign in</button>
+                <div id='homeBorder'><button type="submit" className='signInSubmit' id='homeSign'>Sign in</button></div>
+                <button type="submit" className='signInSubmit' id='homeGoogle'> <img src={google} id='google'/> Sign in with Google</button>
+                <NavLink to='/signup' className='signInSubmit' id='homeNew'>New to LinkedIn? Join now</NavLink>
             </form>
         </div>
         <img src={background} alt='background' id='homeImg'></img>

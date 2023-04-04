@@ -13,8 +13,8 @@ function LoginFormPage() {
 
   if (sessionUser) return <Redirect to="/" />;
 
-  const ele = document.getElementById('headBackground');
-  ele.style.backgroundColor = 'white';
+  // const ele = document.getElementById('headBackground');
+  // ele.style.backgroundColor = 'white';
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -61,7 +61,7 @@ function LoginFormPage() {
 
         <NavLink to='/forgot' className='forgotSignup'>Forgot Password?</NavLink>
 
-        <button type="submit" id='signInSubmit'>Sign in</button>
+        <button type="submit" className='signInSubmit'>Sign in</button>
       </form>
 
       <div id='newTo'> New to LinkedIn? <NavLink to="/signup" className='forgotSignup' id='signUpIn'>Join now</NavLink> </div>
