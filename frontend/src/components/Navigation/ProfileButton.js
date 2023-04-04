@@ -40,9 +40,17 @@ function ProfileButton({ user }) {
       {showMenu && (
         <ul className="profile-dropdown">
           <li>{user.firstName + ' ' + user.lastName}</li>
-          <li></li>
+          <li><button type="submit" id='viewProfile'>View Profile</button></li>
+          <li>Account</li>
+          <li><button onClick={logout} className='dropdownOptions'>Try Premium for free</button></li>
+          <li><button onClick={logout} className='dropdownOptions'>Setting</button></li>
+          <li><button onClick={logout} className='dropdownOptions'>Help</button></li>
+          <li><button onClick={logout} className='dropdownOptions'>Language</button></li>
+          <li>Manage</li>
+          <li><button onClick={logout} className='dropdownOptions'>Post & Activity</button></li>
+          <li><button onClick={logout} className='dropdownOptions'>Job Posting Account</button></li>
           <li>
-            <button onClick={logout}>Sign Out</button>
+            <button onClick={logout} className='dropdownOptions'>Sign Out</button>
           </li>
         </ul>
       )}
