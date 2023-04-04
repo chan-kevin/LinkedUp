@@ -3,6 +3,8 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Redirect } from 'react-router-dom';
 import './LoginForm.css';
+import google from '../HomePage/google_logo.png';
+import apple from './apple_logo.png';
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -62,6 +64,9 @@ function LoginFormPage() {
         <NavLink to='/forgot' className='forgotSignup'>Forgot Password?</NavLink>
 
         <button type="submit" className='signInSubmit'>Sign in</button>
+        <div id='signUpBorder'></div>
+        <button type="submit" className='signUpSubmit' id='signUpGoogle'> <img src={google} alt='google' id='google'/> Continue with Google</button>
+        <button type="submit" className='signUpSubmit' id='signInApple'> <img src={apple} alt='apple' id='google'/> Sign in with Apple</button>
       </form>
 
       <div id='newTo'> New to LinkedIn? <NavLink to="/signup" className='forgotSignup' id='signUpIn'>Join now</NavLink> </div>
