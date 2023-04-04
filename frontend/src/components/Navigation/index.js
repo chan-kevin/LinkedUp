@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navigation.css';
-import logo from './Linkedin_logo.png'
+import logo from './LinkedIn_logo.png'
 import smallLogo from './linkedin_small_logo.png'
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -17,6 +17,7 @@ function Navigation() {
       <nav className="fontFamily">
 
           {sessionUser ? (
+            <header id='headBackground'>
             <header className='fontFamily' id='loginHeader'>
               <div className='nav' id='withUserHome'>
                 <NavLink exact to="/"><img src={smallLogo} alt="home" id='withUserHomeLogo'/></NavLink>
@@ -25,6 +26,7 @@ function Navigation() {
                   <li><ProfileButton user={sessionUser} /></li>
                 </ul>
               </div>
+            </header>
             </header>
           ) : 
 

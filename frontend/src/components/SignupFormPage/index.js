@@ -127,6 +127,7 @@ function SignupFormPage() {
       }
     
       return (
+        <header id='signUpHeader'>
         <div className='fontFamily' id='pageBackground'>
             <h1 id='signUpTitle'>Make the most of your professional life</h1>
             <div className='fontFamily' id='signUpPage'>
@@ -134,6 +135,7 @@ function SignupFormPage() {
                 {page === 2 && renderPage2()}
             </div>
         </div>
+        </header>
       );
     }
 export default SignupFormPage;
