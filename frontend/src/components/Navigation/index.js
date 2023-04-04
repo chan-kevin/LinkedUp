@@ -12,12 +12,12 @@ function Navigation() {
   const location = useLocation();
   const sessionUser = useSelector(state => state.session.user);
 
-  let sessionLinks;
-  if (sessionUser) {
-    sessionLinks = (
-      <ProfileButton user={sessionUser} />
-    );
-  }
+  // let sessionLinks;
+  // if (sessionUser) {
+  //   sessionLinks = (
+  //     <ProfileButton user={sessionUser} />
+  //   );
+  // }
   
 
   return (
@@ -40,7 +40,7 @@ function Navigation() {
                 <NavLink exact to="/"><img src={smallLogo} alt="home" id='withUserHomeLogo'/></NavLink>
                 <input tpye='text' placeholder='search' id='searchBar' />
                 <ul>
-                  <li>{sessionLinks}</li>
+                  <li><ProfileButton user={sessionUser} /></li>
                 </ul>
               </div>
             </header>

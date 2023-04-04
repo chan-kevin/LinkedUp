@@ -1,22 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+
+  const buttonRef = useRef();
   
-  const openMenu = () => {
+  const openMenu = (e) => {
     if (showMenu) return;
-    console.log('clicked')
+    e.stopPropagation();
     setShowMenu(true);
   };
   
   useEffect(() => {
     if (!showMenu) return;
-    console.log("hi")
     const closeMenu = () => {
-      setShowMenu(false);
+        setShowMenu(false);
     };
   
     document.addEventListener('click', closeMenu)
@@ -32,7 +33,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button ref={buttonRef} onClick={openMenu}>
         <p>''</p>
       </button>
       {showMenu && (
