@@ -78,7 +78,7 @@
 
 .homeLogin input:hover {
     cursor: pointer;
-    background-color: rgb(210, 210, 210);
+    background-color: rgba(0,0,0,0.06);
     border: 2px solid black;
 }
 

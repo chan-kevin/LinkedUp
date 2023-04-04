@@ -11,7 +11,7 @@ function SignupFormPage() {
     const [password, setPassword] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-    const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState({});
     const [page, setPage] = useState(1);
 
     if (sessionUser) return <Redirect to="/" />;
@@ -27,11 +27,16 @@ function SignupFormPage() {
         // const passwordRegex = /^[A-Za-z]\w{5,14}$/;
         const passwordRegex = /^.{6,}$/;
         if (!emailRegex.test(email)) {
-          setErrors(["Please enter a valid email"]);
-          return;
+          setErrors(prevErrors => ({
+            ...prevErrors,
+            email: "Please enter a valid email address."
+          }));
         }
         if (!passwordRegex.test(password)) {
-          setErrors(["Password must be at least 6 or more characters"]);
+          setErrors(prevErrors => ({
+            ...prevErrors,
+            password: "Password must be 6 characters or more."
+          }));
           return;
         }
         
@@ -58,9 +63,9 @@ function SignupFormPage() {
         return (
         <div id='firstPage'>
             <form onSubmit={handlePage1Submit} className='subSignUpPage'>
-                <ul>
+                {/* <ul>
                 {errors.map(error => <li key={error}>{error}</li>)}
-                </ul>
+                </ul> */}
 
                 <label>
                 Email
@@ -71,6 +76,7 @@ function SignupFormPage() {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
+                {errors.email && <div className='signUpError'>{errors.email}</div>}
 
                 <label>
                 Password (6 or more characters)
@@ -81,6 +87,7 @@ function SignupFormPage() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
+                {errors.password && <div className='signUpError'>{errors.password}</div>}
 
                 <p id='terms'>By clicking Agree & Join, you agree to the LinkedIn User Agreement, Privacy Policy, 
                     and Cookie Policy.</p>

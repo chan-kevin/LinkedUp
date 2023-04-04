@@ -218,3 +218,9 @@
         margin-top: 16px;
     }
 }
+
+.signUpError {
+    color: rgb(201, 20, 20);
+    font-size: 14px;
+    margin-top: 2%;
+}

@@ -67,7 +67,7 @@ function HomePage() {
 
                 <NavLink to='/forgot' className='forgotSignup' id='homeSignIn'>Forgot Password?</NavLink>
                 <div id='homeBorder'><button type="submit" className='signInSubmit' id='homeSign'>Sign in</button></div>
-                <button type="submit" className='signInSubmit' id='homeGoogle'> <img src={google} id='google'/> Sign in with Google</button>
+                <button type="submit" className='signInSubmit' id='homeGoogle'> <img src={google} alt='google' id='google'/> Sign in with Google</button>
                 <NavLink to='/signup' className='signInSubmit' id='homeNew'>New to LinkedIn? Join now</NavLink>
             </form>
         </div>
