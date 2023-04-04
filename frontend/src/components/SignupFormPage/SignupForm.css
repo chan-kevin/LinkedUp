@@ -206,5 +206,7 @@
         text-decoration: underline;
     }
 
-
+    #signUpContinue {
+        margin-top: 16px;
+    }
 }
