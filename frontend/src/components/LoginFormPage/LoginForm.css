@@ -4,6 +4,13 @@
     'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
+#signInBackground {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+
 #signInSubmit {
     height: 52px;
     line-height: 52px;

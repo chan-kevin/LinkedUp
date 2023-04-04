@@ -4,6 +4,13 @@
     'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
+#homeColor {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+
 #homePage {
     max-width: 1128px;
     display: flex;

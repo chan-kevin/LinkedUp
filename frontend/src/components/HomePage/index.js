@@ -14,6 +14,9 @@ function HomePage() {
 
   if (sessionUser) return <Redirect to="/" />;
 
+  const ele = document.getElementById('headBackground');
+  ele.style.backgroundColor = 'white';
+
   const handleSubmit = (e) => {
     e.preventDefault();
     return dispatch(sessionActions.login({ credential, password }))
@@ -31,6 +34,7 @@ function HomePage() {
   }
 
   return (
+    <div id='homeColor'>
     <div className='fontFamily' id='homePage'>
         <div className='signIn'>
             <form onSubmit={handleSubmit} className='homeLogin'>
@@ -65,6 +69,7 @@ function HomePage() {
             </form>
         </div>
         <img src={background} alt='background' id='homeImg'></img>
+    </div>
     </div>
   );
 }

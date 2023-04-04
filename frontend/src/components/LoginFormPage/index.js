@@ -13,6 +13,9 @@ function LoginFormPage() {
 
   if (sessionUser) return <Redirect to="/" />;
 
+  const ele = document.getElementById('headBackground');
+  ele.style.backgroundColor = 'white';
+
   const handleSubmit = (e) => {
     e.preventDefault();
     return dispatch(sessionActions.login({ credential, password }))
@@ -30,6 +33,7 @@ function LoginFormPage() {
   }
 
   return (
+    <div id='signInBackground'>
     <div className='fontFamily' id='signInPage'>
       <form className="signInForm" onSubmit={handleSubmit}>
         <ul>
@@ -61,6 +65,7 @@ function LoginFormPage() {
       </form>
 
       <div id='newTo'> New to LinkedIn? <NavLink to="/signup" className='forgotSignup' id='signUpIn'>Join now</NavLink> </div>
+    </div>
     </div>
   );
 }

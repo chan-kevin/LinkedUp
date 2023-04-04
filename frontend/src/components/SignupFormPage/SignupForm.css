@@ -5,6 +5,13 @@
 }
 
 @media (max-width: 1162px) {
+    #pageBackground {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: white;
+    }
+    
     #signUpPage{
         max-width: 1128px;
         display: flex;
@@ -129,6 +136,7 @@
         flex-direction: column;
         margin: 0 auto;
         box-sizing: border-box;
+        background-color: white;
     }
 
     .subSignUpPage > input{

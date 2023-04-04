@@ -66,7 +66,7 @@
     background-color: #e3e3e3;
 }
 
-header {
+#loginHeader {
     background-color: white;
     left: 0;
     padding: 0 24px;
@@ -75,6 +75,10 @@ header {
     width: 100%;
     z-index: 100;
     border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+#headBackground {
+    background-color: white;
 }
 
 #withUserHome {

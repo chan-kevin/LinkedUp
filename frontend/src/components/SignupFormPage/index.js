@@ -16,6 +16,9 @@ function SignupFormPage() {
 
     if (sessionUser) return <Redirect to="/" />;
 
+    const ele = document.getElementById('headBackground');
+    ele.style.backgroundColor = 'rgb(236, 233, 229)';
+
     const handlePage1Submit = (e) => {
         e.preventDefault();
 
