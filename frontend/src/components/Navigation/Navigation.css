@@ -24,7 +24,8 @@
 
 #withoutUserHome ul {
     display: flex;
-    align-items: center;
+    
+    /* align-items: center; */
 }
 
 #withoutUserHome ul li {
@@ -131,13 +132,4 @@ header {
 #withUserHome > ul > li {
     display: flex;
     align-items: center;
-}
-
-.profile-dropdown {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    min-height: 52px;
-    display: block;
-    opacity: 1;
 }

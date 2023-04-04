@@ -12,27 +12,9 @@ function Navigation() {
   const location = useLocation();
   const sessionUser = useSelector(state => state.session.user);
 
-  // let sessionLinks;
-  // if (sessionUser) {
-  //   sessionLinks = (
-  //     <ProfileButton user={sessionUser} />
-  //   );
-  // }
-  
-
   return (
     <>
       <nav className="fontFamily">
-
-          {location.pathname === '/' && !sessionUser ? (
-          <div className='nav' id='withoutUserHome'>
-            <NavLink exact to="/"><img src={logo} alt="home" className='logo'/></NavLink>
-            <ul>
-              <li><NavLink to="/signup" className="homenav" id='signUpButton'>Join now</NavLink></li>
-              <li><NavLink to="/login" className="homenav" id='signInButton'>Sign in</NavLink></li>
-            </ul>
-          </div>
-          ) : null }
 
           {sessionUser ? (
             <header className='fontFamily'>
@@ -44,7 +26,18 @@ function Navigation() {
                 </ul>
               </div>
             </header>
-          ): null }
+          ) : 
+
+          <div className='nav' id='withoutUserHome'>
+            <NavLink exact to="/"><img src={logo} alt="home" className='logo'/></NavLink>
+
+            {location.pathname === '/' && !sessionUser ? (
+              <ul>
+                <li><NavLink to="/signup" className="homenav" id='signUpButton'>Join now</NavLink></li>
+                <li><NavLink to="/login" className="homenav" id='signInButton'>Sign in</NavLink></li>
+              </ul>
+          ) : null }
+          </div> }
       </nav>
     </>
   )

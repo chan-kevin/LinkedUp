@@ -1,0 +1,27 @@
+#dropdownbutton {
+    border: none;
+    cursor: pointer;
+}
+
+#dropPic {
+    height: 40px;
+    width: 40px;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: 120%;
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transform: translateX(-50%);
+    /* width: 320px; */
+}
+
+/* .dropdown {
+    position: absolute;
+    top: 100%;
+} */

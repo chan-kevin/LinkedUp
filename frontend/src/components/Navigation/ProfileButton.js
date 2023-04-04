@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
+import dropdown from './dropdownProfile.png'
+import './ProfileButton.css'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-
-  const buttonRef = useRef();
   
   const openMenu = (e) => {
     if (showMenu) return;
@@ -33,17 +33,20 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button ref={buttonRef} onClick={openMenu}>
-        <p>''</p>
+    <div id="dropdown">
+      <button onClick={openMenu} id='dropdownbutton'>
+        <img src={dropdown} alt='profile' id="dropPic"/>
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li>{user.email}</li>
+          <li>{user.firstName + ' ' + user.lastName}</li>
+          <li></li>
           <li>
-            <button onClick={logout}>Log Out</button>
+            <button onClick={logout}>Sign Out</button>
           </li>
         </ul>
       )}
+      </div>
     </>
   );
 }
