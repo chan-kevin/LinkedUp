@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Redirect } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import './SignupForm.css';
+import google from '../HomePage/google_logo.png'
 
 function SignupFormPage() {
     const dispatch = useDispatch();
@@ -26,17 +27,23 @@ function SignupFormPage() {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         // const passwordRegex = /^[A-Za-z]\w{5,14}$/;
         const passwordRegex = /^.{6,}$/;
+        const emailError = document.getElementById('signUpEmail');
+        const passwordError = document.getElementById('signUpPassword');
+
+
         if (!emailRegex.test(email)) {
           setErrors(prevErrors => ({
             ...prevErrors,
             email: "Please enter a valid email address."
           }));
+          emailError.style.borderColor = 'rgb(201, 20, 20)';
         }
         if (!passwordRegex.test(password)) {
           setErrors(prevErrors => ({
             ...prevErrors,
             password: "Password must be 6 characters or more."
           }));
+          passwordError.style.borderColor = 'rgb(201, 20, 20)';
           return;
         }
         
@@ -71,6 +78,7 @@ function SignupFormPage() {
                 Email
                 </label>
                 <input
+                    id='signUpEmail'
                     type="text"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -82,6 +90,7 @@ function SignupFormPage() {
                 Password (6 or more characters)
                 </label>
                 <input
+                    id='signUpPassword'
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -89,12 +98,17 @@ function SignupFormPage() {
                 />
                 {errors.password && <div className='signUpError'>{errors.password}</div>}
 
-                <p id='terms'>By clicking Agree & Join, you agree to the LinkedIn User Agreement, Privacy Policy, 
-                    and Cookie Policy.</p>
+                <p id='terms'>By clicking Agree & Join, you agree to the 
+                LinkedIn <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/legal/user-agreement?trk=registration-frontend_join-form-user-agreement'>User Agreement</a>
+                , <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/legal/privacy-policy?trk=registration-frontend_join-form-privacy-policy'>Privacy Policy</a>, 
+                and <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/legal/cookie-policy?trk=registration-frontend_join-form-cookie-policy'>Cookie Policy</a>.</p>
 
                 <button type="submit" className='signUpSubmit'>Agree & Join</button>
+                <div id='signUpBorder'></div>
+                <button type="submit" className='signUpSubmit' id='signUpGoogle'> <img src={google} alt='google' id='google'/> Continue with Google</button>
                 <p id='hasAcc'>Already on LinkedIn? <NavLink to="/login" id='hasAccSignIn'>Sign in</NavLink></p>
             </form>
+            <p id='businessPage'>Looking to create a page for a business? <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/help/linkedin/answer/a543852?trk=registration-frontend_join-form-page-help-link'>Get help</a></p>
         </div>
         );
       }
