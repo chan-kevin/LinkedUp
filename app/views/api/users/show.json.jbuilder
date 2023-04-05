@@ -4,10 +4,3 @@ json.user do
     end
 end
 
-json.experience do
-    @user.experiences.each do |experience|
-        json.set! experience.id do
-            json.extract! experience, :id, :title, :company, :location, :description, :start_month, :start_year, :end_month, :end_year 
-        end
-    end
-end
