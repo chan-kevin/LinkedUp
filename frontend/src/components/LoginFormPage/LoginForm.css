@@ -67,10 +67,11 @@
 
 .signInForm input {
     font-size: 16px;
-    height: 48px;
+    height: 52px;
     border-radius: 4px;
     margin-top: 6%;
     border: 1px solid black;
+    box-sizing: border-box;
 }
 
 .signInForm input:focus::placeholder {
@@ -119,3 +120,15 @@
 /* #emailEmpty:invalid {
     border: 2px solid red;
 } */
+
+.emptySignIn {
+    color: rgb(201, 20, 20);
+    font-weight: 500;
+    font-size: 15px;
+    padding-top: 8px;
+}
+
+.signInForm input:focus {
+    border-color: #0073b1;
+    border-width: 2px;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Redirect } from 'react-router-dom';
@@ -11,6 +11,21 @@ function LoginFormPage() {
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
+  const [empty, setEmpty] = useState({});
+  const emailEmptyInputRef = useRef(null);
+  const passwordEmptyInputRef = useRef(null);
+
+  useEffect(() => {
+    if (emailEmptyInputRef.current) {
+      emailEmptyInputRef.current.style.borderColor = empty.email ? 'rgb(201, 20, 20)' : '';
+      emailEmptyInputRef.current.style.borderWidth = empty.email ? '2px' : '';
+      emailEmptyInputRef.current.style.placeholderColor = empty.email ? 'red' : '';
+    }
+    if (passwordEmptyInputRef.current) {
+      passwordEmptyInputRef.current.style.borderColor = empty.password ? 'rgb(201, 20, 20)' : '';
+      passwordEmptyInputRef.current.style.borderWidth = empty.password ? '2px' : '';
+    }
+  }, [empty]);
 
   if (sessionUser) return <Redirect to="/" />;
 
@@ -24,6 +39,21 @@ function LoginFormPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!credential){
+      setEmpty(prevErrors => ({
+        ...prevErrors,
+        email: "Please enter an email address or phone number"
+      }));
+      return;
+    }
+
+    if (!password){
+      setEmpty(() => ({
+        password: "Please enter a password"
+      }));
+      return;
+    }
     return dispatch(sessionActions.login({ credential, password }))
       .catch(async (res) => {
         let data;
@@ -50,20 +80,22 @@ function LoginFormPage() {
         <p id='signInDescription'>Stay updated on your professional world</p>
 
         <input
+            ref={emailEmptyInputRef}
             type="text"
             value={credential}
             placeholder="Email or Phone"
             onChange={(e) => setCredential(e.target.value)}
-            required
-          />
+        />
+        {empty.email && <div className='emptySignIn'>{empty.email}</div>}
 
         <input
+            ref={passwordEmptyInputRef}
             type="password"
             value={password}
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+        />
+        {empty.password && <div className='emptySignIn'>{empty.password}</div>}
 
         <NavLink to='/forgot' className='forgotSignup'>Forgot Password?</NavLink>
 

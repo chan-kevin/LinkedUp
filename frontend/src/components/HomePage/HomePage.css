@@ -132,6 +132,7 @@ input:focus{
 }
 
 .empty {
-    padding-top: 5px;
+    padding-top: 18px;
     color: rgb(201, 20, 20);
+    font-size: 13px;
 }
