@@ -11,11 +11,13 @@ class Api::SessionsController < ApplicationController
   def create
     @user = User.find_by_credentials(params[:credential], params[:password])
 
-    if @user
+    if @user == 'incorrect password'
+      render json: { errors: ["That's not the right password."] }, status: :unauthorized
+    elsif @user
       login!(@user)
       render 'api/users/show'
     else
-      render json: { errors: ['The provided credentials were invalid.'] }, status: :unauthorized
+      render json: { errors: ["Couldn't find a LinkedIn account associated with this email. Try again or create an account ."] }, status: :unauthorized
     end
   end
 

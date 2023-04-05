@@ -2,12 +2,15 @@ ApplicationRecord.transaction do
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
     User.destroy_all
+    Experience.destroy_all
   
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
     ApplicationRecord.connection.reset_pk_sequence!('users')
+    ApplicationRecord.connection.reset_pk_sequence!('experiences')
   
     puts "Creating users..."
+    puts "Creating experiences..."
     # Create one user with an easy to remember username, email, and password:
     User.create!(
       phone_number: '+123456789', 
@@ -37,6 +40,21 @@ ApplicationRecord.transaction do
             location: Faker::Address.country,
             password: 'password'
         }) 
+    end
+
+    i = 1
+    while i < 6 do
+      Experience.create!({
+        title: Faker::Games::LeagueOfLegends.rank,
+        company: Faker::Games::LeagueOfLegends.location,
+        description: Faker::Games::LeagueOfLegends.quote,
+        start_month: i,
+        start_year: 2019,
+        user_id: i,
+        end_month: i+2,
+        end_year: 2021
+      })
+      i += 1
     end
   
     puts "Done!"

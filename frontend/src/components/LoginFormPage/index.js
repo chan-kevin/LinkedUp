@@ -14,6 +14,8 @@ function LoginFormPage() {
   const [empty, setEmpty] = useState({});
   const emailEmptyInputRef = useRef(null);
   const passwordEmptyInputRef = useRef(null);
+  const emailError = errors.find(error => error.includes('email'))
+  const passwordError = errors.find(error => error.includes('password'))
 
   useEffect(() => {
     if (emailEmptyInputRef.current) {
@@ -72,9 +74,9 @@ function LoginFormPage() {
     <div id='signInBackground'>
     <div className='fontFamily' id='signInPage'>
       <form className="signInForm" onSubmit={handleSubmit}>
-        <ul>
+        {/* <ul>
           {errors.map(error => <li key={error}>{error}</li>)}
-        </ul>
+        </ul> */}
 
         <h1 id='signIn'>Sign in</h1>
         <p id='signInDescription'>Stay updated on your professional world</p>
@@ -87,6 +89,7 @@ function LoginFormPage() {
             onChange={(e) => setCredential(e.target.value)}
         />
         {empty.email && <div className='emptySignIn'>{empty.email}</div>}
+        {emailError && <div className='emptySignIn'>{emailError}</div>}
 
         <input
             ref={passwordEmptyInputRef}
@@ -96,6 +99,7 @@ function LoginFormPage() {
             onChange={(e) => setPassword(e.target.value)}
         />
         {empty.password && <div className='emptySignIn'>{empty.password}</div>}
+        {passwordError && <div className='emptySignIn'>{passwordError}</div>}
 
         <NavLink to='/forgot' className='forgotSignup'>Forgot Password?</NavLink>
 

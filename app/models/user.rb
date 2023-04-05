@@ -32,7 +32,9 @@ class User < ApplicationRecord
       user = User.find_by(phone_number: credential)
     end
 
-    if user&.authenticate(password)
+    if user && !(user.authenticate(password))
+      return 'incorrect password'
+    elsif user&.authenticate(password)
       return user
     else
       nil
