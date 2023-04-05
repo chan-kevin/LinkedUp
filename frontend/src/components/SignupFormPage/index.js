@@ -37,7 +37,9 @@ function SignupFormPage() {
             setErrors(prevErrors => ({
                 ...prevErrors,
                 email: "Please enter your email address."
-        }))} 
+        }));
+        emailError.style.borderColor = 'rgb(201, 20, 20)';
+    } 
         
         else if (!emailRegex.test(email)) {
           setErrors(prevErrors => ({

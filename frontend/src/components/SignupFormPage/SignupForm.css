@@ -76,7 +76,6 @@
     }
 
     .signUpSubmit {
-        width: 250%;
         max-width: 700px;
         height: 52px;
         line-height: 52px;
@@ -153,13 +152,13 @@
         background-color: white;
     }
 
-    #signUpEmail, #signUpPassword {
+    /* #signUpPage > input {
         font-size: 16px;
         height: 32px;
         border: 1px solid rgba(0,0,0,0.6);
         border-bottom: 1px solid rgba(0,0,0,0.6);
         border-radius: 4px;
-    }
+    } */
 
     .subSignUpPage > label{
         width: 100%;
@@ -246,6 +245,19 @@
     }
 }
 
+.subSignUpPage > input {
+    font-size: 16px;
+    height: 32px;
+    border: 1px solid rgba(0,0,0,0.6);
+    border-bottom: 1px solid rgba(0,0,0,0.6);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.subSignUpPage > input:focus {
+    border-width: 2px;
+}
+
 .signUpError {
     color: rgb(201, 20, 20);
     font-size: 14px;
@@ -281,3 +293,7 @@
 a {
     color: #0a66c2;
 }
+
+/* #signUpEmail:focus {
+    border-width: 2px;
+} */
