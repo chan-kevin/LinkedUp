@@ -115,3 +115,7 @@
     background:#f1f8ff;
     border-width: 2px;
 }
+
+/* #emailEmpty:invalid {
+    border: 2px solid red;
+} */

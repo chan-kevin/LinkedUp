@@ -3,8 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Redirect } from 'react-router-dom';
 import './LoginForm.css';
-import google from '../HomePage/google_logo.png';
-import apple from './apple_logo.png';
+import apple from './assets/apple_logo.png';
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -17,6 +16,11 @@ function LoginFormPage() {
 
   // const ele = document.getElementById('headBackground');
   // ele.style.backgroundColor = 'white';
+
+  const demoLogin = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.login({ credential: 'demo@user.io', password: 'password' }));
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -65,7 +69,7 @@ function LoginFormPage() {
 
         <button type="submit" className='signInSubmit'>Sign in</button>
         <div id='signUpBorder'></div>
-        <button type="submit" className='signUpSubmit' id='signUpGoogle'> <img src={google} alt='google' id='google'/> Continue with Google</button>
+        <button type="submit" className='signUpSubmit' id='signUpGoogle' onClick={demoLogin}>Continue with Demo</button>
         <button type="submit" className='signUpSubmit' id='signInApple'> <img src={apple} alt='apple' id='google'/> Sign in with Apple</button>
       </form>
 

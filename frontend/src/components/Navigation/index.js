@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navigation.css';
-import logo from './LinkedIn_logo.png'
-import smallLogo from './linkedin_small_logo.png'
+import logo from './assets/LinkedIn_logo.png'
+import smallLogo from './assets/linkedin_small_logo.png'
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
-import dropdown from './dropdownProfile.png'
+import dropdown from './assets/dropdownProfile.png'
 import './ProfileButton.css'
 
 function ProfileButton({ user }) {

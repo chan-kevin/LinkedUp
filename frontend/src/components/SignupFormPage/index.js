@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Redirect } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import './SignupForm.css';
-import google from '../HomePage/google_logo.png'
 
 function SignupFormPage() {
     const dispatch = useDispatch();
@@ -19,6 +18,10 @@ function SignupFormPage() {
 
     // const ele = document.getElementById('headBackground');
     // ele.style.backgroundColor = 'rgb(236, 233, 229)';
+    const demoLogin = (e) => {
+        e.preventDefault();
+        dispatch(sessionActions.login({ credential: 'demo@user.io', password: 'password' }));
+    }
 
     const handlePage1Submit = (e) => {
         e.preventDefault();
@@ -30,14 +33,20 @@ function SignupFormPage() {
         const emailError = document.getElementById('signUpEmail');
         const passwordError = document.getElementById('signUpPassword');
 
-
-        if (!emailRegex.test(email)) {
+        if (email === '') {
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                email: "Please enter your email address."
+        }))} 
+        
+        else if (!emailRegex.test(email)) {
           setErrors(prevErrors => ({
             ...prevErrors,
             email: "Please enter a valid email address."
           }));
           emailError.style.borderColor = 'rgb(201, 20, 20)';
         }
+
         if (!passwordRegex.test(password)) {
           setErrors(prevErrors => ({
             ...prevErrors,
@@ -82,7 +91,6 @@ function SignupFormPage() {
                     type="text"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    required
                 />
                 {errors.email && <div className='signUpError'>{errors.email}</div>}
 
@@ -94,7 +102,6 @@ function SignupFormPage() {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    required
                 />
                 {errors.password && <div className='signUpError'>{errors.password}</div>}
 
@@ -105,7 +112,7 @@ function SignupFormPage() {
 
                 <button type="submit" className='signUpSubmit'>Agree & Join</button>
                 <div id='signUpBorder'></div>
-                <button type="submit" className='signUpSubmit' id='signUpGoogle'> <img src={google} alt='google' id='google'/> Continue with Google</button>
+                <button type="submit" className='signUpSubmit' id='signUpGoogle' onClick={demoLogin}> Continue as Demo</button>
                 <p id='hasAcc'>Already on LinkedIn? <NavLink to="/login" id='hasAccSignIn'>Sign in</NavLink></p>
             </form>
             <p id='businessPage'>Looking to create a page for a business? <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/help/linkedin/answer/a543852?trk=registration-frontend_join-form-page-help-link'>Get help</a></p>
