@@ -10,9 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_02_212847) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_05_050340) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "experiences", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "company", null: false
+    t.string "location"
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "start_month", null: false
+    t.string "start_year", null: false
+    t.string "end_month"
+    t.string "end_year"
+    t.index ["user_id"], name: "index_experiences_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
@@ -23,6 +38,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_02_212847) do
     t.string "phone_number"
     t.string "first_name", null: false
     t.string "last_name", null: false
+    t.text "about"
+    t.string "location"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["first_name"], name: "index_users_on_first_name"
     t.index ["last_name"], name: "index_users_on_last_name"
@@ -30,4 +47,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_02_212847) do
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
 
+  add_foreign_key "experiences", "users"
 end

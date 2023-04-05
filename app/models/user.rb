@@ -8,7 +8,11 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  phone_number    :string           not null
+#  phone_number    :string
+#  first_name      :string           not null
+#  last_name       :string           not null
+#  about           :text
+#  location        :string
 #
 class User < ApplicationRecord
   validates :email, length: { in: 3..255 }, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
@@ -18,6 +22,8 @@ class User < ApplicationRecord
   validates :session_token, presence: true, uniqueness: true
   validates :password, length: { in: 6..255 }, allow_nil: true
   before_validation :ensure_session_token
+
+  has_many :experiences
 
   def self.find_by_credentials(credential, password)
     if URI::MailTo::EMAIL_REGEXP.match?(credential)

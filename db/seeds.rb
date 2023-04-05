@@ -33,6 +33,8 @@ ApplicationRecord.transaction do
             email: Faker::Internet.unique.email,
             first_name: Faker::Name.first_name,
             last_name: Faker::Name.last_name,
+            about: Faker::Quote.matz,
+            location: Faker::Address.country,
             password: 'password'
         }) 
     end
