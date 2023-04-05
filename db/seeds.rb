@@ -17,8 +17,12 @@ ApplicationRecord.transaction do
       email: 'demo@user.io', 
       first_name: 'Demo',
       last_name: '1',
-      password: 'password'
+      password: 'password',
+      about: Faker::Quote.matz,
+      location: Faker::Address.country
     )
+
+
   
     # More users
     # phone_numbers = []
@@ -51,6 +55,7 @@ ApplicationRecord.transaction do
         start_month: i,
         start_year: 2019,
         user_id: i,
+        location: Faker::Address.country,
         end_month: i+2,
         end_year: 2021
       })

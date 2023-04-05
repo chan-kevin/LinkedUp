@@ -7,8 +7,10 @@ import App from './App';
 import configureStore from './store';
 import { csrfFetch } from './store/csrf';
 import * as sessionActions from './store/session';
+import { fetchUserProfile } from './store/profile';
 
 const store = configureStore();
+window.fetchUserProfile = fetchUserProfile;
 
 if (process.env.NODE_ENV !== 'production') {
   window.store = store;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
+import { NavLink } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import dropdown from './assets/dropdownProfile.png'
 import './ProfileButton.css'
@@ -39,7 +40,7 @@ function ProfileButton({ user }) {
       {showMenu && (
         <ul className="profile-dropdown">
           <li>{user.firstName + ' ' + user.lastName}</li>
-          <li><button id='viewProfile'>View Profile</button></li>
+          <li><NavLink to={`/users/${user.id}`} id='viewProfile'>View Profile</NavLink></li>
           <li>Account</li>
           <li><button className='dropdownOptions'>Try Premium for free</button></li>
           <li><button className='dropdownOptions'>Setting</button></li>
