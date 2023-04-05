@@ -17,5 +17,6 @@
 #
 class Experience < ApplicationRecord
   validates :title, :company, :start_month, :start_year, presence: true
+  
   belongs_to :user
 end

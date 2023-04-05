@@ -30,7 +30,7 @@ body {
 }
 
 #viewProfile {
-    height: 10%;
+    height: 20px;
     padding-left: 30%;
     padding-right: 30%;
     /* line-height: 52px; */
@@ -43,6 +43,7 @@ body {
     cursor: pointer;
     font-weight: 550;
     transition: background-color 2s;
+    box-sizing: border-box;
 }
 
 #viewProfile:hover {
