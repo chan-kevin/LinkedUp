@@ -16,7 +16,7 @@ ApplicationRecord.transaction do
       phone_number: '+123456789', 
       email: 'demo@user.io', 
       first_name: 'Demo',
-      last_name: '1',
+      last_name: 'User',
       password: 'password',
       about: Faker::Quote.matz,
       location: Faker::Address.country
@@ -46,18 +46,46 @@ ApplicationRecord.transaction do
         }) 
     end
 
+    months = ["January", "February", "March", "April", "May", "June", 
+          "July", "August", "September", "October", "November", "December"]
+
     i = 1
     while i < 6 do
-      Experience.create!({
-        title: Faker::Games::LeagueOfLegends.rank,
-        company: Faker::Games::LeagueOfLegends.location,
-        description: Faker::Games::LeagueOfLegends.quote,
-        start_month: i,
-        start_year: 2019,
+      5.times do 
+        start_year = rand(1990..2021)
+        end_year = rand(start_year..2022)
+
+        skills = '';
+        3.times do 
+          skills += + Faker::Job.key_skill + ' · '
+        end
+
+        Experience.create!({
+          title: Faker::Job.unique.title,
+          company: Faker::Company.unique.name,
+          description: Faker::Company.unique.bs,
+          start_month: months[rand(months.length)],
+          start_year: start_year,
+          user_id: i,
+          location: Faker::Address.unique.country,
+          end_month: months[rand(months.length)],
+          end_year: end_year,
+          skills: skills,
+          logo: Faker::Company.logo
+        })
+      end
+
+      education_start_year = rand(1980..2018)
+      education_end_year = education_start_year + 4
+
+      Education.create!({
+        school: Faker::Educator.unique.university,
+        degree: Faker::Educator.degree,
         user_id: i,
-        location: Faker::Address.country,
-        end_month: i+2,
-        end_year: 2021
+        start_month: months[rand(months.length)],
+        start_year: education_start_year,
+        end_month: months[rand(months.length)],
+        end_year: education_end_year
       })
       i += 1
     end

@@ -16,7 +16,7 @@
 #  end_year    :string
 #
 class Experience < ApplicationRecord
-  validates :title, :company, :start_month, :start_year, presence: true
+  validates :title, :company, :start_month, :start_year, :user_id, presence: true
   
   belongs_to :user
 end

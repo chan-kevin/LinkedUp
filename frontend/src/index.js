@@ -5,9 +5,10 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import configureStore from './store';
-import { csrfFetch } from './store/csrf';
+import csrfFetch from './store/csrf';
 import * as sessionActions from './store/session';
 import { fetchUserProfile } from './store/profile';
+import { ModalProvider } from './context/Modal';
 
 const store = configureStore();
 window.fetchUserProfile = fetchUserProfile;
@@ -20,11 +21,13 @@ if (process.env.NODE_ENV !== 'production') {
 
 const Root = () => {
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
+    <ModalProvider>
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Provider>
+    </ModalProvider>
   );
 }
 

@@ -34,9 +34,6 @@ function ForgotPage() {
     <div className='fontFamily' id='homePage'>
         <div className='signIn'>
             <form onSubmit={handleSubmit} className='homeLogin'>
-                <ul>
-                    {errors.map(error => <li key={error}>{error}</li>)}
-                </ul>
 
                 <h1 id='homeHeading'>Welcome to your professional community</h1>
 

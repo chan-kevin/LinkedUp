@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import userReducer from './profile';
 import sessionReducer from './session';
 import { experienceReducer } from './experience';
+import { educationReducer } from './education';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   users: userReducer,
-  experiences: experienceReducer
+  experiences: experienceReducer,
+  educations: educationReducer
 });
 
 let enhancer;

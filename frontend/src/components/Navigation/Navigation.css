@@ -68,7 +68,7 @@
 
 #loginHeader {
     background-color: white;
-    left: 0;
+    /* left: 0; */
     padding: 0 24px;
     position: fixed;
     top: 0;
@@ -87,11 +87,29 @@
     margin: 0 auto;
     min-height: 100%;
     max-width: 1128px;
+    margin-left: 13%;
+    /* margin-right: 5%; */
+    /* position: fixed; */
+    /* top: 0; */
 }
+
+/* #bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    left: 0;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    width: 200%;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+} */
 
 #withUserHomeLogo {
     height: 60px;
-    vertical-align: top;
+    /* vertical-align: top; */
 }
 
 #searchBar {
@@ -103,25 +121,6 @@
     border-radius: 4px;
     padding: 0 0.8rem 0 40px;
     border-style: none;
-}
-
-#logout {
-    align-items: center;
-    background: transparent;
-    color: var(--color-icon-nav);
-    cursor: pointer;
-    font-weight: 400;
-    justify-content: center;
-    text-align: center;
-    min-height: 52px;
-    min-width: 80px;
-    position: relative;
-    text-decoration: none;
-}
-
-#logout:hover {
-    background-color: #c7dbef;
-    cursor: pointer;
 }
 
 #withUserHome > ul {

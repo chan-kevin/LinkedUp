@@ -17,7 +17,7 @@ function App() {
           <HomePage />
         </Route>
 
-        <Route path="/users/:id">
+        <Route path="/users/:userId">
           <ProfilePage />
         </Route>
 

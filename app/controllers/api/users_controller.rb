@@ -1,9 +1,8 @@
 class Api::UsersController < ApplicationController
   wrap_parameters include: User.attribute_names + ['password']
 
-
   def show
-      @user = User.includes(:experiences).find(params[:id])
+      @user = User.includes(:experiences, :educations).find(params[:id])
       render 'api/users/show'
   end
 

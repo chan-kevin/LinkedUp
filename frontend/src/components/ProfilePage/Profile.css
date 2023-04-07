@@ -1,0 +1,235 @@
+/* p {
+    display: block;
+    z-index: 110;
+    position: absolute;
+    right: 50%;
+    top:50%;
+    height: 100%;
+} */
+
+#profileContent {
+    margin-top: 90px;
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+
+.profileBoard {
+    width: 800px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px 15%;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.08);
+    line-height: 1.25;
+}
+
+.profileBackground {
+    /* width: 800px; */
+    /* position: relative; */
+    height: 159px;
+    overflow-y: hidden;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.profileBackground img {
+    width: 100%;
+}
+
+.profile {
+    width: 160px;
+    height: 160px;
+    margin-top: -80px;
+    margin-left: 30px;
+    border-radius: 100px;
+    overflow: hidden;
+    z-index: 4;
+}
+
+.profile img {
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s ease-in-out;
+    /* object-fit:cover; */
+}
+
+.profile:hover img {
+    content: url(./assets/batman.png);
+    transform: scale(1.1);
+}
+
+.userInfo {
+    padding: 25px;
+}
+
+.userInfo h1 {
+    font-size: 24px;
+    font-weight: 600;
+    width: 100%
+}
+
+.userInfo h2 {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.userInfo h3 {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0,0,0,0.6);
+}
+
+.headline {
+    padding: 24px;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profileDetailList {
+    margin-left: 36px;
+    margin-right: 36px;
+    padding-top: 10px;
+    display: flex;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding-bottom: 10px;
+}
+
+.profileLogo {
+    padding-right: 20px;
+    width: 30px;
+    height: 30px;
+}
+
+.profileLogo img{
+    width: 100%;
+    height: 100%;
+}
+
+.detailHeading {
+    font-weight: 600;
+}
+
+.detailSubHeading, .period, .detailLocation, .detailDescription, .skills {
+    font-size: 14px;
+}
+
+.period, .detailLocation {
+    color: rgba(0,0,0,0.6);
+}
+
+.detailDescription, .skills {
+    padding-top: 15px;
+}
+
+.skills {
+    display: flex;
+}
+
+.skills p {
+    font-weight: 600;
+}
+
+
+.profileDetailList:last-child {
+    padding-bottom: 30px;
+}
+
+.userInfoSchool {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.userInfoSchool img {
+    width: 30px;
+    height: 30px;
+}
+
+.userInfoSchool p {
+    width: 40%;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.addPosition {
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 100%;
+    border: none;
+    cursor: pointer;
+    height:48px;
+    width: 48px;
+}
+
+.addPosition:hover {
+    background-color: rgba(0,0,0,0.08)
+}
+
+.button {
+    display: flex;
+    justify-content: space-between;
+}
+
+#plusIcon {
+    color: rgba(0,0,0,0.6);
+    width: 24px;
+    height: 24px;
+    display: block;
+    margin: auto;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+#editIcon {
+    color: rgba(0,0,0,0.6);
+    width: 24px;
+    height: 24px;
+    display: block;
+    margin: auto;
+    font-size: 20px;
+    transform: translateY(5%)
+}
+
+#positionDrop {
+    position: absolute;
+    transform: translateX(-68%) translateY(140%);
+}
+
+#addPositionButton {
+    padding: 10px;
+}
+
+.positionDrop {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#modalButton {
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 100%;
+    border: none;
+    cursor: pointer;
+    min-width: max-content;
+    max-width: none;
+    width: 140px;
+    height: 40px;
+    border-radius: 8px 0 8px 8px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 6px 9px rgba(0,0,0,.2);
+}
+
+#modalButton:hover {
+    background-color: rgba(0,0,0,0.08);
+}
+
+.positionButton {
+    font-weight: 550;
+    color: rgba(0,0,0,0.8);
+}

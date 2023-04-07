@@ -24,6 +24,10 @@ class User < ApplicationRecord
   before_validation :ensure_session_token
 
   has_many :experiences, dependent: :destroy
+  has_many :educations, dependent: :destroy
+
+  has_one_attached :photo
+  # has_many_attached :photos //will be an array
 
   def self.find_by_credentials(credential, password)
     if URI::MailTo::EMAIL_REGEXP.match?(credential)
