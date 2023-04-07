@@ -6,6 +6,7 @@ import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
 import ForgotPage from './components/ForgotPage'
 import ProfilePage from './components/ProfilePage';
+import ExperiencePage from './components/ExperiencePage';
 import './index.css';
 
 function App() {
@@ -17,8 +18,12 @@ function App() {
           <HomePage />
         </Route>
 
-        <Route path="/users/:userId">
+        <Route exact path="/users/:userId">
           <ProfilePage />
+        </Route>
+
+        <Route path="/users/:userId/experiences">
+          <ExperiencePage />
         </Route>
 
         <Route path="/forgot">

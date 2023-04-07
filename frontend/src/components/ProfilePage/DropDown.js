@@ -3,11 +3,15 @@ import ExperienceFormModal from "../ExperienceFormModal";
 import './Profile.css'
 import { Modal } from "../../context/Modal";
 import ExperienceForm from "../ExperienceFormModal/ExperienceForm";
+import { useHistory, useLocation, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function DropDown() {
+  const { userId } = useParams();
+  const sessionUser = useSelector(state => state.session.user);
   const [showMenu, setShowMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [showEditMenu, setEditShowMenu] = useState(false);
+  const location = useLocation();
   
   const openMenu = (e) => {
     if (showMenu) return;
@@ -15,10 +19,11 @@ function DropDown() {
     setShowMenu(true);
   };
 
-  const openEditMenu = (e) => {
-    if (showEditMenu) return;
-    e.stopPropagation();
-    setEditShowMenu(true);
+  const history = useHistory();
+
+  const goEditPage = (e) => {
+    e.preventDefault();
+    history.push(`/users/${userId}/experiences`)
   }
 
   useEffect(() => {
@@ -33,18 +38,6 @@ function DropDown() {
     return () => document.removeEventListener('click', closeMenu);
   }, [showMenu]);
 
-  useEffect(() => {
-    if (!showEditMenu) return;
-
-    const closeEditMenu = () => {
-      setEditShowMenu(false);
-    };
-
-    document.addEventListener('click', closeEditMenu);
-
-    return () => document.removeEventListener('click', closeEditMenu);
-  }, [showEditMenu]);
-
   const onClose = () => {
     setShowModal(false);
   };
@@ -53,20 +46,22 @@ function DropDown() {
     e.stopPropagation();
     setShowModal(true);
     setShowMenu(false);
-    setEditShowMenu(false);
   };
 
   return (
     <>
+    {sessionUser ? (
     <div className="positionDrop">
       <div className="button">
         <button onClick={openMenu} className='addPosition'>
           <i className="fa-solid fa-plus" id='plusIcon'></i>
         </button>
 
-        <button onClick={openEditMenu} className='addPosition'>
+      {location.pathname === `/users/${userId}` ? (
+        <button onClick={goEditPage} className='addPosition'>
           <i class="fa-solid fa-pen" id="editIcon"></i>
         </button>
+      ) : null}
       </div>
 
       {showMenu && (
@@ -83,6 +78,7 @@ function DropDown() {
         </Modal>
       )}
       </div>
+      ) : null}
     </>
   );
 }
