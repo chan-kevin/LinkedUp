@@ -1,24 +1,25 @@
 import React, { useState } from "react";
-import { createExperience } from '../../store/experience';
+import { createExperience, editExperience, removeExperience } from '../../store/experience';
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import './ExperienceForm.css';
 
-function ExperienceForm ({ onClose }) {
+function ExperienceForm ({ onClose, experience }) {
     const { userId } = useParams();
     const dispatch = useDispatch();
-    const [title, setTitle] = useState('');
-    const [company, setCompany] = useState('');
-    const [location, setLocation] = useState('');
-    const [startMonth, setStartMonth] = useState('');
-    const [startYear, setStartYear] = useState('');
-    const [endMonth, setEndMonth] = useState('');
-    const [endYear, setEndYear] = useState('');
-    const [description, setDescription] =useState('');
+    const [title, setTitle] = useState(experience?.title ?? '');
+    const [company, setCompany] = useState(experience?.company ?? '');
+    const [location, setLocation] = useState(experience?.location ?? '');
+    const [startMonth, setStartMonth] = useState(experience?.startMonth ?? '');
+    const [startYear, setStartYear] = useState(experience?.startYear ?? '');
+    const [endMonth, setEndMonth] = useState(experience?.endMonth ?? '');
+    const [endYear, setEndYear] = useState(experience?.endYear ?? '');
+    const [description, setDescription] =useState(experience?.description ?? '');
     
     const handleSubmit =  async (e) => {
         e.preventDefault();
-        const experience = {
+        const newExperience = {
+            id: experience? experience.id : '',
             title,
             company,
             location,
@@ -29,17 +30,26 @@ function ExperienceForm ({ onClose }) {
             endYear,
             description
         };
-        await dispatch(createExperience(experience));
+        if (experience) {
+            await dispatch(editExperience(newExperience))
+        } else {
+            await dispatch(createExperience(newExperience));
+        }
         onClose();
     };
+
+    const handleDelete = async (e) => {
+        e.preventDefault();
+        await dispatch(removeExperience(experience.id));
+    }
     
     return (
         <div className="fontFamily">
         <form onSubmit={handleSubmit} className='modalForm'>
 
-            <button onClick={onClose} className='closeButton'><i class="fa-solid fa-xmark"></i></button>
+            <button onClick={onClose} className='closeButton'><i className="fa-solid fa-xmark"></i></button>
             <div className="formHeadline">
-                <p>Add experience</p>
+                { experience ? <p>Edit experience</p> : <p>Add experience</p>}
             </div>
 
             <div className="formDetail">
@@ -50,7 +60,7 @@ function ExperienceForm ({ onClose }) {
                     <input
                     id="title"
                     type="text"
-                    value={title}
+                    value={experience?.title}
                     placeholder="Ex: Full Ftack Developer"
                     onChange={(e) => setTitle(e.target.value)}
 
@@ -62,7 +72,7 @@ function ExperienceForm ({ onClose }) {
                     <input
                     id="company"
                     type="text"
-                    value={company}
+                    value={experience?.company}
                     placeholder="Google"
                     onChange={(e) => setCompany(e.target.value)}
                     />
@@ -73,7 +83,7 @@ function ExperienceForm ({ onClose }) {
                     <input
                     id="location"
                     type="text"
-                    value={location}
+                    value={experience?.location}
                     placeholder="Ex: London, United Kingdom"
                     onChange={(e) => setLocation(e.target.value)}
                     />
@@ -84,7 +94,7 @@ function ExperienceForm ({ onClose }) {
                     <div className="monthYear">
                         <select
                             id="startMonth"
-                            value={startMonth}
+                            value={experience?.startMonth}
                             onChange={(e) => setStartMonth(e.target.value)}
                         >
                             <option value="Month" defaultChecked>Month</option>
@@ -104,7 +114,7 @@ function ExperienceForm ({ onClose }) {
 
                         <select
                             id="startYear"
-                            value={startYear}
+                            value={experience?.startYear}
                             onChange={(e) => setStartYear(e.target.value)}
                         >
                             <option value="Year" defaultChecked>Year</option>
@@ -121,7 +131,7 @@ function ExperienceForm ({ onClose }) {
                     <textarea
                     id="description"
                     type="text"
-                    value={description}
+                    value={experience?.description}
                     onChange={(e) => setDescription(e.target.value)}
                     />
                 </div>
@@ -131,7 +141,7 @@ function ExperienceForm ({ onClose }) {
                     <div className="monthYear">
                         <select
                             id="endMonth"
-                            value={endMonth}
+                            value={experience?.endMonth}
                             onChange={(e) => setEndMonth(e.target.value)}
                         >
                             <option value="Month" defaultChecked>Month</option>
@@ -151,7 +161,7 @@ function ExperienceForm ({ onClose }) {
 
                         <select
                             id="endYear"
-                            value={endYear}
+                            value={experience?.endYear}
                             onChange={(e) => setEndYear(e.target.value)}
                         >
                             <option value="Year" defaultChecked>Year</option>
@@ -165,7 +175,9 @@ function ExperienceForm ({ onClose }) {
             </div>
 
             <div className="submitRow">
-                <button type="submit" className='submit'>Save</button>
+                <button type="submit" className='submit' onClick={handleSubmit}>Save</button>
+                { experience && 
+                (<button type="submit" className='delete' onClick={handleDelete}>Delete experience</button>)}
             </div>
         </form>
         </div>

@@ -48,17 +48,30 @@ export const createExperience = (experience) => async dispatch => {
     return response;
 };
 
-export const updateExperienceThunk = (experience) => async dispatch => {
+export const editExperience = (experience) => async dispatch => {
+    const {id, title, company, location, startMonth, startYear, userId, endMonth, endYear} = experience
     const response = await csrfFetch(`/api/experiences/${experience.id}`, {
     method: "PUT",
-    body: JSON.stringify(experience)
+    body: JSON.stringify({
+        experience:{
+            id,
+            title,
+            company,
+            location,
+            startMonth,
+            startYear,
+            userId,
+            endMonth,
+            endYear
+        }
+    })
 });
     const data = await response.json();
     dispatch(updateExperience(data.experience));
     return response;
 };
 
-export const deleteExperienceThunk = (experienceId) => async dispatch => {
+export const removeExperience = (experienceId) => async dispatch => {
     const response = await csrfFetch(`/api/experiences/${experienceId}`, {
         method: "DELETE"
     });

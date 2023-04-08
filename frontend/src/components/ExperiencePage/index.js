@@ -4,6 +4,7 @@ import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { fetchUserProfile } from '../../store/profile';
 import './ExperiencePage.css';
 import DropDown from '../ProfilePage/DropDown';
+import EditFormModal from './EditFormModal';
 
 
 const ExperiencePage = () => {
@@ -16,7 +17,7 @@ const ExperiencePage = () => {
 
     const goBackButton = (e) => {
         e.preventDefault();
-        history.goBack();
+        history.push(`/users/${userId}`);
     }
 
     useEffect(() => {
@@ -30,7 +31,7 @@ const ExperiencePage = () => {
             <div className='profileBoard'>
                 <div className='headline'>
                     <button onClick={goBackButton} className='addPosition'>
-                        <i class="fa-solid fa-arrow-left" id='goBackButton'></i>
+                        <i className="fa-solid fa-arrow-left" id='goBackButton'></i>
                     </button>
                     <div className='headlineWithAdd'>
                         <h1>Experience</h1>
@@ -53,11 +54,7 @@ const ExperiencePage = () => {
                                 <li className='detailLocation'>{experience.location}</li>
                             </div>
 
-                            <div id='editButton'>
-                                <button className='addPosition' id='editButton'>
-                                    <i class="fa-solid fa-pen" id="editIcon"></i>
-                                </button>
-                            </div>
+                            <EditFormModal experience={experience}/>
                         </div>
 
                         <li className='detailDescription'>{'- ' + experience.description}</li>

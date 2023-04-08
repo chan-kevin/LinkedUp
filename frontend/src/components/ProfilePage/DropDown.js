@@ -59,7 +59,7 @@ function DropDown() {
 
       {location.pathname === `/users/${userId}` ? (
         <button onClick={goEditPage} className='addPosition'>
-          <i class="fa-solid fa-pen" id="editIcon"></i>
+          <i className="fa-solid fa-pen" id="editIcon"></i>
         </button>
       ) : null}
       </div>
@@ -67,7 +67,7 @@ function DropDown() {
       {showMenu && (
         <div id="positionDrop">
           <button onClick={openModal} id='modalButton'>
-            <div className="positionButton"><i class="fa-solid fa-briefcase" id="addPositionButton"></i>Add Position</div>
+            <div className="positionButton"><i className="fa-solid fa-briefcase" id="addPositionButton"></i>Add Position</div>
           </button>
         </div>
       )}

@@ -12,7 +12,7 @@ class Api::ExperiencesController < ApplicationController
 
     def update
         @experience = Experience.find(params[:id])
-
+        
         if @experience.update(experience_params)
             render :show
         else
