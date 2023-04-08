@@ -96,11 +96,3 @@ export const experienceReducer = (state = {}, action) => {
             return state;
     }
 };
-    // export const experienceReducer = (state = {}, action) => {
-    //     switch (action.type) {
-    //         case SET_USER_PROFILE:
-    //             return { ...state, ...action.payload.experience };
-    //         default:
-    //             return state;
-    //     }
-    // };

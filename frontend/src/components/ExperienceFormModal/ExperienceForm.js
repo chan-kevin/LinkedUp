@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createExperience, editExperience, removeExperience } from '../../store/experience';
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -15,7 +15,7 @@ function ExperienceForm ({ onClose, experience }) {
     const [endMonth, setEndMonth] = useState(experience?.endMonth ?? '');
     const [endYear, setEndYear] = useState(experience?.endYear ?? '');
     const [description, setDescription] =useState(experience?.description ?? '');
-    
+
     const handleSubmit =  async (e) => {
         e.preventDefault();
         const newExperience = {
@@ -60,7 +60,7 @@ function ExperienceForm ({ onClose, experience }) {
                     <input
                     id="title"
                     type="text"
-                    value={experience?.title}
+                    value={title}
                     placeholder="Ex: Full Ftack Developer"
                     onChange={(e) => setTitle(e.target.value)}
 
@@ -72,7 +72,7 @@ function ExperienceForm ({ onClose, experience }) {
                     <input
                     id="company"
                     type="text"
-                    value={experience?.company}
+                    value={company}
                     placeholder="Google"
                     onChange={(e) => setCompany(e.target.value)}
                     />
@@ -83,7 +83,7 @@ function ExperienceForm ({ onClose, experience }) {
                     <input
                     id="location"
                     type="text"
-                    value={experience?.location}
+                    value={location}
                     placeholder="Ex: London, United Kingdom"
                     onChange={(e) => setLocation(e.target.value)}
                     />
@@ -94,7 +94,7 @@ function ExperienceForm ({ onClose, experience }) {
                     <div className="monthYear">
                         <select
                             id="startMonth"
-                            value={experience?.startMonth}
+                            value={startMonth}
                             onChange={(e) => setStartMonth(e.target.value)}
                         >
                             <option value="Month" defaultChecked>Month</option>
@@ -114,7 +114,7 @@ function ExperienceForm ({ onClose, experience }) {
 
                         <select
                             id="startYear"
-                            value={experience?.startYear}
+                            value={startYear}
                             onChange={(e) => setStartYear(e.target.value)}
                         >
                             <option value="Year" defaultChecked>Year</option>
@@ -131,7 +131,7 @@ function ExperienceForm ({ onClose, experience }) {
                     <textarea
                     id="description"
                     type="text"
-                    value={experience?.description}
+                    value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     />
                 </div>
@@ -141,7 +141,7 @@ function ExperienceForm ({ onClose, experience }) {
                     <div className="monthYear">
                         <select
                             id="endMonth"
-                            value={experience?.endMonth}
+                            value={endMonth}
                             onChange={(e) => setEndMonth(e.target.value)}
                         >
                             <option value="Month" defaultChecked>Month</option>
@@ -161,7 +161,7 @@ function ExperienceForm ({ onClose, experience }) {
 
                         <select
                             id="endYear"
-                            value={experience?.endYear}
+                            value={endYear}
                             onChange={(e) => setEndYear(e.target.value)}
                         >
                             <option value="Year" defaultChecked>Year</option>
