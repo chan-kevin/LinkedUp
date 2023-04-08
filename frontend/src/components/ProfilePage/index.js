@@ -8,7 +8,7 @@ import defaultProfile from './assets/pikachu.png';
 import companyLogo from './assets/logo.jpg';
 import DropDown from './DropDown';
 import ExperienceFormModal from '../ExperienceFormModal';
-
+import axios from 'axios';
 
 const ProfilePage = () => {
     const { userId } = useParams();
@@ -17,6 +17,8 @@ const ProfilePage = () => {
     const user = useSelector(state => state.users[userId]);
     const experiences = useSelector(state => Object.values(state.experiences))
     const educations = useSelector(state => Object.values(state.educations))
+    const [logoUrl, setLogoUrl] = useState('');
+    const apiKey = process.env.CLEARBIT_API_KEY;
 
     // const [isLoading, setIsLoading] = useState(true);
 
@@ -32,6 +34,19 @@ const ProfilePage = () => {
         dispatch(fetchUserProfile(userId));
         // setIsLoading(false);
     }, [dispatch, userId]);
+
+    useEffect(() => {
+        const fetchCompanyLogo = async() => {
+            const response = await fetch(`https://company.clearbit.com/v1/domains/find?name=google`, {
+                headers: {
+                  Authorization: `Bearer ${apiKey}`,
+                }
+              });        
+          const data = await response.json();
+          setLogoUrl(data.logo);
+        }
+        fetchCompanyLogo();
+      }, []);
 
     if (!sessionUser) return <Redirect to="/" />;
 
@@ -77,7 +92,7 @@ const ProfilePage = () => {
                 {experiences && experiences.map(experience => (
                 <div className='profileDetailList' key={experience.id}>
                     <div className='profileLogo'>
-                        <img src={experience.logo} alt='companyLogo' />
+                        <img src={logoUrl} alt='companyLogo' />
                     </div>
                     <ul className='experienceDetail'>
                         <li className='detailHeading'>{experience.title}</li>
