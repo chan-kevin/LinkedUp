@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { Modal } from '../../context/Modal';
 import ExperienceForm from '../ExperienceFormModal/ExperienceForm';
@@ -14,6 +14,8 @@ function EditFormModal({experience}) {
 
   const onClose = () => {
     setShowModal(false);
+    const body = document.querySelector('body');
+    body.style.overflow = 'auto';
     history.goBack();
   }
 
@@ -22,7 +24,15 @@ function EditFormModal({experience}) {
     setShowModal(true)
     history.push(`/users/${userId}/experiences/${experience.id}`)
   }
-  
+
+  useEffect(() => {
+    const body = document.querySelector('body');
+    if (showModal) {
+      body.style.overflow = 'hidden';
+    } else {
+      body.style.overflow = 'auto';
+    }
+  }, [showModal]);
 
   return (
     <div id='editButton'>

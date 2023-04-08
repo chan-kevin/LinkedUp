@@ -41,6 +41,7 @@ function ExperienceForm ({ onClose, experience }) {
     const handleDelete = async (e) => {
         e.preventDefault();
         await dispatch(removeExperience(experience.id));
+        onClose();
     }
     
     return (
