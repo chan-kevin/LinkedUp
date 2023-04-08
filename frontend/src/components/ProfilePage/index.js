@@ -67,8 +67,10 @@ const ProfilePage = () => {
 
             <div className='profileBoard'>
                 <div className='headline'>
-                    <h1>Experience</h1>
-                    <DropDown />
+                    <div className='headlineWithAdd'>
+                        <h1>Experience</h1>
+                        <DropDown />
+                    </div>
                     {/* <ExperienceFormModal /> */}
                 </div>
 

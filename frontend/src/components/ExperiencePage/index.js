@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, useParams } from 'react-router-dom';
+import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { fetchUserProfile } from '../../store/profile';
 import './ExperiencePage.css';
 import DropDown from '../ProfilePage/DropDown';
@@ -12,6 +12,12 @@ const ExperiencePage = () => {
     const sessionUser = useSelector(state => state.session.user);
     const user = useSelector(state => state.users[userId]);
     const experiences = useSelector(state => Object.values(state.experiences))
+    const history = useHistory();
+
+    const goBackButton = (e) => {
+        e.preventDefault();
+        history.goBack();
+    }
 
     useEffect(() => {
         dispatch(fetchUserProfile(userId));
@@ -23,8 +29,13 @@ const ExperiencePage = () => {
         <div className='fontFamily' id='profileContent'>
             <div className='profileBoard'>
                 <div className='headline'>
-                    <h1>Experience</h1>
-                    <DropDown />
+                    <button onClick={goBackButton} className='addPosition'>
+                        <i class="fa-solid fa-arrow-left" id='goBackButton'></i>
+                    </button>
+                    <div className='headlineWithAdd'>
+                        <h1>Experience</h1>
+                        <DropDown />
+                    </div>
                 </div>
 
                 {experiences && experiences.map(experience => (
@@ -33,10 +44,22 @@ const ExperiencePage = () => {
                         <img src={experience.logo} alt='companyLogo' />
                     </div>
                     <ul className='experienceDetail'>
-                        <li className='detailHeading'>{experience.title}</li>
-                        <li className='detailSubHeading'>{experience.company}</li>
-                        <li className='period'>{experience.startMonth + ' ' + experience.startYear + ' - ' + experience.endMonth + ' ' + experience.endYear}</li>
-                        <li className='detailLocation'>{experience.location}</li>
+
+                        <div className='firstHalf'>
+                            <div className='infoInFirstHalf'>
+                                <li className='detailHeading'>{experience.title} </li>
+                                <li className='detailSubHeading'>{experience.company}</li>
+                                <li className='period'>{experience.startMonth + ' ' + experience.startYear + ' - ' + experience.endMonth + ' ' + experience.endYear}</li>
+                                <li className='detailLocation'>{experience.location}</li>
+                            </div>
+
+                            <div id='editButton'>
+                                <button className='addPosition' id='editButton'>
+                                    <i class="fa-solid fa-pen" id="editIcon"></i>
+                                </button>
+                            </div>
+                        </div>
+
                         <li className='detailDescription'>{'- ' + experience.description}</li>
                         <li className='skills'><p>Skills: </p>{experience.skills}</li>
                     </ul>

@@ -1,0 +1,22 @@
+.firstHalf {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.infoInFirstHalf {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.experienceDetail {
+    flex-grow: 1;
+}
+
+#goBackButton {
+    color: rgba(0,0,0,0.6);
+    /* width: 24px;
+    height: 24px; */
+    font-size: 20px;
+}
