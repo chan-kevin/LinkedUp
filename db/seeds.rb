@@ -50,7 +50,7 @@ ApplicationRecord.transaction do
           "July", "August", "September", "October", "November", "December"]
 
     i = 1
-    while i < 6 do
+    while i < 7 do
       5.times do 
         start_year = rand(1990..2021)
         end_year = rand(start_year..2022)

@@ -8,7 +8,6 @@ import defaultProfile from './assets/pikachu.png';
 import companyLogo from './assets/logo.jpg';
 import DropDown from './DropDown';
 import ExperienceFormModal from '../ExperienceFormModal';
-import axios from 'axios';
 import SearchBar from '../SearchBar/SearchBar';
 
 const ProfilePage = () => {
@@ -33,10 +32,7 @@ const ProfilePage = () => {
 
     useEffect(() => {
         dispatch(fetchUserProfile(userId));
-        // setIsLoading(false);
-    }, [dispatch, userId]);
-
-    useEffect(() => {
+        
         const fetchCompanyLogo = async() => {
             const response = await fetch(`https://company.clearbit.com/v1/domains/find?name=google`, {
                 headers: {
@@ -47,7 +43,21 @@ const ProfilePage = () => {
           setLogoUrl(data.logo);
         }
         fetchCompanyLogo();
-      }, []);
+        // setIsLoading(false);
+    }, [dispatch, userId]);
+
+    // useEffect(() => {
+    //     const fetchCompanyLogo = async() => {
+    //         const response = await fetch(`https://company.clearbit.com/v1/domains/find?name=google`, {
+    //             headers: {
+    //               Authorization: `Bearer ${apiKey}`,
+    //             }
+    //           });        
+    //       const data = await response.json();
+    //       setLogoUrl(data.logo);
+    //     }
+    //     fetchCompanyLogo();
+    //   }, []);
 
     if (!sessionUser) return <Redirect to="/" />;
 
@@ -78,6 +88,13 @@ const ProfilePage = () => {
                         <h3>{user.location}</h3>
                     </div>
                     }
+                    
+                    <div className='interactButtons'>
+                        <button className='submit' id='connectButton'>
+                            <i class="fa-solid fa-user-plus" id='connectIcon'></i>
+                            <p>Connect</p>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -85,7 +102,7 @@ const ProfilePage = () => {
                 <div className='headline'>
                     <div className='headlineWithAdd'>
                         <h1>Experience</h1>
-                        <DropDown />
+                        { sessionUser.id === parseInt(userId) ? <DropDown /> : null}
                     </div>
                     {/* <ExperienceFormModal /> */}
                 </div>

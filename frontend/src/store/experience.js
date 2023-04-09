@@ -83,7 +83,7 @@ export const removeExperience = (experienceId) => async dispatch => {
 export const experienceReducer = (state = {}, action) => {
     switch (action.type) {
         case SET_USER_PROFILE:
-            return { ...state, ...action.payload.experience };
+            return { ...action.payload.experience };
         case ADD_EXPERIENCE:
             return { ...state, [action.payload.id]: action.payload };
         case UPDATE_EXPERIENCE:

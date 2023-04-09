@@ -250,3 +250,17 @@
     font-weight: 550;
     color: rgba(0,0,0,0.8);
 }
+
+.interactButtons {
+    padding-top: 12px;
+}
+
+#connectButton {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#connectIcon {
+    font-size: 14px;
+    margin-right: 6px;
+}
