@@ -4,10 +4,12 @@ import userReducer from './profile';
 import sessionReducer from './session';
 import { experienceReducer } from './experience';
 import { educationReducer } from './education';
+import searchReducer from './search';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   users: userReducer,
+  search: searchReducer,
   experiences: experienceReducer,
   educations: educationReducer
 });

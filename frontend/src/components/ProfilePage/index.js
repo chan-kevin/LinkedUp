@@ -9,6 +9,7 @@ import companyLogo from './assets/logo.jpg';
 import DropDown from './DropDown';
 import ExperienceFormModal from '../ExperienceFormModal';
 import axios from 'axios';
+import SearchBar from '../SearchBar/SearchBar';
 
 const ProfilePage = () => {
     const { userId } = useParams();
@@ -86,6 +87,7 @@ const ProfilePage = () => {
                         <h1>Experience</h1>
                         <DropDown />
                     </div>
+                    <SearchBar />
                     {/* <ExperienceFormModal /> */}
                 </div>
 
