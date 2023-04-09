@@ -6,6 +6,7 @@ import smallLogo from './assets/linkedin_small_logo.png'
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import SearchBar from '../SearchBar/SearchBar';
 
 function Navigation() {
 
@@ -20,7 +21,7 @@ function Navigation() {
             <header className='fontFamily' id='loginHeader'>
               <div className='nav' id='withUserHome'>
                 <NavLink exact to="/"><img src={smallLogo} alt="home" id='withUserHomeLogo'/></NavLink>
-                <input tpye='text' placeholder='search' id='searchBar' />
+                <SearchBar />
                 <ul>
                   <li><ProfileButton user={sessionUser} /></li>
                 </ul>

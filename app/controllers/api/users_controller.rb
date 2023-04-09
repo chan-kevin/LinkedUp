@@ -6,6 +6,11 @@ class Api::UsersController < ApplicationController
     render 'api/users/search'
   end
 
+  def index
+    @users = User.all
+    render 'api/users/index'
+  end
+
   def show
       @user = User.includes(:experiences, :educations).find(params[:id])
       render 'api/users/show'

@@ -112,17 +112,6 @@
     /* vertical-align: top; */
 }
 
-#searchBar {
-    line-height: 1.75;
-    font-weight: 400;
-    font-size: 14px;
-    height: 34px;
-    background-color: #eef3f8;
-    border-radius: 4px;
-    padding: 0 0.8rem 0 40px;
-    border-style: none;
-}
-
 #withUserHome > ul {
     margin-left: auto;
     min-height: 52px;

@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as searchActions from '../../store/search'
+import './SearchBar.css'
 
 const SearchBar = () => {
   const [query, setQuery] = useState('');
-//   const [results, setResults] = useState([]);
+  const [results, setResults] = useState([]);
   const dispatch = useDispatch();
-  const results = useSelector(state => Object.values(state.search));
+  const users = useSelector(state => Object.values(state.search));
 
-  const handleInputChange = (e) => {
+  useEffect (() => {
+    dispatch(searchActions.fetchAllUser());
+  }, [query])
+
+  const searchUser = (e) => {
     setQuery(e.target.value);
-    dispatch(searchActions.clearResult());
-    dispatch(searchActions.searchUser(query))
+    // dispatch(searchActions.clearResult());
+    // dispatch(searchActions.searchUser(query))
+    
 
     if (e.target.value === ''){
         dispatch(searchActions.clearResult());
@@ -39,15 +45,18 @@ const SearchBar = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleInputChange} value={query} placeholder="Search Users" />
-        <button type="submit">Search</button>
-      </form>
-      {results.length > 0 && (
+      <div className='searchWithIcon'>
+        <i className="fa-solid fa-magnifying-glass" id='searchIcon'></i>
+        <input type="text" onChange={searchUser} placeholder='Search' id='searchBar'/>
+      </div>
+      {query !== '' && (
         <ul>
-          {results.map((user, index) => (
-            <li key={index}>{user.firstName} {user.lastName}</li>
-          ))}
+            {users.filter(user => {
+                const parts = query.toLowerCase().split(' ');
+                return parts.every(part => user.firstName.toLowerCase().includes(part) || user.lastName.toLowerCase().includes(part));
+            }).map((user, index) => (
+                <li key={index}>{user.firstName} {user.lastName}</li>
+            ))}
         </ul>
       )}
     </div>
