@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
     @users = User.where("first_name ILIKE ? OR last_name ILIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
     render 'api/users/search'
   end
-  
+
   def show
       @user = User.includes(:experiences, :educations).find(params[:id])
       render 'api/users/show'

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as searchActions from '../../store/search'
 
@@ -10,8 +10,18 @@ const SearchBar = () => {
 
   const handleInputChange = (e) => {
     setQuery(e.target.value);
+    dispatch(searchActions.clearResult());
     dispatch(searchActions.searchUser(query))
+
+    if (e.target.value === ''){
+        dispatch(searchActions.clearResult());
+    }
   };
+
+//   useEffect(() => {
+//     dispatch(searchActions.clearResult());
+//   }, [dispatch, query])
+//   const uniqueResults = results.filter((item, index, self) => self.findIndex(t => t.id === item.id) === index);
 
 //   const handleSubmit = (e) => {
 //     e.preventDefault();
@@ -35,8 +45,8 @@ const SearchBar = () => {
       </form>
       {results.length > 0 && (
         <ul>
-          {results.map(user => (
-            <li key={user.id}>{user.firstName} {user.lastName}</li>
+          {results.map((user, index) => (
+            <li key={index}>{user.firstName} {user.lastName}</li>
           ))}
         </ul>
       )}
