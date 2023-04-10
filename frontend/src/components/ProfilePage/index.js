@@ -34,16 +34,16 @@ const ProfilePage = () => {
     useEffect(() => {
         dispatch(fetchUserProfile(userId));
         
-        const fetchCompanyLogo = async() => {
-            const response = await fetch(`https://company.clearbit.com/v1/domains/find?name=google`, {
-                headers: {
-                  Authorization: `Bearer ${apiKey}`,
-                }
-              });        
-          const data = await response.json();
-          setLogoUrl(data.logo);
-        }
-        fetchCompanyLogo();
+        // const fetchCompanyLogo = async() => {
+        //     const response = await fetch(`https://company.clearbit.com/v1/domains/find?name=google`, {
+        //         headers: {
+        //           Authorization: `Bearer ${apiKey}`,
+        //         }
+        //       });        
+        //   const data = await response.json();
+        //   setLogoUrl(data.logo);
+        // }
+        // fetchCompanyLogo();
         // setIsLoading(false);
     }, [dispatch, userId]);
 
@@ -120,7 +120,7 @@ const ProfilePage = () => {
                 {experiences && experiences.map(experience => (
                 <div className='profileDetailList' key={experience.id}>
                     <div className='profileLogo'>
-                        <img src={logoUrl} alt='companyLogo' />
+                        <img src={experience.logo} alt='companyLogo' />
                     </div>
                     <ul className='experienceDetail'>
                         <li className='detailHeading'>{experience.title}</li>

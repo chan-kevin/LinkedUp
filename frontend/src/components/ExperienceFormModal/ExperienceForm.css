@@ -184,3 +184,36 @@
 .delete:hover {
     background-color: rgba(0,0,0,0.06);
 }
+
+.companySearch {
+    display: flex;
+    border-radius: 8px;
+    width: 700px;
+    top: 305px;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.08);
+    line-height: 2.8;
+    position: fixed;
+}
+
+#searchLogo {
+    width: 30px;
+    height: 30px;
+    margin: 8px;
+    margin-right: 20px;
+}
+
+.companyResult {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.companyResult:hover {
+    background-color: rgba(0,0,0,0.08);
+    cursor: pointer;
+}

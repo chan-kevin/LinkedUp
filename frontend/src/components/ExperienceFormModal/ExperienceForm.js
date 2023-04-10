@@ -8,6 +8,7 @@ function ExperienceForm ({ onClose, experience }) {
     const { userId } = useParams();
     const dispatch = useDispatch();
     const [title, setTitle] = useState(experience?.title ?? '');
+    const [suggestCompany, setSuggestCompany] = useState([]);
     const [company, setCompany] = useState(experience?.company ?? '');
     const [location, setLocation] = useState(experience?.location ?? '');
     const [startMonth, setStartMonth] = useState(experience?.startMonth ?? '');
@@ -15,6 +16,39 @@ function ExperienceForm ({ onClose, experience }) {
     const [endMonth, setEndMonth] = useState(experience?.endMonth ?? '');
     const [endYear, setEndYear] = useState(experience?.endYear ?? '');
     const [description, setDescription] =useState(experience?.description ?? '');
+    // const [showModal, setShowModal] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
+
+
+    useEffect(() => {
+        if (!showMenu) return;
+        const fetchCompanyName = async() => {
+            if (company) {
+                const response = await fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=${company}`)
+                const data = await response.json();
+                setSuggestCompany(data);
+            }
+        }
+        fetchCompanyName()
+
+        const closeMenu = () => {
+            setShowMenu(false);
+        };
+      
+        document.addEventListener('mousedown', closeMenu)
+        return () => document.removeEventListener('mousedown', closeMenu);
+    }, [company, showMenu])
+
+    // useEffect(() => {
+    //     if (!showMenu) return;
+    //     const closeMenu = () => {
+    //         setShowMenu(false);
+    //     };
+      
+    //     document.addEventListener('mousedown', closeMenu)
+    
+    //     return () => document.removeEventListener('mousedown', closeMenu);
+    //   }, [showMenu]);
 
     const handleSubmit =  async (e) => {
         e.preventDefault();
@@ -43,6 +77,25 @@ function ExperienceForm ({ onClose, experience }) {
         await dispatch(removeExperience(experience.id));
         onClose();
     }
+
+    const companyInput = (e) => {
+        e.preventDefault();
+        setCompany(e.target.value);
+    }
+
+    const openMenu = (e) => {
+        if (showMenu) return;
+        setShowMenu(true);
+    };
+
+    const autoCompanyInput = (input) => {
+        return () => {
+            // document.getElementById('company').value = input;
+            debugger
+            setCompany(input);
+            setShowMenu(false);
+          };
+    }
     
     return (
         <div className="fontFamily">
@@ -64,10 +117,10 @@ function ExperienceForm ({ onClose, experience }) {
                     value={title}
                     placeholder="Ex: Full Ftack Developer"
                     onChange={(e) => setTitle(e.target.value)}
-
                     />
                 </div>
-
+                
+                    
                 <div className="formInput">
                     <label htmlFor="company">Company name<sup>*</sup></label>
                     <input
@@ -75,8 +128,17 @@ function ExperienceForm ({ onClose, experience }) {
                     type="text"
                     value={company}
                     placeholder="Google"
-                    onChange={(e) => setCompany(e.target.value)}
+                    onChange={companyInput}
+                    onClick={openMenu}
                     />
+                    <ul className="companySearch">
+                        {showMenu && suggestCompany.map(suggest => (
+                            <li className="companyResult" onClick={autoCompanyInput(suggest.name)}>
+                                <img src={suggest.logo} alt='logo' id="searchLogo"/>
+                                <div>{suggest.name}</div>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
 
                 <div className="formInput">
