@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { createExperience, editExperience, removeExperience } from '../../store/experience';
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -19,6 +19,7 @@ function ExperienceForm ({ onClose, experience }) {
     // const [showModal, setShowModal] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
 
+    const suggestListRef = useRef(null);
 
     useEffect(() => {
         if (!showMenu) return;
@@ -35,7 +36,12 @@ function ExperienceForm ({ onClose, experience }) {
             setShowMenu(false);
         };
       
-        document.addEventListener('mousedown', closeMenu)
+        suggestListRef.current.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+          });
+          document.addEventListener('mousedown', closeMenu);
+
         return () => document.removeEventListener('mousedown', closeMenu);
     }, [company, showMenu])
 
@@ -91,7 +97,7 @@ function ExperienceForm ({ onClose, experience }) {
     const autoCompanyInput = (input) => {
         return () => {
             // document.getElementById('company').value = input;
-            debugger
+            // debugger
             setCompany(input);
             setShowMenu(false);
           };
@@ -131,7 +137,7 @@ function ExperienceForm ({ onClose, experience }) {
                     onChange={companyInput}
                     onClick={openMenu}
                     />
-                    <ul className="companySearch">
+                    <ul className="companySearch" ref={suggestListRef}>
                         {showMenu && suggestCompany.map(suggest => (
                             <li className="companyResult" onClick={autoCompanyInput(suggest.name)}>
                                 <img src={suggest.logo} alt='logo' id="searchLogo"/>
