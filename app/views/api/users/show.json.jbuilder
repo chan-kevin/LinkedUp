@@ -2,6 +2,7 @@ json.user do
     json.set! @user.id do 
         json.extract! @user, :id, :first_name, :last_name, :about, :location
         json.connected @user.is_connected(current_user.id)
+        json.photoUrl @user.photo.attached? ? @user.photo.url : nil
     end
 end
 
@@ -17,6 +18,7 @@ json.education do
     @user.educations.each do |education|
         json.set! education.id do
             json.extract! education, :id, :user_id, :school, :degree, :start_month, :start_year, :end_month, :end_year
+            json.photoUrl education.photo.attached? ? education.photo.url : nil
         end
     end
 end

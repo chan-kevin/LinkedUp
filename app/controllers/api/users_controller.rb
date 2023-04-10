@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  wrap_parameters include: User.attribute_names + ['password']
+  wrap_parameters include: User.attribute_names + ['password'] + [:photo]
 
   def search
     @users = User.where("first_name ILIKE ? OR last_name ILIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
@@ -9,6 +9,16 @@ class Api::UsersController < ApplicationController
   def index
     @users = User.all
     render 'api/users/index'
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update(user_params)
+      render 'api/users/show'
+    else
+      render json: @user.errors.full_messages, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -30,6 +40,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :password)
+    params.require(:user).permit(:id, :email, :first_name, :last_name, :password, :photo)
   end
 end

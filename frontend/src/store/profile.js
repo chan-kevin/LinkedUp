@@ -3,6 +3,7 @@ import { ADD_CONNECTION, DELETE_CONNECTION } from "./connection";
 
 
 export const SET_USER_PROFILE = 'users/setUserProfile';
+const UPDATE_USER_PROFILE = 'users/updateUserProfile'
 
 const setUserProfile = (profile) => {
     return {
@@ -11,10 +12,27 @@ const setUserProfile = (profile) => {
     };
 };
 
+const updateUserProfile = (profile) => {
+    return {
+        type: UPDATE_USER_PROFILE,
+        payload: profile
+    };
+};
+
 export const fetchUserProfile = (userId) => async dispatch => {
     const response = await csrfFetch(`/api/users/${userId}`);
     const data = await response.json();
     dispatch(setUserProfile(data));
+    return response;
+}
+
+export const editUserProfile = (profile, userId) => async dispatch => {
+    const response = await csrfFetch(`/api/users/${userId}`, {
+        method: "PUT",
+        body: profile
+    });
+    const data = await response.json();
+    dispatch(updateUserProfile(data));
     return response;
 }
 
@@ -27,6 +45,8 @@ const userReducer = (state = {}, action) => {
             return { ...nextState, ...action.payload};
         case DELETE_CONNECTION:
             return { ...nextState, ...action.payload};
+        case UPDATE_USER_PROFILE:
+            return { ...nextState, ...action.payload}
         default:
             return state;
     }

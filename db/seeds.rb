@@ -1,4 +1,5 @@
-ApplicationRecord.transaction do 
+require "open-uri"
+# ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
     User.destroy_all
@@ -26,7 +27,7 @@ ApplicationRecord.transaction do
   
     # More users
     # phone_numbers = []
-    5.times do 
+    20.times do 
         # phone_number = Faker::PhoneNumber.cell_phone_in_e164
         # while phone_numbers.include?(phone_number)
         #     phone_number = Faker::PhoneNumber.cell_phone_in_e164
@@ -50,7 +51,7 @@ ApplicationRecord.transaction do
           "July", "August", "September", "October", "November", "December"]
 
     i = 1
-    while i < 7 do
+    while i < 22 do
       5.times do 
         start_year = rand(1990..2021)
         end_year = rand(start_year..2022)
@@ -89,6 +90,10 @@ ApplicationRecord.transaction do
       })
       i += 1
     end
+
+    # Education.first.photo.attach( io: URI.open("https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6464/6464080_sd.jpg;maxHeight=640;maxWidth=550"),
+    # filename: "cat.jpg"
+    # )
   
     puts "Done!"
-  end
+  # end

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useParams } from 'react-router-dom';
-import { fetchUserProfile } from '../../store/profile';
+import { editUserProfile, fetchUserProfile } from '../../store/profile';
 import './Profile.css';
 import profileBackground from './assets/profileBackground.jpeg';
 import defaultProfile from './assets/pikachu.png';
@@ -20,6 +20,8 @@ const ProfilePage = () => {
     const educations = useSelector(state => Object.values(state.educations))
     const [logoUrl, setLogoUrl] = useState('');
     const apiKey = process.env.CLEARBIT_API_KEY;
+    const [photoFile, setPhotoFile] = useState (null);
+    const [photoUrl, setPhotoUrl] = useState(null);
     
 
     // const [isLoading, setIsLoading] = useState(true);
@@ -80,6 +82,31 @@ const ProfilePage = () => {
     //     return <p>Loading...</p>
     // }
 
+    const changeProfilePic = ({ currentTarget}) =>{
+        const file = currentTarget.files[0];
+        if (file) {
+            setPhotoFile(file);
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(file);
+            fileReader.onload = () => setPhotoUrl(fileReader.result);
+        } 
+        else setPhotoUrl(null);
+    }
+
+    const handleSubmit = async e =>{
+        e.preventDefault();
+        const formData = new FormData()
+        formData.append('user[id]', userId);
+        if (photoFile){
+            formData.append('user[photo]' ,photoFile);
+            dispatch(editUserProfile(formData, userId));
+        }
+        // debugger
+    }
+
+    let preview = null;
+    if (photoUrl) preview = <img src={photoUrl} alt="" />;
+
     return (
         <div className='fontFamily' id='profileContent'>
             <div className='profileBoard'>
@@ -91,6 +118,11 @@ const ProfilePage = () => {
                 <div className='profile'>
                     <img src={defaultProfile} alt='defaultProfile' />
                 </div>
+
+                <input type="file" onChange={changeProfilePic} />
+                <button onClick={handleSubmit}>submitTest</button>
+                {photoUrl ? <img src={photoUrl} alt="test" /> : null}
+
                 <div className='userInfo'>
                     {user && 
                     <div>
@@ -164,6 +196,7 @@ const ProfilePage = () => {
                 ))}
             </div>
         </div>
+        
     );
 };
 
