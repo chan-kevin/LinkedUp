@@ -18,6 +18,7 @@ function ExperienceForm ({ onClose, experience }) {
     const [description, setDescription] =useState(experience?.description ?? '');
     // const [showModal, setShowModal] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
+    const [companyLogo, setCompanyLogo] = useState('');
 
     const suggestListRef = useRef(null);
 
@@ -31,6 +32,7 @@ function ExperienceForm ({ onClose, experience }) {
             }
         }
         fetchCompanyName()
+        setCompanyLogo('')
 
         const closeMenu = () => {
             setShowMenu(false);
@@ -98,7 +100,8 @@ function ExperienceForm ({ onClose, experience }) {
         return () => {
             // document.getElementById('company').value = input;
             // debugger
-            setCompany(input);
+            setCompany(input.name);
+            setCompanyLogo(input.logo)
             setShowMenu(false);
           };
     }
@@ -129,6 +132,7 @@ function ExperienceForm ({ onClose, experience }) {
                     
                 <div className="formInput">
                     <label htmlFor="company">Company name<sup>*</sup></label>
+                    {companyLogo ? <img src={companyLogo} alt='logo' id="companyLogo" /> : null}
                     <input
                     id="company"
                     type="text"
@@ -139,7 +143,7 @@ function ExperienceForm ({ onClose, experience }) {
                     />
                     <ul className="companySearch" ref={suggestListRef}>
                         {showMenu && suggestCompany.map(suggest => (
-                            <li className="companyResult" onClick={autoCompanyInput(suggest.name)}>
+                            <li className="companyResult" onClick={autoCompanyInput(suggest)}>
                                 <img src={suggest.logo} alt='logo' id="searchLogo"/>
                                 <div>{suggest.name}</div>
                             </li>

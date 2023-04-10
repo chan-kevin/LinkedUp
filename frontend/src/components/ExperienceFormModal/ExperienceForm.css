@@ -217,3 +217,11 @@
     background-color: rgba(0,0,0,0.08);
     cursor: pointer;
 }
+
+#companyLogo {
+    top: 235px;
+    right: 45px;
+    width: 23px;
+    height: 23px;
+    position: absolute;
+}
