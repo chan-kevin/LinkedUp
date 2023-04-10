@@ -5,8 +5,10 @@ import sessionReducer from './session';
 import { experienceReducer } from './experience';
 import { educationReducer } from './education';
 import searchReducer from './search';
+import { connectionReducer } from './connection';
 
 const rootReducer = combineReducers({
+  connection: connectionReducer,
   session: sessionReducer,
   users: userReducer,
   search: searchReducer,

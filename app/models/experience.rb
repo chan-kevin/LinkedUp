@@ -14,6 +14,8 @@
 #  start_year  :string           not null
 #  end_month   :string
 #  end_year    :string
+#  skills      :string
+#  logo        :text
 #
 class Experience < ApplicationRecord
   validates :title, :company, :start_month, :start_year, :user_id, presence: true

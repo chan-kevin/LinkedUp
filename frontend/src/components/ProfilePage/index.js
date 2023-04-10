@@ -9,6 +9,7 @@ import companyLogo from './assets/logo.jpg';
 import DropDown from './DropDown';
 import ExperienceFormModal from '../ExperienceFormModal';
 import SearchBar from '../SearchBar/SearchBar';
+import { createConnection } from '../../store/connection';
 
 const ProfilePage = () => {
     const { userId } = useParams();
@@ -46,6 +47,15 @@ const ProfilePage = () => {
         // setIsLoading(false);
     }, [dispatch, userId]);
 
+
+    const handleConnect = () => {
+        const connection = {
+            connecterId: sessionUser.id,
+            connecteeId: parseInt(userId)
+        };
+
+        dispatch(createConnection(connection))
+    }
     // useEffect(() => {
     //     const fetchCompanyLogo = async() => {
     //         const response = await fetch(`https://company.clearbit.com/v1/domains/find?name=google`, {
@@ -88,10 +98,10 @@ const ProfilePage = () => {
                         <h3>{user.location}</h3>
                     </div>
                     }
-                    
+
                     <div className='interactButtons'>
-                        <button className='submit' id='connectButton'>
-                            <i class="fa-solid fa-user-plus" id='connectIcon'></i>
+                        <button onClick={handleConnect} className='submit' id='connectButton'>
+                            <i className="fa-solid fa-user-plus" id='connectIcon'></i>
                             <p>Connect</p>
                         </button>
                     </div>

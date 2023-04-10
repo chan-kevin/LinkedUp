@@ -12,7 +12,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-      @user = User.includes(:experiences, :educations).find(params[:id])
+      @user = User.includes(:experiences, :educations, :connected_users).find(params[:id])
       render 'api/users/show'
   end
 

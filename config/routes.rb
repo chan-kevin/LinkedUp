@@ -6,6 +6,7 @@ Rails.application.routes.draw do
         get :search
       end
     end
+    resources :connections, only: [:create, :destroy]
     resource :session, only: [:show, :create, :destroy]
     resource :education, only: [:show, :create, :destroy]
     resources :experiences, only: [:create, :update, :destroy]
