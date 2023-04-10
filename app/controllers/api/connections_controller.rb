@@ -2,19 +2,27 @@ class Api::ConnectionsController < ApplicationController
 
     def create
         @connection = Connection.new(connection_params)
-
+        # @connection = Connection.new(connecter_id: current_user.id, connectee_id: connection_params)
         if @connection.save
-            render :show
+            @user = User.find(connection_params[:connectee_id])
+            render 'api/users/show'
         else
-            render json: @experience.errors.full_messages, status: :unprocessable_entity
+            render json: @connection.errors.full_messages, status: :unprocessable_entity
         end
     end
 
     def destroy
-        @connection = Connection.find_by(connecter_id: current_user.id, connectee_id: params[:id])
+        @connection = current_user.find_connection(params[:id])
         
+        if !@connection
+            render json: "connections doesn't exist"
+        end
+
         if @connection.destroy
-            render :show
+            @user = User.find(params[:id])
+            render 'api/users/show'
+        else
+            render json: @connection.errors.full_messages, status: :unprocessable_entity
         end
     end
 

@@ -10,6 +10,7 @@
 #
 class Connection < ApplicationRecord
     validates :connecter_id, :connectee_id, presence: true
+    validates :connecter_id, uniqueness: {scope: :connectee_id}
 
     belongs_to :connecter, class_name: :User
     belongs_to :connectee, class_name: :User

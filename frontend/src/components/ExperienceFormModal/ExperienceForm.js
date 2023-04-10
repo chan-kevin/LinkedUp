@@ -142,8 +142,8 @@ function ExperienceForm ({ onClose, experience }) {
                     onClick={openMenu}
                     />
                     <ul className="companySearch" ref={suggestListRef}>
-                        {showMenu && suggestCompany.map(suggest => (
-                            <li className="companyResult" onClick={autoCompanyInput(suggest)}>
+                        {showMenu && suggestCompany.map((suggest, index) => (
+                            <li className="companyResult" onClick={autoCompanyInput(suggest)} key={index}>
                                 <img src={suggest.logo} alt='logo' id="searchLogo"/>
                                 <div>{suggest.name}</div>
                             </li>

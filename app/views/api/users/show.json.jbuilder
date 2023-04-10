@@ -1,6 +1,7 @@
 json.user do
     json.set! @user.id do 
         json.extract! @user, :id, :first_name, :last_name, :about, :location
+        json.connected @user.is_connected(current_user.id)
     end
 end
 
@@ -20,10 +21,10 @@ json.education do
     end
 end
 
-json.connection do
-    @user.connected_users.each do |user|
-        json.set! user.id do
-            json.extract! user, :id, :first_name, :last_name, :location
-        end
-    end
-end
+# json.connection do
+#     @user.connected_users.each do |user|
+#         json.set! user.id do
+#             json.extract! user, :id, :first_name, :last_name, :location
+#         end
+#     end
+# end

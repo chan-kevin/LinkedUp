@@ -1,4 +1,6 @@
 import csrfFetch from "./csrf";
+import { ADD_CONNECTION, DELETE_CONNECTION } from "./connection";
+
 
 export const SET_USER_PROFILE = 'users/setUserProfile';
 
@@ -17,9 +19,14 @@ export const fetchUserProfile = (userId) => async dispatch => {
 }
 
 const userReducer = (state = {}, action) => {
+    let nextState = { ...state }
     switch (action.type) {
         case SET_USER_PROFILE:
             return { ...action.payload.user };
+        case ADD_CONNECTION:
+            return { ...nextState, ...action.payload};
+        case DELETE_CONNECTION:
+            return { ...nextState, ...action.payload};
         default:
             return state;
     }

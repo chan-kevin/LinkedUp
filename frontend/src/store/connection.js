@@ -1,8 +1,8 @@
 import csrfFetch from "./csrf";
 import { SET_USER_PROFILE } from "./profile";
 
-const ADD_CONNECTION = 'connection/addConnection';
-const DELETE_CONNECTION = 'connection/deleteConnection';
+export const ADD_CONNECTION = 'connection/addConnection';
+export const DELETE_CONNECTION = 'connection/deleteConnection';
 
 const addConnection = (connection) => {
     return {
@@ -30,15 +30,16 @@ export const createConnection = (connection) => async dispatch => {
     })
 });
     const data = await response.json();
-    dispatch(addConnection(data.connection));
+    dispatch(addConnection(data.user));
     return response;
 }
 
 export const removeConnection = (connecteeId) => async dispatch => {
-    const response = await csrfFetch("/api/connection", {
+    const response = await csrfFetch(`/api/connections/${connecteeId}`, {
         method: "DELETE"
     });
-    dispatch(deleteConnection(connecteeId));
+    const data = await response.json();
+    dispatch(deleteConnection(data.user));
     return response;
 };
 

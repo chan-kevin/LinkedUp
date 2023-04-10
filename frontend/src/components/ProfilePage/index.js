@@ -9,7 +9,7 @@ import companyLogo from './assets/logo.jpg';
 import DropDown from './DropDown';
 import ExperienceFormModal from '../ExperienceFormModal';
 import SearchBar from '../SearchBar/SearchBar';
-import { createConnection } from '../../store/connection';
+import { createConnection, removeConnection } from '../../store/connection';
 
 const ProfilePage = () => {
     const { userId } = useParams();
@@ -20,6 +20,7 @@ const ProfilePage = () => {
     const educations = useSelector(state => Object.values(state.educations))
     const [logoUrl, setLogoUrl] = useState('');
     const apiKey = process.env.CLEARBIT_API_KEY;
+    
 
     // const [isLoading, setIsLoading] = useState(true);
 
@@ -55,6 +56,10 @@ const ProfilePage = () => {
         };
 
         dispatch(createConnection(connection))
+    }
+
+    const unconnect = () => {
+        dispatch(removeConnection(userId))
     }
     // useEffect(() => {
     //     const fetchCompanyLogo = async() => {
@@ -98,12 +103,18 @@ const ProfilePage = () => {
                         <h3>{user.location}</h3>
                     </div>
                     }
-
+                
                     <div className='interactButtons'>
-                        <button onClick={handleConnect} className='submit' id='connectButton'>
+                    {user?.connected ?
+                        <button onClick={unconnect} className='submit' id='connectButton'>
                             <i className="fa-solid fa-user-plus" id='connectIcon'></i>
-                            <p>Connect</p>
-                        </button>
+                            <p>Unconnect</p>
+                        </button> : 
+                        <button onClick={handleConnect} className='submit' id='connectButton'>
+                        <i className="fa-solid fa-user-plus" id='connectIcon'></i>
+                        <p>Connect</p>
+                    </button>
+                    }
                     </div>
                 </div>
             </div>
