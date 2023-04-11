@@ -25,6 +25,7 @@ const ProfilePage = () => {
     const [photoUrl, setPhotoUrl] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [secondModal, setSecondModal] = useState(false);
+    const [saveProfile, setSaveProfile] = useState(false);
     
 
     // const [isLoading, setIsLoading] = useState(true);
@@ -38,7 +39,9 @@ const ProfilePage = () => {
     
 
     useEffect(() => {
+        // user.photoUrl ||= defaultProfile;
         dispatch(fetchUserProfile(userId));
+        // user.photoUrl ||= defaultProfile;
         
         // const fetchCompanyLogo = async() => {
         //     const response = await fetch(`https://company.clearbit.com/v1/domains/find?name=google`, {
@@ -51,7 +54,7 @@ const ProfilePage = () => {
         // }
         // fetchCompanyLogo();
         // setIsLoading(false);
-    }, [dispatch, userId, secondModal]);
+    }, [dispatch, userId, secondModal, photoUrl]);
 
 
     const handleConnect = () => {
@@ -93,7 +96,8 @@ const ProfilePage = () => {
             fileReader.readAsDataURL(file);
             fileReader.onload = () => setPhotoUrl(fileReader.result);
         } 
-        else setPhotoUrl(null);
+        else setPhotoUrl(defaultProfile);
+        setSaveProfile(true);
     }
 
     const handleSubmit = async e => {
@@ -103,8 +107,9 @@ const ProfilePage = () => {
         if (photoFile){
             formData.append('user[photo]' ,photoFile);
             dispatch(editUserProfile(formData, userId));
+            setSaveProfile(false);
         }
-        // debugger
+        setShowModal(false);
     }
 
     const onClose = () => {
@@ -126,14 +131,21 @@ const ProfilePage = () => {
     return (
         <div className='fontFamily' id='profileContent'>
             <div className='profileBoard'>
+                {user && 
+                <>
+                    <div className='profileBackground'>
+                        <img src={profileBackground} alt='background'/>
+                    </div>
 
-                <div className='profileBackground'>
-                    <img src={profileBackground} alt='background'/>
-                </div>
-
-                <div className='profile' onClick={openProfileModal}>
-                    <img src={defaultProfile} alt='defaultProfile' />
-                </div>
+                    <div className='profile' onClick={openProfileModal}>
+                        {user.photoUrl ?
+                        <img src={user.photoUrl} alt='defaultProfile' />
+                        :
+                        <img src={defaultProfile} alt='defaultProfile' />
+                        }
+                    </div>
+                </>
+                }
 
                 {showModal && (
                     <Modal onClose={onClose}>
@@ -146,7 +158,11 @@ const ProfilePage = () => {
                             <div className='changeProfileTitle'>Profile Picture</div>
 
                             <div className='changeProfileBody'>
-                                <img src={defaultProfile} alt='defaultProfile' />
+                                {user.photoUrl ?
+                                <img src={user.photoUrl} alt='defaultProfile' id='changeDefaultPic'/>
+                                :
+                                <img src={defaultProfile} alt='defaultProfile' id='changeDefaultPic'/>
+                                }
                             </div>
 
                             <footer className='changeProfileFoot'>
@@ -171,23 +187,33 @@ const ProfilePage = () => {
 
                             <div className='changeProfileBody'>
                                 <p id='recognize'>{sessionUser.firstName}, help others recognize you!</p>
+                                {user.photoUrl ?
+                                <img src={user.photoUrl} alt='defaultProfile' id='changeDefaultPic'/>
+                                :
                                 <img src={defaultProfile} alt='defaultProfile' id='changeDefaultPic'/>
+                                }
                                 <p id='require'>On LinkedUp, we require members to use their real identities, so take or upload a photo of yourself. </p>
                             </div>
 
                             <footer className='changeProfileFoot' id='changeProfileFoot2'>
-                                <div class="uploadWrapper">
-                                    <input type='file' id='uploadInput'></input>
+                                {!saveProfile ?
+                                <div className="uploadWrapper">
+                                    <input type='file' id='uploadInput' onChange={changeProfilePic}></input>
                                     <label className='submit' id='uploadPhoto'>Upload photo</label>
                                 </div>
+                                :
+                                <div className="uploadWrapper">
+                                    <button className='submit' id='uploadPhoto' onClick={handleSubmit}>Save</button>
+                                </div>
+                                }
                             </footer>
                         </div>}
                     </Modal>
                 )}
 
-                <input type="file" onChange={changeProfilePic} />
+                {/* <input type="file" onChange={changeProfilePic} />
                 <button onClick={handleSubmit}>submitTest</button>
-                {photoUrl ? <img src={photoUrl} alt="test" /> : null}
+                {photoUrl ? <img src={photoUrl} alt="test" /> : null} */}
 
                 <div className='userInfo'>
                     {user && 
@@ -235,7 +261,6 @@ const ProfilePage = () => {
                         <li className='detailHeading'>{experience.title}</li>
                         <li className='detailSubHeading'>{experience.company}</li>
                         <li className='period'>
-                            {console.log(experience.current)}
                             {experience.startMonth + ' ' + experience.startYear + ' - '} 
                             {experience.current ? 'Present' : (experience.endMonth + ' ' + experience.endYear)}
                         </li>
