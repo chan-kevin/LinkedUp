@@ -26,6 +26,8 @@ class User < ApplicationRecord
   has_many :experiences, dependent: :destroy
   has_many :educations, dependent: :destroy
 
+  has_many :posts, dependent: :destroy
+
   # has_many :sent_connections,
   #   class_name: :Connection,
   #   foreign_key: :connecter_id,

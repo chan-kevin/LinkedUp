@@ -54,7 +54,7 @@ const ProfilePage = () => {
         // }
         // fetchCompanyLogo();
         // setIsLoading(false);
-    }, [dispatch, userId, secondModal, photoUrl]);
+    }, [dispatch, userId, saveProfile]);
 
 
     const handleConnect = () => {
@@ -106,6 +106,18 @@ const ProfilePage = () => {
         formData.append('user[id]', userId);
         if (photoFile){
             formData.append('user[photo]' ,photoFile);
+            dispatch(editUserProfile(formData, userId));
+            setSaveProfile(false);
+        }
+        setShowModal(false);
+    }
+
+    const deleteProfilePic = async e => {
+        e.preventDefault();
+        const formData = new FormData()
+        formData.append('user[id', userId);
+        if (defaultProfile) {
+            formData.append('user[photo]', defaultProfile);
             dispatch(editUserProfile(formData, userId));
             setSaveProfile(false);
         }
@@ -167,7 +179,7 @@ const ProfilePage = () => {
 
                             <footer className='changeProfileFoot'>
 
-                                <button className='changeProfileButtons'>
+                                <button className='changeProfileButtons' onClick={deleteProfilePic}>
                                     <i className="fa-solid fa-trash-can"></i>
                                     <span className='navTitle'>Delete</span>
                                 </button>
@@ -227,7 +239,7 @@ const ProfilePage = () => {
                         <h3>{user.location}</h3>
                     </div>
                     }
-                
+
                     <div className='interactButtons'>
                     {user?.connected ?
                         <button onClick={unconnect} className='submit' id='connectButton'>
@@ -240,6 +252,7 @@ const ProfilePage = () => {
                     </button>
                     }
                     </div>
+
                 </div>
             </div>
 
