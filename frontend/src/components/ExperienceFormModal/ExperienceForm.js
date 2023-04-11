@@ -19,6 +19,7 @@ function ExperienceForm ({ onClose, experience }) {
     // const [showModal, setShowModal] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const [companyLogo, setCompanyLogo] = useState('');
+    const [current, setCurrent] = useState(false);
 
     const suggestListRef = useRef(null);
 
@@ -60,8 +61,14 @@ function ExperienceForm ({ onClose, experience }) {
 
     const handleSubmit =  async (e) => {
         e.preventDefault();
+        if (current) {
+            setEndMonth('');
+            setEndYear('');
+        }
+
         const newExperience = {
             id: experience? experience.id : '',
+            current,
             title,
             company,
             location,
@@ -126,6 +133,7 @@ function ExperienceForm ({ onClose, experience }) {
                     value={title}
                     placeholder="Ex: Full Ftack Developer"
                     onChange={(e) => setTitle(e.target.value)}
+                    required
                     />
                 </div>
                 
@@ -140,6 +148,7 @@ function ExperienceForm ({ onClose, experience }) {
                     placeholder="Google"
                     onChange={companyInput}
                     onClick={openMenu}
+                    required
                     />
                     <ul className="companySearch" ref={suggestListRef}>
                         {showMenu && suggestCompany.map((suggest, index) => (
@@ -183,6 +192,7 @@ function ExperienceForm ({ onClose, experience }) {
                             <option value="October">October</option>
                             <option value="November">November</option>
                             <option value="December">December</option>
+                            required
                         </select>
 
                         <select
@@ -195,6 +205,7 @@ function ExperienceForm ({ onClose, experience }) {
                             {Array.from({length: 100}, (_, i) => (
                             <option value={2023 - i}>{2023 - i}</option>
                             ))}
+                            required
                         </select>
                     </div>
                 </div>
@@ -210,12 +221,20 @@ function ExperienceForm ({ onClose, experience }) {
                 </div>
 
                 <div className="formInput">
-                    <label htmlFor="end date">End date</label>
+                    <label id="currentCheck"> 
+                        <input type="checkbox" defaultChecked={current} onClick={() => setCurrent(!current)}/>
+                        I am currently working in this role
+                    </label>
+                </div>
+
+                <div className="formInput">
+                    <label htmlFor="end date">End date<sup>*</sup></label>
                     <div className="monthYear">
                         <select
                             id="endMonth"
                             value={endMonth}
                             onChange={(e) => setEndMonth(e.target.value)}
+                            disabled={current}
                         >
                             <option value="Month" defaultChecked>Month</option>
                             <option value="January">January</option>
@@ -236,6 +255,7 @@ function ExperienceForm ({ onClose, experience }) {
                             id="endYear"
                             value={endYear}
                             onChange={(e) => setEndYear(e.target.value)}
+                            disabled={current}
                         >
                             <option value="Year" defaultChecked>Year</option>
 

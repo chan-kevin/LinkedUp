@@ -134,5 +134,19 @@ body {
 }
 
 #home:hover, #network:hover, #notifications:hover, #drop:hover{
-    color: black
+    color: rgba(0,0,0,0.9);
+}
+
+.navButtons::before, .navButtons::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: rgba(0,0,0,0.9);
+    transition: all 0.2s ease-in-out;
+}
+
+.navButtons:hover::before, .navButtons:hover::after {
+    width: 100%;
 }

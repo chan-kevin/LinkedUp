@@ -9,7 +9,7 @@ end
 json.experience do
     @user.experiences.each do |experience|
         json.set! experience.id do
-            json.extract! experience, :id, :title, :company, :location, :description, :start_month, :start_year, :end_month, :end_year, :skills, :logo 
+            json.extract! experience, :id, :title, :company, :current, :location, :description, :start_month, :start_year, :end_month, :end_year, :skills, :logo 
         end
     end
 end

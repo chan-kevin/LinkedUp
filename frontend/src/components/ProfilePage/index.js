@@ -168,7 +168,11 @@ const ProfilePage = () => {
                     <ul className='experienceDetail'>
                         <li className='detailHeading'>{experience.title}</li>
                         <li className='detailSubHeading'>{experience.company}</li>
-                        <li className='period'>{experience.startMonth + ' ' + experience.startYear + ' - ' + experience.endMonth + ' ' + experience.endYear}</li>
+                        <li className='period'>
+                            {console.log(experience.current)}
+                            {experience.startMonth + ' ' + experience.startYear + ' - '} 
+                            {experience.current ? 'Present' : (experience.endMonth + ' ' + experience.endYear)}
+                        </li>
                         <li className='detailLocation'>{experience.location}</li>
                         <li className='detailDescription'>{'- ' + experience.description}</li>
                         <li className='skills'><p>Skills: </p>{experience.skills}</li>

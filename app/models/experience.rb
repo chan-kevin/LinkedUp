@@ -12,13 +12,41 @@
 #  updated_at  :datetime         not null
 #  start_month :string           not null
 #  start_year  :string           not null
-#  end_month   :string
-#  end_year    :string
+#  end_month   :string           not null
+#  end_year    :string           not null
 #  skills      :string
 #  logo        :text
+#  current     :boolean          default(FALSE), not null
 #
+
+require 'date'
+
 class Experience < ApplicationRecord
   validates :title, :company, :start_month, :start_year, :user_id, presence: true
+  validates :end_month, :end_year, presence: true, unless: -> { current }
+  validate :start_end_dates, unless: -> { current }
   
   belongs_to :user
+  
+  def initialize(attributes={})
+    attributes[:end_year] = nil if attributes[:end_year].blank?
+    attributes[:end_month] = "January" if attributes[:end_month].blank?
+    super(attributes)
+  end
+  
+  def start_end_dates
+    current_time = Date.today
+    end_date = Date.new(end_year.to_i, Date::MONTHNAMES.index(end_month), 1)
+    start_date = Date.new(start_year.to_i, Date::MONTHNAMES.index(start_month), 1)
+
+    if end_date.year > current_time.year || start_date.year > current_time.year
+      errors.add :start_year, "or end date cannot be in the future"
+    elsif end_date.year == current_time.year && end_date.month > current_time.month ||
+          start_date.year == current_time.year && start_date.month > current_time.month
+      errors.add :start_year, "or end date cannot be in the future"
+    elsif end_date < start_date
+      errors.add :end_year, "must be after start date"
+    end
+  end
+  
 end

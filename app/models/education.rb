@@ -14,7 +14,7 @@
 #  user_id     :bigint
 #
 class Education < ApplicationRecord
-    validates :school, presence: true
+    validates :school, :user_id, presence: true
 
     has_one_attached :photo
 
