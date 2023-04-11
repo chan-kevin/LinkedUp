@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navigation.css';
 import logo from './assets/LinkedIn_logo.png'
-import smallLogo from './assets/linkedin_small_logo.png'
+import smallLogo from './assets/Up_Blue.png'
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -22,9 +22,32 @@ function Navigation() {
               <div className='nav' id='withUserHome'>
                 <NavLink exact to="/"><img src={smallLogo} alt="home" id='withUserHomeLogo'/></NavLink>
                 <SearchBar />
-                <ul>
-                  <li><ProfileButton user={sessionUser} /></li>
-                </ul>
+                <div className='choices'>
+                  <ul className='diffButtons'>
+                    <li>
+                      <a href='/' className='navButtons' id='home'>
+                        <i className="fa-solid fa-house-chimney"></i>
+                        <span className='navTitle'>Home</span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <div className='navButtons' id='network'>
+                        <i className="fa-solid fa-user-group"></i>
+                        <span className='navTitle'>My Network</span>
+                      </div>
+                    </li>
+
+                    <li>
+                      <div className='navButtons' id='notifications'>
+                        <i className="fa-solid fa-bell"></i>
+                        <span className='navTitle'>Notifications</span>
+                      </div>
+                    </li>
+
+                    <li><ProfileButton user={sessionUser} /></li>
+                  </ul>
+                </div>
               </div>
             </header>
           ) : 

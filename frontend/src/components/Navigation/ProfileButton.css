@@ -5,13 +5,15 @@ body {
 #dropdownbutton {
     border: none;
     cursor: pointer;
-    position: absolute;
-    right: 10%;
+    /* position: absolute;
+    right: 10%; */
 }
 
-#dropPic {
-    height: 40px;
-    width: 40px;
+#dropIcon {
+    height: 16px;
+    width: 16px;
+    transform: scale(1);
+    transition: transform .2s ease-in-out;
 }
 
 .profile-dropdown {
@@ -83,4 +85,54 @@ body {
 
 .dropdownOptions:hover {
     text-decoration: underline;
+}
+
+.choices {
+    margin-left: auto;
+    min-height: 52px;
+    display: block;
+}
+
+.diffButtons {
+    opacity: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    list-style-type: none;
+    margin-block-start: 1px;
+    margin-block-end: 1px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.diffButtons li{
+    display: flex;
+    align-items: center;
+}
+
+.navButtons {
+    align-items: center;
+    background: transparent;
+    color: rgba(0,0,0,0.6);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    font-weight: 400;
+    justify-content: center;
+    text-align: center;
+    min-height: 52px;
+    min-width: 80px;
+    position: relative;
+    text-decoration: none;
+}
+
+.navTitle {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+
+#home:hover, #network:hover, #notifications:hover, #drop:hover{
+    color: black
 }

@@ -75,6 +75,7 @@
     width: 100%;
     z-index: 100;
     border-bottom: 1px solid rgba(0,0,0,0.08);
+    /* display: block; */
 }
 
 #headBackground {
@@ -89,6 +90,7 @@
     max-width: 1128px;
     margin-left: 13%;
     border-bottom: 1px solid rgba(0,0,0,0.08);
+    width: 100%;
     /* margin-right: 5%; */
     /* position: fixed; */
     /* top: 0; */
@@ -109,7 +111,9 @@
 } */
 
 #withUserHomeLogo {
-    height: 60px;
+    height: 37px;
+    width: 37px;
+    margin: 0 4px 0 -4px;
     /* vertical-align: top; */
 }
 

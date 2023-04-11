@@ -34,9 +34,10 @@ function ProfileButton({ user }) {
   return (
     <>
     <div id="dropdown">
-      <button onClick={openMenu} id='dropdownbutton'>
-        <img src={dropdown} alt='profile' id="dropPic"/>
-      </button>
+      <div onClick={openMenu} className='navButtons' id="drop">
+        <i className="fa-solid fa-sort-down"></i>
+        <span className='navTitle'>Me<i className="fa-solid fa-sort-down" id="dropIcon"></i></span>
+      </div>
       {showMenu && (
         <ul className="profile-dropdown">
           <li>{user.firstName + ' ' + user.lastName}</li>
