@@ -53,8 +53,8 @@ require "open-uri"
     i = 1
     while i < 22 do
       5.times do 
-        start_year = rand(1990..2021)
-        end_year = rand(start_year..2022)
+        start_year = rand(1990..2020)
+        end_year = rand(start_year+1..2022)
 
         skills = '';
         3.times do 

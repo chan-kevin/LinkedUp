@@ -7,8 +7,8 @@ class Api::ExperiencesController < ApplicationController
     def create
         @experience = Experience.new(experience_params)
         if !(@experience.current)
-          @experience.start_year = @experience.start_year.to_i
-          @experience.end_year = @experience.end_year.to_i
+          # @experience.start_year = @experience.start_year.to_i
+          # @experience.end_year = @experience.end_year.to_i
         end
     
         fetch_company_logo(@experience.company)

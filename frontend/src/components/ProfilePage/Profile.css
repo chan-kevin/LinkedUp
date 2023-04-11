@@ -47,6 +47,7 @@
     border-radius: 100px;
     overflow: hidden;
     z-index: 4;
+    cursor: pointer;
 }
 
 .profile img {
@@ -263,4 +264,123 @@
 #connectIcon {
     font-size: 14px;
     margin-right: 6px;
+}
+
+.profileModal {
+    background-color: #09223b;
+    max-width: 744px;
+    /* top: 32px; */
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.changeProfileTitle {
+    display: block;
+    padding: 16px 48px 16px 24px;
+    color: white;
+    font-size: 20px;
+}
+
+#changeProfileClose {
+    color: white;
+}
+
+#changeProfileCloseButton:hover {
+    background-color: hsla(0,0%,100%,0.12);
+}
+
+.changeProfileBody {
+    display: flex;
+    justify-content: center;
+    padding: 70px;
+}
+
+.changeProfileFoot {
+    border-top: 1px solid hsla(0,0%,100%,0.12);
+    
+}
+
+.changeProfileButtons {
+    border: none;
+    color: white;
+    float: right;
+    align-items: center;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    justify-content: center;
+    min-height: 52px;
+    min-width: 80px;
+    padding: 30px;
+}
+
+.changeProfileButtons:hover {
+    background-color: hsla(0,0%,100%,0.12);
+}
+
+#secondModal {
+    background-color: white;
+}
+
+#changeProfileCloseButton2:hover {
+    background-color: rgba(0,0,0,0.08);
+}
+
+#changeProfileClose2 {
+    color: rgba(0,0,0,0.6);
+}
+
+#changeProfileTitle2 {
+    color: black;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.changeProfileBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#changeDefaultPic {
+    width: 300px;
+}
+
+#recognize {
+    font-size: 22px;
+    padding-bottom: 15px;
+}
+
+#require {
+    color: rgba(0,0,0,0.5);
+    padding-top: 15px;
+    text-align: center;
+    line-height: 23px;
+    width: 500px;
+}
+
+#changeProfileFoot2 {
+    border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.uploadWrapper{
+    position: relative;
+    padding-left: 610px;
+}
+
+#uploadPhoto {
+    margin: 10px;
+    cursor: pointer;
+    width: 110px
+}
+
+#uploadInput {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
 }

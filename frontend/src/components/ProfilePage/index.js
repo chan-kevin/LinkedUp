@@ -10,6 +10,7 @@ import DropDown from './DropDown';
 import ExperienceFormModal from '../ExperienceFormModal';
 import SearchBar from '../SearchBar/SearchBar';
 import { createConnection, removeConnection } from '../../store/connection';
+import { Modal } from '../../context/Modal';
 
 const ProfilePage = () => {
     const { userId } = useParams();
@@ -22,6 +23,8 @@ const ProfilePage = () => {
     const apiKey = process.env.CLEARBIT_API_KEY;
     const [photoFile, setPhotoFile] = useState (null);
     const [photoUrl, setPhotoUrl] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [secondModal, setSecondModal] = useState(false);
     
 
     // const [isLoading, setIsLoading] = useState(true);
@@ -48,7 +51,7 @@ const ProfilePage = () => {
         // }
         // fetchCompanyLogo();
         // setIsLoading(false);
-    }, [dispatch, userId]);
+    }, [dispatch, userId, secondModal]);
 
 
     const handleConnect = () => {
@@ -82,7 +85,7 @@ const ProfilePage = () => {
     //     return <p>Loading...</p>
     // }
 
-    const changeProfilePic = ({ currentTarget}) =>{
+    const changeProfilePic = ({ currentTarget}) => {
         const file = currentTarget.files[0];
         if (file) {
             setPhotoFile(file);
@@ -93,7 +96,7 @@ const ProfilePage = () => {
         else setPhotoUrl(null);
     }
 
-    const handleSubmit = async e =>{
+    const handleSubmit = async e => {
         e.preventDefault();
         const formData = new FormData()
         formData.append('user[id]', userId);
@@ -102,6 +105,19 @@ const ProfilePage = () => {
             dispatch(editUserProfile(formData, userId));
         }
         // debugger
+    }
+
+    const onClose = () => {
+        setShowModal(false);
+        setSecondModal(false);
+    }
+
+    const openProfileModal = () => {
+        setShowModal(true);
+    }
+
+    const openSecondModal = () => {
+        setSecondModal(true);
     }
 
     let preview = null;
@@ -115,9 +131,59 @@ const ProfilePage = () => {
                     <img src={profileBackground} alt='background'/>
                 </div>
 
-                <div className='profile'>
+                <div className='profile' onClick={openProfileModal}>
                     <img src={defaultProfile} alt='defaultProfile' />
                 </div>
+
+                {showModal && (
+                    <Modal onClose={onClose}>
+                        {!secondModal ?
+                        <div className='profileModal'>
+                            <button onClick={onClose} className='closeButton' id='changeProfileCloseButton'>
+                                <i className="fa-solid fa-xmark" id='changeProfileClose'></i>
+                            </button>
+
+                            <div className='changeProfileTitle'>Profile Picture</div>
+
+                            <div className='changeProfileBody'>
+                                <img src={defaultProfile} alt='defaultProfile' />
+                            </div>
+
+                            <footer className='changeProfileFoot'>
+
+                                <button className='changeProfileButtons'>
+                                    <i className="fa-solid fa-trash-can"></i>
+                                    <span className='navTitle'>Delete</span>
+                                </button>
+
+                                <button onClick={openSecondModal} className='changeProfileButtons'>
+                                    <i className="fa-solid fa-camera"></i>
+                                    <span className='navTitle'>Add Photos</span>
+                                </button>
+                            </footer>
+                        </div> :
+                        <div className='profileModal' id='secondModal'>
+                            <button onClick={onClose} className='closeButton' id='changeProfileCloseButton2'>
+                                <i className="fa-solid fa-xmark" id='changeProfileClose2'></i>
+                            </button>
+
+                            <div className='changeProfileTitle' id='changeProfileTitle2'>Change photo</div>
+
+                            <div className='changeProfileBody'>
+                                <p id='recognize'>{sessionUser.firstName}, help others recognize you!</p>
+                                <img src={defaultProfile} alt='defaultProfile' id='changeDefaultPic'/>
+                                <p id='require'>On LinkedUp, we require members to use their real identities, so take or upload a photo of yourself. </p>
+                            </div>
+
+                            <footer className='changeProfileFoot' id='changeProfileFoot2'>
+                                <div class="uploadWrapper">
+                                    <input type='file' id='uploadInput'></input>
+                                    <label className='submit' id='uploadPhoto'>Upload photo</label>
+                                </div>
+                            </footer>
+                        </div>}
+                    </Modal>
+                )}
 
                 <input type="file" onChange={changeProfilePic} />
                 <button onClick={handleSubmit}>submitTest</button>

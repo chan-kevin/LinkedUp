@@ -11,9 +11,9 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  start_month :string           not null
-#  start_year  :string           not null
-#  end_month   :string           not null
-#  end_year    :string           not null
+#  start_year  :integer          not null
+#  end_month   :string
+#  end_year    :integer
 #  skills      :string
 #  logo        :text
 #  current     :boolean          default(FALSE), not null
@@ -24,14 +24,18 @@ require 'date'
 class Experience < ApplicationRecord
   validates :title, :company, :start_month, :start_year, :user_id, presence: true
   validates :end_month, :end_year, presence: true, unless: -> { current }
-  validate :start_end_dates, unless: -> { current }
+  validate :start_end_dates, if: -> { all_present? && !current }
   
   belongs_to :user
   
-  def initialize(attributes={})
-    attributes[:end_year] = nil if attributes[:end_year].blank?
-    attributes[:end_month] = "January" if attributes[:end_month].blank?
-    super(attributes)
+  # def initialize(attributes={})
+  #   attributes[:end_year] = nil if attributes[:end_year].blank?
+  #   attributes[:end_month] = "January" if attributes[:end_month].blank?
+  #   super(attributes)
+  # end
+
+  def all_present?
+    [title, company, start_month, start_year, user_id, end_month, end_year].all?(&:present?)
   end
   
   def start_end_dates
