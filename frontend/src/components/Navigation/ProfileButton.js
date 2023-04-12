@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import dropdown from './assets/dropdownProfile.png'
@@ -8,6 +8,7 @@ import './ProfileButton.css'
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  const sessionUser = useSelector(state => state.session.user)
   
   const openMenu = (e) => {
     if (showMenu) return;
@@ -35,12 +36,22 @@ function ProfileButton({ user }) {
     <>
     <div id="dropdown">
       <div onClick={openMenu} className='navButtons' id="drop">
-        <i className="fa-solid fa-sort-down"></i>
+        <div className='navPic'>
+            <img src={sessionUser.photoUrl} alt='defaultProfile' />
+        </div>
         <span className='navTitle'>Me<i className="fa-solid fa-sort-down" id="dropIcon"></i></span>
       </div>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li>{user.firstName + ' ' + user.lastName}</li>
+          <li>
+            <div className='navPic'>
+              <img src={sessionUser.photoUrl} alt='defaultProfile' />
+            </div>
+            <div className="navProfile">
+              <div>{user.firstName + ' ' + user.lastName}</div>
+              <div className="navHeadline">{user.headline}</div>
+            </div>
+          </li>
           <li><NavLink to={`/users/${user.id}`} id='viewProfile'>View Profile</NavLink></li>
           <li>Account</li>
           <li><button className='dropdownOptions'>Try Premium for free</button></li>

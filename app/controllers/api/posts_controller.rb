@@ -2,7 +2,7 @@ class Api::PostsController < ApplicationController
     before_action :require_logged_in
 
     def index 
-        @posts = Post.includes(:author, :comments, :likes).all
+        @posts = Post.includes(:author, :comments, :likes).all.order(created_at: :desc)
         render '/api/posts/index'
     end
 
@@ -13,7 +13,8 @@ class Api::PostsController < ApplicationController
 
     def create 
         @post = Post.new(post_params)
-        @post.user_id = current_user.id
+        @post.author_id = current_user.id
+        
         if @post.save 
             render json: @post
         else
@@ -41,6 +42,6 @@ class Api::PostsController < ApplicationController
 
     private 
     def post_params 
-        params.require(:post).permit(:id, :user_id, :body, :image)
+        params.require(:post).permit(:id, :user_id, :body, :author_id)
     end
 end

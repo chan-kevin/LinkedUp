@@ -1,5 +1,8 @@
 body {
     background-color:rgba(0,0,0,0.06);
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 
+    'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 
+    'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
 #dropdownbutton {
@@ -62,6 +65,7 @@ body {
 .profile-dropdown > li {
     padding-top: 10px;
     padding-left: 10px;
+    font-weight: 600;
 }
 
 .profile-dropdown > li:nth-child(2),
@@ -149,4 +153,29 @@ body {
 
 .navButtons:hover::before, .navButtons:hover::after {
     width: 100%;
+}
+
+.navPic {
+    width: 23px;
+    height: 23px;
+    border-radius: 100px;
+    overflow: hidden;
+    z-index: 4;
+    margin-right: 10px;
+}
+
+.navPic img {
+    width: 100%;
+    height: 100%;
+}
+
+.navProfile {
+    display: flex;
+    flex-direction: column;
+}
+
+.navHeadline {
+    font-size: 14px;
+    color: rgba(0,0,0,0.6);
+    font-weight: 400;
 }

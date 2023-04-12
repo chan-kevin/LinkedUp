@@ -5,9 +5,25 @@
     flex-direction: column;
 }
 
+#createPost, #feedPost {
+    width: 600px;
+}
+
+#homeProfile {
+    width: 250px;
+}
+
 #homeFeed {
     margin-top: 90px;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+    /* padding-left: 180px; */
+    /* position: fixed; */
+    /* justify-content: center; */
 }
+
 
 #feedPost, #createPost {
     padding: 20px;
@@ -34,10 +50,13 @@
     color: rgba(0,0,0,0.6);
     border-bottom: 1px solid rgba(0,0,0,0.08);
     padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .likesCount {
-    float: left;
+    display: flex;
+    align-items: center;
 }
 
 #likesCountIcon {
@@ -45,7 +64,8 @@
 }
 
 .commentsCount {
-    float: right;
+    display: flex;
+    align-items: center;
     cursor: pointer;
 }
 
@@ -59,7 +79,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .postButtons {
@@ -111,7 +131,8 @@
 .commentsDetail {
     border-radius: 0 8px 0 0;
     margin-bottom: 25px;
-    width: 90%;
+    /* width: 90%; */
+    flex-grow: 1;
     padding: 10px;
     background-color: rgba(0,0,0,0.08);
 }
@@ -119,4 +140,120 @@
 .commentBody {
     padding-bottom: 15px;
     padding-top: 15px;
+}
+
+.startPost {
+    background-color: white;
+    margin: 4px 0;
+    font-size: 14px;
+    flex-grow: 1;
+    height: 45px;
+    /* width: 100%; */
+    max-width: none;
+    line-height: 1.5;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 35px;
+    padding-left: 16px;
+    text-align: left;
+    color: rgba(0,0,0,0.6);
+    cursor: pointer;
+}
+
+.startPost:hover {
+    background-color: rgba(0,0,0,0.08);
+}
+
+#createPost {
+    display: flex;
+    flex-direction: row;
+}
+
+.homeFoot {
+    padding-left: 80px;
+}
+
+.createPostFoot {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.uploadPhoto, .submitPost {
+    display: flex;
+    align-items: center;
+}
+
+.submitPost {
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.uploadPhotoIcon {
+    background-color: transparent;
+    border-radius: 100%;
+    border: none;
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.uploadPhotoIcon i {
+    color: rgba(0,0,0,0.6);
+    width: 24px;
+    height: 24px;
+    font-size: 20px;
+    position: absolute;
+    bottom: -1px;
+    right: 1px
+}
+
+.uploadPhotoIcon:hover {
+    background-color: rgba(0,0,0,0.08);
+}
+
+.uploadPhoto {
+    height: 4px;
+    width: 4px;
+    display: inline-block;
+}
+
+.createPostBody {
+    /* padding: 25px;
+    padding-right: 35px;
+    height: 300px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start; */
+    padding: 25px;
+    padding-right: 35px;
+    /* height: 300px; */
+}
+
+.createPostInput {
+    width: 100%;
+    height: 300px;
+    font-size: 16px;
+    border: none;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 
+    'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 
+    'Lucida Grande', Helvetica, Arial, sans-serif;
+    resize: none;
+    outline: 0;
+}
+
+.createPostInput:focus {
+    border: none;
+}
+
+.createPostUserDetail {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+}
+
+.createPostUserName {
+    font-weight: 600;
 }

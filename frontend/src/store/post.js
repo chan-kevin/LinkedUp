@@ -26,13 +26,12 @@ const addPost = (post) => {
 }
 
 export const createPost = (post) => async dispatch => {
-    const {body, authorId} = post
-    const response = await csrfFetch("/api/experiences", {
+    const {body} = post
+    const response = await csrfFetch("/api/posts", {
     method: "POST",
     body: JSON.stringify({
         post:{
-            body,
-            authorId
+            body
         }
     })
 });
@@ -60,7 +59,7 @@ const postsReducer = (state = {}, action) => {
         case FETCH_ALL_POSTS:
             return { ...action.payload.posts}
         case ADD_POST:
-            return { ...state, [action.payload.id]: action.payload }
+            return { ...state, ...action.payload }
         default:
             return state;
     }
