@@ -13,6 +13,7 @@
 #  last_name       :string           not null
 #  about           :text
 #  location        :string
+#  headline        :string
 #
 require 'open-uri'
 
@@ -29,6 +30,7 @@ class User < ApplicationRecord
   has_many :educations, dependent: :destroy
 
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   # has_many :sent_connections,
   #   class_name: :Connection,

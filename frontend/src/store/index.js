@@ -7,6 +7,7 @@ import { educationReducer } from './education';
 import searchReducer from './search';
 import { connectionReducer } from './connection';
 import postsReducer from './post';
+import { commentReducer } from './comment';
 
 const rootReducer = combineReducers({
   connection: connectionReducer,
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   search: searchReducer,
   experiences: experienceReducer,
   educations: educationReducer,
-  posts: postsReducer
+  posts: postsReducer,
+  comments: commentReducer
 });
 
 let enhancer;

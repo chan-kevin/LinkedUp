@@ -6,6 +6,11 @@ class Api::PostsController < ApplicationController
         render '/api/posts/index'
     end
 
+    def show
+        @post = Post.find(params[:id])
+        render '/api/posts/show'
+    end
+
     def create 
         @post = Post.new(post_params)
         @post.user_id = current_user.id

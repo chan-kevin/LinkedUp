@@ -215,8 +215,6 @@ const ProfilePage = () => {
                 {/* <input type="file" onChange={changeProfilePic} />
                 <button onClick={handleSubmit}>submitTest</button>
                 {photoUrl ? <img src={photoUrl} alt="test" /> : null} */}
-                
-                <PostPage />
 
                 <div className='userInfo'>
                     {user && 

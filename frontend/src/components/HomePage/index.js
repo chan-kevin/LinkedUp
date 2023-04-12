@@ -5,6 +5,7 @@ import { NavLink, Redirect } from 'react-router-dom';
 import './HomePage.css';
 import background from './HomePage.svg'
 import LoginFormPage from '../LoginFormPage';
+import PostPage from '../PostPage';
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ function HomePage() {
     }
   }, [empty]);
 
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to="/home" />;
 
 //   const ele = document.getElementById('headBackground');
 //   ele.style.backgroundColor = 'white';
@@ -103,52 +104,56 @@ function HomePage() {
 
   return (
     <div id='homeColor'>
-    <div className='fontFamily' id='homePage'>
-        <div className='signIn'>
-            <form onSubmit={handleSubmit} className='homeLogin'>
-                {/* <ul>
-                    {errors.map(error => <li key={error}>{error}</li>)}
-                </ul> */}
+      
+      <div className='fontFamily' id='homePage'>
+          <div className='signIn'>
+          
+              <form onSubmit={handleSubmit} className='homeLogin'>
+                  {/* <ul>
+                      {errors.map(error => <li key={error}>{error}</li>)}
+                  </ul> */}
 
-                <h1 id='homeHeading'>Welcome to your professional community</h1>
+                  <h1 id='homeHeading'>Welcome to your professional community</h1>
 
-                <label className='homeLabel' id='emailEmptyLabel' ref={emailEmptyLabelRef}>
-                    Email or phone
-                </label>
-                <input
-                    id='emailEmptyInput' 
-                    ref={emailEmptyInputRef}
-                    type="text"
-                    value={credential}
-                    onChange={changeCredential}
-                    // onFocus={handleInputFocus}
-                    // onBlur={handleInputBlur}
-                />
-                {empty.email && <div className='empty'>{empty.email}</div>}
+                  <label className='homeLabel' id='emailEmptyLabel' ref={emailEmptyLabelRef}>
+                      Email or phone
+                  </label>
+                  <input
+                      id='emailEmptyInput' 
+                      ref={emailEmptyInputRef}
+                      type="text"
+                      value={credential}
+                      onChange={changeCredential}
+                      // onFocus={handleInputFocus}
+                      // onBlur={handleInputBlur}
+                  />
+                  {empty.email && <div className='empty'>{empty.email}</div>}
 
-                <label className='homeLabel' id='passwordEmptyLabel' ref={passwordEmptyLabelRef}>
-                    Password
-                </label>
-                <input
-                    id='passwordEmptyInput'
-                    ref={passwordEmptyInputRef}
-                    type="password"
-                    value={password}
-                    onChange={changePassword}
-                    // onFocus={handleInputFocus}
-                    // onBlur={handleInputBlur}
-                />
-                {empty.password && <div className='empty'>{empty.password}</div>}
+                  <label className='homeLabel' id='passwordEmptyLabel' ref={passwordEmptyLabelRef}>
+                      Password
+                  </label>
+                  <input
+                      id='passwordEmptyInput'
+                      ref={passwordEmptyInputRef}
+                      type="password"
+                      value={password}
+                      onChange={changePassword}
+                      // onFocus={handleInputFocus}
+                      // onBlur={handleInputBlur}
+                  />
+                  {empty.password && <div className='empty'>{empty.password}</div>}
 
-                <NavLink to='/forgot' className='forgotSignup' id='homeSignIn'>Forgot Password?</NavLink>
-                <div id='homeBorder'><button type="submit" className='signInSubmit' id='homeSign'>Sign in</button></div>
-                {/* {errors ? <LoginFormPage credential={credential} errors={errors} /> : null} */}
-                <button type="submit" className='signInSubmit' id='homeGoogle' onClick={demoLogin}>Sign in as Demo</button>
-                <NavLink to='/signup' className='signInSubmit' id='homeNew'>New to LinkedIn? Join now</NavLink>
-            </form>
-        </div>
-        <img src={background} alt='background' id='homeImg'></img>
-    </div>
+                  <NavLink to='/forgot' className='forgotSignup' id='homeSignIn'>Forgot Password?</NavLink>
+                  <div id='homeBorder'><button type="submit" className='signInSubmit' id='homeSign'>Sign in</button></div>
+                  {/* {errors ? <LoginFormPage credential={credential} errors={errors} /> : null} */}
+                  <button type="submit" className='signInSubmit' id='homeGoogle' onClick={demoLogin}>Sign in as Demo</button>
+                  <NavLink to='/signup' className='signInSubmit' id='homeNew'>New to LinkedIn? Join now</NavLink>
+              </form>
+              
+          </div>
+          <img src={background} alt='background' id='homeImg'></img>
+      </div>
+      
     </div>
   );
 }

@@ -3,6 +3,8 @@ json.posts do
         json.set! post.id do
             json.author_first_name post.author.first_name
             json.author_last_name post.author.last_name
+            json.author_headline post.author.headline
+            json.author_photo post.author.photo.attached? ? post.author.photo.url : nil
             json.likes_count post.likes.length
             json.comments post.comments.select(:id).map{|comment| comment.id}
             json.extract! post, :id, :body, :author_id

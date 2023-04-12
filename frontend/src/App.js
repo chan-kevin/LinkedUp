@@ -8,6 +8,7 @@ import ForgotPage from './components/ForgotPage'
 import ProfilePage from './components/ProfilePage';
 import ExperiencePage from './components/ExperiencePage';
 import './index.css';
+import PostPage from './components/PostPage';
 
 function App() {
   return (
@@ -16,6 +17,10 @@ function App() {
       <Switch>
         <Route exact path="/">
           <HomePage />
+        </Route>
+
+        <Route path="/home">
+          <PostPage />
         </Route>
 
         <Route exact path="/users/:userId">

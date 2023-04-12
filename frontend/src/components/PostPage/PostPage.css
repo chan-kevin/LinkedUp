@@ -1,0 +1,122 @@
+#postList {
+    width: 1128px;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+}
+
+#homeFeed {
+    margin-top: 90px;
+}
+
+#feedPost, #createPost {
+    padding: 20px;
+}
+
+.authorInfo {
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: row;
+}
+
+.authorHeadline {
+    color: rgba(0,0,0,0.6);
+    font-size: 14px;
+}
+
+.postBody {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.postLikesComments {
+    color: rgba(0,0,0,0.6);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding-bottom: 10px;
+}
+
+.likesCount {
+    float: left;
+}
+
+#likesCountIcon {
+    padding-right: 10px;
+}
+
+.commentsCount {
+    float: right;
+    cursor: pointer;
+}
+
+.commentsCount:hover {
+    text-decoration: underline;
+    color: #0a66c2;
+}
+
+.postInteract {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.postButtons {
+    align-items: center;
+    background: transparent;
+    color: rgba(0,0,0,0.6);
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    font-weight: 400;
+    justify-content: center;
+    text-align: center;
+    min-height: 50px;
+    width: 100%;
+    position: relative;
+    border: none;
+}
+
+.postButtons:hover {
+    background-color: rgba(0,0,0,0.08);
+    border-radius: 8px;
+}
+
+#likeButton, #commentButton {
+    padding-right: 10px;
+}
+
+.authorPic {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    overflow: hidden;
+    z-index: 4;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.authorPic img {
+    width: 100%;
+    height: 100%;
+}
+
+.comments {
+    display: flex;
+    flex-direction: row;
+}
+
+.commentsDetail {
+    border-radius: 0 8px 0 0;
+    margin-bottom: 25px;
+    width: 90%;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.08);
+}
+
+.commentBody {
+    padding-bottom: 15px;
+    padding-top: 15px;
+}

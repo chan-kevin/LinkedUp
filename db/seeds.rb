@@ -18,6 +18,7 @@ require "open-uri"
       email: 'demo@user.io', 
       first_name: 'Demo',
       last_name: 'User',
+      headline: 'student @ app academy',
       password: 'password',
       about: Faker::Quote.matz,
       location: Faker::Address.country
@@ -41,6 +42,7 @@ require "open-uri"
             email: Faker::Internet.unique.email,
             first_name: Faker::Name.first_name,
             last_name: Faker::Name.last_name,
+            headline: 'student @ app academy',
             about: Faker::Quote.matz,
             location: Faker::Address.country,
             password: 'password'
