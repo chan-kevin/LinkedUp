@@ -91,6 +91,15 @@ require "open-uri"
       i += 1
     end
 
+    Post.create!({
+      body: 'testing testing123!@^&*;',
+      author_id: 1
+    })
+
+    Post.create!({
+      body: '2testing2 2testing123!@^&*2;',
+      author_id: 2
+    })
     # Education.first.photo.attach( io: URI.open("https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6464/6464080_sd.jpg;maxHeight=640;maxWidth=550"),
     # filename: "cat.jpg"
     # )

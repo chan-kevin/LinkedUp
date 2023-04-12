@@ -11,6 +11,7 @@ import ExperienceFormModal from '../ExperienceFormModal';
 import SearchBar from '../SearchBar/SearchBar';
 import { createConnection, removeConnection } from '../../store/connection';
 import { Modal } from '../../context/Modal';
+import PostPage from '../PostPage';
 
 const ProfilePage = () => {
     const { userId } = useParams();
@@ -150,11 +151,7 @@ const ProfilePage = () => {
                     </div>
 
                     <div className='profile' onClick={openProfileModal}>
-                        {user.photoUrl ?
                         <img src={user.photoUrl} alt='defaultProfile' />
-                        :
-                        <img src={defaultProfile} alt='defaultProfile' />
-                        }
                     </div>
                 </>
                 }
@@ -170,11 +167,7 @@ const ProfilePage = () => {
                             <div className='changeProfileTitle'>Profile Picture</div>
 
                             <div className='changeProfileBody'>
-                                {user.photoUrl ?
                                 <img src={user.photoUrl} alt='defaultProfile' id='changeDefaultPic'/>
-                                :
-                                <img src={defaultProfile} alt='defaultProfile' id='changeDefaultPic'/>
-                                }
                             </div>
 
                             <footer className='changeProfileFoot'>
@@ -199,11 +192,7 @@ const ProfilePage = () => {
 
                             <div className='changeProfileBody'>
                                 <p id='recognize'>{sessionUser.firstName}, help others recognize you!</p>
-                                {user.photoUrl ?
                                 <img src={user.photoUrl} alt='defaultProfile' id='changeDefaultPic'/>
-                                :
-                                <img src={defaultProfile} alt='defaultProfile' id='changeDefaultPic'/>
-                                }
                                 <p id='require'>On LinkedUp, we require members to use their real identities, so take or upload a photo of yourself. </p>
                             </div>
 
@@ -226,6 +215,8 @@ const ProfilePage = () => {
                 {/* <input type="file" onChange={changeProfilePic} />
                 <button onClick={handleSubmit}>submitTest</button>
                 {photoUrl ? <img src={photoUrl} alt="test" /> : null} */}
+                
+                <PostPage />
 
                 <div className='userInfo'>
                     {user && 

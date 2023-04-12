@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 class Post < ApplicationRecord
-    validates :aithor_id, :body, presence: true
+    validates :author_id, :body, presence: true
 
     belongs_to :author,
         foreign_key: :author_id,
@@ -19,5 +19,7 @@ class Post < ApplicationRecord
         dependent: :destroy
     
     has_many :likes,
+        foreign_key: :likeable_id,
+        class_name: :Like,
         dependent: :destroy
 end

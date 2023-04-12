@@ -14,6 +14,8 @@
 #  about           :text
 #  location        :string
 #
+require 'open-uri'
+
 class User < ApplicationRecord
   validates :email, length: { in: 3..255 }, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
   validates :phone_number, format: { with: /\A\+\d+\z/ }, uniqueness: true, on: :sign_in
@@ -21,7 +23,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :session_token, presence: true, uniqueness: true
   validates :password, length: { in: 6..255 }, allow_nil: true
-  before_validation :ensure_session_token
+  before_validation :ensure_session_token, :generate_default_pic
 
   has_many :experiences, dependent: :destroy
   has_many :educations, dependent: :destroy
@@ -98,6 +100,13 @@ class User < ApplicationRecord
     self.session_token
   end
   has_secure_password
+
+  def generate_default_pic
+    unless self.photo.attached?
+      file = URI.open("https://linkedup-seeds.s3.amazonaws.com/pikachu.png");
+      self.photo.attach(io: file, filename: "default.png")
+    end
+  end
 
   private
 

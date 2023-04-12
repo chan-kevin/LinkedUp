@@ -12,7 +12,7 @@ const fetchAllPosts = (posts) => {
 export const getAllPosts = () => async dispatch => {
     const response = await csrfFetch("/api/posts")
     const data = await response.json();
-    dispatch(fetchAllPosts(data));
+    dispatch(fetchAllPosts(data.posts));
     return response;
 }
 
