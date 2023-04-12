@@ -14,10 +14,21 @@ const PostPage = () => {
     // const [hasComments, setHasComments] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [postBody, setPostBody] = useState('');
+    const [showMenu, setShowMenu] = useState(null);
 
     useEffect(() => {
         dispatch(getAllPosts());
-    }, [dispatch, posts.length], sessionUser)
+
+        if (showMenu === null) return;
+
+        const closeMenu = () => {
+            setShowMenu(null);
+        };
+
+    document.addEventListener('click', closeMenu);
+
+    return () => document.removeEventListener('click', closeMenu);
+    }, [dispatch, posts.length, showMenu])
 
     const listComments = (postId) => {
         dispatch(getOnePost(postId));
@@ -31,6 +42,11 @@ const PostPage = () => {
         await dispatch(createPost(newPost));
         setShowModal(false);
         await dispatch(getAllPosts());
+    }
+
+    const openMenu = (e, index) => {
+        e.stopPropagation();
+        setShowMenu(index);
     }
 
     const onClose = () => {
@@ -108,6 +124,25 @@ const PostPage = () => {
                                     {post.authorHeadline}
                                 </div>
                             </div>
+                            <button className="optionsContainer" onClick={(e) => {openMenu(e, index)}}>
+                                <i className="fa-solid fa-ellipsis" id="postOptionsIcon"></i>
+                            </button>
+
+                            { showMenu === index && 
+                                <div className="editOptions">
+                                    <div className="editChoices">
+                                        <div className="positionButton" id='editPost'>
+                                            <i className="fa-solid fa-pencil" id="editPostIcon"></i>Edit Post
+                                        </div>
+                                    </div>
+
+                                    <div className="editChoices">
+                                        <div className="positionButton" id="deletePost">
+                                            <i className="fa-solid fa-trash-can" id="deleteIcon"></i>Delete Post
+                                        </div>
+                                    </div>
+                                </div>
+                            }
                         </div>
 
                         <div className="postBody">
