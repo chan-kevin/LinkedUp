@@ -4,6 +4,7 @@ export const FETCH_ALL_POSTS = 'posts/fetchAllPosts'
 export const GET_POST = 'posts/getPost'
 const ADD_POST = 'posts/addPost'
 const EDIT_POST = 'posts/editPost'
+const DELETE_POST = 'posts/deletePost'
 
 const fetchAllPosts = (posts) => {
     return {
@@ -30,6 +31,13 @@ const editPost = (post) => {
     return {
         type: EDIT_POST,
         payload: post
+    }
+}
+
+const deletePost = (postId) => {
+    return {
+        type: DELETE_POST,
+        payload: postId
     }
 }
 
@@ -60,7 +68,7 @@ export const updatePost = (post) => async dispatch => {
     })
 });
     const data = await response.json();
-    dispatch(addPost(data.post));
+    dispatch(editPost(data.post));
     return response;
 };
 
@@ -78,14 +86,26 @@ export const getAllPosts = () => async dispatch => {
     return response;
 }
 
+export const removePost = (postId) => async dispatch => {
+    const response = await csrfFetch(`/api/posts/${postId}`, {
+        method: "DELETE"
+    });
+    dispatch(deletePost(postId));
+    return response;
+};
+
 const postsReducer = (state = {}, action) => {
     switch (action.type) {
         case FETCH_ALL_POSTS:
-            return { ...action.payload.posts}
+            return {...action.payload.posts}
         case ADD_POST:
-            return { ...state, ...action.payload }
+            return { ...state, [action.payload.id]: action.payload }
         case EDIT_POST:
             return { ...state, [action.payload.id]: action.payload };
+        case DELETE_POST:
+            const newState = { ...state };
+            delete newState[action.payload];
+            return newState;
         default:
             return state;
     }

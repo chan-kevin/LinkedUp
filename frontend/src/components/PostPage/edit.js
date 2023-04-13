@@ -4,29 +4,9 @@ import { Modal } from "../../context/Modal";
 import { updatePost } from "../../store/post";
 
 const EditPage = ({onClose, post}) => {
-    const [editModal, setEditModal] = useState(false);
     const [body, setBody] = useState(post.body ?? '');
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-
-    const closeEditModal = () => {
-        setEditModal(false);
-    }
-
-    useEffect(() => {
-        const closeModal = (e) => {
-            if (e.target.id === 'secondModal') {
-                return;
-            }
-            setEditModal(false);
-        };
-    
-        document.addEventListener('mousedown', closeModal);
-    
-        return () => {
-            document.removeEventListener('mousedown', closeModal);
-        };
-    }, [editModal]);
 
     const saveEdited = () => {
         const newPost = {

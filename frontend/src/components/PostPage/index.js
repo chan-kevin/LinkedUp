@@ -2,10 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { Modal } from "../../context/Modal";
-import { getAllComments } from "../../store/comment";
-import { createPost, getAllPosts, getOnePost } from "../../store/post";
+import { createComment, getAllComments } from "../../store/comment";
+import { createPost, getAllPosts, getOnePost, removePost } from "../../store/post";
 import EditPage from "./edit";
 import './PostPage.css';
+import profileBackground from '../ProfilePage/assets/profileBackground.jpeg';
+import CommentPage from "../CommentPage";
 
 const PostPage = () => {
     const dispatch = useDispatch();
@@ -15,21 +17,23 @@ const PostPage = () => {
     // const [hasComments, setHasComments] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [postBody, setPostBody] = useState('');
-    const [showMenu, setShowMenu] = useState(null);
+    const [showMenu, setShowMenu] = useState(false);
     const [editModal, setEditModal] = useState(false);
     const [editedBody, setEditBody] = useState('');
+    const [deleteModal, setDeleteModal] = useState(false);
+    const [body, setBody] = useState('');
     const menuRef = useRef();
 
     useEffect(() => {
         dispatch(getAllPosts());
 
-        if (showMenu === null) return;
+        // if (!showMenu) return;
 
         // const closeMenu = () => {
-        //     setShowMenu(null);
+        //     setShowMenu(false);
         // };
 
-        // menuRef.current.addEventListener('mousedown', (e) => {
+        // document.addEventListener('mousedown', (e) => {
         //     e.preventDefault();
         //     e.stopPropagation();
         // });
@@ -53,6 +57,11 @@ const PostPage = () => {
         dispatch(getAllPosts());
     }
 
+    const handleDelete = (id) => {
+        dispatch(removePost(id));
+        closeDeleteModal();
+    }
+
     const openMenu = (e, index) => {
         e.stopPropagation();
         setShowMenu(index);
@@ -61,10 +70,27 @@ const PostPage = () => {
 
     const onClose = () => {
         setShowModal(false);
+        setShowMenu(false);
     }
 
     const closeEditModal = () => {
         setEditModal(false);
+    }
+
+    const closeDeleteModal = () => {
+        setDeleteModal(false);
+    }
+
+    const commentOnChange = (e) => {
+        setBody(e.target.value)
+    }
+
+    const handleComment = (postId) => {
+        const commentNew = {
+            body,
+            postId
+        }
+        dispatch(createComment(commentNew))
     }
 
     if (!sessionUser) return <Redirect to="/" />;
@@ -73,7 +99,24 @@ const PostPage = () => {
         <div className='fontFamily' id='homeFeed'>
             <div className="feedProfile">
                 <div className='profileBoard' id="homeProfile">
-                    User Profile
+
+                    <div className='profileBackground' id="feedBackground">
+                        <img src={profileBackground} alt='background'/>
+                    </div>
+
+                    <div className='authorPic' id="sessionUserPic">
+                        <img src={sessionUser.photoUrl} alt='defaultProfile' />
+                    </div>
+
+                    <div className="sessionUserInfo">
+                        <div className="sessionUserName">
+                            {sessionUser.firstName} {sessionUser.lastName}
+                        </div>
+
+                        <div className="sessionUserHeadline">
+                            {sessionUser.headline}
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -142,7 +185,7 @@ const PostPage = () => {
                                 <i className="fa-solid fa-ellipsis" id="postOptionsIcon"></i>
                             </div>
 
-                            { showMenu === index && 
+                            { showMenu === index && (
                                 <div className="editOptions" ref={menuRef}>
                                     <div className="editChoices">
                                         <div className="positionButton" id='editPost' onClick={(e) => {
@@ -152,19 +195,37 @@ const PostPage = () => {
                                         </div>
                                     </div>
 
-                                    {editModal && 
+                                    {editModal ?
                                     (<Modal onClose={closeEditModal}>
                                         <EditPage onClose={closeEditModal} post={post} />
-                                    </Modal>)}
+                                    </Modal>) : null}
 
 
                                     <div className="editChoices">
-                                        <div className="positionButton" id="deletePost">
+                                        <div className="positionButton" id="deletePost" onClick={(e) => {
+                                            e.stopPropagation();
+                                            setDeleteModal(true);
+                                        }}>
                                             <i className="fa-solid fa-trash-can" id="deleteIcon"></i>Delete Post
                                         </div>
                                     </div>
+                                    
+                                    {deleteModal ?
+                                    (<div className="modal" id="deleteOutside">
+                                        <div className="modal-background" onClick={closeDeleteModal} />
+                                        <div className="deleteModal">
+                                            <div className="deleteModalContent">
+                                                <p>Delete post?</p>
+                                                <p>Are you sure you want to permanently remove this post from LinkedUp?</p>
+                                            </div>
+                                            <div className="deleteConfirm">
+                                                <button className='submit' onClick={closeDeleteModal}>Cancel</button>
+                                                <button className='submit' onClick={() => handleDelete(post.id)}>Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>) : null}
                                 </div>
-                            }
+                            )}
                         </div>
 
                         <div className="postBody">
@@ -199,30 +260,19 @@ const PostPage = () => {
                                 <i className="fa-regular fa-comment-dots" id="commentButton"></i>Comment
                             </button>
                         </div>
-                        { comments && comments.filter(comment => comment.postId === post.id).map((comment, index) => {
-                        return (
-                            <div className="comments" key={index}>
-                                <div className='authorPic'>
-                                    <img src={comment.commenterPhoto} alt='defaultProfile' />
-                                </div>
-
-                                <div className="commentsDetail" key={comment.id}>
-                                    <div className="authorName">
-                                        {comment.commenterFirstName} {comment.commenterLastName}
-                                    </div>
-
-                                    <div className="authorHeadline">
-                                        {comment.commenterHeadline}
-                                    </div>
-
-                                    <div className="commentBody">
-                                        {comment.body}
-                                    </div>
-
-                                </div>
+                        
+                        <div className="createComment">
+                            <div className='authorPic'>
+                                <img src={sessionUser.photoUrl} alt='defaultProfile' />
                             </div>
-                        );
-                        })}
+
+                            <input className='startPost' placeholder="Add a comment..." id="startComment" onChange={commentOnChange}/>
+                            <button className='submit' onClick={() => handleComment(post.id)}>Post</button>
+                        </div>
+
+
+                        { comments && <CommentPage post = {post} comments = {comments} />}
+
                     </div>
                     ))}
                 </div>
