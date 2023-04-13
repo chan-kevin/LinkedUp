@@ -8,6 +8,7 @@ import searchReducer from './search';
 import { connectionReducer } from './connection';
 import postsReducer from './post';
 import { commentReducer } from './comment';
+import { likeReducer } from './like';
 
 const rootReducer = combineReducers({
   connection: connectionReducer,
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
   experiences: experienceReducer,
   educations: educationReducer,
   posts: postsReducer,
-  comments: commentReducer
+  comments: commentReducer,
+  likes: likeReducer
 });
 
 let enhancer;

@@ -217,6 +217,7 @@
 #positionDrop {
     position: absolute;
     transform: translateX(-68%) translateY(140%);
+    z-index: 10;
 }
 
 #addPositionButton {
@@ -244,7 +245,7 @@
 }
 
 #modalButton:hover {
-    background-color: rgba(0,0,0,0.08);
+    background-color: rgb(243, 243, 243);
 }
 
 .positionButton {

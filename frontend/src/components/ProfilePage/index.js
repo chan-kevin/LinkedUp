@@ -228,7 +228,7 @@ const ProfilePage = () => {
                         <h3>{user.location}</h3>
                     </div>
                     }
-
+                    {sessionUser.id !== user?.id ?
                     <div className='interactButtons'>
                     {user?.connected ?
                         <button onClick={unconnect} className='submit' id='connectButton'>
@@ -240,7 +240,7 @@ const ProfilePage = () => {
                         <p>Connect</p>
                     </button>
                     }
-                    </div>
+                    </div> : null}
 
                 </div>
             </div>

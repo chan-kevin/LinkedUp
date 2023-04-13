@@ -6,21 +6,21 @@ const ADD_POST = 'posts/addPost'
 const EDIT_POST = 'posts/editPost'
 const DELETE_POST = 'posts/deletePost'
 
-const fetchAllPosts = (posts) => {
+export const fetchAllPosts = (posts) => {
     return {
       type: FETCH_ALL_POSTS,
       payload: posts
     };
 };
 
-const getPost = (post) => {
+export const getPost = (post) => {
     return {
         type: GET_POST,
         payload: post
     }
 }
 
-const addPost = (post) => {
+export const addPost = (post) => {
     return {
         type: ADD_POST,
         payload: post
@@ -90,7 +90,8 @@ export const removePost = (postId) => async dispatch => {
     const response = await csrfFetch(`/api/posts/${postId}`, {
         method: "DELETE"
     });
-    dispatch(deletePost(postId));
+    const data = await response.json();
+    dispatch(fetchAllPosts(data));
     return response;
 };
 

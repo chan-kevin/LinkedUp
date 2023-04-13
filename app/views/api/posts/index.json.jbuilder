@@ -6,6 +6,8 @@ json.posts do
             json.author_headline post.author.headline
             json.author_photo post.author.photo.attached? ? post.author.photo.url : nil
             json.likes_count post.likes.length
+            json.likesIds post.likes.map {|like| like.liker_id}
+            json.liked post.is_liked(current_user.id)
             json.comments post.comments.select(:id).map{|comment| comment.id}
             json.photoUrl post.photo.url
             json.extract! post, :id, :body, :author_id

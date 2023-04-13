@@ -24,4 +24,8 @@ class Post < ApplicationRecord
         foreign_key: :likeable_id,
         class_name: :Like,
         dependent: :destroy
+
+    def is_liked(id)
+        !self.likes.where("liker_id = ? AND likeable_id = ?", id, self.id).empty?
+    end
 end

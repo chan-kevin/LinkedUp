@@ -1,0 +1,29 @@
+.commentsEditContainer {
+    position: absolute;
+    right: 15px;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+}
+
+.commentsDetail {
+    position: relative;
+}
+
+.commentsEditContainer:hover {
+    background-color: white;
+}
+
+.commentsEditContainer i {
+    transform: translateX(8px) translateY(4px);
+}
+
+#editCommentsOptions {
+    width: 50px;
+    transform: translateY(7px);
+    z-index: 1;
+}
+
+.commentsDetail {
+    position: relative;
+}

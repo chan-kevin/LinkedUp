@@ -13,6 +13,10 @@
     height: 130px;
 }
 
+.feedBody {
+    padding-right:70px;
+}
+
 #homeProfile {
     width: 250px;
     position: relative;
@@ -42,7 +46,7 @@
     flex-wrap: wrap;
     /* padding-left: 180px; */
     /* position: fixed; */
-    /* justify-content: center; */
+    justify-content: center;
 }
 
 
@@ -58,6 +62,11 @@
     width: 100%;
     align-items: center;
     position: relative;
+}
+
+.authorName:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .authorHeadline {
@@ -449,4 +458,8 @@
     cursor: pointer;
     top: 0;
     left: 0;
+}
+
+#postOptionsIcon {
+    transform: translateX(7px) translateY(3px);
 }
