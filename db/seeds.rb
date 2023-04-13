@@ -102,9 +102,10 @@ require "open-uri"
       body: '2testing2 2testing123!@^&*2;',
       author_id: 2
     })
-    # Education.first.photo.attach( io: URI.open("https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6464/6464080_sd.jpg;maxHeight=640;maxWidth=550"),
-    # filename: "cat.jpg"
-    # )
+
+    Post.first.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/cat.jpg"),
+    filename: "cat.jpg"
+    )
   
     puts "Done!"
   # end

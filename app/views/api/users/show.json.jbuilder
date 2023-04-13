@@ -18,7 +18,7 @@ json.education do
     @user.educations.each do |education|
         json.set! education.id do
             json.extract! education, :id, :user_id, :school, :degree, :start_month, :start_year, :end_month, :end_year
-            json.photoUrl education.photo.attached? ? education.photo.url : nil
+            # json.photoUrl education.photo.attached? ? education.photo.url : nil
         end
     end
 end

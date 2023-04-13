@@ -11,7 +11,7 @@ import CommentPage from "../CommentPage";
 
 const PostPage = () => {
     const dispatch = useDispatch();
-    const posts = useSelector(state => Object.values(state.posts));
+    const posts = useSelector(state => state.posts);
     const comments = useSelector(state => Object.values(state.comments));
     const sessionUser = useSelector(state => state.session.user);
     // const [hasComments, setHasComments] = useState(false);
@@ -22,6 +22,8 @@ const PostPage = () => {
     const [editedBody, setEditBody] = useState('');
     const [deleteModal, setDeleteModal] = useState(false);
     const [body, setBody] = useState('');
+    const [openCreateComment, setOpenCreateComment] = useState(false);
+    const [photoUrl, setPhotoUrl] = useState(null);
     const menuRef = useRef();
 
     useEffect(() => {
@@ -41,10 +43,11 @@ const PostPage = () => {
 
         // return () => document.removeEventListener('mousedown', closeMenu);
 
-    }, [dispatch, posts.length, showMenu, editModal, showModal])
+    }, [dispatch, posts.length, showMenu, editModal, showModal, body])
 
-    const listComments = (postId) => {
+    const listComments = (postId, index) => {
         dispatch(getOnePost(postId));
+        setOpenCreateComment(index);
         // setHasComments(true)
     }
 
@@ -91,10 +94,41 @@ const PostPage = () => {
             postId
         }
         dispatch(createComment(commentNew))
+        setBody('');
+    }
+
+    const handleOpenCreateComment = (postId, index) => {
+        setOpenCreateComment(index);
+        listComments(postId);
+    }
+
+    // const changeProfilePic = ({ currentTarget}) => {
+    //     const file = currentTarget.files[0];
+    //     if (file) {
+    //         setPhotoFile(file);
+    //         const fileReader = new FileReader();
+    //         fileReader.readAsDataURL(file);
+    //         fileReader.onload = () => setPhotoUrl(fileReader.result);
+    //     } 
+    //     else setPhotoUrl(null);
+    // }
+
+    // const handleSubmit = async e => {
+    //     e.preventDefault();
+    //     const formData = new FormData()
+    //     formData.append('post[id]', postId);
+    //     if (photoFile){
+    //         formData.append('user[photo]' ,photoFile);
+    //         dispatch(createPost(formData, postId));
+    //     }
+    // }
+    let orderedPosts;
+    if (Object.values(posts).length > 0){
+        debugger
+    orderedPosts = (posts?.postIds.map((postId) => { return posts[postId]}))
     }
 
     if (!sessionUser) return <Redirect to="/" />;
-
     return (
         <div className='fontFamily' id='homeFeed'>
             <div className="feedProfile">
@@ -105,7 +139,7 @@ const PostPage = () => {
                     </div>
 
                     <div className='authorPic' id="sessionUserPic">
-                        <img src={sessionUser.photoUrl} alt='defaultProfile' />
+                        <img src={sessionUser?.photoUrl} alt='defaultProfile' />
                     </div>
 
                     <div className="sessionUserInfo">
@@ -153,8 +187,8 @@ const PostPage = () => {
 
                             <footer className="createPostFoot">
                                 <div className="uploadPhoto">
-                                    {/* <input type='file' id='uploadInput' ></input> */}
-                                    <label className="uploadPhotoIcon"><i className="fa-regular fa-image"></i></label>
+                                    <input type='file' id='uploadPostPic' ></input>
+                                    <label for='uploadPostPic' className="uploadPhotoIcon"><i className="fa-regular fa-image"></i></label>
                                 </div>
                                 <div className="submitPost">
                                     <button className='submit' onClick={handlePost}>Post</button>
@@ -164,9 +198,9 @@ const PostPage = () => {
                         </Modal>
                     )}
                 </div>
-
+                
                 <div className="postList">
-                    {posts && posts.map((post, index) => (
+                    {orderedPosts && orderedPosts.map((post, index) => (
                     <div className='profileBoard' id='feedPost' key={index}>
 
                         <div className="authorInfo">
@@ -229,7 +263,8 @@ const PostPage = () => {
                         </div>
 
                         <div className="postBody">
-                            {post.body}
+                            <p>{post.body}</p>
+                            {post.photoUrl ? <img src={post.photoUrl} alt='postPhoto'></img> : null}
                         </div>
 
                         <div className="postLikesComments">
@@ -245,7 +280,7 @@ const PostPage = () => {
                             </div>}
 
                             {post.comments ?(
-                            <div className="commentsCount" onClick={() => listComments(post.id)}>
+                            <div className="commentsCount" onClick={() => listComments(post.id, index)}>
                                 {post.comments.length} comments
                             </div>) : null}
                             
@@ -256,22 +291,26 @@ const PostPage = () => {
                                 <i className="fa-regular fa-thumbs-up" id="likeButton"></i>
                                 <span>Like</span>
                             </button>
-                            <button className='postButtons'>
+                            <button className='postButtons' onClick={() => handleOpenCreateComment(post.id, index)}>
                                 <i className="fa-regular fa-comment-dots" id="commentButton"></i>Comment
                             </button>
                         </div>
                         
+                        {openCreateComment === index && (
                         <div className="createComment">
-                            <div className='authorPic'>
-                                <img src={sessionUser.photoUrl} alt='defaultProfile' />
+                            <div className="addComment">
+                                <div className='authorPic'>
+                                    <img src={sessionUser.photoUrl} alt='defaultProfile' />
+                                </div>
+
+                                <input className='startPost' placeholder="Add a comment..." id="startComment" onChange={commentOnChange}/>
                             </div>
-
-                            <input className='startPost' placeholder="Add a comment..." id="startComment" onChange={commentOnChange}/>
-                            <button className='submit' onClick={() => handleComment(post.id)}>Post</button>
+                            <button className='submit' id='postComment' onClick={() => handleComment(post.id)}>Post</button>
                         </div>
+                        )}
 
 
-                        { comments && <CommentPage post = {post} comments = {comments} />}
+                        { comments && <CommentPage postId = {post.id}/>}
 
                     </div>
                     ))}

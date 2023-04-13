@@ -7,9 +7,11 @@ json.posts do
             json.author_photo post.author.photo.attached? ? post.author.photo.url : nil
             json.likes_count post.likes.length
             json.comments post.comments.select(:id).map{|comment| comment.id}
+            json.photoUrl post.photo.url
             json.extract! post, :id, :body, :author_id
         end
     end
+    json.postIds @posts.map {|post| post.id}
 end
 
 json.comments do
