@@ -109,7 +109,7 @@ function LoginFormPage() {
         <button type="submit" className='signUpSubmit' id='signInApple'> <img src={apple} alt='apple' id='google'/> Sign in with Apple</button>
       </form>
 
-      <div id='newTo'> New to LinkedIn? <NavLink to="/signup" className='forgotSignup' id='signUpIn'>Join now</NavLink> </div>
+      <div id='newTo'> New to LinkedUp? <NavLink to="/signup" className='forgotSignup' id='signUpIn'>Join now</NavLink> </div>
     </div>
     </div>
   );

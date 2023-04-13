@@ -17,7 +17,7 @@ class Api::SessionsController < ApplicationController
       login!(@user)
       render 'api/session/show'
     else
-      render json: { errors: ["Couldn't find a LinkedIn account associated with this email. Try again or create an account ."] }, status: :unauthorized
+      render json: { errors: ["Couldn't find a LinkedUp account associated with this email. Try again or create an account ."] }, status: :unauthorized
     end
   end
 

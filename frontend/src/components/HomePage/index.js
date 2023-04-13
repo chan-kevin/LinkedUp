@@ -147,7 +147,7 @@ function HomePage() {
                   <div id='homeBorder'><button type="submit" className='signInSubmit' id='homeSign'>Sign in</button></div>
                   {/* {errors ? <LoginFormPage credential={credential} errors={errors} /> : null} */}
                   <button type="submit" className='signInSubmit' id='homeGoogle' onClick={demoLogin}>Sign in as Demo</button>
-                  <NavLink to='/signup' className='signInSubmit' id='homeNew'>New to LinkedIn? Join now</NavLink>
+                  <NavLink to='/signup' className='signInSubmit' id='homeNew'>New to LinkedUp? Join now</NavLink>
               </form>
               
           </div>
