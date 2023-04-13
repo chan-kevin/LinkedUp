@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { Modal } from "../../context/Modal";
 import { getAllComments } from "../../store/comment";
 import { createPost, getAllPosts, getOnePost } from "../../store/post";
+import EditPage from "./edit";
 import './PostPage.css';
 
 const PostPage = () => {
@@ -15,42 +16,55 @@ const PostPage = () => {
     const [showModal, setShowModal] = useState(false);
     const [postBody, setPostBody] = useState('');
     const [showMenu, setShowMenu] = useState(null);
+    const [editModal, setEditModal] = useState(false);
+    const [editedBody, setEditBody] = useState('');
+    const menuRef = useRef();
 
     useEffect(() => {
         dispatch(getAllPosts());
 
         if (showMenu === null) return;
 
-        const closeMenu = () => {
-            setShowMenu(null);
-        };
+        // const closeMenu = () => {
+        //     setShowMenu(null);
+        // };
 
-    document.addEventListener('click', closeMenu);
+        // menuRef.current.addEventListener('mousedown', (e) => {
+        //     e.preventDefault();
+        //     e.stopPropagation();
+        // });
+        // document.addEventListener('mousedown', closeMenu);
 
-    return () => document.removeEventListener('click', closeMenu);
-    }, [dispatch, posts.length, showMenu])
+        // return () => document.removeEventListener('mousedown', closeMenu);
+
+    }, [dispatch, posts.length, showMenu, editModal, showModal])
 
     const listComments = (postId) => {
         dispatch(getOnePost(postId));
         // setHasComments(true)
     }
 
-    const handlePost = async () => {
+    const handlePost = () => {
         const newPost = {
             body: postBody
         }
-        await dispatch(createPost(newPost));
+        dispatch(createPost(newPost));
         setShowModal(false);
-        await dispatch(getAllPosts());
+        dispatch(getAllPosts());
     }
 
     const openMenu = (e, index) => {
         e.stopPropagation();
         setShowMenu(index);
+        setEditModal(false);
     }
 
     const onClose = () => {
         setShowModal(false);
+    }
+
+    const closeEditModal = () => {
+        setEditModal(false);
     }
 
     if (!sessionUser) return <Redirect to="/" />;
@@ -124,17 +138,25 @@ const PostPage = () => {
                                     {post.authorHeadline}
                                 </div>
                             </div>
-                            <button className="optionsContainer" onClick={(e) => {openMenu(e, index)}}>
+                            <div className="optionsContainer" onClick={(e) => {openMenu(e, index)}}>
                                 <i className="fa-solid fa-ellipsis" id="postOptionsIcon"></i>
-                            </button>
+                            </div>
 
                             { showMenu === index && 
-                                <div className="editOptions">
+                                <div className="editOptions" ref={menuRef}>
                                     <div className="editChoices">
-                                        <div className="positionButton" id='editPost'>
+                                        <div className="positionButton" id='editPost' onClick={(e) => {
+                                            e.stopPropagation();
+                                            setEditModal(true)}}>
                                             <i className="fa-solid fa-pencil" id="editPostIcon"></i>Edit Post
                                         </div>
                                     </div>
+
+                                    {editModal && 
+                                    (<Modal onClose={closeEditModal}>
+                                        <EditPage onClose={closeEditModal} post={post} />
+                                    </Modal>)}
+
 
                                     <div className="editChoices">
                                         <div className="positionButton" id="deletePost">
@@ -150,13 +172,22 @@ const PostPage = () => {
                         </div>
 
                         <div className="postLikesComments">
+
+                            {post.likesCount ? (
                             <div className="likesCount">
                                 <i className="fa-regular fa-thumbs-up" id="likesCountIcon"></i>
                                 {post.likesCount}
-                            </div>
+                            </div>) : 
+                            <div className="likesCount">
+                                <i className="fa-regular fa-thumbs-up" id="likesCountIcon"></i>
+                                0
+                            </div>}
+
+                            {post.comments ?(
                             <div className="commentsCount" onClick={() => listComments(post.id)}>
                                 {post.comments.length} comments
-                            </div>
+                            </div>) : null}
+                            
                         </div>
 
                         <div className="postInteract">

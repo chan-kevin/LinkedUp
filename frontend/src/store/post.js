@@ -3,6 +3,7 @@ import csrfFetch from "./csrf";
 export const FETCH_ALL_POSTS = 'posts/fetchAllPosts'
 export const GET_POST = 'posts/getPost'
 const ADD_POST = 'posts/addPost'
+const EDIT_POST = 'posts/editPost'
 
 const fetchAllPosts = (posts) => {
     return {
@@ -25,12 +26,35 @@ const addPost = (post) => {
     }
 }
 
+const editPost = (post) => {
+    return {
+        type: EDIT_POST,
+        payload: post
+    }
+}
+
 export const createPost = (post) => async dispatch => {
     const {body} = post
     const response = await csrfFetch("/api/posts", {
     method: "POST",
     body: JSON.stringify({
         post:{
+            body
+        }
+    })
+});
+    const data = await response.json();
+    dispatch(addPost(data.post));
+    return response;
+};
+
+export const updatePost = (post) => async dispatch => {
+    const {id, body} = post
+    const response = await csrfFetch(`/api/posts/${id}`, {
+    method: "PUT",
+    body: JSON.stringify({
+        post:{
+            id,
             body
         }
     })
@@ -60,6 +84,8 @@ const postsReducer = (state = {}, action) => {
             return { ...action.payload.posts}
         case ADD_POST:
             return { ...state, ...action.payload }
+        case EDIT_POST:
+            return { ...state, [action.payload.id]: action.payload };
         default:
             return state;
     }
