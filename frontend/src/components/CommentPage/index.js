@@ -20,16 +20,18 @@ const CommentPage = ({postId}) => {
         // if (!menu) return;
 
         const closeMenu = () => {
-            setMenu(null);
+            if (!editModal){
+                setMenu(null);
+            }
         };
 
-        document.addEventListener('scroll', (e) => {
+        document.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
         });
-        document.addEventListener('scroll', closeMenu);
+        document.addEventListener('click', closeMenu);
 
-        return () => document.removeEventListener('scroll', closeMenu);
+        return () => document.removeEventListener('click', closeMenu);
 
     }, [menu, deleteModal, editModal])
 

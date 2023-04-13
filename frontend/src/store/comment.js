@@ -68,7 +68,8 @@ export const updateComment = (id, body) => async dispatch => {
     })
 });
     const data = await response.json();
-    dispatch(editComment(data));
+    // dispatch(editComment(data));
+    dispatch(getPost(data));
     return response;
 };
 
