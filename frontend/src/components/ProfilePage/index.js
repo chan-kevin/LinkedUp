@@ -192,7 +192,9 @@ const ProfilePage = () => {
 
                             <div className='changeProfileBody'>
                                 <p id='recognize'>{sessionUser.firstName}, help others recognize you!</p>
-                                <img src={user.photoUrl} alt='defaultProfile' id='changeDefaultPic'/>
+                                {preview ? preview :
+                                 <img src={user.photoUrl} alt='defaultProfile' id='changeDefaultPic'/>
+                                 }
                                 <p id='require'>On LinkedUp, we require members to use their real identities, so take or upload a photo of yourself. </p>
                             </div>
 
@@ -221,10 +223,17 @@ const ProfilePage = () => {
                     <div>
                         <div className='userInfoSchool'>
                             <h1>{user.firstName + ' ' + user.lastName}</h1>
-                            <img src={experiences[2].logo} alt='companyLogo' />
-                            <p>{educations[0].school}</p>
+
+                            <div className='userInfoCompanyTotal'>
+                                { experiences &&
+                                <div className='userInfoCompany'>
+                                    <img src={experiences[experiences.length - 1]?.logo} alt='companyLogo' />
+                                    <p>{experiences[experiences.length - 1]?.company}</p>
+                                </div> }
+                            </div>
+
                         </div>
-                        <h2>{experiences[0].title + ' at ' + experiences[0].company}</h2>
+                        <h2>{user.headline}</h2>
                         <h3>{user.location}</h3>
                     </div>
                     }
@@ -268,7 +277,7 @@ const ProfilePage = () => {
                         </li>
                         <li className='detailLocation'>{experience.location}</li>
                         <li className='detailDescription'>{'- ' + experience.description}</li>
-                        <li className='skills'><p>Skills: </p>{experience.skills}</li>
+                        {/* <li className='skills'><p>Skills: </p>{experience.skills}</li> */}
                     </ul>
                 </div>
                 ))}

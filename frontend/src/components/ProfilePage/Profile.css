@@ -158,19 +158,34 @@
 .userInfoSchool {
     display: flex;
     justify-content: flex-end;
+    position: relative;
 
 }
 
 .userInfoSchool img {
     width: 30px;
     height: 30px;
+    padding-right: 5px;
 }
 
 .userInfoSchool p {
+    /* transform: translateY(-8px); */
     width: 40%;
     padding: 5px;
     font-weight: 600;
     font-size: 14px;
+}
+
+.userInfoCompanyTotal {
+    position: absolute;
+    bottom: -5px;
+    /* right: -45px; */
+}
+
+.userInfoCompany {
+    display: flex;
+    flex-direction: row;
+    width: 150%;
 }
 
 .addPosition {

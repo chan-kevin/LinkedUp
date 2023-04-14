@@ -118,12 +118,16 @@ const PostPage = () => {
             likeableId: postId,
             likerId: userId
         }
+        const likebutton = document.getElementById('likeButton');
+        const liketext = document.getElementById('liketext');
         if (posts[postId].liked) {
-            
             dispatch(removeLike(postId))
+            likebutton.style.color = 'rgba(0,0,0,0.6)'
+            liketext.style.color = 'rgba(0,0,0,0.6)'
         } else {
-            
             dispatch(createLike(isliked))
+            likebutton.style.color = '#0a66c2'
+            liketext.style.color = '#0a66c2'
         }
         // if (likedUser.include(userId)) {
         //     dispatch(removeLike())
@@ -316,8 +320,8 @@ const PostPage = () => {
 
                         <div className="postInteract">
                             <button className='postButtons' onClick={() => handleLike(sessionUser.id, post.id, index)}>
-                                <i className="fa-regular fa-thumbs-up" id="likeButton"></i>
-                                <span>Like</span>
+                                <i className="fa-solid fa-thumbs-up" id="likeButton"></i>
+                                <span id="liketext">Like</span>
                             </button>
                             <button className='postButtons' onClick={() => handleOpenCreateComment(post.id, index)}>
                                 <i className="fa-regular fa-comment-dots" id="commentButton"></i>Comment

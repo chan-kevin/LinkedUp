@@ -1,6 +1,6 @@
 json.user do
     json.set! @user.id do 
-        json.extract! @user, :id, :first_name, :last_name, :about, :location
+        json.extract! @user, :id, :first_name, :last_name, :about, :location, :headline
         json.connected @user.is_connected(current_user.id)
         json.photoUrl @user.photo.attached? ? @user.photo.url : nil
     end

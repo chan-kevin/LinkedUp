@@ -11,6 +11,8 @@ function SignupFormPage() {
     const [password, setPassword] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const [headline, setHeadline] = useState('');
+    const [location, setLocation] = useState('');
     const [errors, setErrors] = useState({});
     const [page, setPage] = useState(1);
 
@@ -64,7 +66,12 @@ function SignupFormPage() {
 
     const handlePage2Submit = (e) => {
         e.preventDefault();
-            return dispatch(sessionActions.signup({ email, password, firstName, lastName }))
+        setPage(3);
+    }
+
+    const handlePage3Submit = (e) => {
+        e.preventDefault();
+            return dispatch(sessionActions.signup({ email, password, firstName, lastName, headline, location }))
             .catch(async (res) => {
                 let data;
                 try {
@@ -77,6 +84,7 @@ function SignupFormPage() {
                 else setErrors([res.statusText]);
             });
     }
+    
     const renderPage1 = () => {
         return (
         <div id='firstPage'>
@@ -112,7 +120,7 @@ function SignupFormPage() {
                 , <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/legal/privacy-policy?trk=registration-frontend_join-form-privacy-policy'>Privacy Policy</a>, 
                 and <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/legal/cookie-policy?trk=registration-frontend_join-form-cookie-policy'>Cookie Policy</a>.</p>
 
-                <button type="submit" className='signUpSubmit'>Agree & Join</button>
+                <button type="submit" className='signUpSubmit' onClick={handlePage1Submit}>Agree & Join</button>
                 <div id='signUpBorder'></div>
                 <button type="submit" className='signUpSubmit' id='signUpGoogle' onClick={demoLogin}> Continue as Demo</button>
                 <p id='hasAcc'>Already on LinkedUp? <NavLink to="/login" id='hasAccSignIn'>Sign in</NavLink></p>
@@ -150,7 +158,41 @@ function SignupFormPage() {
                     required
                 />
 
-                <button type="submit" className='signUpSubmit' id='signUpContinue'>Continue</button>
+                <button type="submit" className='signUpSubmit' id='signUpContinue' onClick={handlePage2Submit}>Continue</button>
+            </form>
+        </div>
+        );
+      }
+
+      const renderPage3 = () => {
+        return (
+        <div>
+            <form onSubmit={handlePage3Submit} className='subSignUpPage' id='signUpPage2'>
+                <ul>
+                {errors.map(error => <li key={error}>{error}</li>)}
+                </ul>
+
+                <label>
+                Headline
+                </label>
+                <input
+                    type="text"
+                    value={headline}
+                    onChange={(e) => setHeadline(e.target.value)}
+                    required
+                />
+
+                <label>
+                Location
+                </label>
+                <input
+                    type="text"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    required
+                />
+
+                <button type="submit" className='signUpSubmit' id='signUpContinue' onClick={handlePage3Submit}>Continue</button>
             </form>
         </div>
         );
@@ -163,6 +205,7 @@ function SignupFormPage() {
             <div className='fontFamily' id='signUpPage'>
                 {page === 1 && renderPage1()}
                 {page === 2 && renderPage2()}
+                {page === 3 && renderPage3()}
             </div>
         </div>
         </header>
