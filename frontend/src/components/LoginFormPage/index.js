@@ -101,12 +101,12 @@ function LoginFormPage() {
         {empty.password && <div className='emptySignIn'>{empty.password}</div>}
         {passwordError && <div className='emptySignIn'>{passwordError}</div>}
 
-        <NavLink to='/forgot' className='forgotSignup'>Forgot Password?</NavLink>
+        {/* <NavLink to='/forgot' className='forgotSignup'>Forgot Password?</NavLink> */}
 
-        <button type="submit" className='signInSubmit'>Sign in</button>
+        <button type="submit" className='signInSubmit' id='withoutForgotPassword'>Sign in</button>
         <div id='signUpBorder'></div>
         <button type="submit" className='signUpSubmit' id='signUpGoogle' onClick={demoLogin}>Continue with Demo</button>
-        <button type="submit" className='signUpSubmit' id='signInApple'> <img src={apple} alt='apple' id='google'/> Sign in with Apple</button>
+        {/* <button type="submit" className='signUpSubmit' id='signInApple'> <img src={apple} alt='apple' id='google'/> Sign in with Apple</button> */}
       </form>
 
       <div id='newTo'> New to LinkedUp? <NavLink to="/signup" className='forgotSignup' id='signUpIn'>Join now</NavLink> </div>

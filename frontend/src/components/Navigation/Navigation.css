@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: space-between;
     position: relative;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     margin: auto;
     padding-top: 12px;
     padding-bottom: 16px;
@@ -19,7 +19,7 @@
 }
 
 .logo {
-    height: 34px;
+    height: 80px;
 }
 
 #withoutUserHome ul {
@@ -75,6 +75,7 @@
     width: 100%;
     z-index: 100;
     border-bottom: 1px solid rgba(0,0,0,0.08);
+    flex-wrap: wrap;
     /* display: block; */
 }
 

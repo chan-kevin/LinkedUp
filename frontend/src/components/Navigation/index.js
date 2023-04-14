@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navigation.css';
-import logo from './assets/LinkedIn_logo.png'
+import logo from './assets/LinkedUp_Blue.png'
 import smallLogo from './assets/Up_Blue.png'
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -32,17 +32,17 @@ function Navigation() {
                     </li>
 
                     <li>
-                      <div className='navButtons' id='network'>
-                        <i className="fa-solid fa-user-group"></i>
-                        <span className='navTitle'>My Network</span>
-                      </div>
+                      <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/in/kevin-chan-426203158/' className='navButtons' id='network'>
+                        <i className="fa-brands fa-linkedin"></i>
+                        <span className='navTitle'>My LinkedIn</span>
+                      </a>
                     </li>
 
                     <li>
-                      <div className='navButtons' id='notifications'>
-                        <i className="fa-solid fa-bell"></i>
-                        <span className='navTitle'>Notifications</span>
-                      </div>
+                    <a target='_blank' rel='noreferrer' href='https://github.com/kchannn13' className='navButtons' id='network'>
+                        <i className="fa-brands fa-github"></i>
+                        <span className='navTitle'>My GitHub</span>
+                      </a>
                     </li>
 
                     <li><ProfileButton user={sessionUser} /></li>

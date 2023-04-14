@@ -9,6 +9,8 @@ import './PostPage.css';
 import profileBackground from '../ProfilePage/assets/profileBackground.jpeg';
 import CommentPage from "../CommentPage";
 import { createLike, removeLike } from "../../store/like";
+import GitHubUpdates from "../GitHub";
+import logo from '../Navigation/assets/LinkedUp_Blue.png'
 
 const PostPage = () => {
     const dispatch = useDispatch();
@@ -182,6 +184,10 @@ const PostPage = () => {
                         <div className="sessionUserHeadline">
                             {sessionUser.headline}
                         </div>
+
+                        <div className="sessionUserAbout">
+                            {sessionUser.about}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -230,7 +236,7 @@ const PostPage = () => {
                         </Modal>
                     )}
                 </div>
-                
+
                 <div className="postList">
                     {orderedPosts && orderedPosts.map((post, index) => (
                     <div className='profileBoard' id='feedPost' key={index} >
@@ -350,8 +356,22 @@ const PostPage = () => {
             </div>
 
             <div className="homeFoot">
-                <div className='profileBoard' id="homeProfile">
-                        test
+                <div className='profileBoard' id="homeFoot">
+                    <div className="news">LinkedUp News</div>
+                        <ul className="newsList">
+                            <li>&bull; <a target='_blank' rel='noreferrer' href='https://linkedup-ptj7.onrender.com/'>New LinkedUp</a></li>
+                            <li>&bull; <a target='_blank' rel='noreferrer' href='https://kchannn13.github.io/The-Adventures-of-Gary-the-Snail/'>New Game</a></li>
+                        </ul>
+                </div>
+                <div className="linkedUpbottom">
+                    <div className="bottomDetails">
+                        <p className="developed">developed by Kevin Chan</p>
+
+                        <div className="logoAnd2023">
+                            <img src={logo} alt='logo' id="bottomlogo"></img>
+                            <p>LinkedUp Corporation © 2023</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

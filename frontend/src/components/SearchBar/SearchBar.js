@@ -85,6 +85,9 @@ const unmatchedWord = (word) => {
                     }).map((user, index) => (
                         <li key={index} onClick={() => checkOutProfile(user.id)} className='searchResult'>
                             <i className="fa-solid fa-magnifying-glass" id='insideSearch'></i> 
+                            <div className='authorPic' id='searchPhoto'>
+                                <img src={user.photoUrl} alt='defaultProfile' />
+                            </div>
                             <div className='fullName'>
                                 {user.firstName.split('').map((letter) => 
                                     <div>
@@ -97,6 +100,7 @@ const unmatchedWord = (word) => {
                                     <div>
                                         <p className='matched'>{matchedWord(letter)}</p> <p>{unmatchedWord(letter)}</p>
                                     </div>)}
+                                    <div className='headlineSearch'>&nbsp; &bull; &nbsp;{user.headline}</div>
                             </div>
                         </li>
                     ))}

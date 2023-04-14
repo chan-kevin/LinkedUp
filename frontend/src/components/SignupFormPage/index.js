@@ -115,17 +115,17 @@ function SignupFormPage() {
                 />
                 {errors.password && <div className='signUpError'>{errors.password}</div>}
 
-                <p id='terms'>By clicking Agree & Join, you agree to the 
-                LinkedUp <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/legal/user-agreement?trk=registration-frontend_join-form-user-agreement'>User Agreement</a>
-                , <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/legal/privacy-policy?trk=registration-frontend_join-form-privacy-policy'>Privacy Policy</a>, 
-                and <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/legal/cookie-policy?trk=registration-frontend_join-form-cookie-policy'>Cookie Policy</a>.</p>
-
+                <p id='terms'>By clicking Agree & Join, you have read the 
+                LinkedUp <a target='_blank' rel='noreferrer' href='https://github.com/kchannn13/LinkedUp/blob/main/README.md'>README</a>
+                , <a target='_blank' rel='noreferrer' href='https://github.com/kchannn13/LinkedUp/wiki'>Wiki Page</a>, 
+                and <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/in/kevin-chan-426203158/'>My LinkedIn</a>.</p>
+  
                 <button type="submit" className='signUpSubmit' onClick={handlePage1Submit}>Agree & Join</button>
                 <div id='signUpBorder'></div>
                 <button type="submit" className='signUpSubmit' id='signUpGoogle' onClick={demoLogin}> Continue as Demo</button>
                 <p id='hasAcc'>Already on LinkedUp? <NavLink to="/login" id='hasAccSignIn'>Sign in</NavLink></p>
             </form>
-            <p id='businessPage'>Looking to create a page for a business? <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/help/linkedin/answer/a543852?trk=registration-frontend_join-form-page-help-link'>Get help</a></p>
+            <p id='businessPage'>Looking to create a page for a business? <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/in/kevin-chan-426203158/'>Get help</a></p>
         </div>
         );
       }

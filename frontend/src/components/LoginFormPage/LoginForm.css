@@ -121,6 +121,10 @@
     border: 2px solid red;
 } */
 
+#withoutForgotPassword {
+    margin-top: 32px;
+}
+
 .emptySignIn {
     color: rgb(201, 20, 20);
     font-weight: 500;
