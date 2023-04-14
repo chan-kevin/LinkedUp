@@ -1,5 +1,5 @@
 require 'httparty'
-require 'dotenv/load'
+# require 'dotenv/load'
 
 class Api::ExperiencesController < ApplicationController
   before_action :require_logged_in
