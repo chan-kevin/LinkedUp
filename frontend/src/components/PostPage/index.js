@@ -28,9 +28,18 @@ const PostPage = () => {
     const [openCreateComment, setOpenCreateComment] = useState(false);
     const [photoUrl, setPhotoUrl] = useState(null);
     const [likedOrNot, setLikedOrNot] = useState(null);
+    const [loading, setLoading] = useState(false);
     const likedUser = useSelector(state => state.posts.likesIds)
     const history = useHistory();
     const menuRef = useRef();
+
+
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000);
+      }, []);
 
     useEffect(() => {
         dispatch(getAllPosts());
@@ -164,7 +173,14 @@ const PostPage = () => {
 
     if (!sessionUser) return <Redirect to="/" />;
     return (
+    <>
+        {loading ? (
+            <div className="loader-container">
+            <div className="spinner"></div>
+            </div>
+        ) : (
         <div className='fontFamily' id='homeFeed'>
+            
             <div className="feedProfile">
                 <div className='profileBoard' id="homeProfile">
 
@@ -375,6 +391,8 @@ const PostPage = () => {
                 </div>
             </div>
         </div>
+        )}
+    </>
     )
 }
 

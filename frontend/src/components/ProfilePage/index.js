@@ -12,6 +12,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import { createConnection, removeConnection } from '../../store/connection';
 import { Modal } from '../../context/Modal';
 import PostPage from '../PostPage';
+import defaultLogo from './assets/nologo.jpeg'
 
 const ProfilePage = () => {
     const { userId } = useParams();
@@ -276,7 +277,9 @@ const ProfilePage = () => {
                 {experiences && experiences.map(experience => (
                 <div className='profileDetailList' key={experience.id}>
                     <div className='profileLogo'>
-                        <img src={experience.logo} alt='companyLogo' />
+                        {experience.logo ?
+                        <img src={experience.logo} alt='companyLogo' /> :
+                        <img src={defaultLogo} alt='companyLogo' />}
                     </div>
                     <ul className='experienceDetail'>
                         <li className='detailHeading'>{experience.title}</li>
