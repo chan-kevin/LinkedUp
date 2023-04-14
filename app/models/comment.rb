@@ -14,5 +14,7 @@ class Comment < ApplicationRecord
 
     belongs_to :post
 
-    belongs_to :commenter, class_name: :User
+    belongs_to :commenter,
+        foreign_key: :commenter_id,
+        class_name: :User
 end

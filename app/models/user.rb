@@ -29,8 +29,20 @@ class User < ApplicationRecord
   has_many :experiences, dependent: :destroy
   has_many :educations, dependent: :destroy
 
-  has_many :posts, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :posts, 
+    foreign_key: :author_id,
+    class_name: :Post,
+    dependent: :destroy
+
+  has_many :comments, 
+    foreign_key: :commenter_id,
+    class_name: :Comment,  
+    dependent: :destroy
+
+  has_many :likes,
+  foreign_key: :liker_id,
+  class_name: :Like,
+  dependent: :destroy
 
   # has_many :sent_connections,
   #   class_name: :Connection,

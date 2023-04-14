@@ -1,6 +1,6 @@
 require "open-uri"
 require 'httparty'
-require 'dotenv/load'
+# require 'dotenv/load'
 
 # ApplicationRecord.transaction do 
     puts "Destroying tables..."
