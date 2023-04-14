@@ -18,10 +18,15 @@ require "open-uri"
       email: 'demo@user.io', 
       first_name: 'Demo',
       last_name: 'User',
-      headline: 'student @ app academy',
+      headline: 'full stack developer looking for opportunity',
       password: 'password',
-      about: Faker::Quote.matz,
-      location: Faker::Address.country
+      about: "A full-stack developer with a passion for coding and an eagerness to take on new challenges. 
+      While I don't have any professional experience as a developer, 
+      I have acquired extensive knowledge of React, Redux, JavaScript, CSS, HTML, Ruby, and Canvas 
+      through app academy, tutorials, and personal projects. I am eager to join a team where I can contribute 
+      my skills and continue learning from experienced developers. As a quick learner with excellent problem-solving skills, 
+      I am confident that I can bring value to any team. If you're looking for a hardworking, self-motivated developer who is eager to learn and grow, 
+      please don't hesitate to reach out to me."
     )
 
 

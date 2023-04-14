@@ -54,13 +54,13 @@ function ProfileButton({ user }) {
           </li>
           <li><NavLink to={`/users/${user.id}`} id='viewProfile'>View Profile</NavLink></li>
           <li>Account</li>
-          <li><button className='dropdownOptions'>Try Premium for free</button></li>
-          <li><button className='dropdownOptions'>Setting</button></li>
-          <li><button className='dropdownOptions'>Help</button></li>
-          <li><button className='dropdownOptions'>Language</button></li>
+          <li><a target='_blank' rel='noreferrer' href='https://kchannn13.github.io/The-Adventures-of-Gary-the-Snail/' className='dropdownOptions'>Try Gary Adventure for free</a></li>
+          {/* <li><button className='dropdownOptions'>Setting</button></li> */}
+          <li><a target='_blank' rel='noreferrer' href='https://github.com/kchannn13/LinkedUp/blob/main/README.md' className='dropdownOptions'>Help - ReadMe</a></li>
+          {/* <li><button className='dropdownOptions'>Language</button></li> */}
           <li>Manage</li>
-          <li><button className='dropdownOptions'>Post & Activity</button></li>
-          <li><button className='dropdownOptions'>Job Posting Account</button></li>
+          <li><a target='_blank' rel='noreferrer' href='https://www.linkedin.com/in/kevin-chan-426203158/' className='dropdownOptions'>Contact Me</a></li>
+          <li><a target='_blank' rel='noreferrer' href='https://github.com/kchannn13' className='dropdownOptions'>More App</a></li>
           <li>
             <button onClick={logout} className='dropdownOptions'>Sign Out</button>
           </li>

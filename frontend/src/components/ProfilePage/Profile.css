@@ -72,10 +72,10 @@
     /* object-fit:cover; */
 }
 
-.profile:hover img {
+/* .profile:hover img {
     content: url(./assets/batman.png);
     transform: scale(1.1);
-}
+} */
 
 .userInfo {
     padding: 25px;

@@ -79,6 +79,11 @@
 .sessionUserName {
     font-weight: 600;
     padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.sessionUserName:hover {
+    text-decoration: underline;
 }
 
 .sessionUserHeadline {

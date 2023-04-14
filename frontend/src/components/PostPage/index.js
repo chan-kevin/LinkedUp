@@ -173,11 +173,11 @@ const PostPage = () => {
                     </div>
 
                     <div className='authorPic' id="sessionUserPic">
-                        <img src={sessionUser?.photoUrl} alt='defaultProfile' />
+                        <img src={sessionUser?.photoUrl} alt='defaultProfile' onClick={() => toProfile(sessionUser.id)}/>
                     </div>
 
                     <div className="sessionUserInfo">
-                        <div className="sessionUserName">
+                        <div className="sessionUserName" onClick={() => toProfile(sessionUser.id)}>
                             {sessionUser.firstName} {sessionUser.lastName}
                         </div>
 
@@ -195,7 +195,7 @@ const PostPage = () => {
             <div className="feedBody">
                 <div className='profileBoard' id="createPost">
                     <div className='authorPic'>
-                        <img src={sessionUser.photoUrl} alt='defaultProfile' />
+                        <img src={sessionUser.photoUrl} alt='defaultProfile' onClick={() => toProfile(sessionUser.id)}/>
                     </div>
 
                     <button className='startPost' onClick={() => setShowModal(true)}>
