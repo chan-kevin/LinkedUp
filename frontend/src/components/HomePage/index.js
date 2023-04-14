@@ -144,7 +144,7 @@ function HomePage() {
                   {empty.password && <div className='empty'>{empty.password}</div>}
 
                   {/* <NavLink to='/forgot' className='forgotSignup' id='homeSignIn'>Forgot Password?</NavLink> */}
-                  <div id='homeBorder'><button type="submit" className='signInSubmit' id='homeSign'>Sign in</button></div>
+                  <div id='homeBorder'><button type="submit" className='signInSubmit' id='homeSign' onClick={handleSubmit}>Sign in</button></div>
                   {/* {errors ? <LoginFormPage credential={credential} errors={errors} /> : null} */}
                   <button type="submit" className='signInSubmit' id='homeGoogle' onClick={demoLogin}>Sign in as Demo</button>
                   <NavLink to='/signup' className='signInSubmit' id='homeNew'>New to LinkedUp? Join now</NavLink>
