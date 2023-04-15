@@ -24,9 +24,14 @@ A LinkedUp user can also manage their profile's show page, which is their experi
 
 ![gif of experiences](app/assets/experiences.gif)
 
+## Posts
+
 On the home page, a LinkedUp user can views all the posts on the feed. They are able to create a post, deleting and editing it.
 
-![gif of posts](app/assets/posts_and_like.gif)
+![gif of posts](app/assets/posts_and_likes.gif)
+
+
+## Feeds
 
 And also under each post, they can comment and like, and deleting, editing comment and unlike.
 
@@ -34,7 +39,11 @@ And also under each post, they can comment and like, and deleting, editing comme
 
 On any page after signed in, a LinkedUp user can also search for user by typing the user's name that they want to search for. As user starts typing to search, the search result will apply different font weight to show what's matching the user's input.
 
+## Search
+
 ![gif of search](app/assets/search.gif)
+
+## Connections
 
 A LinkedUp user can also connect and unconnect other user on LinkedUp
 
