@@ -24,12 +24,59 @@ A LinkedUp user can also manage their profile's show page, which is their experi
 
 ![gif of experiences](app/assets/experiences.gif)
 
+```
+{experiences && experiences.map(experience => (
+<div className='profileDetailList' key={experience.id}>
+    <div className='profileLogo'>
+        {experience.logo ?
+        <img src={experience.logo} alt='companyLogo' /> :
+        <img src={defaultLogo} alt='companyLogo' />}
+    </div>
+    <ul className='experienceDetail'>
+        <li className='detailHeading'>{experience.title}</li>
+        <li className='detailSubHeading'>{experience.company}</li>
+        <li className='period'>
+            {experience.startMonth + ' ' + experience.startYear + ' - '} 
+            {experience.current ? 'Present' : (experience.endMonth + ' ' + experience.endYear)}
+        </li>
+        <li className='detailLocation'>{experience.location}</li>
+        <li className='detailDescription'>{'- ' + experience.description}</li>
+    </ul>
+</div>
+))}
+```
+
 ## Posts
 
 On the home page, a LinkedUp user can views all the posts on the feed. They are able to create a post, deleting and editing it.
 
 ![gif of posts](app/assets/posts_and_likes.gif)
 
+```
+<div className="postBody">
+    <p>{post.body}</p>
+    {post.photoUrl ? <img src={post.photoUrl} alt='postPhoto'></img> : null}
+</div>
+
+<div className="postLikesComments">
+
+    {post.likesCount ? (
+    <div className="likesCount">
+        <i className="fa-regular fa-thumbs-up" id="likesCountIcon"></i>
+        {post.likesCount}
+    </div>) : 
+    <div className="likesCount">
+        <i className="fa-regular fa-thumbs-up" id="likesCountIcon"></i>
+        0
+    </div>}
+
+    {post.comments ?(
+    <div className="commentsCount" onClick={() => listComments(post.id, index)}>
+        {post.comments.length} comments
+    </div>) : null}
+    
+</div>
+```
 
 ## Feeds
 
@@ -37,17 +84,67 @@ And also under each post, they can comment and like, and deleting, editing comme
 
 ![gif of comments](app/assets/comments.gif)
 
-On any page after signed in, a LinkedUp user can also search for user by typing the user's name that they want to search for. As user starts typing to search, the search result will apply different font weight to show what's matching the user's input.
-
 ## Search
 
+On any page after signed in, a LinkedUp user can also search for user by typing the user's name that they want to search for. As user starts typing to search, the search result will apply different font weight to show what's matching the user's input.
+
 ![gif of search](app/assets/search.gif)
+
+```
+<div className="modal-content" id='searchModalConetent'>
+    {(query !== '') && (
+    <ul>
+        {users.filter(user => {
+            const parts = query.toLowerCase().split(' ');
+            return parts.every(part => user.firstName.toLowerCase().includes(part) || user.lastName.toLowerCase().includes(part));
+        }).map((user, index) => (
+            <li key={index} onClick={() => checkOutProfile(user.id)} className='searchResult'>
+                <i className="fa-solid fa-magnifying-glass" id='insideSearch'></i> 
+                <div className='authorPic' id='searchPhoto'>
+                    <img src={user.photoUrl} alt='defaultProfile' />
+                </div>
+                <div className='fullName'>
+                    {user.firstName.split('').map((letter) => 
+                        <div>
+                            <p className='matched'>{matchedWord(letter)}</p> <p>{unmatchedWord(letter)}</p>
+                        </div>)} 
+
+                    <p>&nbsp;</p>
+
+                    {user.lastName.split('').map((letter) => 
+                        <div>
+                            <p className='matched'>{matchedWord(letter)}</p> <p>{unmatchedWord(letter)}</p>
+                        </div>)}
+                        <div className='headlineSearch'>&nbsp; &bull; &nbsp;{user.headline}</div>
+                </div>
+            </li>
+        ))}
+    </ul>
+    )}
+</div>
+```
 
 ## Connections
 
 A LinkedUp user can also connect and unconnect other user on LinkedUp
 
 ![gif of connect](app/assets/connect.gif)
+
+```
+{sessionUser.id !== user?.id ?
+<div className='interactButtons'>
+{user?.connected ?
+    <button onClick={unconnect} className='submit' id='connectButton'>
+        <i className="fa-solid fa-user-plus" id='connectIcon'></i>
+        <p>Unconnect</p>
+    </button> : 
+    <button onClick={handleConnect} className='submit' id='connectButton'>
+    <i className="fa-solid fa-user-plus" id='connectIcon'></i>
+    <p>Connect</p>
+</button>
+}
+</div> : null}
+```
 
 ### Thanks
 
