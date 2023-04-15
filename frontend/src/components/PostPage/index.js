@@ -9,7 +9,6 @@ import './PostPage.css';
 import profileBackground from '../ProfilePage/assets/profileBackground.jpeg';
 import CommentPage from "../CommentPage";
 import { createLike, removeLike } from "../../store/like";
-import GitHubUpdates from "../GitHub";
 import logo from '../Navigation/assets/LinkedUp_Blue.png'
 
 const PostPage = () => {
