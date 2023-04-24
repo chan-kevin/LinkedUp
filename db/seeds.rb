@@ -1,5 +1,5 @@
 require "open-uri"
-require 'httparty'
+# require 'httparty'
 # require 'dotenv/load'
 
 # ApplicationRecord.transaction do 
@@ -16,13 +16,13 @@ require 'httparty'
     puts "Creating users..."
     puts "Creating experiences..."
     # Create one user with an easy to remember username, email, and password:
-    def fetch_company_logo(company)
-      response = HTTParty.get("https://company.clearbit.com/v1/domains/find?name=#{company}",
-        headers: { Authorization: "Bearer #{ENV['CLEARBIT_API_KEY']}" })
+    # def fetch_company_logo(company)
+    #   response = HTTParty.get("https://company.clearbit.com/v1/domains/find?name=#{company}",
+    #     headers: { Authorization: "Bearer #{ENV['CLEARBIT_API_KEY']}" })
   
-      data = JSON.parse(response.body)
-      @logo = data["logo"]
-    end
+    #   data = JSON.parse(response.body)
+    #   @logo = data["logo"]
+    # end
     
     user1 = User.create!(
       phone_number: '+123456789', 
@@ -275,7 +275,8 @@ require 'httparty'
       end_month: months[rand(months.length)],
       end_year: 2022,
       location: Faker::Address.unique.country,
-      logo: fetch_company_logo('google')
+      # logo: fetch_company_logo('google')
+      logo: Faker::Company.logo
     })
 
     Experience.create!({
@@ -290,7 +291,8 @@ require 'httparty'
       location: Faker::Address.unique.country,
       end_month: months[rand(months.length)],
       end_year: 2018,
-      logo: fetch_company_logo('twitter')
+      # logo: fetch_company_logo('twitter')
+      logo: Faker::Company.logo
     })
 
     Experience.create!({
@@ -305,7 +307,8 @@ require 'httparty'
       location: Faker::Address.unique.country,
       end_month: months[rand(months.length)],
       end_year: 2014,
-      logo: fetch_company_logo('facebook')
+      # logo: fetch_company_logo('facebook')
+      logo: Faker::Company.logo
     })
 
     Experience.create!({
@@ -320,7 +323,8 @@ require 'httparty'
       location: Faker::Address.unique.country,
       end_month: months[rand(months.length)],
       end_year: 2009,
-      logo: fetch_company_logo('adobe')
+      # logo: fetch_company_logo('adobe')
+      logo: Faker::Company.logo
     })
   
     # More users

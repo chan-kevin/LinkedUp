@@ -1,4 +1,4 @@
-require 'httparty'
+# require 'httparty'
 # require 'dotenv/load'
 
 class Api::ExperiencesController < ApplicationController
@@ -39,13 +39,13 @@ class Api::ExperiencesController < ApplicationController
 
     private
 
-    def fetch_company_logo(company)
-        response = HTTParty.get("https://company.clearbit.com/v1/domains/find?name=#{company}",
-          headers: { Authorization: "Bearer #{ENV['CLEARBIT_API_KEY']}" })
+    # def fetch_company_logo(company)
+    #     response = HTTParty.get("https://company.clearbit.com/v1/domains/find?name=#{company}",
+    #       headers: { Authorization: "Bearer #{ENV['CLEARBIT_API_KEY']}" })
     
-        data = JSON.parse(response.body)
-        @logo = data["logo"]
-    end
+    #     data = JSON.parse(response.body)
+    #     @logo = data["logo"]
+    # end
 
     def experience_params
         params.require(:experience).permit(:title, :company, :location, :current, :description, :start_month, :start_year, :end_month, :end_year, :user_id)
