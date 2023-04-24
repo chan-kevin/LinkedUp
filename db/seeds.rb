@@ -353,6 +353,21 @@ require "open-uri"
     # months = ["January", "February", "March", "April", "May", "June", 
     #       "July", "August", "September", "October", "November", "December"]
 
+    education_start_year = rand(1980..2018)
+    education_end_year = education_start_year + 4
+
+    Education.create!({
+      school: Faker::Educator.unique.university,
+      degree: Faker::Educator.degree,
+      user_id: 1,
+      start_month: months[rand(months.length)],
+      start_year: education_start_year,
+      end_month: months[rand(months.length)],
+      end_year: education_end_year
+    })
+
+
+
     i = 2
     while i < 21 do
       5.times do 

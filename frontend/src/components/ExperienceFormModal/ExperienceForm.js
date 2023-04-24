@@ -71,6 +71,7 @@ function ExperienceForm ({ onClose, experience }) {
             current,
             title,
             company,
+            logo: companyLogo,
             location,
             startMonth,
             startYear,

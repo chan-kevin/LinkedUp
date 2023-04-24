@@ -22,6 +22,7 @@ const ExperiencePage = () => {
 
     useEffect(() => {
         dispatch(fetchUserProfile(userId));
+
     }, [dispatch, userId]);
 
     if (!sessionUser) return <Redirect to="/" />;

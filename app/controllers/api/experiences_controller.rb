@@ -6,13 +6,13 @@ class Api::ExperiencesController < ApplicationController
 
     def create
         @experience = Experience.new(experience_params)
-        if !(@experience.current)
+        # if !(@experience.current)
           # @experience.start_year = @experience.start_year.to_i
           # @experience.end_year = @experience.end_year.to_i
-        end
+        # end
     
-        fetch_company_logo(@experience.company)
-        @experience.logo = @logo
+        # fetch_company_logo(@experience.company)
+        # @experience.logo = @logo
         if @experience.save
           render :show
         else
@@ -48,7 +48,7 @@ class Api::ExperiencesController < ApplicationController
     # end
 
     def experience_params
-        params.require(:experience).permit(:title, :company, :location, :current, :description, :start_month, :start_year, :end_month, :end_year, :user_id)
+        params.require(:experience).permit(:title, :company, :location, :logo, :current, :description, :start_month, :start_year, :end_month, :end_year, :user_id)
         # .tap do |params|
           # params[:startYear] = params[:startYear].to_i
           # params[:endYear] = params[:endYear].to_i
