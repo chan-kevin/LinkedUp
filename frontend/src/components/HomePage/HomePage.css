@@ -5,7 +5,7 @@
 }
 
 #homeColor {
-    position: absolute;
+    /* position: absolute; */
     height: 100%;
     width: 100%;
     background-color: white;
@@ -13,34 +13,40 @@
 }
 
 #homePage {
-    max-width: 1128px;
+    /* max-width: 1128px; */
     display: flex;
     position: relative;
     width: 100%;
     align-items: center;
+    /* justify-content: center; */
     flex-wrap: wrap;
     margin: auto;
     padding-top: 12px;
     padding-bottom: 16px;
     padding-left: 16px;
-    padding-right: 16px;
+    /* padding-right: 16px; */
     padding-top: 40px;
     min-height: 560px;
 }
 
 #homeImg {
-    width: 700px;
-    height: 560px;
-    padding-top: 7%;
-    position: absolute;
-    right: -13%;
+    /* width: 500px; */
+    height: 600px;
+    /* padding-top: 7%; */
+    float: right;
+    align-self: flex-end;
+    display: flex;
+    /* position: absolute;
+    right: -13%; */
 }
 
 .signIn {
     align-self: flex-start;
-    width: 50%;
+    width: 38%;
     flex-shrink: 0;
     display: flex;
+    padding-left: 12vw;
+    padding-right: 0;
     /* padding-top: 2%; */
 }
 
@@ -153,7 +159,7 @@ input:focus{
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 72%;
+    width: 410px;
 }
 
 .password-input button {
