@@ -18,6 +18,7 @@ function HomePage() {
   const passwordEmptyInputRef = useRef(null);
   const emailEmptyLabelRef = useRef(null);
   const passwordEmptyLabelRef = useRef(null);
+  const [passwordType, setPasswordType] = useState('password')
   // const emailError = errors.find(error => error.includes('Email'));
 
   useEffect(() => {
@@ -102,6 +103,15 @@ function HomePage() {
   //   }
   // }
 
+  const changePasswordType = (e) => {
+    e.preventDefault();
+    if (passwordType === 'password') {
+      setPasswordType('text')
+    } else {
+      setPasswordType('password')
+    }
+  }
+
   return (
     <div id='homeColor'>
       
@@ -115,32 +125,39 @@ function HomePage() {
 
                   <h1 id='homeHeading'>Welcome to your professional community</h1>
 
-                  <label className='homeLabel' id='emailEmptyLabel' ref={emailEmptyLabelRef}>
-                      Email or phone
-                  </label>
-                  <input
-                      id='emailEmptyInput' 
-                      ref={emailEmptyInputRef}
-                      type="text"
-                      value={credential}
-                      onChange={changeCredential}
-                      // onFocus={handleInputFocus}
-                      // onBlur={handleInputBlur}
-                  />
+                  <div className='email-input'>
+                    <label className='homeLabel' id='emailEmptyLabel' ref={emailEmptyLabelRef}>
+                        Email or phone
+                    </label>
+                    <input
+                        id='emailEmptyInput' 
+                        ref={emailEmptyInputRef}
+                        type="text"
+                        value={credential}
+                        onChange={changeCredential}
+                        // onFocus={handleInputFocus}
+                        // onBlur={handleInputBlur}
+                    />
+                  </div>
                   {empty.email && <div className='empty'>{empty.email}</div>}
 
-                  <label className='homeLabel' id='passwordEmptyLabel' ref={passwordEmptyLabelRef}>
-                      Password
-                  </label>
-                  <input
-                      id='passwordEmptyInput'
-                      ref={passwordEmptyInputRef}
-                      type="password"
-                      value={password}
-                      onChange={changePassword}
-                      // onFocus={handleInputFocus}
-                      // onBlur={handleInputBlur}
-                  />
+                  <div className='password-input'>
+                    <label className='homeLabel' id='passwordEmptyLabel' ref={passwordEmptyLabelRef}>
+                        Password
+                    </label>
+                    <input
+                        id='passwordEmptyInput'
+                        ref={passwordEmptyInputRef}
+                        type={passwordType}
+                        value={password}
+                        onChange={changePassword}
+                        // onFocus={handleInputFocus}
+                        // onBlur={handleInputBlur}
+                    />
+                    {passwordType === 'password' ? 
+                    <button type='button' onClick={changePasswordType}>Show</button> :
+                    <button type='button' onClick={changePasswordType}>Hide</button>}
+                  </div>
                   {empty.password && <div className='empty'>{empty.password}</div>}
 
                   {/* <NavLink to='/forgot' className='forgotSignup' id='homeSignIn'>Forgot Password?</NavLink> */}

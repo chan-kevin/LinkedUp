@@ -11,7 +11,7 @@
     position: relative;
     flex-wrap: wrap;
     margin: auto;
-    padding-top: 12px;
+    /* padding-top: 12px; */
     padding-bottom: 16px;
     padding-left: 16px;
     padding-right: 16px;
@@ -48,12 +48,12 @@
 }
 
 #signInButton:hover {
-    background-color: #c7dbef;
+    background-color: #edf6ff;
 }
 
 #signInButton:focus {
     outline: none;
-    background-color: #a4c7eb;
+    background-color: #dae9f8;
 }
 
 #signUpButton {

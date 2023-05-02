@@ -9,6 +9,7 @@
     height: 100%;
     width: 100%;
     background-color: white;
+    flex-wrap: wrap;
 }
 
 #homePage {
@@ -55,7 +56,6 @@
 .homeLogin {
     display: flex;
     flex-direction: column;
-    z-index: 5;
 }
 
 .homeLabel {
@@ -68,7 +68,8 @@
 }
 
 .homeLogin input {
-    width: 410px;
+    /* width: 410px; */
+    width: 100%;
     border-radius: 4px;
     border-width: 1px;
     border-style: solid;
@@ -142,4 +143,27 @@ input:focus{
     padding-top: 18px;
     color: rgb(201, 20, 20);
     font-size: 13px;
+}
+
+#emailEmptyInput, #passwordEmptyInput {
+    cursor: text;
+}
+
+.password-input, .email-input {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 72%;
+}
+
+.password-input button {
+    position: absolute;
+    bottom: 0.8em;
+    right: 1em;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: 600;
+    color: #0a66c2;
+    font-size: 16px;
 }
