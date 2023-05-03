@@ -114,10 +114,8 @@ function HomePage() {
 
   return (
     <div id='homeColor'>
-      
       <div className='fontFamily' id='homePage'>
-          <div className='signIn'>
-          
+          {/* <div className='signIn'> */}
               <form onSubmit={handleSubmit} className='homeLogin'>
                   {/* <ul>
                       {errors.map(error => <li key={error}>{error}</li>)}
@@ -163,11 +161,17 @@ function HomePage() {
                   {/* <NavLink to='/forgot' className='forgotSignup' id='homeSignIn'>Forgot Password?</NavLink> */}
                   <div id='homeBorder'><button type="submit" className='signInSubmit' id='homeSign' onClick={handleSubmit}>Sign in</button></div>
                   {/* {errors ? <LoginFormPage credential={credential} errors={errors} /> : null} */}
+
+                  <div class="divider-container">
+                    <div class="divider-item"></div>
+                    <div class="divider-text">or</div>
+                    <div class="divider-item"></div>
+                  </div>
+
                   <button type="submit" className='signInSubmit' id='homeGoogle' onClick={demoLogin}>Sign in as Demo</button>
                   <NavLink to='/signup' className='signInSubmit' id='homeNew'>New to LinkedUp? Join now</NavLink>
               </form>
-              
-          </div>
+          {/* </div> */}
           <img src={background} alt='background' id='homeImg'></img>
       </div>
       
