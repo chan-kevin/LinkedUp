@@ -133,6 +133,10 @@
         border: 1px solid rgba(0,0,0,0.6);
         font-weight: 400;
     }
+
+    #signup-divider {
+        margin-top: 13px;
+    }
 }
 
 @media (min-width: 1162px){
@@ -243,6 +247,11 @@
         border: 1px solid rgba(0,0,0,0.6);
         font-weight: 400;
     }
+
+    #signup-divider {
+        margin-top: 25px;
+    }
+
 }
 
 .subSignUpPage > input {

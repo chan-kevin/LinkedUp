@@ -136,3 +136,8 @@
     border-color: #0073b1;
     border-width: 2px;
 }
+
+#login-divider {
+    margin-top: 25px;
+    /* margin-bottom: 0px; */
+}

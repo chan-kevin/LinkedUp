@@ -104,7 +104,13 @@ function LoginFormPage() {
         {/* <NavLink to='/forgot' className='forgotSignup'>Forgot Password?</NavLink> */}
 
         <button type="submit" className='signInSubmit' id='withoutForgotPassword'>Sign in</button>
-        <div id='signUpBorder'></div>
+
+        <div class="divider-container" id='login-divider'>
+          <div class="divider-item"></div>
+          <div class="divider-text">or</div>
+          <div class="divider-item"></div>
+        </div>
+
         <button type="submit" className='signUpSubmit' id='signUpGoogle' onClick={demoLogin}>Continue with Demo</button>
         {/* <button type="submit" className='signUpSubmit' id='signInApple'> <img src={apple} alt='apple' id='google'/> Sign in with Apple</button> */}
       </form>

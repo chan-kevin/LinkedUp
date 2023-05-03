@@ -170,7 +170,7 @@ input:focus{
 .divider-container {
     display: flex;
     align-items: center;
-    width: 410px;
+    width: 100%;
 }
 
 .divider-item {
@@ -181,4 +181,8 @@ input:focus{
 
 .divider-text {
     margin: 0 10px;
+}
+
+#home-divider {
+    width: 410px;
 }

@@ -121,7 +121,13 @@ function SignupFormPage() {
                 and <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/in/kevin-chan-426203158/'>My LinkedIn</a>.</p>
   
                 <button type="submit" className='signUpSubmit' onClick={handlePage1Submit}>Agree & Join</button>
-                <div id='signUpBorder'></div>
+
+                <div class="divider-container" id='signup-divider'>
+                    <div class="divider-item"></div>
+                    <div class="divider-text">or</div>
+                    <div class="divider-item"></div>
+                </div>
+                
                 <button type="submit" className='signUpSubmit' id='signUpGoogle' onClick={demoLogin}> Continue as Demo</button>
                 <p id='hasAcc'>Already on LinkedUp? <NavLink to="/login" id='hasAccSignIn'>Sign in</NavLink></p>
             </form>
