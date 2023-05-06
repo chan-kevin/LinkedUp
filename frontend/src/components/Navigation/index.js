@@ -20,8 +20,11 @@ function Navigation() {
           {sessionUser ? (
             <header className='fontFamily' id='loginHeader'>
               <div className='nav' id='withUserHome'>
-                <NavLink exact to="/"><img src={smallLogo} alt="home" id='withUserHomeLogo'/></NavLink>
-                <SearchBar />
+                <div className='left-nav'>
+                  <NavLink exact to="/"><img src={smallLogo} alt="home" id='withUserHomeLogo'/></NavLink>
+                  <SearchBar />
+                </div>
+
                 <div className='choices'>
                   <ul className='diffButtons'>
                     <li>
