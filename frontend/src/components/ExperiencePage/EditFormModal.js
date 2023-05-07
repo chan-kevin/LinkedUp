@@ -8,10 +8,6 @@ function EditFormModal({experience}) {
   const history = useHistory();
   const [showModal, setShowModal] = useState(false);
 
-  // const closeModal = () => {
-  //   setShowModal(false);
-  // };
-
   const onClose = () => {
     setShowModal(false);
     const body = document.querySelector('body');
