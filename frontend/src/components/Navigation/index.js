@@ -14,9 +14,7 @@ function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
 
   return (
-    <>
       <nav className="fontFamily">
-
           {sessionUser ? (
             <header className='fontFamily' id='loginHeader'>
               <div className='nav' id='withUserHome'>
@@ -42,7 +40,7 @@ function Navigation() {
                     </li>
 
                     <li>
-                    <a target='_blank' rel='noreferrer' href='https://github.com/kchannn13' className='navButtons' id='network'>
+                      <a target='_blank' rel='noreferrer' href='https://github.com/kchannn13' className='navButtons' id='network'>
                         <i className="fa-brands fa-github"></i>
                         <span className='navTitle'>My GitHub</span>
                       </a>
@@ -67,7 +65,6 @@ function Navigation() {
           ) : null }
           </div></header> }
       </nav>
-    </>
   )
 }
 
