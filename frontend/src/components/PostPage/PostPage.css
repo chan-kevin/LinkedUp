@@ -7,6 +7,7 @@
 
 #createPost, #feedPost {
     width: 600px;
+    margin: 0;
 }
 
 #feedBackground {
@@ -14,18 +15,24 @@
 }
 
 .feedBody {
-    padding-right:70px;
+    /* padding-right:70px; */
+}
+
+.feedProfile {
+    padding-right: 2%;
 }
 
 #homeProfile {
     width: 250px;
     position: relative;
+    margin: 0;
 }
 
 #homeFoot {
     width: 300px;
     position: relative; 
     padding: 15px;
+    margin: 0;
 }
 
 .news {
@@ -101,7 +108,7 @@
 }
 
 #homeFeed {
-    margin-top: 90px;
+    margin-top: 65px;
     display: flex;
     flex-direction: row;
     /* justify-content: space-between; */
@@ -291,7 +298,8 @@
 }
 
 .homeFoot {
-    padding-left: 80px;
+    /* padding-left: 80px; */
+    margin: 0;
 }
 
 .createPostFoot {

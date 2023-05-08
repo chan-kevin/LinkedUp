@@ -344,7 +344,7 @@ const PostPage = () => {
                                 <i className="fa-solid fa-thumbs-up" id="likeButton"></i>
                                 <span id="liketext">Like</span>
                             </button>
-                            <button className='postButtons' onClick={() => handleOpenCreateComment(post.id, index)}>
+                            <button className='postButtons' onClick={() => listComments(post.id, index)}>
                                 <i className="fa-regular fa-comment-dots" id="commentButton"></i>Comment
                             </button>
                         </div>
