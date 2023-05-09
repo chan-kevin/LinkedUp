@@ -224,8 +224,16 @@
     border-radius: 8px;
 }
 
-#likeButton, #commentButton {
+.likeButton, #commentButton {
     padding-right: 10px;
+}
+
+.liked {
+    color: #0a66c2;
+}
+
+.unliked {
+    color: rgba(0,0,0,0.6);
 }
 
 .authorPic {
