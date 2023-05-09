@@ -507,8 +507,6 @@
     width: 50px;
     margin-left: 60px;
     min-height: 26px;
-    /* transition-timing-function: cubic-bezier(.4,0,.2,1);
-    transition-duration: 167ms; */
 }
 
 #startComment:hover {
