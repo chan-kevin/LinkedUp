@@ -106,16 +106,16 @@ const PostPage = () => {
     }
 
     const commentOnChange = (e) => {
-        setBody(e.target.value)
+        setBody(e.target.value);
     }
 
     const handleComment = (postId) => {
+        setBody('');
         const commentNew = {
             body,
             postId
         }
         dispatch(createComment(commentNew))
-        setBody('');
     }
 
     const handleOpenCreateComment = (postId, index) => {
@@ -356,9 +356,10 @@ const PostPage = () => {
                                     <img src={sessionUser.photoUrl} alt='defaultProfile' />
                                 </div>
 
-                                <input className='startPost' placeholder="Add a comment..." id="startComment" onChange={commentOnChange}/>
+                                <input className='startPost' value={body} placeholder="Add a comment..." id="startComment" onChange={commentOnChange}/>
                             </div>
-                            <button className='submit' id='postComment' onClick={() => handleComment(post.id)}>Post</button>
+                            {body &&
+                            <button className='submit' id='postComment' onClick={() => handleComment(post.id)}>Post</button>}
                         </div>
                         ) : null}
 

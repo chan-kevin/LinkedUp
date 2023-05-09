@@ -1,6 +1,5 @@
 #postList {
     width: 1128px;
-    margin-top: 90px;
     display: flex;
     flex-direction: column;
 }
@@ -10,12 +9,16 @@
     margin: 0;
 }
 
+#feedPost {
+    margin-top: 8px;
+}
+
 #feedBackground {
     height: 130px;
 }
 
 .feedProfile {
-    padding-right: 2%;
+    padding-right: 30px;
 }
 
 #homeProfile {
@@ -29,6 +32,7 @@
     position: relative; 
     padding: 15px;
     margin: 0;
+    margin-left: 30px;
 }
 
 .news {
@@ -104,7 +108,7 @@
 }
 
 #homeFeed {
-    margin-top: 65px;
+    margin-top: 75px;
     display: flex;
     flex-direction: row;
     /* justify-content: space-between; */
@@ -499,8 +503,12 @@
 }
 
 #postComment {
+    margin-top: 10px;
     width: 50px;
     margin-left: 60px;
+    min-height: 26px;
+    /* transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: 167ms; */
 }
 
 #startComment:hover {
