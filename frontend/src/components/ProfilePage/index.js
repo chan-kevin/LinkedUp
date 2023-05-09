@@ -310,7 +310,7 @@ const ProfilePage = () => {
                 {educations && educations.map(education => (
                 <div className='profileDetailList' key={education.id}>
                     <div className='profileLogo'>
-                        <img src={experiences[2].logo} alt='companyLogo' />
+                        <CompanyLogo company={education.school} />
                     </div>
                     <ul className='experienceDetail'>
                         <li className='detailHeading'>{education.school}</li>
