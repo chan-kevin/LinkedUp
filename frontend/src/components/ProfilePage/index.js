@@ -13,6 +13,7 @@ import { createConnection, removeConnection } from '../../store/connection';
 import { Modal } from '../../context/Modal';
 import PostPage from '../PostPage';
 import defaultLogo from './assets/nologo.jpeg'
+import CompanyLogo from './Companylogo';
 
 const ProfilePage = () => {
     const { userId } = useParams();
@@ -137,6 +138,13 @@ const ProfilePage = () => {
 
     const openSecondModal = () => {
         setSecondModal(true);
+    }
+
+
+    const fetchCompanyLogo = async(company) => {
+        const response = await fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=${company}`)
+        const data = await response.json();
+        return data[0].logo;
     }
 
     let preview = null;
@@ -277,9 +285,7 @@ const ProfilePage = () => {
                 {experiences && experiences.map(experience => (
                 <div className='profileDetailList' key={experience.id}>
                     <div className='profileLogo'>
-                        {experience.logo ?
-                        <img src={experience.logo} alt='companyLogo' /> :
-                        <img src={defaultLogo} alt='companyLogo' />}
+                        <CompanyLogo company={experience.company} />
                     </div>
                     <ul className='experienceDetail'>
                         <li className='detailHeading'>{experience.title}</li>
