@@ -162,10 +162,10 @@ function HomePage() {
                   <div id='homeBorder'><button type="submit" className='signInSubmit' id='homeSign' onClick={handleSubmit}>Sign in</button></div>
                   {/* {errors ? <LoginFormPage credential={credential} errors={errors} /> : null} */}
 
-                  <div class="divider-container" id='home-divider'>
-                    <div class="divider-item"></div>
-                    <div class="divider-text">or</div>
-                    <div class="divider-item"></div>
+                  <div className="divider-container" id='home-divider'>
+                    <div className="divider-item"></div>
+                    <div className="divider-text">or</div>
+                    <div className="divider-item"></div>
                   </div>
 
                   <button type="submit" className='signInSubmit' id='homeGoogle' onClick={demoLogin}>Sign in as Demo</button>

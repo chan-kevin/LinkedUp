@@ -39,11 +39,14 @@ const ProfilePage = () => {
     // }
     //     fetchDate();
     // }, [dispatch, id]);
-    
+    let preview = null;
+    if (photoUrl) preview = <img src={photoUrl} alt="" />;
 
     useEffect(() => {
         // user.photoUrl ||= defaultProfile;
         dispatch(fetchUserProfile(userId));
+        // const input = document.getElementsByTagName('input')[0];
+        // input.value = null
         // user.photoUrl ||= defaultProfile;
         
         // const fetchCompanyLogo = async() => {
@@ -111,6 +114,8 @@ const ProfilePage = () => {
             formData.append('user[photo]' ,photoFile);
             dispatch(editUserProfile(formData, userId));
             setSaveProfile(false);
+            const input = document.getElementsByTagName('input')[0];
+            input.value = null
         }
         setShowModal(false);
     }
@@ -130,6 +135,7 @@ const ProfilePage = () => {
     const onClose = () => {
         setShowModal(false);
         setSecondModal(false);
+        preview = null;
     }
 
     const openProfileModal = () => {
@@ -147,8 +153,8 @@ const ProfilePage = () => {
         return data[0].logo;
     }
 
-    let preview = null;
-    if (photoUrl) preview = <img src={photoUrl} alt="" />;
+    // let preview = null;
+    // if (photoUrl) preview = <img src={photoUrl} alt="" />;
 
     return (
         <div className='fontFamily' id='profileContent'>
@@ -210,8 +216,8 @@ const ProfilePage = () => {
                             <footer className='changeProfileFoot' id='changeProfileFoot2'>
                                 {!saveProfile ?
                                 <div className="uploadWrapper">
-                                    <input type='file' id='uploadInput' onChange={changeProfilePic}></input>
-                                    <label className='submit' id='uploadPhoto'>Upload photo</label>
+                                    <input type='file' id='uploadInput' onChange={changeProfilePic}/>
+                                    <label className='submit' id='uploadPhoto' htmlFor='uploadInput'>Upload photo</label>
                                 </div>
                                 :
                                 <div className="uploadWrapper">

@@ -122,10 +122,10 @@ function SignupFormPage() {
   
                 <button type="submit" className='signUpSubmit' onClick={handlePage1Submit}>Agree & Join</button>
 
-                <div class="divider-container" id='signup-divider'>
-                    <div class="divider-item"></div>
-                    <div class="divider-text">or</div>
-                    <div class="divider-item"></div>
+                <div className="divider-container" id='signup-divider'>
+                    <div className="divider-item"></div>
+                    <div className="divider-text">or</div>
+                    <div className="divider-item"></div>
                 </div>
                 
                 <button type="submit" className='signUpSubmit' id='signUpGoogle' onClick={demoLogin}> Continue as Demo</button>
