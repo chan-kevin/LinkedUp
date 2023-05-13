@@ -27,7 +27,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    overflow-y: hidden;
     margin: 0 auto;
 }
 
@@ -185,18 +185,22 @@
     background-color: rgba(0,0,0,0.06);
 }
 
+#company-name {
+    position: relative;
+}
+
 .companySearch {
     display: flex;
     border-radius: 8px;
-    width: 700px;
-    top: 305px;
+    width: 696px;
+    top: 62px;
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
     background-color: white;
     box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.08);
     line-height: 2.8;
-    position: fixed;
+    position: absolute;
 }
 
 #searchLogo {
@@ -219,8 +223,8 @@
 }
 
 #companyLogo {
-    top: 235px;
-    right: 45px;
+    top: 30px;
+    right: 20px;
     width: 23px;
     height: 23px;
     position: absolute;

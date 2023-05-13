@@ -106,16 +106,16 @@ const PostPage = () => {
     }
 
     const commentOnChange = (e) => {
-        setBody(e.target.value)
+        setBody(e.target.value);
     }
 
     const handleComment = (postId) => {
+        setBody('');
         const commentNew = {
             body,
             postId
         }
         dispatch(createComment(commentNew))
-        setBody('');
     }
 
     const handleOpenCreateComment = (postId, index) => {
@@ -128,8 +128,8 @@ const PostPage = () => {
             likeableId: postId,
             likerId: userId
         }
-        const likebutton = document.getElementById('likeButton');
-        const liketext = document.getElementById('liketext');
+        const likebutton = document.getElementById(`likeButton-${postId}`);
+        const liketext = document.getElementById(`liketext-${postId}`);
         if (posts[postId].liked) {
             dispatch(removeLike(postId))
             likebutton.style.color = 'rgba(0,0,0,0.6)'
@@ -341,8 +341,16 @@ const PostPage = () => {
 
                         <div className="postInteract">
                             <button className='postButtons' onClick={() => handleLike(sessionUser.id, post.id, index)}>
-                                <i className="fa-solid fa-thumbs-up" id="likeButton"></i>
-                                <span id="liketext">Like</span>
+                                {post.liked?
+                                <>
+                                <i className="fa-solid fa-thumbs-up likeButton liked" id={`likeButton-${post.id}`}></i>
+                                <span className='liketext liked' id={`liketext-${post.id}`}>Like</span>
+                                </>
+                                : 
+                                <>
+                                <i className="fa-solid fa-thumbs-up likeButton unliked" id={`likeButton-${post.id}`}></i>
+                                <span className='liketext unliked' id={`liketext-${post.id}`}>Like</span>
+                                </>}
                             </button>
                             <button className='postButtons' onClick={() => listComments(post.id, index)}>
                                 <i className="fa-regular fa-comment-dots" id="commentButton"></i>Comment
@@ -351,14 +359,17 @@ const PostPage = () => {
                         
                         {openCreateComment === index ? (
                         <div className="createComment">
-                            <div className="addComment">
-                                <div className='authorPic'>
-                                    <img src={sessionUser.photoUrl} alt='defaultProfile' />
-                                </div>
+                            <form>
+                                <div className="addComment">
+                                    <div className='authorPic'>
+                                        <img src={sessionUser.photoUrl} alt='defaultProfile' />
+                                    </div>
 
-                                <input className='startPost' placeholder="Add a comment..." id="startComment" onChange={commentOnChange}/>
-                            </div>
-                            <button className='submit' id='postComment' onClick={() => handleComment(post.id)}>Post</button>
+                                    <input className='startPost' value={body} placeholder="Add a comment..." id="startComment" onChange={commentOnChange}/>
+                                </div>
+                                {body &&
+                                <button className='submit' id='postComment' onClick={() => handleComment(post.id)}>Post</button>}
+                            </form>
                         </div>
                         ) : null}
 

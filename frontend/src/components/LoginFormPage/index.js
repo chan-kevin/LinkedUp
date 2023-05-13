@@ -105,10 +105,10 @@ function LoginFormPage() {
 
         <button type="submit" className='signInSubmit' id='withoutForgotPassword'>Sign in</button>
 
-        <div class="divider-container" id='login-divider'>
-          <div class="divider-item"></div>
-          <div class="divider-text">or</div>
-          <div class="divider-item"></div>
+        <div className="divider-container" id='login-divider'>
+          <div className="divider-item"></div>
+          <div className="divider-text">or</div>
+          <div className="divider-item"></div>
         </div>
 
         <button type="submit" className='signUpSubmit' id='signUpGoogle' onClick={demoLogin}>Continue with Demo</button>

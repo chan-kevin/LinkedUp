@@ -8,8 +8,6 @@ body {
 #dropdownbutton {
     border: none;
     cursor: pointer;
-    /* position: absolute;
-    right: 10%; */
 }
 
 #dropIcon {
@@ -27,7 +25,6 @@ body {
     box-sizing: border-box;
     border-radius: 8px 0px 8px 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    /* transform: translateX(-100%); */
     right: 10%;
     width: 250px;
     font-size: 100%;
@@ -175,6 +172,7 @@ body {
 .navProfile {
     display: flex;
     flex-direction: column;
+    width: 90%;
 }
 
 .navHeadline {

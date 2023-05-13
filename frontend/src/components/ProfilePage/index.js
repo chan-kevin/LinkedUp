@@ -13,6 +13,7 @@ import { createConnection, removeConnection } from '../../store/connection';
 import { Modal } from '../../context/Modal';
 import PostPage from '../PostPage';
 import defaultLogo from './assets/nologo.jpeg'
+import CompanyLogo from './Companylogo';
 
 const ProfilePage = () => {
     const { userId } = useParams();
@@ -38,11 +39,14 @@ const ProfilePage = () => {
     // }
     //     fetchDate();
     // }, [dispatch, id]);
-    
+    let preview = null;
+    if (photoUrl) preview = <img src={photoUrl} alt="" />;
 
     useEffect(() => {
         // user.photoUrl ||= defaultProfile;
         dispatch(fetchUserProfile(userId));
+        // const input = document.getElementsByTagName('input')[0];
+        // input.value = null
         // user.photoUrl ||= defaultProfile;
         
         // const fetchCompanyLogo = async() => {
@@ -110,6 +114,8 @@ const ProfilePage = () => {
             formData.append('user[photo]' ,photoFile);
             dispatch(editUserProfile(formData, userId));
             setSaveProfile(false);
+            const input = document.getElementsByTagName('input')[0];
+            input.value = null
         }
         setShowModal(false);
     }
@@ -129,6 +135,7 @@ const ProfilePage = () => {
     const onClose = () => {
         setShowModal(false);
         setSecondModal(false);
+        preview = null;
     }
 
     const openProfileModal = () => {
@@ -139,8 +146,15 @@ const ProfilePage = () => {
         setSecondModal(true);
     }
 
-    let preview = null;
-    if (photoUrl) preview = <img src={photoUrl} alt="" />;
+
+    const fetchCompanyLogo = async(company) => {
+        const response = await fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=${company}`)
+        const data = await response.json();
+        return data[0].logo;
+    }
+
+    // let preview = null;
+    // if (photoUrl) preview = <img src={photoUrl} alt="" />;
 
     return (
         <div className='fontFamily' id='profileContent'>
@@ -202,8 +216,8 @@ const ProfilePage = () => {
                             <footer className='changeProfileFoot' id='changeProfileFoot2'>
                                 {!saveProfile ?
                                 <div className="uploadWrapper">
-                                    <input type='file' id='uploadInput' onChange={changeProfilePic}></input>
-                                    <label className='submit' id='uploadPhoto'>Upload photo</label>
+                                    <input type='file' id='uploadInput' onChange={changeProfilePic}/>
+                                    <label className='submit' id='uploadPhoto' htmlFor='uploadInput'>Upload photo</label>
                                 </div>
                                 :
                                 <div className="uploadWrapper">
@@ -277,9 +291,7 @@ const ProfilePage = () => {
                 {experiences && experiences.map(experience => (
                 <div className='profileDetailList' key={experience.id}>
                     <div className='profileLogo'>
-                        {experience.logo ?
-                        <img src={experience.logo} alt='companyLogo' /> :
-                        <img src={defaultLogo} alt='companyLogo' />}
+                        <CompanyLogo company={experience.company} />
                     </div>
                     <ul className='experienceDetail'>
                         <li className='detailHeading'>{experience.title}</li>
@@ -304,7 +316,7 @@ const ProfilePage = () => {
                 {educations && educations.map(education => (
                 <div className='profileDetailList' key={education.id}>
                     <div className='profileLogo'>
-                        <img src={experiences[2].logo} alt='companyLogo' />
+                        <CompanyLogo company={education.school} />
                     </div>
                     <ul className='experienceDetail'>
                         <li className='detailHeading'>{education.school}</li>

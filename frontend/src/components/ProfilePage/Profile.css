@@ -122,13 +122,12 @@
 }
 
 .profileLogo {
-    padding-right: 20px;
+    margin-right: 20px;
     width: 30px;
     height: 30px;
 }
 
 .profileLogo img{
-    width: 100%;
     height: 100%;
 }
 

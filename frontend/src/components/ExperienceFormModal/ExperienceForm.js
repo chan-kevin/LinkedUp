@@ -139,7 +139,7 @@ function ExperienceForm ({ onClose, experience }) {
                 </div>
                 
                     
-                <div className="formInput">
+                <div className="formInput" id="company-name">
                     <label htmlFor="company">Company name<sup>*</sup></label>
                     {companyLogo ? <img src={companyLogo} alt='logo' id="companyLogo" /> : null}
                     <input

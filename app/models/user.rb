@@ -117,7 +117,7 @@ class User < ApplicationRecord
 
   def generate_default_pic
     unless self.photo.attached?
-      file = URI.open("https://linkedup-seeds.s3.amazonaws.com/pikachu.png");
+      file = URI.open("https://linkedup-seeds.s3.amazonaws.com/default-profile.jpeg");
       self.photo.attach(io: file, filename: "default.png")
     end
   end

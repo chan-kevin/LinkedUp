@@ -5,6 +5,7 @@ import { fetchUserProfile } from '../../store/profile';
 import './ExperiencePage.css';
 import DropDown from '../ProfilePage/DropDown';
 import EditFormModal from './EditFormModal';
+import CompanyLogo from '../ProfilePage/Companylogo';
 
 
 const ExperiencePage = () => {
@@ -43,7 +44,7 @@ const ExperiencePage = () => {
                 {experiences && experiences.map(experience => (
                 <div className='profileDetailList' key={experience.id}>
                     <div className='profileLogo'>
-                        <img src={experience.logo} alt='companyLogo' />
+                        <CompanyLogo company={experience.company} />
                     </div>
                     <ul className='experienceDetail'>
 

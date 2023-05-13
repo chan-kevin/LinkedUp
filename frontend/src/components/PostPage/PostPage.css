@@ -1,6 +1,5 @@
 #postList {
     width: 1128px;
-    margin-top: 90px;
     display: flex;
     flex-direction: column;
 }
@@ -10,12 +9,16 @@
     margin: 0;
 }
 
+#feedPost {
+    margin-top: 8px;
+}
+
 #feedBackground {
     height: 130px;
 }
 
 .feedProfile {
-    padding-right: 2%;
+    padding-right: 30px;
 }
 
 #homeProfile {
@@ -29,6 +32,7 @@
     position: relative; 
     padding: 15px;
     margin: 0;
+    margin-left: 30px;
 }
 
 .news {
@@ -53,7 +57,6 @@
 }
 
 .developed {
-    /* position: absolute; */
     padding: 15px;
     padding-left: 70px;
 }
@@ -71,7 +74,6 @@
 
 #bottomlogo {
     height: 40px;
-    /* position: absolute; */
     left: 80px;
 }
 
@@ -104,13 +106,10 @@
 }
 
 #homeFeed {
-    margin-top: 65px;
+    margin-top: 75px;
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
     flex-wrap: wrap;
-    /* padding-left: 180px; */
-    /* position: fixed; */
     justify-content: center;
 }
 
@@ -195,7 +194,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* margin-bottom: 20px; */
 }
 
 .postButtons {
@@ -220,8 +218,16 @@
     border-radius: 8px;
 }
 
-#likeButton, #commentButton {
+.likeButton, #commentButton {
     padding-right: 10px;
+}
+
+.liked {
+    color: #0a66c2;
+}
+
+.unliked {
+    color: rgba(0,0,0,0.6);
 }
 
 .authorPic {
@@ -255,7 +261,6 @@
 .commentsDetail {
     border-radius: 0 8px 0 0;
     margin-bottom: 25px;
-    /* width: 90%; */
     flex-grow: 1;
     padding: 10px;
     background-color: rgba(0,0,0,0.08);
@@ -272,7 +277,6 @@
     font-size: 14px;
     flex-grow: 1;
     height: 45px;
-    /* width: 100%; */
     max-width: none;
     line-height: 1.5;
     border: 1px solid rgba(0,0,0,0.3);
@@ -294,7 +298,6 @@
 }
 
 .homeFoot {
-    /* padding-left: 80px; */
     margin: 0;
 }
 
@@ -347,15 +350,8 @@
 }
 
 .createPostBody {
-    /* padding: 25px;
-    padding-right: 35px;
-    height: 300px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start; */
     padding: 25px;
     padding-right: 35px;
-    /* height: 300px; */
 }
 
 .createPostInput {
@@ -408,7 +404,6 @@
     min-width: max-content;
     max-width: none;
     width: 300px;
-    /* height: 40px; */
     border-radius: 8px 0 8px 8px;
     box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 6px 9px rgba(0,0,0,.2);
     display: flex;
@@ -499,8 +494,10 @@
 }
 
 #postComment {
+    margin-top: 10px;
     width: 50px;
     margin-left: 60px;
+    min-height: 26px;
 }
 
 #startComment:hover {
