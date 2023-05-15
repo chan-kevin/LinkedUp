@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { Modal } from "../../context/Modal";
 import { createComment, getAllComments } from "../../store/comment";
-import { createPost, getAllPosts, getOnePost, removePost } from "../../store/post";
+import { addPost, createPost, editPostPhoto, getAllPosts, getOnePost, removePost } from "../../store/post";
 import EditPage from "./edit";
 import './PostPage.css';
 import profileBackground from '../ProfilePage/assets/profileBackground.jpeg';
@@ -31,6 +31,7 @@ const PostPage = () => {
     const likedUser = useSelector(state => state.posts.likesIds)
     const history = useHistory();
     const menuRef = useRef();
+    const [photoFile, setPhotoFile] = useState(null);
 
 
     useEffect(() => {
@@ -149,16 +150,16 @@ const PostPage = () => {
         
     }
 
-    // const changeProfilePic = ({ currentTarget}) => {
-    //     const file = currentTarget.files[0];
-    //     if (file) {
-    //         setPhotoFile(file);
-    //         const fileReader = new FileReader();
-    //         fileReader.readAsDataURL(file);
-    //         fileReader.onload = () => setPhotoUrl(fileReader.result);
-    //     } 
-    //     else setPhotoUrl(null);
-    // }
+    const changePostPic = ({ currentTarget}) => {
+        const file = currentTarget.files[0];
+        if (file) {
+            setPhotoFile(file);
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(file);
+            fileReader.onload = () => setPhotoUrl(fileReader.result);
+        } 
+        else setPhotoUrl(null);
+    }
 
     // const handleSubmit = async e => {
     //     e.preventDefault();
@@ -169,6 +170,21 @@ const PostPage = () => {
     //         dispatch(createPost(formData, postId));
     //     }
     // }
+
+    const handleSubmit = async e => {
+        e.preventDefault();
+        // let post = {...post,body}
+        const formData = new FormData();
+        formData.append('post[body]', postBody);
+        // dispatch(createPost(newPost));
+        if (photoFile) {
+            formData.append('post[photo]', photoFile);
+        }
+        dispatch(createPost(formData))
+        setShowModal(false);
+        dispatch(getAllPosts());
+    }
+
     let orderedPosts;
     if (Object.values(posts).length > 0){
     orderedPosts = (posts?.postIds.map((postId) => { return posts[postId]}))
@@ -245,11 +261,12 @@ const PostPage = () => {
                             <footer className="createPostFoot">
                                 <div className="uploadPhoto">
                                     {/* for uploading picture for post */}
-                                    {/* <input type='file' id='uploadPostPic' ></input>
-                                    <label htmlFor='uploadPostPic' className="uploadPhotoIcon"><i className="fa-regular fa-image"></i></label> */}
+                                    
+                                    <label htmlFor='uploadPostPic' className="uploadPhotoIcon"><i className="fa-regular fa-image"></i>
+                                    <input type='file' id='uploadPostPic' onChange={changePostPic}></input></label>
                                 </div>
                                 <div className="submitPost">
-                                    <button className='submit' onClick={handlePost}>Post</button>
+                                    <button className='submit' onClick={handleSubmit}>Post</button>
                                 </div>
                             </footer>
                         </div>
