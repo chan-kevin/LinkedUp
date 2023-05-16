@@ -11,20 +11,19 @@ import { removeComment } from "../../store/comment";
 const CommentPage = ({postId}) => {
     const comments = useSelector(state => state.comments)
     const history = useHistory();
-    const [menu, setMenu] = useState(false);
+    const [menu, setMenuß] = useState(false);
     const [editModal, setEditModal] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // if (!menu) return;
 
         const closeMenu = () => {
             if (!editModal){
                 setMenu(null);
             }
         };
-
+ß
         document.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
