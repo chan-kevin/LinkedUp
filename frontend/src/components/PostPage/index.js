@@ -185,6 +185,9 @@ const PostPage = () => {
         dispatch(getAllPosts());
     }
 
+    let preview = null;
+    if (photoUrl) preview = <img src={photoUrl} alt="" />;
+
     let orderedPosts;
     if (Object.values(posts).length > 0){
     orderedPosts = (posts?.postIds.map((postId) => { return posts[postId]}))
@@ -256,6 +259,7 @@ const PostPage = () => {
                                     </div>
                                 </div>
                                 <textarea type='text' placeholder="What do you want to talk about?" onChange={(e) => setPostBody(e.target.value)} className="createPostInput"/>
+                                {preview}
                             </div>
 
                             <footer className="createPostFoot">
