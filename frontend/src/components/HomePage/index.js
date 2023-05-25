@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Redirect } from 'react-router-dom';
 import './HomePage.css';
 import background from './HomePage.svg'
-import LoginFormPage from '../LoginFormPage';
-import PostPage from '../PostPage';
 
 function HomePage() {
   const dispatch = useDispatch();

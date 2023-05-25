@@ -3,7 +3,6 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Redirect } from 'react-router-dom';
 import './LoginForm.css';
-import apple from './assets/apple_logo.png';
 
 function LoginFormPage() {
   const dispatch = useDispatch();
