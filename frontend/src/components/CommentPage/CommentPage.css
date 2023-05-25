@@ -24,6 +24,6 @@
     z-index: 1;
 }
 
-.commentsDetail {
-    position: relative;
+#commenter-name p {
+    width: 50%;
 }

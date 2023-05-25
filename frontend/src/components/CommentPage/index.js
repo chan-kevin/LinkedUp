@@ -117,8 +117,8 @@ const CommentPage = ({postId}) => {
                             </div>
                         ): null }
 
-                    <div className="authorName" onClick={() => toProfile(comment.commenterId)}>
-                        {comment?.commenterFirstName} {comment?.commenterLastName}
+                    <div className="authorName" id="commenter-name">
+                        <p onClick={() => toProfile(comment.commenterId)}>{comment?.commenterFirstName} {comment?.commenterLastName}</p>
                     </div>
 
                     <div className="authorHeadline">
