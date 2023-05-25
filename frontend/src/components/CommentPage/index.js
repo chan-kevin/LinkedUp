@@ -25,10 +25,10 @@ const CommentPage = ({postId}) => {
             }
         };
 
-        document.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-        });
+        // document.addEventListener('click', (e) => {
+        //     e.preventDefault();
+        //     e.stopPropagation();
+        // });
         document.addEventListener('click', closeMenu);
 
         return () => document.removeEventListener('click', closeMenu);
