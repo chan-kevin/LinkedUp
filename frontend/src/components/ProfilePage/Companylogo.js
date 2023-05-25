@@ -14,6 +14,17 @@ const CompanyLogo = ({ company }) => {
     fetchLogo();
   }, [company]);
 
+  useEffect(() => {
+    const image = new Image();
+    image.src = logoUrl;
+  
+    image.onload = function() {
+      if (image.width !== 128 || image.height !== 128) {
+        setLogoUrl(defaultLogo);
+      }
+    };
+  }, [logoUrl, defaultLogo]);
+
   return <img src={logoUrl} alt='companyLogo' />;
 }
 
