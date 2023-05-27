@@ -240,8 +240,8 @@ const PostPage = () => {
 
                             <footer className="createPostFoot">
                                 <div className="uploadPhoto">
-                                    <input type='file' id='uploadPostPic' ></input>
-                                    <label htmlFor='uploadPostPic' className="uploadPhotoIcon"><i className="fa-regular fa-image"></i></label>
+                                    {/* <input type='file' id='uploadPostPic' ></input>
+                                    <label htmlFor='uploadPostPic' className="uploadPhotoIcon"><i className="fa-regular fa-image"></i></label> */}
                                 </div>
                                 <div className="submitPost">
                                     <button className='submit' onClick={handlePost}>Post</button>
