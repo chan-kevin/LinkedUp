@@ -113,7 +113,6 @@ function HomePage() {
   return (
     <div id='homeColor'>
       <div className='fontFamily' id='homePage'>
-          {/* <div className='signIn'> */}
               <form onSubmit={handleSubmit} className='homeLogin'>
                   {/* <ul>
                       {errors.map(error => <li key={error}>{error}</li>)}
@@ -131,8 +130,6 @@ function HomePage() {
                         type="text"
                         value={credential}
                         onChange={changeCredential}
-                        // onFocus={handleInputFocus}
-                        // onBlur={handleInputBlur}
                     />
                   </div>
                   {empty.email && <div className='empty'>{empty.email}</div>}
@@ -147,8 +144,6 @@ function HomePage() {
                         type={passwordType}
                         value={password}
                         onChange={changePassword}
-                        // onFocus={handleInputFocus}
-                        // onBlur={handleInputBlur}
                     />
                     {passwordType === 'password' ? 
                     <button type='button' onClick={changePasswordType}>Show</button> :
@@ -169,7 +164,6 @@ function HomePage() {
                   <button type="submit" className='signInSubmit' id='homeGoogle' onClick={demoLogin}>Sign in as Demo</button>
                   <NavLink to='/signup' className='signInSubmit' id='homeNew'>New to LinkedUp? Join now</NavLink>
               </form>
-          {/* </div> */}
           <img src={background} alt='background' id='homeImg'></img>
       </div>
       
