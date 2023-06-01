@@ -12,7 +12,6 @@ const ExperiencePage = () => {
     const { userId } = useParams();
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    // const user = useSelector(state => state.users[userId]);
     const experiences = useSelector(state => Object.values(state.experiences))
     const history = useHistory();
 

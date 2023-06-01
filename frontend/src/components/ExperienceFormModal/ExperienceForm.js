@@ -16,7 +16,6 @@ function ExperienceForm ({ onClose, experience }) {
     const [endMonth, setEndMonth] = useState(experience?.endMonth ?? '');
     const [endYear, setEndYear] = useState(experience?.endYear ?? '');
     const [description, setDescription] =useState(experience?.description ?? '');
-    // const [showModal, setShowModal] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const [companyLogo, setCompanyLogo] = useState('');
     const [current, setCurrent] = useState(false);
