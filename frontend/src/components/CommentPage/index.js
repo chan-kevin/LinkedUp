@@ -17,8 +17,6 @@ const CommentPage = ({postId}) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // if (!menu) return;
-
         const closeMenu = () => {
             if (!editModal){
                 setMenu(null);
