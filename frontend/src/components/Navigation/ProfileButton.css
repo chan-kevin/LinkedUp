@@ -47,6 +47,12 @@ body {
     text-decoration: none;
 }
 
+#viewProfile p {
+    display: flex;
+    align-items: center;
+    padding-top: 1.5px;
+}
+
 #viewProfile:hover {
     background-color: #0a66c2;
     transition: none;
@@ -135,6 +141,14 @@ body {
     font-size: 12px;
     display: flex;
     align-items: center;
+}
+
+.navlink {
+    padding-top: 5px;
+}
+
+.navlogo {
+    padding-top: 3px;
 }
 
 #home:hover, #network:hover, #notifications:hover, #drop:hover{

@@ -22,6 +22,8 @@
     display: block;
     box-sizing: border-box;
     color: rgba(0,0,0,0.6);
+    margin-top: 2px;
+    margin-left: 5px;
 }
 
 #insideSearch {

@@ -52,7 +52,7 @@ function ProfileButton({ user }) {
               <div className="navHeadline">{user.headline}</div>
             </div>
           </li>
-          <li><NavLink to={`/users/${user.id}`} id='viewProfile'>View Profile</NavLink></li>
+          <li><NavLink to={`/users/${user.id}`} id='viewProfile'><p>View Profile</p></NavLink></li>
           <li>Account</li>
           <li><a target='_blank' rel='noreferrer' href='https://kchannn13.github.io/The-Adventures-of-Gary-the-Snail/' className='dropdownOptions'>Try Gary Adventure for free</a></li>
           {/* <li><button className='dropdownOptions'>Setting</button></li> */}

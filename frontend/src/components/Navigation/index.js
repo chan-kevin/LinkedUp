@@ -27,22 +27,22 @@ function Navigation() {
                   <ul className='diffButtons'>
                     <li>
                       <a href='/' className='navButtons' id='home'>
-                        <i className="fa-solid fa-house-chimney"></i>
-                        <span className='navTitle'>Home</span>
+                        <i className="fa-solid fa-house-chimney navlogo"></i>
+                        <span className='navTitle navlink'>Home</span>
                       </a>
                     </li>
 
                     <li>
                       <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/in/kevin-chan-426203158/' className='navButtons' id='network'>
-                        <i className="fa-brands fa-linkedin"></i>
-                        <span className='navTitle'>My LinkedIn</span>
+                        <i className="fa-brands fa-linkedin navlogo"></i>
+                        <span className='navTitle navlink'>My LinkedIn</span>
                       </a>
                     </li>
 
                     <li>
                       <a target='_blank' rel='noreferrer' href='https://github.com/kchannn13' className='navButtons' id='network'>
-                        <i className="fa-brands fa-github"></i>
-                        <span className='navTitle'>My GitHub</span>
+                        <i className="fa-brands fa-github navlogo"></i>
+                        <span className='navTitle navlink'>My GitHub</span>
                       </a>
                     </li>
 

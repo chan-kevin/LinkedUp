@@ -239,13 +239,13 @@ const ProfilePage = () => {
                         <div className='userInfoSchool'>
                             <h1>{user.firstName + ' ' + user.lastName}</h1>
 
-                            <div className='userInfoCompanyTotal'>
+                            {/* <div className='userInfoCompanyTotal'>
                                 { experiences &&
                                 <div className='userInfoCompany'>
                                     <img src={experiences[experiences.length - 1]?.logo} alt='companyLogo' />
                                     <p>{experiences[experiences.length - 1]?.company}</p>
                                 </div> }
-                            </div>
+                            </div> */}
 
                         </div>
                         <h2>{user.headline}</h2>
@@ -271,7 +271,9 @@ const ProfilePage = () => {
 
             <div className='profileBoard2'>
                 <div className='headline'>
-                    <h1>About</h1>
+                    <div className='headlineWithAdd'>
+                        <h1>About</h1>
+                    </div>
                 </div>
                 {user && user.about ?
                 <div className='profileDetailList'>
@@ -310,7 +312,9 @@ const ProfilePage = () => {
 
             <div className='profileBoard2'>
                 <div className='headline'>
-                    <h1>Education</h1>
+                    <div className='headlineWithAdd'>
+                        <h1>Education</h1>
+                    </div>
                 </div>
 
                 {educations && educations.map(education => (
