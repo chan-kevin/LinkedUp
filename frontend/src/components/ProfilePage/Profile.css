@@ -135,6 +135,14 @@
     font-size: 14px;
 }
 
+.experienceDetail li, .profile-about, h2 {
+    line-height: 21px;
+}
+
+h3 {
+    line-height: 35px;
+}
+
 .period, .detailLocation {
     color: rgba(0,0,0,0.6);
 }

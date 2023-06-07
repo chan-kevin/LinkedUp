@@ -266,9 +266,9 @@ require "open-uri"
     Experience.create!({
       title: Faker::Job.unique.title,
       company: 'Google',
-      description: '- Collaborated with team members to develop and execute effective marketing campaigns.\n
-      - Conducted research and analysis to identify customer needs and preferences.\n
-      - Implemented new procedures to improve efficiency and productivity.',
+      description: "- Collaborated with team members to develop and execute effective marketing campaigns.\n" \
+      "- Conducted research and analysis to identify customer needs and preferences.\n" \
+      "- Implemented new procedures to improve efficiency and productivity.",
       start_month: months[rand(months.length)],
       start_year: 2019,
       user_id: 1,
@@ -282,9 +282,9 @@ require "open-uri"
     Experience.create!({
       title: Faker::Job.unique.title,
       company: 'Twitter',
-      description: '- Managed a portfolio of clients and maintained strong relationships with key stakeholders.\n
-      - Utilized various software tools to analyze and interpret data and provide insights for decision-making.\n
-      - Developed and delivered presentations to internal and external audiences.',
+      description: "- Managed a portfolio of clients and maintained strong relationships with key stakeholders.\n" \
+      "- Utilized various software tools to analyze and interpret data and provide insights for decision-making.\n" \
+      "- Developed and delivered presentations to internal and external audiences.",
       start_month: months[rand(months.length)],
       start_year: 2015,
       user_id: 1,
@@ -298,9 +298,9 @@ require "open-uri"
     Experience.create!({
       title: Faker::Job.unique.title,
       company: 'FaceBook',
-      description: '- Managed a portfolio of clients and maintained strong relationships with key stakeholders.\n
-      - Utilized various software tools to analyze and interpret data and provide insights for decision-making.\n
-      - Developed and delivered presentations to internal and external audiences.',
+      description: "- Managed a portfolio of clients and maintained strong relationships with key stakeholders.\n" \
+      "- Utilized various software tools to analyze and interpret data and provide insights for decision-making.\n" \
+      "- Developed and delivered presentations to internal and external audiences.",
       start_month: months[rand(months.length)],
       start_year: 2010,
       user_id: 1,
@@ -314,9 +314,9 @@ require "open-uri"
     Experience.create!({
       title: Faker::Job.unique.title,
       company: 'Adobe',
-      description: '- Managed a portfolio of clients and maintained strong relationships with key stakeholders.\n
-      - Utilized various software tools to analyze and interpret data and provide insights for decision-making.\n
-      - Developed and delivered presentations to internal and external audiences.',
+      description: "- Managed a portfolio of clients and maintained strong relationships with key stakeholders.\n" \
+      "- Utilized various software tools to analyze and interpret data and provide insights for decision-making.\n" \
+      "- Developed and delivered presentations to internal and external audiences.",
       start_month: months[rand(months.length)],
       start_year: 2005,
       user_id: 1,

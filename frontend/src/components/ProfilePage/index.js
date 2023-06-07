@@ -277,7 +277,7 @@ const ProfilePage = () => {
                 </div>
                 {user && user.about ?
                 <div className='profileDetailList'>
-                    <p className='detailSubHeading'>{user.about}</p>
+                    <p className='detailSubHeading profile-about'>{user.about}</p>
                 </div> : null }
             </div>
 
@@ -296,14 +296,21 @@ const ProfilePage = () => {
                         <CompanyLogo company={experience.company} />
                     </div>
                     <ul className='experienceDetail'>
-                        <li className='detailHeading'>{experience.title}</li>
+                        <li className='detailHeading '>{experience.title}</li>
                         <li className='detailSubHeading'>{experience.company}</li>
                         <li className='period'>
                             {experience.startMonth + ' ' + experience.startYear + ' - '} 
                             {experience.current ? 'Present' : (experience.endMonth + ' ' + experience.endYear)}
                         </li>
                         <li className='detailLocation'>{experience.location}</li>
-                        <li className='detailDescription'>{'- ' + experience.description}</li>
+                        <li className='detailDescription'>
+                            {experience.description.split('\n').map((line, index) => (
+                                <span key={index} className='descriptiontext'>
+                                    {line}
+                                    <br />
+                                </span>
+                            ))}    
+                        </li>
                         {/* <li className='skills'><p>Skills: </p>{experience.skills}</li> */}
                     </ul>
                 </div>

@@ -52,5 +52,13 @@ class Experience < ApplicationRecord
       errors.add :end_year, "must be after start date"
     end
   end
+
+  def description
+    read_attribute(:description)&.gsub("\r\n", "\n")
+  end
+
+  def description=(value)
+    super(value&.gsub("\n", "\r\n"))
+  end
   
 end

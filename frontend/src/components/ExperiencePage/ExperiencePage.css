@@ -22,3 +22,7 @@
 body {
     overflow: auto;
 }
+
+.descriptiontext {
+    line-height: 25px;
+}

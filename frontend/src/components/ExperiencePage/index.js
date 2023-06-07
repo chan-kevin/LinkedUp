@@ -58,8 +58,15 @@ const ExperiencePage = () => {
                             <EditFormModal experience={experience}/>
                         </div>
 
-                        <li className='detailDescription'>{'- ' + experience.description}</li>
-                        <li className='skills'><p>Skills: </p>{experience.skills}</li>
+                        <li className='detailDescription'>
+                            {experience.description.split('\n').map((line, index) => (
+                                <span key={index} className='descriptiontext'>
+                                    {line}
+                                    <br />
+                                </span>
+                            ))}    
+                        </li>
+                        {/* <li className='skills'><p>Skills: </p>{experience.skills}</li> */}
                     </ul>
                 </div>
                 ))}

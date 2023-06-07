@@ -28,7 +28,7 @@ const deleteExperience = (experienceId) => {
 
 export const createExperience = (experience) => async dispatch => {
 
-    const {title, company, location, logo, current, startMonth, startYear, userId, endMonth, endYear} = experience
+    const {title, company, location, logo, current, startMonth, startYear, userId, endMonth, endYear, description} = experience
     const response = await csrfFetch("/api/experiences", {
     method: "POST",
     body: JSON.stringify({
@@ -42,7 +42,8 @@ export const createExperience = (experience) => async dispatch => {
             startYear,
             userId,
             endMonth,
-            endYear
+            endYear,
+            description
         }
     })
 });
