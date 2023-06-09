@@ -24,6 +24,7 @@
     color: rgba(0,0,0,0.6);
     margin-top: 2px;
     margin-left: 5px;
+    position: relative;
 }
 
 #insideSearch {
@@ -40,7 +41,6 @@
 }
 
 #searchModal, #searchModalBackground {
-    /* position: absolute; */
     top: 6.3%;
 }
 
@@ -50,9 +50,11 @@
 
 #searchModalConetent {
     top: 0;
-    left: -38px;
+    /* left: -38px; */
+    left: -100px;
     width: 530px;
     display: flex;
+    z-index: 100000;
     flex-direction: column;
     justify-content: center;
     margin: -9px 19.5%;
