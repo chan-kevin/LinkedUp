@@ -133,3 +133,7 @@
 #login-divider {
     margin-top: 25px;
 }
+
+.credentials-input {
+    padding-left: 10px;
+}

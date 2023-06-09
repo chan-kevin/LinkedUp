@@ -101,6 +101,7 @@ function SignupFormPage() {
                     type="text"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    className='credentials-input'
                 />
                 {errors.email && <div className='signUpError'>{errors.email}</div>}
 
@@ -112,6 +113,7 @@ function SignupFormPage() {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    className='credentials-input'
                 />
                 {errors.password && <div className='signUpError'>{errors.password}</div>}
 

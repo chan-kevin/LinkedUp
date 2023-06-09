@@ -13,8 +13,9 @@ function LoginFormPage() {
   const [empty, setEmpty] = useState({});
   const emailEmptyInputRef = useRef(null);
   const passwordEmptyInputRef = useRef(null);
-  const emailError = errors.find(error => error.includes('email'))
-  const passwordError = errors.find(error => error.includes('password'))
+  const emailError = errors.find(error => error.includes('email'));
+  const passwordError = errors.find(error => error.includes('password'));
+  const [passwordType, setPasswordType] = useState('password');
 
   useEffect(() => {
     if (emailEmptyInputRef.current) {
@@ -36,6 +37,15 @@ function LoginFormPage() {
   const demoLogin = (e) => {
     e.preventDefault();
     dispatch(sessionActions.login({ credential: 'demo@user.io', password: 'password' }));
+  }
+
+  const changePasswordType = (e) => {
+    e.preventDefault();
+    if (passwordType === 'password') {
+      setPasswordType('text')
+    } else {
+      setPasswordType('password')
+    }
   }
 
   const handleSubmit = (e) => {
@@ -86,17 +96,24 @@ function LoginFormPage() {
             value={credential}
             placeholder="Email or Phone"
             onChange={(e) => setCredential(e.target.value)}
+            className='credentials-input'
         />
         {empty.email && <div className='emptySignIn'>{empty.email}</div>}
         {emailError && <div className='emptySignIn'>{emailError}</div>}
 
+        <div className='password-input'>
         <input
             ref={passwordEmptyInputRef}
-            type="password"
+            type={passwordType}
             value={password}
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
+            className='credentials-input'
         />
+        {passwordType === 'password' ? 
+                    <button type='button' onClick={changePasswordType}>Show</button> :
+                    <button type='button' onClick={changePasswordType}>Hide</button>}
+        </div>
         {empty.password && <div className='emptySignIn'>{empty.password}</div>}
         {passwordError && <div className='emptySignIn'>{passwordError}</div>}
 

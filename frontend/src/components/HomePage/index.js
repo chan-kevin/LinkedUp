@@ -120,7 +120,7 @@ function HomePage() {
 
                   <h1 id='homeHeading'>Welcome to your professional community</h1>
 
-                  <div className='email-input'>
+                  <div className='email-input home-email'>
                     <label className='homeLabel' id='emailEmptyLabel' ref={emailEmptyLabelRef}>
                         Email or phone
                     </label>
@@ -134,7 +134,7 @@ function HomePage() {
                   </div>
                   {empty.email && <div className='empty'>{empty.email}</div>}
 
-                  <div className='password-input'>
+                  <div className='password-input home-password'>
                     <label className='homeLabel' id='passwordEmptyLabel' ref={passwordEmptyLabelRef}>
                         Password
                     </label>

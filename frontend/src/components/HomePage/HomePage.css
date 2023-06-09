@@ -152,6 +152,9 @@ input:focus{
     display: flex;
     flex-direction: column;
     position: relative;
+}
+
+.home-email, .home-password {
     width: 410px;
 }
 
