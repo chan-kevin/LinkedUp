@@ -239,3 +239,9 @@
     transform: scale(1.5);
     margin-right: 10px;
 }
+
+#description {
+    line-height: 150%;
+    height: 15vh;
+    resize: vertical;
+}
