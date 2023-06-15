@@ -5,14 +5,9 @@ import { editUserProfile, fetchUserProfile } from '../../store/profile';
 import './Profile.css';
 import profileBackground from './assets/profileBackground.jpeg';
 import defaultProfile from './assets/pikachu.png';
-import companyLogo from './assets/logo.jpg';
 import DropDown from './DropDown';
-import ExperienceFormModal from '../ExperienceFormModal';
-import SearchBar from '../SearchBar/SearchBar';
 import { createConnection, removeConnection } from '../../store/connection';
 import { Modal } from '../../context/Modal';
-import PostPage from '../PostPage';
-import defaultLogo from './assets/nologo.jpeg'
 import CompanyLogo from './Companylogo';
 
 const ProfilePage = () => {
