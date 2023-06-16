@@ -1,5 +1,4 @@
 import csrfFetch from "./csrf";
-import { FETCH_ALL_POSTS } from "./post";
 import { GET_POST } from "./post";
 import { getPost } from "./post";
 

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as searchActions from '../../store/search'
 import './SearchBar.css'
-import { Modal } from '../../context/Modal';
 import { useHistory } from 'react-router-dom';
 
 const SearchBar = () => {

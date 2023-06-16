@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Modal } from "../../context/Modal";
 import { updateComment } from "../../store/comment";
-import { updatePost } from "../../store/post";
 
 const EditCommentPage = ({onClose, comment}) => {
     const [body, setBody] = useState(comment.body ?? '');
