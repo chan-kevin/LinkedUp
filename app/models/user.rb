@@ -72,6 +72,7 @@ class User < ApplicationRecord
     Connection.where("connecter_id = ? OR connectee_id = ?", self.id, self.id)
   end
 
+  ### for pending connections
   ###  def pending conections
   ### find all the pending connections
 
