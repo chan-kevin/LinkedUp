@@ -88,19 +88,35 @@
 .fullName {
     display: flex;
     flex-direction: row;
-    padding-left: 10px;
+    padding-left: 13px;
+    max-width: 500px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #searchPhoto {
+    position: absolute;
     width: 30px;
     height: 30px;
     margin-right: 0;
     margin-left: 8px;
     transform: translateY(-3px);
+    right: 10px;
 }
 
 .headlineSearch {
     font-weight: 400;
     color: rgba(0,0,0,0.6);
     font-size: 14px;
+    /* max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+}
+
+.seachTitle {
+    font-weight: 600;
+    padding: 15px;
+    padding-bottom: 5px;
 }
