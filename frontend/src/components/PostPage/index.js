@@ -88,7 +88,11 @@ const PostPage = () => {
 
     const openMenu = (e, index) => {
         e.stopPropagation();
-        setShowMenu(index);
+        if (showMenu === false || showMenu !== index) {
+            setShowMenu(index);
+        } else {
+            setShowMenu(false);
+        };
         setEditModal(false);
     }
 
@@ -269,11 +273,12 @@ const PostPage = () => {
                                     {post.authorHeadline}
                                 </div>
                             </div>
+                            { post.authorId === sessionUser.id && 
                             <div className="optionsContainer" onClick={(e) => {openMenu(e, index)}}>
                                 <i className="fa-solid fa-ellipsis" id="postOptionsIcon"></i>
-                            </div>
+                            </div>}
 
-                            { showMenu === index && (
+                            { showMenu === index &&(
                                 <div className="editOptions" ref={menuRef}>
                                     <div className="editChoices">
                                         <div className="positionButton" id='editPost' onClick={(e) => {
