@@ -411,6 +411,11 @@ h3 {
 
 .footer {
     width: 1000px;
-    display: flex;
-    justify-content: center;
+    margin: 10px auto;
+    margin-bottom: 5vh;
+}
+
+.footer p {
+    font-size: 12px;
+    color: rgba(0,0,0,0.6);
 }
