@@ -408,3 +408,9 @@ h3 {
     opacity: 0;
     cursor: pointer;
 }
+
+.footer {
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+}

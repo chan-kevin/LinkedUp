@@ -332,6 +332,10 @@ const ProfilePage = () => {
                 </div>
                 ))}
             </div>
+
+            <footer className='footer'>
+                <p>LinkedUp Corporation © 2023</p>
+            </footer>
         </div>
         
     );
