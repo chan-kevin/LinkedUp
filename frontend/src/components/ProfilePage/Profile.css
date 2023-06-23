@@ -413,9 +413,43 @@ h3 {
     width: 1000px;
     margin: 10px auto;
     margin-bottom: 5vh;
+    margin-top: 4vh;
 }
 
-.footer p {
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.corporation {
+    margin-top: 5vh;
     font-size: 12px;
     color: rgba(0,0,0,0.6);
+}
+
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.skill-grid p, .contact p {
+    font-size: 14px;
+    color: rgba(0,0,0,0.6);
+}
+
+..skill-grid p {
+    font-weight: 600;
+}
+
+.contact-block {
+    display: flex;
+    flex-direction: row;
+}
+
+.fa-circle-question {
+    font-size: 23px;
+    color: rgba(0,0,0,0.6);
+    margin-right: 7px;
 }

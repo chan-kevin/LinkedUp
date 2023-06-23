@@ -334,7 +334,26 @@ const ProfilePage = () => {
             </div>
 
             <footer className='footer'>
-                <p>LinkedUp Corporation © 2023</p>
+                <div className='footer-grid'>
+                    <div className='skill-grid'>
+                        <p>Ruby</p>
+                        <p>Rails</p>
+                        <p>JavaScript</p>
+                        <p>React.js</p>
+                        <p>Redux.js</p>
+                        <p>PostgreSQL</p>
+                        <p>HTML5</p>
+                        <p>CSS3</p>
+                        <p>AWS</p>
+                    </div>
+                    <div className='contact'>
+                        <div className='contact-block'>
+                            <i className="fa-solid fa-circle-question question-mark" />
+                            <p>Questions?</p>
+                        </div>
+                    </div>
+                </div>
+                <p className='corporation'>LinkedUp Corporation © 2023</p>
             </footer>
         </div>
         
