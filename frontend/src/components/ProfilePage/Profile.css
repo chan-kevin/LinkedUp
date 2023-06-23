@@ -434,18 +434,23 @@ h3 {
     gap: 20px;
 }
 
-.skill-grid p, .contact p {
-    font-size: 14px;
+.skill-grid p {
+    font-size: 12px;
     color: rgba(0,0,0,0.6);
+}
+
+.contact-detail p {
+    font-size: 14px;
 }
 
 .skill-grid p {
     font-weight: 600;
 }
 
-.contact p:last-child {
+.contact-detail p:last-child {
     font-size: 12px;
     margin-top: 5px;
+    color: rgba(0,0,0,0.6);
 }
 
 .contact-block {
@@ -457,4 +462,15 @@ h3 {
     font-size: 23px;
     color: rgba(0,0,0,0.6);
     margin-right: 7px;
+}
+
+.contact-detail a {
+    text-decoration: none;
+    color: rgba(0,0,0,0.6);
+    font-weight: 600;
+}
+
+.contact-detail a:hover {
+    text-decoration: underline;
+    color: rgb(41, 127, 231);
 }

@@ -350,8 +350,8 @@ const ProfilePage = () => {
                         <div className='contact-block'>
                             <i className="fa-solid fa-circle-question question-mark" />
                             <div className='contact-detail'>
-                                <p>Questions?</p>
-                                <p><a href="mailto:chankevin13@gmail.com?">Email our developer.</a></p>
+                                <p><a href="mailto:chankevin13@gmail.com?">Questions?</a></p>
+                                <p>Email our developer.</p>
                             </div>
                         </div>
                     </div>

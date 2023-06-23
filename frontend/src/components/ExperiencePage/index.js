@@ -71,6 +71,31 @@ const ExperiencePage = () => {
                 </div>
                 ))}
             </div>
+            <footer className='footer'>
+                <div className='footer-grid'>
+                    <div className='skill-grid'>
+                        <p>Ruby</p>
+                        <p>Rails</p>
+                        <p>JavaScript</p>
+                        <p>React.js</p>
+                        <p>Redux.js</p>
+                        <p>PostgreSQL</p>
+                        <p>HTML5</p>
+                        <p>CSS3</p>
+                        <p>AWS</p>
+                    </div>
+                    <div className='contact'>
+                        <div className='contact-block'>
+                            <i className="fa-solid fa-circle-question question-mark" />
+                            <div className='contact-detail'>
+                                <p><a href="mailto:chankevin13@gmail.com?">Questions?</a></p>
+                                <p>Email our developer.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p className='corporation'>LinkedUp Corporation © 2023</p>
+            </footer>
         </div>
     );
 };
