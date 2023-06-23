@@ -439,8 +439,13 @@ h3 {
     color: rgba(0,0,0,0.6);
 }
 
-..skill-grid p {
+.skill-grid p {
     font-weight: 600;
+}
+
+.contact p:last-child {
+    font-size: 12px;
+    margin-top: 5px;
 }
 
 .contact-block {
