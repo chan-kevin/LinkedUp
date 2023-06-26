@@ -130,6 +130,8 @@ const ProfilePage = () => {
     const onClose = () => {
         setShowModal(false);
         setSecondModal(false);
+        setPhotoUrl(null);
+        setSaveProfile(false);
         preview = null;
     }
 

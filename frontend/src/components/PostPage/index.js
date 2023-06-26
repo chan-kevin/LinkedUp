@@ -100,6 +100,7 @@ const PostPage = () => {
     const onClose = () => {
         setShowModal(false);
         setShowMenu(false);
+        setPhotoUrl(null);
     }
 
     const closeEditModal = () => {
@@ -182,6 +183,7 @@ const PostPage = () => {
         }
         dispatch(createPost(formData))
         setShowModal(false);
+        setPhotoUrl(null);
         dispatch(getAllPosts());
     }
 
