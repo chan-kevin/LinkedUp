@@ -74,11 +74,11 @@ const CommentPage = ({postId}) => {
                     </div>
                         { menu === index ? (
                             <div className="editOptions" id="editCommentsOptions">
-                                <div className="editChoices">
-                                    <div className="positionButton" id='editPost' onClick={(e) => {
+                                <div className="editChoices" onClick={(e) => {
                                         e.stopPropagation();
                                         setEditModal(true);
                                         }}>
+                                    <div className="positionButton" id='editPost'>
                                         <i className="fa-solid fa-pencil" id="editPostIcon"></i>Edit Comment
                                     </div>
                                 </div>
@@ -88,11 +88,11 @@ const CommentPage = ({postId}) => {
                                         <EditCommentPage onClose={closeEditModal} comment={comment} />
                                     </Modal>) : null}
 
-                                <div className="editChoices">
-                                    <div className="positionButton" id="deletePost" onClick={(e) => {
+                                <div className="editChoices" onClick={(e) => {
                                         e.stopPropagation();
                                         setDeleteModal(true);
                                     }}>
+                                    <div className="positionButton" id="deletePost" >
                                         <i className="fa-solid fa-trash-can" id="deleteIcon"></i>Delete Comment
                                     </div>
                                 </div>
