@@ -36,6 +36,25 @@ export const editUserProfile = (profile, userId) => async dispatch => {
     return response;
 }
 
+export const editUserAbout = (user) => async dispatch => {
+    const { id, about, firstName, headline, lastName, location, photoUrl } = user
+    const response = await csrfFetch(`/api/users/${id}`, {
+        method: "Put",
+        body: JSON.stringify({
+            user: { 
+                about ,
+                firstName,
+                headline,
+                lastName,
+                location,
+                photoUrl
+            }})
+    });
+    const data = await response.json();
+    dispatch(updateUserProfile(data));
+    return response;
+}
+
 const userReducer = (state = {}, action) => {
     let nextState = { ...state }
     switch (action.type) {

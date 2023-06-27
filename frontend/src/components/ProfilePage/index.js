@@ -9,6 +9,7 @@ import DropDown from './DropDown';
 import { createConnection, removeConnection } from '../../store/connection';
 import { Modal } from '../../context/Modal';
 import CompanyLogo from './Companylogo';
+import About from './about';
 
 const ProfilePage = () => {
     const { userId } = useParams();
@@ -24,6 +25,7 @@ const ProfilePage = () => {
     const [showModal, setShowModal] = useState(false);
     const [secondModal, setSecondModal] = useState(false);
     const [saveProfile, setSaveProfile] = useState(false);
+    const [showAboutModal, setShowAboutModal] = useState(false);
     
 
     // const [isLoading, setIsLoading] = useState(true);
@@ -55,7 +57,7 @@ const ProfilePage = () => {
         // }
         // fetchCompanyLogo();
         // setIsLoading(false);
-    }, [dispatch, userId, saveProfile]);
+    }, [dispatch, userId, saveProfile, showAboutModal]);
 
 
     const handleConnect = () => {
@@ -270,6 +272,15 @@ const ProfilePage = () => {
                 <div className='headline'>
                     <div className='headlineWithAdd'>
                         <h1>About</h1>
+                        { sessionUser.id === parseInt(userId) ? 
+                        <button onClick={() => setShowAboutModal(true)} className='addPosition'>
+                            <i className="fa-solid fa-pen" id="editIcon"></i>
+                        </button> : null}
+                        {showAboutModal && (
+                            <Modal onClose={() => setShowAboutModal(false)}>
+                                <About onClose={() => setShowAboutModal(false)} />
+                            </Modal>
+                        )}
                     </div>
                 </div>
                 {user && user.about ?

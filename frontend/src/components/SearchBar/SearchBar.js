@@ -108,7 +108,6 @@ const unmatchedWord = (word) => {
                 <ul>
                     {users.filter(user => {
                         const parts = query.toLowerCase().split(' ');
-                        console.log(randUsers)
                         return parts.every(part => user.firstName.toLowerCase().includes(part) || user.lastName.toLowerCase().includes(part));
                     }).map((user, index) => (
                         <li key={index} onClick={() => checkOutProfile(user.id)} className='searchResult'>

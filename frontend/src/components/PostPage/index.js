@@ -67,7 +67,6 @@ const PostPage = () => {
     }
 
     const listComments = (postId, index) => {
-        // console.log(index)
         dispatch(getOnePost(postId));
         setOpenCreateComment(index);
         // setHasComments(true)
