@@ -236,7 +236,9 @@ const ProfilePage = () => {
                     {user && 
                     <div>
                         <div className='userInfoSchool'>
+                            {/* <div className='headlineWithAdd'> */}
                             <h1>{user.firstName + ' ' + user.lastName}</h1>
+                            {/* </div> */}
 
                             {/* <div className='userInfoCompanyTotal'>
                                 { experiences &&
@@ -245,7 +247,15 @@ const ProfilePage = () => {
                                     <p>{experiences[experiences.length - 1]?.company}</p>
                                 </div> }
                             </div> */}
-
+                            { sessionUser.id === parseInt(userId) ? 
+                                <button onClick={() => setShowAboutModal(true)} className='addPosition' id='edit-profile'>
+                                    <i className="fa-solid fa-pen" id="editIcon"></i>
+                                </button> : null}
+                            {showAboutModal && (
+                                <Modal onClose={() => setShowAboutModal(false)}>
+                                    <About onClose={() => setShowAboutModal(false)} />
+                                </Modal>
+                            )}
                         </div>
                         <h2>{user.headline}</h2>
                         <h3>{user.location}</h3>
