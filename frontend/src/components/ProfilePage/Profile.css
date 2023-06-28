@@ -476,3 +476,10 @@ h3 {
     text-decoration: underline;
     color: rgb(41, 127, 231);
 }
+
+.location-title {
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 600;
+    padding-bottom: 10px;
+}

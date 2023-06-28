@@ -10,6 +10,7 @@ import { createConnection, removeConnection } from '../../store/connection';
 import { Modal } from '../../context/Modal';
 import CompanyLogo from './Companylogo';
 import About from './about';
+import Info from './info';
 
 const ProfilePage = () => {
     const { userId } = useParams();
@@ -26,6 +27,7 @@ const ProfilePage = () => {
     const [secondModal, setSecondModal] = useState(false);
     const [saveProfile, setSaveProfile] = useState(false);
     const [showAboutModal, setShowAboutModal] = useState(false);
+    const [showInfoModal, setShowInfoModal] = useState(false);
     
 
     // const [isLoading, setIsLoading] = useState(true);
@@ -57,7 +59,7 @@ const ProfilePage = () => {
         // }
         // fetchCompanyLogo();
         // setIsLoading(false);
-    }, [dispatch, userId, saveProfile, showAboutModal]);
+    }, [dispatch, userId, saveProfile, showAboutModal, showInfoModal]);
 
 
     const handleConnect = () => {
@@ -248,12 +250,12 @@ const ProfilePage = () => {
                                 </div> }
                             </div> */}
                             { sessionUser.id === parseInt(userId) ? 
-                                <button onClick={() => setShowAboutModal(true)} className='addPosition' id='edit-profile'>
+                                <button onClick={() => setShowInfoModal(true)} className='addPosition' id='edit-profile'>
                                     <i className="fa-solid fa-pen" id="editIcon"></i>
                                 </button> : null}
-                            {showAboutModal && (
-                                <Modal onClose={() => setShowAboutModal(false)}>
-                                    <About onClose={() => setShowAboutModal(false)} />
+                            {showInfoModal && (
+                                <Modal onClose={() => setShowInfoModal(false)}>
+                                    <Info onClose={() => setShowInfoModal(false)} />
                                 </Modal>
                             )}
                         </div>
