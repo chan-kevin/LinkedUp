@@ -44,7 +44,6 @@
     font-size: 56px;
     font-weight: 200;
     color: #8f5849;
-    /* padding-bottom: 5px; */
     line-height: 125%;
 }
 
@@ -108,7 +107,6 @@ input:focus{
 
 #homeBorder {
     width:410px;
-    /* border-bottom: 1px solid rgba(0,0,0,0.6); */
 }
 
 #homeGoogle, #homeNew {
