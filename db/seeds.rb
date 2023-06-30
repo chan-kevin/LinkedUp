@@ -413,7 +413,11 @@ require "open-uri"
       author_id: 2
     })
 
-    post2.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/Squidward.jpeg"),
+    # post2.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/Squidward.jpeg"),
+    # filename: "Squidward.jpeg"
+    # )
+
+    post2.photo.attach( io: File.open(Rails.root.join("db", "assets", "Squidward.jpeg")),
     filename: "Squidward.jpeg"
     )
 
@@ -422,7 +426,11 @@ require "open-uri"
       author_id: 3
     })
 
-    post3.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/aa+101.png"),
+    # post3.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/aa+101.png"),
+    # filename: "aa101.jpg"
+    # )
+
+    post3.photo.attach( io: File.open(Rails.root.join("db", "assets", "aa+101.png")),
     filename: "aa101.jpg"
     )
 
@@ -431,7 +439,11 @@ require "open-uri"
       author_id: 4
     })
 
-    post4.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/timeBlockinHR.jpg"),
+    # post4.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/timeBlockinHR.jpg"),
+    # filename: "HR.jpg"
+    # )
+
+    post4.photo.attach( io: File.open(Rails.root.join("db", "assets", "timeBlockinHR.jpg")),
     filename: "HR.jpg"
     )
 
@@ -440,7 +452,11 @@ require "open-uri"
       author_id: 10
     })
 
-    post5.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/gary.png"),
+    # post5.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/gary.png"),
+    # filename: "gary.jpg"
+    # )
+
+    post5.photo.attach( io: File.open(Rails.root.join("db", "assets", "gary.png")),
     filename: "gary.jpg"
     )
 
@@ -449,7 +465,11 @@ require "open-uri"
       author_id: 6
     })
 
-    post6.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/aaCampus.png"),
+    # post6.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/aaCampus.png"),
+    # filename: "aaCampus.jpg"
+    # )
+
+    post6.photo.attach( io: File.open(Rails.root.join("db", "assets", "aaCampus.png")),
     filename: "aaCampus.jpg"
     )
 
@@ -468,7 +488,11 @@ require "open-uri"
       author_id: 9
     })
 
-    post9.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/recursion.png"),
+    # post9.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/recursion.png"),
+    # filename: "recursion.jpg"
+    # )
+
+    post9.photo.attach( io: File.open(Rails.root.join("db", "assets", "recursion.png")),
     filename: "recursion.jpg"
     )
 
@@ -477,7 +501,11 @@ require "open-uri"
       author_id: 1
     })
 
-    post10.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/codeDoes.JPG"),
+    # post10.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/codeDoes.JPG"),
+    # filename: "codedoes.jpg"
+    # )
+
+    post10.photo.attach( io: File.open(Rails.root.join("db", "assets", "codeDoes.jpeg")),
     filename: "codedoes.jpg"
     )
 
@@ -486,7 +514,11 @@ require "open-uri"
       author_id: 5
     })
 
-    post11.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/itWorks.webp"),
+    # post11.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/itWorks.webp"),
+    # filename: "question.jpg"
+    # )
+
+    post11.photo.attach( io: File.open(Rails.root.join("db", "assets", "itWorks.webp")),
     filename: "question.jpg"
     )
 
@@ -495,68 +527,132 @@ require "open-uri"
       author_id: 1
     })
 
-    post12.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/fullStack.jpeg"),
+    # post12.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/fullStack.jpeg"),
+    # filename: "fullStack.jpg"
+    # )
+
+    post12.photo.attach( io: File.open(Rails.root.join("db", "assets", "fullStack.jpeg")),
     filename: "fullStack.jpg"
     )
 
-    user2.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/Squidward.png"),
+    # user2.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/Squidward.png"),
+    # filename: "Squidward.png"
+    # )
+
+    user2.photo.attach( io: File.open(Rails.root.join("db", "assets", "Squidward.png")),
     filename: "Squidward.png"
     )
 
-    user3.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/Yor.webp"),
+    # user3.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/Yor.webp"),
+    # filename: "Yor.jpg"
+    # )
+
+    user3.photo.attach( io: File.open(Rails.root.join("db", "assets", "Yor.webp")),
     filename: "Yor.jpg"
     )
 
-    user4.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/loid.webp"),
+    # user4.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/loid.webp"),
+    # filename: "Loid.jpg"
+    # )
+
+    user4.photo.attach( io: File.open(Rails.root.join("db", "assets", "loid.webp")),
     filename: "Loid.jpg"
     )
 
-    user5.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/Ted.jpeg"),
+    # user5.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/Ted.jpeg"),
+    # filename: "Ted.jpg"
+    # )
+
+    user5.photo.attach( io: File.open(Rails.root.join("db", "assets", "Ted.jpeg")),
     filename: "Ted.jpg"
     )
 
-    user6.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/garyicon.png"),
+    # user6.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/garyicon.png"),
+    # filename: "garyIcon.jpg"
+    # )
+
+    user6.photo.attach( io: File.open(Rails.root.join("db", "assets", "garyicon.png")),
     filename: "garyIcon.jpg"
     )
 
-    user7.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/harry.webp"),
+    # user7.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/harry.webp"),
+    # filename: "harry.jpg"
+    # )
+
+    user7.photo.attach( io: File.open(Rails.root.join("db", "assets", "harry.webp")),
     filename: "harry.jpg"
     )
 
-    user8.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/Naruto.webp"),
+    # user8.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/Naruto.webp"),
+    # filename: "naruto.jpg"
+    # )
+
+    user8.photo.attach( io: File.open(Rails.root.join("db", "assets", "Naruto.webp")),
     filename: "naruto.jpg"
     )
 
-    user9.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/gon.jpeg"),
+    # user9.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/gon.jpeg"),
+    # filename: "gon.jpg"
+    # )
+
+    user9.photo.attach( io: File.open(Rails.root.join("db", "assets", "gon.jpeg")),
     filename: "gon.jpg"
     )
 
-    user10.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/tony.jpg"),
+    # user10.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/tony.jpg"),
+    # filename: "tony.jpg"
+    # )
+
+    user10.photo.attach( io: File.open(Rails.root.join("db", "assets", "tony.jpg")),
     filename: "tony.jpg"
     )
 
-    user11.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/spongebob.jpeg"),
+    # user11.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/spongebob.jpeg"),
+    # filename: "spongebob.jpg"
+    # )
+
+    user11.photo.attach( io: File.open(Rails.root.join("db", "assets", "spongebob.jpeg")),
     filename: "spongebob.jpg"
     )
 
-    user12.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/peter.webp"),
+    # user12.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/peter.webp"),
+    # filename: "peter.jpg"
+    # )
+
+    user12.photo.attach( io: File.open(Rails.root.join("db", "assets", "peter.webp")),
     filename: "peter.jpg"
     )
 
-    user13.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/anya.jpeg"),
+    # user13.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/anya.jpeg"),
+    # filename: "anya.jpg"
+    # )
+
+    user13.photo.attach( io: File.open(Rails.root.join("db", "assets", "anya.jpeg")),
     filename: "anya.jpg"
     )
 
-    user14.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/gojo.jpeg"),
+    # user14.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/gojo.jpeg"),
+    # filename: "gojo.jpg"
+    # )
+
+    user14.photo.attach( io: File.open(Rails.root.join("db", "assets", "gojo.jpeg")),
     filename: "gojo.jpg"
     )
 
-    user15.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/Hermione.webp"),
+    # user15.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/Hermione.webp"),
+    # filename: "Hermione.jpg"
+    # )
+
+    user15.photo.attach( io: File.open(Rails.root.join("db", "assets", "Hermione.webp")),
     filename: "Hermione.jpg"
     )
 
-    user16.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/Daenerys.webp"),
-    filename: "fullStack.jpg"
+    # user16.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/Daenerys.webp"),
+    # filename: "Daenerys.jpg"
+    # )
+
+    user16.photo.attach( io: File.open(Rails.root.join("db", "assets", "Daenerys.webp")),
+    filename: "Daenerys.jpg"
     )
 
     # Post.first.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/cat.jpg"),
