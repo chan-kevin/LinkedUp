@@ -1,8 +1,7 @@
-import { Modal } from "../../context/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { editUserAbout, fetchUserProfile } from "../../store/profile";
+import { editUserAbout } from "../../store/profile";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function About ({onClose}) {
     const {userId} = useParams();
