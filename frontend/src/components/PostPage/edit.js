@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Modal } from "../../context/Modal";
 import { updatePost } from "../../store/post";
 
 const EditPage = ({onClose, post}) => {
