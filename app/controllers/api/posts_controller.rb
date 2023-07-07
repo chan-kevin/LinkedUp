@@ -28,9 +28,7 @@ class Api::PostsController < ApplicationController
     def update  
         @post = Post.find(params[:id])
         if @post.update(post_params)
-            # render json: 'api/posts/show'
             render :show
-            # render json: @post
         else
             render json: @post.errors.full_messages, status: 422
         end
