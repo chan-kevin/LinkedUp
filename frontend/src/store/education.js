@@ -1,5 +1,88 @@
 import { SET_USER_PROFILE } from "./profile";
 
+const ADD_EDUCATION = 'education/ADD_EDUCATION';
+const UPDATE_EDUCATION = 'education/UPDATE_EDUCATION';
+const DELETE_EDUCATION = 'education/DELETE_EDUCATION';
+
+const addEducation = (education) => {
+    return {
+        type: ADD_EDUCATION,
+        payload: education
+    };
+};
+
+const updateEducation = (education) => {
+    return {
+        type: UPDATE_EDUCATION,
+        payload: education
+    };
+};
+
+const deleteEducation = (educationId) => {
+    return {
+        type: DELETE_EDUCATION,
+        payload: educationId
+    };
+};
+
+export const createEeducation = (education) => async dispatch => {
+
+    const {title, company, location, logo, current, startMonth, startYear, userId, endMonth, endYear, description} = education
+    const response = await csrfFetch("/api/educations", {
+    method: "POST",
+    body: JSON.stringify({
+        education:{
+            title,
+            company,
+            location,
+            logo,
+            current,
+            startMonth,
+            startYear,
+            userId,
+            endMonth,
+            endYear,
+            description
+        }
+    })
+});
+    const data = await response.json();
+    dispatch(addEducation(data.education));
+    return response;
+};
+
+export const editEducation = (education) => async dispatch => {
+    const {id, title, company, location, current, startMonth, startYear, userId, endMonth, endYear} = education
+    const response = await csrfFetch(`/api/educations/${education.id}`, {
+    method: "PUT",
+    body: JSON.stringify({
+        education:{
+            id,
+            title,
+            company,
+            location,
+            current,
+            startMonth,
+            startYear,
+            userId,
+            endMonth,
+            endYear
+        }
+    })
+});
+    const data = await response.json();
+    dispatch(updateEducation(data.education));
+    return response;
+};
+
+export const removeEducation = (educationId) => async dispatch => {
+    const response = await csrfFetch(`/api/educations/${educationId}`, {
+        method: "DELETE"
+    });
+    dispatch(deleteEducation(educationId));
+    return response;
+};
+
 export const educationReducer = (state = {}, action) => {
     switch (action.type) {
         case SET_USER_PROFILE:
