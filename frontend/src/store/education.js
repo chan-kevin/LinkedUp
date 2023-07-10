@@ -27,22 +27,18 @@ const deleteEducation = (educationId) => {
 
 export const createEeducation = (education) => async dispatch => {
 
-    const {title, company, location, logo, current, startMonth, startYear, userId, endMonth, endYear, description} = education
+    const {school, degree, location, logo, current, startMonth, startYear, userId, endMonth, endYear, description} = education
     const response = await csrfFetch("/api/educations", {
     method: "POST",
     body: JSON.stringify({
         education:{
-            title,
-            company,
-            location,
-            logo,
-            current,
+            school,
+            degree,
             startMonth,
             startYear,
             userId,
             endMonth,
-            endYear,
-            description
+            endYear
         }
     })
 });
@@ -52,16 +48,14 @@ export const createEeducation = (education) => async dispatch => {
 };
 
 export const editEducation = (education) => async dispatch => {
-    const {id, title, company, location, current, startMonth, startYear, userId, endMonth, endYear} = education
+    const {id, school, degree, startMonth, startYear, userId, endMonth, endYear} = education
     const response = await csrfFetch(`/api/educations/${education.id}`, {
     method: "PUT",
     body: JSON.stringify({
         education:{
             id,
-            title,
-            company,
-            location,
-            current,
+            school,
+            degree,
             startMonth,
             startYear,
             userId,
