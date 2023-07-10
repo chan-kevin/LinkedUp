@@ -81,6 +81,14 @@ export const educationReducer = (state = {}, action) => {
     switch (action.type) {
         case SET_USER_PROFILE:
             return { ...action.payload.education };
+        case ADD_EDUCATION:
+            return { ...state, [action.payload.id]: action.payload };
+        case UPDATE_EDUCATION:
+            return { ...state, [action.payload.id]: action.payload };
+        case DELETE_EDUCATION:
+            const newState = { ...state };
+            delete newState[action.payload];
+            return newState;
         default:
             return state;
     }
