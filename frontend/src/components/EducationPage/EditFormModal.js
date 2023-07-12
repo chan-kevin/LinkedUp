@@ -32,7 +32,7 @@ function EditFormModal({education}) {
 
   return (
     <div id='editButton'>
-      <button onClick={openModal} className='addPosition' id='editButton'>
+      <button onClick={openModal} className='addPosition' id='edit-education'>
         <i className="fa-solid fa-pen" id="editIcon"></i>
       </button>
       {showModal && (

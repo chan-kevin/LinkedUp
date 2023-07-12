@@ -103,11 +103,12 @@
 
 .profileDetailList {
     margin-left: 36px;
-    margin-right: 36px;
+    margin-right: 24px;
     padding-top: 10px;
     display: flex;
     border-bottom: 1px solid rgba(0,0,0,0.08);
     padding-bottom: 10px;
+    position: relative;
 }
 
 .profileLogo {
@@ -478,4 +479,9 @@ h3 {
 
 .userInfo h1, .userInfo h2, .userInfo h3 {
     padding-left: 12px;
+}
+
+#edit-education {
+    position: absolute;
+    right: 0;
 }
