@@ -1,4 +1,5 @@
 import { SET_USER_PROFILE } from "./profile";
+import csrfFetch from "./csrf";
 
 const ADD_EDUCATION = 'education/ADD_EDUCATION';
 const UPDATE_EDUCATION = 'education/UPDATE_EDUCATION';
