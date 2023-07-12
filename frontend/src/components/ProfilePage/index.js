@@ -13,6 +13,7 @@ import About from './about';
 import Info from './info';
 import EducationForm from './education';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
+import defaultLogo from './assets/nologo.jpeg';
 
 const ProfilePage = () => {
     const { userId } = useParams();
@@ -366,7 +367,7 @@ const ProfilePage = () => {
                 {educations && educations.map(education => (
                 <div className='profileDetailList' key={education.id}>
                     <div className='profileLogo'>
-                        <CompanyLogo company={education.school} />
+                        <img src={defaultLogo} />
                     </div>
                     <ul className='experienceDetail'>
                         <li className='detailHeading'>{education.school}</li>

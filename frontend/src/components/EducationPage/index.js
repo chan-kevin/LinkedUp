@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { fetchUserProfile } from '../../store/profile';
@@ -7,6 +7,10 @@ import DropDown from '../ProfilePage/DropDown';
 // import EditFormModal from './EditFormModal';
 import CompanyLogo from '../ProfilePage/Companylogo';
 import EditFormModal from './EditFormModal';
+import { Modal } from '../../context/Modal';
+import EducationForm from '../ProfilePage/education';
+import defaultLogo from '../ProfilePage/assets/nologo.jpeg'
+
 
 
 const EducationPage = () => {
@@ -15,6 +19,7 @@ const EducationPage = () => {
     const sessionUser = useSelector(state => state.session.user);
     const educations = useSelector(state => Object.values(state.educations))
     const history = useHistory();
+    const [showEducationModal, setShowEducationModal] = useState(false);
 
     const goBackButton = (e) => {
         e.preventDefault();
@@ -37,15 +42,26 @@ const EducationPage = () => {
                     </button>
                     <div className='headlineWithAdd'>
                         <h1>Education</h1>
-                        <DropDown />
+                        { sessionUser.id === parseInt(userId) ? 
+                            <div className="button">
+                                <button onClick={() => setShowEducationModal(true)} className='addPosition'>
+                                    <i className="fa-solid fa-plus" id='plusIcon'></i>
+                                </button>
+                            </div> : null}
+
+                            {showEducationModal && (
+                            <Modal onClose={() => setShowEducationModal(false)}>
+                                <EducationForm onClose={() => setShowEducationModal(false)} />
+                            </Modal>
+                        )}
                     </div>
                 </div>
 
                 {educations && educations.map(education => (
                 <div className='profileDetailList' key={education.id}>
-                    {/* <div className='profileLogo'>
-                        <CompanyLogo company={education.company} />
-                    </div> */}
+                    <div className='profileLogo'>
+                        <img src={defaultLogo} />
+                    </div>
                     <ul className='educationDetail'>
 
                         <div className='firstHalf'>

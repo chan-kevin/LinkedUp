@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
     resources :connections, only: [:create, :destroy]
     resource :session, only: [:show, :create, :destroy]
-    resource :education, only: [:show, :create, :destroy]
+    resources :educations, only: [:show, :create, :destroy]
     resources :experiences, only: [:create, :update, :destroy]
     resources :posts, only: [:create, :destroy, :index, :show, :update]
     resources :comments, only: [:show, :create, :destroy, :update]
