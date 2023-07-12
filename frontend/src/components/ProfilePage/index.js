@@ -28,6 +28,7 @@ const ProfilePage = () => {
     const [saveProfile, setSaveProfile] = useState(false);
     const [showAboutModal, setShowAboutModal] = useState(false);
     const [showInfoModal, setShowInfoModal] = useState(false);
+    const [showEducationModal, setShowEducationModal] = useState(false);
     
 
     // const [isLoading, setIsLoading] = useState(true);
@@ -341,6 +342,21 @@ const ProfilePage = () => {
                 <div className='headline'>
                     <div className='headlineWithAdd'>
                         <h1>Education</h1>
+                        { sessionUser.id === parseInt(userId) ? 
+                              <div className="button">
+                                <button className='addPosition'>
+                                    <i className="fa-solid fa-plus" id='plusIcon'></i>
+                                </button>
+
+                                <button onClick={() => setShowEducationModal(true)} className='addPosition'>
+                                    <i className="fa-solid fa-pen" id="editIcon"></i>
+                                </button> 
+                        </div> : null}
+                        {showEducationModal && (
+                            <Modal onClose={() => setShowEducationModal(false)}>
+                                <About onClose={() => setShowEducationModal(false)} />
+                            </Modal>
+                        )}
                     </div>
                 </div>
 
