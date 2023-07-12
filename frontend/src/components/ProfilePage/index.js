@@ -11,6 +11,8 @@ import { Modal } from '../../context/Modal';
 import CompanyLogo from './Companylogo';
 import About from './about';
 import Info from './info';
+import EducationForm from './education';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 const ProfilePage = () => {
     const { userId } = useParams();
@@ -29,6 +31,7 @@ const ProfilePage = () => {
     const [showAboutModal, setShowAboutModal] = useState(false);
     const [showInfoModal, setShowInfoModal] = useState(false);
     const [showEducationModal, setShowEducationModal] = useState(false);
+    const history = useHistory();
     
 
     // const [isLoading, setIsLoading] = useState(true);
@@ -344,17 +347,17 @@ const ProfilePage = () => {
                         <h1>Education</h1>
                         { sessionUser.id === parseInt(userId) ? 
                               <div className="button">
-                                <button className='addPosition'>
+                                <button onClick={() => setShowEducationModal(true)} className='addPosition'>
                                     <i className="fa-solid fa-plus" id='plusIcon'></i>
                                 </button>
 
-                                <button onClick={() => setShowEducationModal(true)} className='addPosition'>
+                                <button onClick={() => history.push(`/users/${userId}/educations`)} className='addPosition'>
                                     <i className="fa-solid fa-pen" id="editIcon"></i>
                                 </button> 
                         </div> : null}
                         {showEducationModal && (
                             <Modal onClose={() => setShowEducationModal(false)}>
-                                <About onClose={() => setShowEducationModal(false)} />
+                                <EducationForm onClose={() => setShowEducationModal(false)} />
                             </Modal>
                         )}
                     </div>

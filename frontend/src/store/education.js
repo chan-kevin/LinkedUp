@@ -26,10 +26,10 @@ const deleteEducation = (educationId) => {
     };
 };
 
-export const createEeducation = (education) => async dispatch => {
+export const createEducation = (education) => async dispatch => {
 
-    const {school, degree, location, logo, current, startMonth, startYear, userId, endMonth, endYear, description} = education
-    const response = await csrfFetch("/api/educations", {
+    const {school, degree, startMonth, startYear, userId, endMonth, endYear} = education
+    const response = await csrfFetch("/api/education", {
     method: "POST",
     body: JSON.stringify({
         education:{
@@ -50,7 +50,7 @@ export const createEeducation = (education) => async dispatch => {
 
 export const editEducation = (education) => async dispatch => {
     const {id, school, degree, startMonth, startYear, userId, endMonth, endYear} = education
-    const response = await csrfFetch(`/api/educations/${education.id}`, {
+    const response = await csrfFetch(`/api/education/${education.id}`, {
     method: "PUT",
     body: JSON.stringify({
         education:{
@@ -71,7 +71,7 @@ export const editEducation = (education) => async dispatch => {
 };
 
 export const removeEducation = (educationId) => async dispatch => {
-    const response = await csrfFetch(`/api/educations/${educationId}`, {
+    const response = await csrfFetch(`/api/education/${educationId}`, {
         method: "DELETE"
     });
     dispatch(deleteEducation(educationId));

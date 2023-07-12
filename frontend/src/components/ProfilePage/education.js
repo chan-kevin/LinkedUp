@@ -274,4 +274,4 @@ function EducationForm ({ onClose, education }) {
     );
     };
 
-export default EducationFormForm;
+export default EducationForm;

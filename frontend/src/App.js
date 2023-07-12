@@ -9,6 +9,7 @@ import ProfilePage from './components/ProfilePage';
 import ExperiencePage from './components/ExperiencePage';
 import './index.css';
 import PostPage from './components/PostPage';
+import EducationPage from './components/EducationPage';
 
 function App() {
   return (
@@ -29,6 +30,10 @@ function App() {
 
         <Route path="/users/:userId/experiences">
           <ExperiencePage />
+        </Route>
+
+        <Route path="/users/:userId/educations">
+          <EducationPage />
         </Route>
 
         <Route path="/forgot">
