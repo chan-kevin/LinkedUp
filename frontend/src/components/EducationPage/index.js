@@ -3,9 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { fetchUserProfile } from '../../store/profile';
 import '../ExperiencePage/ExperiencePage.css';
-import DropDown from '../ProfilePage/DropDown';
-// import EditFormModal from './EditFormModal';
-import CompanyLogo from '../ProfilePage/Companylogo';
 import EditFormModal from './EditFormModal';
 import { Modal } from '../../context/Modal';
 import EducationForm from '../ProfilePage/education';
@@ -69,21 +66,10 @@ const EducationPage = () => {
                                 <li className='detailHeading'>{education.school} </li>
                                 <li className='detailSubHeading'>{education.degree}</li>
                                 <li className='period'>{education.startMonth + ' ' + education.startYear + ' - ' + education.endMonth + ' ' + education.endYear}</li>
-                                {/* <li className='detailLocation'>{education.location}</li> */}
                             </div>
 
                             <EditFormModal education={education}/>
                         </div>
-
-                        {/* <li className='detailDescription'>
-                            {education.description.split('\n').map((line, index) => (
-                                <span key={index} className='descriptiontext'>
-                                    {line}
-                                    <br />
-                                </span>
-                            ))}    
-                        </li> */}
-                        {/* <li className='skills'><p>Skills: </p>{experience.skills}</li> */}
                     </ul>
                 </div>
                 ))}
