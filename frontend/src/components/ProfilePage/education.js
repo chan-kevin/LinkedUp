@@ -8,55 +8,12 @@ function EducationForm ({ onClose, education }) {
     const { userId } = useParams();
     const dispatch = useDispatch();
     const [school, setSchool] = useState(education?.school ?? '');
-    const [suggestCompany, setSuggestCompany] = useState([]);
     const [degree, setDegree] = useState(education?.degree ?? '');
-    // const [location, setLocation] = useState(education?.location ?? '');
     const [startMonth, setStartMonth] = useState(education?.startMonth ?? '');
     const [startYear, setStartYear] = useState(education?.startYear ?? '');
     const [endMonth, setEndMonth] = useState(education?.endMonth ?? '');
     const [endYear, setEndYear] = useState(education?.endYear ?? '');
-    // const [description, setDescription] =useState(education?.description ?? '');
-    const [showMenu, setShowMenu] = useState(false);
-    const [companyLogo, setCompanyLogo] = useState('');
     const [current, setCurrent] = useState(false);
-
-    const suggestListRef = useRef(null);
-
-    // useEffect(() => {
-    //     if (!showMenu) return;
-    //     const fetchCompanyName = async() => {
-    //         if (company) {
-    //             const response = await fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=${company}`)
-    //             const data = await response.json();
-    //             setSuggestCompany(data);
-    //         }
-    //     }
-    //     fetchCompanyName()
-    //     setCompanyLogo('')
-
-    //     const closeMenu = () => {
-    //         setShowMenu(false);
-    //     };
-      
-    //     suggestListRef.current.addEventListener('mousedown', (e) => {
-    //         e.preventDefault();
-    //         e.stopPropagation();
-    //       });
-    //       document.addEventListener('mousedown', closeMenu);
-
-    //     return () => document.removeEventListener('mousedown', closeMenu);
-    // }, [company, showMenu])
-
-    // useEffect(() => {
-    //     if (!showMenu) return;
-    //     const closeMenu = () => {
-    //         setShowMenu(false);
-    //     };
-      
-    //     document.addEventListener('mousedown', closeMenu)
-    
-    //     return () => document.removeEventListener('mousedown', closeMenu);
-    //   }, [showMenu]);
 
     const handleSubmit =  async (e) => {
         e.preventDefault();
@@ -89,26 +46,6 @@ function EducationForm ({ onClose, education }) {
         await dispatch(removeEducation(education.id));
         onClose();
     }
-
-    // const companyInput = (e) => {
-    //     e.preventDefault();
-    //     setCompany(e.target.value);
-    // }
-
-    const openMenu = (e) => {
-        if (showMenu) return;
-        setShowMenu(true);
-    };
-
-    // const autoCompanyInput = (input) => {
-    //     return () => {
-    //         // document.getElementById('company').value = input;
-    //         // debugger
-    //         setCompany(input.name);
-    //         setCompanyLogo(input.logo)
-    //         setShowMenu(false);
-    //       };
-    // }
     
     return (
         <div className="fontFamily">
@@ -137,36 +74,15 @@ function EducationForm ({ onClose, education }) {
                     
                 <div className="formInput" id="company-name">
                     <label htmlFor="company">Degree<sup>*</sup></label>
-                    {/* {companyLogo ? <img src={companyLogo} alt='logo' id="companyLogo" /> : null} */}
                     <input
                     id="company"
                     type="text"
                     value={degree}
                     placeholder="Ex: Bachelor's"
                     onChange={(e) => setDegree(e.target.value)}
-                    // onClick={openMenu}
                     required
                     />
-                    {/* <ul className="companySearch" ref={suggestListRef}>
-                        {showMenu && suggestCompany.map((suggest, index) => (
-                            <li className="companyResult" onClick={autoCompanyInput(suggest)} key={index}>
-                                <img src={suggest.logo} alt='logo' id="searchLogo"/>
-                                <div>{suggest.name}</div>
-                            </li>
-                        ))}
-                    </ul> */}
                 </div>
-
-                {/* <div className="formInput">
-                    <label htmlFor="location">Location</label>
-                    <input
-                    id="location"
-                    type="text"
-                    value={location}
-                    placeholder="Ex: London, United Kingdom"
-                    onChange={(e) => setLocation(e.target.value)}
-                    />
-                </div> */}
 
                 <div className="formInput">
                     <label htmlFor="start date">Start date<sup>*</sup></label>
@@ -206,23 +122,6 @@ function EducationForm ({ onClose, education }) {
                         </select>
                     </div>
                 </div>
-
-                {/* <div className="formInput">
-                    <label htmlFor="description">Description</label>
-                    <textarea
-                    id="description"
-                    type="text"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    />
-                </div> */}
-
-                {/* <div className="formInput">
-                    <label id="currentCheck"> 
-                        <input type="checkbox" defaultChecked={current} onClick={() => setCurrent(!current)}/>
-                        I am currently working in this role
-                    </label>
-                </div> */}
 
                 <div className="formInput">
                     <label htmlFor="end date">End date (or expected) <sup>*</sup></label>
