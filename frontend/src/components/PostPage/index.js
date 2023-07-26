@@ -344,7 +344,7 @@ const PostPage = () => {
                         </div>
 
                         <div className="postBody">
-                            <p>{post.body}</p>
+                            <p style={{ whiteSpace: 'pre-line' }}>{post.body}</p>
                             {post.photoUrl ? <img src={post.photoUrl} alt='postPhoto'></img> : null}
                         </div>
 

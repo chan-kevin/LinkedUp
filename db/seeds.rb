@@ -409,7 +409,7 @@ require "open-uri"
     })
 
     post2 = Post.create!({
-      body: "Excited to announce that our team has just launched a new product! 🚀 It's been months of hard work and dedication, but we're thrilled to see it come to life.\n" \
+      body: "Excited to announce that our team has just launched a new product! 🚀 It's been months of hard work and dedication, but we're thrilled to see it come to life." + "\n" +
       "#productlaunch #innovation #tech",
       author_id: 2
     })
@@ -423,7 +423,7 @@ require "open-uri"
     # )
 
     post3 = Post.create!({
-      body: "🚀 Thrilled to share my incredible App Academy experience! From web development fundamentals to advanced coding techniques, it's been a life-changing journey. Grateful for the supportive community and top-notch curriculum. Highly recommend App Academy! 💻 \n" \
+      body: "🚀 Thrilled to share my incredible App Academy experience! From web development fundamentals to advanced coding techniques, it's been a life-changing journey. Grateful for the supportive community and top-notch curriculum. Highly recommend App Academy! 💻 " + "\n" +
       "#AppAcademy #CodingBootcamp #TechEducation",
       author_id: 3
     })
@@ -437,7 +437,7 @@ require "open-uri"
     )
 
     post4 = Post.create!({
-      body: "too true",
+      body: "Git Commands🔥",
       author_id: 4
     })
 
@@ -445,7 +445,7 @@ require "open-uri"
     # filename: "HR.jpg"
     # )
 
-    post4.photo.attach( io: File.open(Rails.root.join("db", "assets", "timeBlockinHR.jpg")),
+    post4.photo.attach( io: File.open(Rails.root.join("db", "assets", "git_command.jpeg")),
     filename: "HR.jpg"
     )
 
@@ -498,31 +498,31 @@ require "open-uri"
     # filename: "recursion.jpg"
     # )
 
-    # post10 = Post.create!({
-    #   body: "Me right now",
-    #   author_id: 1
-    # })
+    post10 = Post.create!({
+      body: "CSS Border Radius 💡",
+      author_id: 1
+    })
 
     # post10.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/codeDoes.JPG"),
     # filename: "codedoes.jpg"
     # )
 
-    # post10.photo.attach( io: File.open(Rails.root.join("db", "assets", "codeDoes.jpeg")),
-    # filename: "codedoes.jpg"
-    # )
+    post10.photo.attach( io: File.open(Rails.root.join("db", "assets", "css-border.jpeg")),
+    filename: "css-border.jpeg"
+    )
 
-    # post11 = Post.create!({
-    #   body: "Need to be always questioning",
-    #   author_id: 5
-    # })
+    post11 = Post.create!({
+      body: "A wonderful splash page",
+      author_id: 5
+    })
 
     # post11.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/itWorks.webp"),
     # filename: "question.jpg"
     # )
 
-    # post11.photo.attach( io: File.open(Rails.root.join("db", "assets", "itWorks.webp")),
-    # filename: "question.jpg"
-    # )
+    post11.photo.attach( io: File.open(Rails.root.join("db", "assets", "artifacts.gif")),
+    filename: "artifacts.gif"
+    )
 
     # post12 = Post.create!({
     #   body: "So true",
