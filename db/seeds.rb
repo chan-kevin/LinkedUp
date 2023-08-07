@@ -27,9 +27,9 @@ require "open-uri"
     user1 = User.create!(
       phone_number: '+123456789', 
       email: 'demo@user.io', 
-      first_name: 'Demo',
-      last_name: 'User',
-      headline: 'full stack developer looking for opportunity',
+      first_name: 'Kevin',
+      last_name: 'Demo',
+      headline: 'Fullstack Software Engineer JavaScript | React.js | Redux | Ruby | Ruby on Rails',
       password: 'password',
       location: 'New York, New York, United States',
       about: "As a passionate full stack developer, I have extensive knowledge of React, Redux, JavaScript, CSS, HTML, Ruby, and Canvas, 
@@ -265,7 +265,7 @@ require "open-uri"
 
     Experience.create!({
       title: Faker::Job.unique.title,
-      company: 'Google',
+      company: 'Sony',
       description: "- Collaborated with team members to develop and execute effective marketing campaigns.\n" \
       "- Conducted research and analysis to identify customer needs and preferences.\n" \
       "- Implemented new procedures to improve efficiency and productivity.",
@@ -281,7 +281,7 @@ require "open-uri"
 
     Experience.create!({
       title: Faker::Job.unique.title,
-      company: 'Twitter',
+      company: 'The New York Times',
       description: "- Managed a portfolio of clients and maintained strong relationships with key stakeholders.\n" \
       "- Utilized various software tools to analyze and interpret data and provide insights for decision-making.\n" \
       "- Developed and delivered presentations to internal and external audiences.",
@@ -485,18 +485,19 @@ require "open-uri"
       author_id: 8
     })
 
-    # post9 = Post.create!({
-    #   body: "recursion?",
-    #   author_id: 9
-    # })
+    post9 = Post.create!({
+      body: "A beautiful place to relax my day." + "\n" +
+      "Location: Windermere, United Kingdom",
+      author_id: 1
+    })
 
     # post9.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/recursion.png"),
     # filename: "recursion.jpg"
     # )
 
-    # post9.photo.attach( io: File.open(Rails.root.join("db", "assets", "recursion.png")),
-    # filename: "recursion.jpg"
-    # )
+    post9.photo.attach( io: File.open(Rails.root.join("db", "assets", "windermere.jpeg")),
+    filename: "windermere.jpeg"
+    )
 
     post10 = Post.create!({
       body: "CSS Border Radius 💡",
@@ -524,18 +525,19 @@ require "open-uri"
     filename: "artifacts.gif"
     )
 
-    # post12 = Post.create!({
-    #   body: "So true",
-    #   author_id: 1
-    # })
+    post12 = Post.create!({
+      body: "Here's the gameplay for The Adventures of Gary the Snail" + "\n" +
+      "Level 4 is quite challenging",
+      author_id: 1
+    })
 
     # post12.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/fullStack.jpeg"),
     # filename: "fullStack.jpg"
     # )
 
-    # post12.photo.attach( io: File.open(Rails.root.join("db", "assets", "fullStack.jpeg")),
-    # filename: "fullStack.jpg"
-    # )
+    post12.photo.attach( io: File.open(Rails.root.join("db", "assets", "gary.gif")),
+    filename: "gary.gif"
+    )
 
     # user2.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/Squidward.png"),
     # filename: "Squidward.png"
