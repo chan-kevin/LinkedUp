@@ -14,6 +14,7 @@ import Info from './info';
 import EducationForm from './education';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import defaultLogo from './assets/nologo.jpeg';
+import { restoreSession } from '../../store/session';
 
 const ProfilePage = () => {
     const { userId } = useParams();
@@ -48,7 +49,12 @@ const ProfilePage = () => {
 
     useEffect(() => {
         // user.photoUrl ||= defaultProfile;
-        dispatch(fetchUserProfile(userId));
+        const fetchUser = async () => {
+            await dispatch(fetchUserProfile(userId));
+
+            dispatch(restoreSession());
+        }
+        fetchUser();
         // const input = document.getElementsByTagName('input')[0];
         // input.value = null
         // user.photoUrl ||= defaultProfile;
@@ -117,6 +123,7 @@ const ProfilePage = () => {
         if (photoFile){
             formData.append('user[photo]' ,photoFile);
             dispatch(editUserProfile(formData, userId));
+            dispatch(restoreSession());
             setSaveProfile(false);
             const input = document.getElementsByTagName('input')[0];
             input.value = null

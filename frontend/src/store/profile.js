@@ -3,7 +3,7 @@ import { ADD_CONNECTION, DELETE_CONNECTION } from "./connection";
 
 
 export const SET_USER_PROFILE = 'users/setUserProfile';
-const UPDATE_USER_PROFILE = 'users/updateUserProfile'
+export const UPDATE_USER_PROFILE = 'users/updateUserProfile'
 
 const setUserProfile = (profile) => {
     return {
@@ -12,7 +12,7 @@ const setUserProfile = (profile) => {
     };
 };
 
-const updateUserProfile = (profile) => {
+export const updateUserProfile = (profile) => {
     return {
         type: UPDATE_USER_PROFILE,
         payload: profile
