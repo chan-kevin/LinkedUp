@@ -539,6 +539,10 @@ require "open-uri"
     filename: "gary.gif"
     )
 
+    user1.photo.attach( io: File.open(Rails.root.join("db", "assets", "kc.png")),
+    filename: "kc.png"
+    )
+
     # user2.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/Squidward.png"),
     # filename: "Squidward.png"
     # )

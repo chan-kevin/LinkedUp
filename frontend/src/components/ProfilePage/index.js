@@ -45,7 +45,7 @@ const ProfilePage = () => {
     //     fetchDate();
     // }, [dispatch, id]);
     let preview = null;
-    if (photoUrl) preview = <img src={photoUrl} alt="" />;
+    if (photoUrl) preview = <img src={photoUrl} alt="" className='previewPic'/>;
 
     useEffect(() => {
         // user.photoUrl ||= defaultProfile;
