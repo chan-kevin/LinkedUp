@@ -10,7 +10,7 @@ json.posts do
             json.liked post.is_liked(current_user.id)
             json.comments post.comments.select(:id).map{|comment| comment.id}
             json.photoUrl post.photo.url
-            json.extract! post, :id, :body, :author_id
+            json.extract! post, :id, :body, :author_id, :created_at
         end
     end
     json.postIds @posts.map {|post| post.id}

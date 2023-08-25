@@ -10,6 +10,7 @@ import profileBackground from '../ProfilePage/assets/profileBackground.jpeg';
 import CommentPage from "../CommentPage";
 import { createLike, removeLike } from "../../store/like";
 import logo from '../Navigation/assets/LinkedUp_Blue.png'
+import moment from 'moment';
 
 const PostPage = () => {
     const dispatch = useDispatch();
@@ -293,6 +294,10 @@ const PostPage = () => {
                                 </div>
                                 <div className="authorHeadline">
                                     {post.authorHeadline}
+                                </div>
+
+                                <div className="timeAgo">
+                                    {moment(post.createdAt).fromNow()}
                                 </div>
                             </div>
                             { post.authorId === sessionUser.id && 
