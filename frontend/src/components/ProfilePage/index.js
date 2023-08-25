@@ -48,28 +48,12 @@ const ProfilePage = () => {
     if (photoUrl) preview = <img src={photoUrl} alt="" className='previewPic'/>;
 
     useEffect(() => {
-        // user.photoUrl ||= defaultProfile;
         const fetchUser = async () => {
             await dispatch(fetchUserProfile(userId));
 
             dispatch(restoreSession());
         }
         fetchUser();
-        // const input = document.getElementsByTagName('input')[0];
-        // input.value = null
-        // user.photoUrl ||= defaultProfile;
-        
-        // const fetchCompanyLogo = async() => {
-        //     const response = await fetch(`https://company.clearbit.com/v1/domains/find?name=google`, {
-        //         headers: {
-        //           Authorization: `Bearer ${apiKey}`,
-        //         }
-        //       });        
-        //   const data = await response.json();
-        //   setLogoUrl(data.logo);
-        // }
-        // fetchCompanyLogo();
-        // setIsLoading(false);
     }, [dispatch, userId, saveProfile, showAboutModal, showInfoModal]);
 
 

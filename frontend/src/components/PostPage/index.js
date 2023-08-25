@@ -188,7 +188,7 @@ const PostPage = () => {
     }
 
     let preview = null;
-    if (photoUrl) preview = <img src={photoUrl} alt="" />;
+    if (photoUrl) preview = <img src={photoUrl} alt="" className='previewPic'/>;
 
     let orderedPosts;
     if (Object.values(posts).length > 0){
