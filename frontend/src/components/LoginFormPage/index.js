@@ -31,9 +31,6 @@ function LoginFormPage() {
 
   if (sessionUser) return <Redirect to="/" />;
 
-  // const ele = document.getElementById('headBackground');
-  // ele.style.backgroundColor = 'white';
-
   const demoLogin = (e) => {
     e.preventDefault();
     dispatch(sessionActions.login({ credential: 'demo@user.io', password: 'password' }));

@@ -42,7 +42,6 @@ const deletePost = (postId) => {
 }
 
 export const createPost = (formData) => async dispatch => {
-    // const {body, formData} = post
     const response = await csrfFetch("/api/posts", {
     method: "POST",
     body: formData

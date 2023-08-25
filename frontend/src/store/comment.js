@@ -35,13 +35,6 @@ const deleteComment = (commentId) => {
     }
 }
 
-// export const getAllComments = (commentId) => async dispatch => {
-//     const response = await csrfFetch(`/api/comments/${commentId}`)
-//     const data = await response.json();
-//     dispatch(getComments(data));
-//     return response;
-// }
-
 export const createComment = (comment) => async dispatch => {
     const {postId, body} = comment
     const response = await csrfFetch("api/comments", {
@@ -82,10 +75,6 @@ export const removeComment = (commentId) => async dispatch => {
 
 export const commentReducer = (state = {}, action) => {
     switch (action.type) {
-        // case FETCH_ALL_POSTS:
-        //     return { ...action.payload.comments };
-        // case GET_COMMENTS:
-        //     return { ...state, ...action.payload};
         case GET_POST:
             return { ...action.payload.comments}
         case ADD_COMMENT:

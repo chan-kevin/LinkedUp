@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import './CommentPage.css'
-// import { getAllPosts } from "../../store/post";
 import { Modal } from "../../context/Modal";
 import EditCommentPage from "./edit";
 import { removeComment } from "../../store/comment";
@@ -22,11 +21,6 @@ const CommentPage = ({postId}) => {
                 setMenu(null);
             }
         };
-
-        // document.addEventListener('click', (e) => {
-        //     e.preventDefault();
-        //     e.stopPropagation();
-        // });
         document.addEventListener('click', closeMenu);
 
         return () => document.removeEventListener('click', closeMenu);

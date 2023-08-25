@@ -47,17 +47,6 @@ function ExperienceForm ({ onClose, experience }) {
         return () => document.removeEventListener('mousedown', closeMenu);
     }, [company, showMenu])
 
-    // useEffect(() => {
-    //     if (!showMenu) return;
-    //     const closeMenu = () => {
-    //         setShowMenu(false);
-    //     };
-      
-    //     document.addEventListener('mousedown', closeMenu)
-    
-    //     return () => document.removeEventListener('mousedown', closeMenu);
-    //   }, [showMenu]);
-
     const handleSubmit =  async (e) => {
         e.preventDefault();
         if (current) {
@@ -105,8 +94,6 @@ function ExperienceForm ({ onClose, experience }) {
 
     const autoCompanyInput = (input) => {
         return () => {
-            // document.getElementById('company').value = input;
-            // debugger
             setCompany(input.name);
             setCompanyLogo(input.logo)
             setShowMenu(false);

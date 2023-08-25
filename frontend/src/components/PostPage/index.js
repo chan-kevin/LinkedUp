@@ -17,7 +17,6 @@ const PostPage = () => {
     const posts = useSelector(state => state.posts);
     const comments = useSelector(state => Object.values(state.comments));
     const sessionUser = useSelector(state => state.session.user);
-    // const [hasComments, setHasComments] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [postBody, setPostBody] = useState('');
     const [showMenu, setShowMenu] = useState(false);
@@ -45,18 +44,12 @@ const PostPage = () => {
     useEffect(() => {
         dispatch(getAllPosts());
 
-        // if (!showMenu) return;
-
         const closeMenu = () => {
             if (!editModal) {
             setShowMenu(false);
             }
         };
 
-        // document.addEventListener('click', (e) => {
-        //     e.preventDefault();
-        //     e.stopPropagation();
-        // });
         document.addEventListener('click', closeMenu);
 
         return () => document.removeEventListener('click', closeMenu);
@@ -70,7 +63,6 @@ const PostPage = () => {
     const listComments = (postId, index) => {
         dispatch(getOnePost(postId));
         setOpenCreateComment(index);
-        // setHasComments(true)
     }
 
     const handlePost = () => {
@@ -144,11 +136,7 @@ const PostPage = () => {
             dispatch(createLike(isliked))
             likebutton.style.color = '#0a66c2'
             liketext.style.color = '#0a66c2'
-        }
-        // if (likedUser.include(userId)) {
-        //     dispatch(removeLike())
-        // }
-        
+        }      
     }
 
     const changePostPic = ({ currentTarget}) => {
@@ -162,22 +150,10 @@ const PostPage = () => {
         else setPhotoUrl(null);
     }
 
-    // const handleSubmit = async e => {
-    //     e.preventDefault();
-    //     const formData = new FormData()
-    //     formData.append('post[id]', postId);
-    //     if (photoFile){
-    //         formData.append('user[photo]' ,photoFile);
-    //         dispatch(createPost(formData, postId));
-    //     }
-    // }
-
     const handleSubmit = async e => {
         e.preventDefault();
-        // let post = {...post,body}
         const formData = new FormData();
         formData.append('post[body]', postBody);
-        // dispatch(createPost(newPost));
         if (photoFile) {
             formData.append('post[photo]', photoFile);
         }

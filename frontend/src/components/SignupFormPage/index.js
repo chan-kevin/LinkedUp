@@ -18,8 +18,6 @@ function SignupFormPage() {
 
     if (sessionUser) return <Redirect to="/" />;
 
-    // const ele = document.getElementById('headBackground');
-    // ele.style.backgroundColor = 'rgb(236, 233, 229)';
     const demoLogin = (e) => {
         e.preventDefault();
         dispatch(sessionActions.login({ credential: 'demo@user.io', password: 'password' }));
@@ -28,9 +26,7 @@ function SignupFormPage() {
     const handlePage1Submit = (e) => {
         e.preventDefault();
 
-        // const emailRegex = /\S+@\S+\.\S+/;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        // const passwordRegex = /^[A-Za-z]\w{5,14}$/;
         const passwordRegex = /^.{6,}$/;
         const emailError = document.getElementById('signUpEmail');
         const passwordError = document.getElementById('signUpPassword');

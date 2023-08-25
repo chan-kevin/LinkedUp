@@ -6,7 +6,6 @@ import { useHistory } from 'react-router-dom';
 
 const SearchBar = () => {
   const [query, setQuery] = useState('');
-  // const [results, setResults] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const users = useSelector(state => Object.values(state.search));
@@ -51,14 +50,6 @@ const SearchBar = () => {
     if (query === '') {
       userArr();
     }
-
-    // dispatch(searchActions.clearResult());
-    // dispatch(searchActions.searchUser(query))
-    
-
-    // if (e.target.value === ''){
-    //     dispatch(searchActions.clearResult());
-    // }
   };
 
   const checkOutProfile = (userId) => {
@@ -66,25 +57,6 @@ const SearchBar = () => {
     document.getElementById('searchBar').value='';
     setShowModal(false);
   }
-
-//   useEffect(() => {
-//     dispatch(searchActions.clearResult());
-//   }, [dispatch, query])
-//   const uniqueResults = results.filter((item, index, self) => self.findIndex(t => t.id === item.id) === index);
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     fetch(`/api/users/search?q=${query}`)
-//       .then(res => res.json())
-//       .then(data => {
-//         setResults(data);
-//       })
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     dispatch(searchActions.searchUser(query))
-//   };
 
 const matchedWord = (word) => {
     if (query.toLowerCase().includes(word.toLowerCase())) return word

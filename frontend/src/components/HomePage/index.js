@@ -17,7 +17,6 @@ function HomePage() {
   const emailEmptyLabelRef = useRef(null);
   const passwordEmptyLabelRef = useRef(null);
   const [passwordType, setPasswordType] = useState('password')
-  // const emailError = errors.find(error => error.includes('Email'));
 
   useEffect(() => {
     if (emailEmptyInputRef.current) {
@@ -35,9 +34,6 @@ function HomePage() {
   }, [empty]);
 
   if (sessionUser) return <Redirect to="/home" />;
-
-//   const ele = document.getElementById('headBackground');
-//   ele.style.backgroundColor = 'white';
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -82,24 +78,6 @@ function HomePage() {
   const changePassword = (e) => {
     setPassword(e.target.value)
   }
-
-  // const handleInputFocus = (e) => {
-  //   const input = e.target;
-  //   const label = input.previousSibling;
-  //   if (input) {
-  //     input.style.borderColor = '#0073b1';
-  //     label.style.color = '#0073b1';
-  //   }
-  // }
-  
-  // const handleInputBlur = (e) => {
-  //   const input = e.target;
-  //   const label = input.previousSibling;
-  //   if (input) {
-  //     input.style.borderColor = '';
-  //     label.style.color = '';
-  //   }
-  // }
 
   const changePasswordType = (e) => {
     e.preventDefault();
@@ -151,9 +129,7 @@ function HomePage() {
                   </div>
                   {empty.password && <div className='empty'>{empty.password}</div>}
 
-                  {/* <NavLink to='/forgot' className='forgotSignup' id='homeSignIn'>Forgot Password?</NavLink> */}
                   <div id='homeBorder'><button type="submit" className='signInSubmit' id='homeSign' onClick={handleSubmit}>Sign in</button></div>
-                  {/* {errors ? <LoginFormPage credential={credential} errors={errors} /> : null} */}
 
                   <div className="divider-container" id='home-divider'>
                     <div className="divider-item"></div>

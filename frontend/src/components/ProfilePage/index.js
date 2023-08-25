@@ -35,15 +35,6 @@ const ProfilePage = () => {
     const [showEducationModal, setShowEducationModal] = useState(false);
     const history = useHistory();
     
-
-    // const [isLoading, setIsLoading] = useState(true);
-
-    // useEffect(() => { const fetchDate = () => {
-    //     dispatch(fetchUserProfile(id));
-    //     setIsLoading(false);
-    // }
-    //     fetchDate();
-    // }, [dispatch, id]);
     let preview = null;
     if (photoUrl) preview = <img src={photoUrl} alt="" className='previewPic'/>;
 
@@ -69,24 +60,8 @@ const ProfilePage = () => {
     const unconnect = () => {
         dispatch(removeConnection(userId))
     }
-    // useEffect(() => {
-    //     const fetchCompanyLogo = async() => {
-    //         const response = await fetch(`https://company.clearbit.com/v1/domains/find?name=google`, {
-    //             headers: {
-    //               Authorization: `Bearer ${apiKey}`,
-    //             }
-    //           });        
-    //       const data = await response.json();
-    //       setLogoUrl(data.logo);
-    //     }
-    //     fetchCompanyLogo();
-    //   }, []);
 
     if (!sessionUser) return <Redirect to="/" />;
-
-    // if (isLoading) {
-    //     return <p>Loading...</p>
-    // }
 
     const changeProfilePic = ({ currentTarget}) => {
         const file = currentTarget.files[0];
@@ -149,9 +124,6 @@ const ProfilePage = () => {
         const data = await response.json();
         return data[0].logo;
     }
-
-    // let preview = null;
-    // if (photoUrl) preview = <img src={photoUrl} alt="" />;
 
     return (
         <div className='fontFamily' id='profileContent'>
