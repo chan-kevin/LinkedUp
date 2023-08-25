@@ -23,7 +23,7 @@ const CompanyLogo = ({ company }) => {
         setLogoUrl(defaultLogo);
       }
     };
-  }, [logoUrl, defaultLogo]);
+  }, [logoUrl]);
 
   return <img src={logoUrl} alt='companyLogo' />;
 }

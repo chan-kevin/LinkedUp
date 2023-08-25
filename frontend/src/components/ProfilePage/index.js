@@ -23,8 +23,6 @@ const ProfilePage = () => {
     const user = useSelector(state => state.users[userId]);
     const experiences = useSelector(state => Object.values(state.experiences))
     const educations = useSelector(state => Object.values(state.educations))
-    const [logoUrl, setLogoUrl] = useState('');
-    const apiKey = process.env.CLEARBIT_API_KEY;
     const [photoFile, setPhotoFile] = useState (null);
     const [photoUrl, setPhotoUrl] = useState(null);
     const [showModal, setShowModal] = useState(false);
@@ -116,13 +114,6 @@ const ProfilePage = () => {
 
     const openSecondModal = () => {
         setSecondModal(true);
-    }
-
-
-    const fetchCompanyLogo = async(company) => {
-        const response = await fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=${company}`)
-        const data = await response.json();
-        return data[0].logo;
     }
 
     return (
@@ -330,7 +321,7 @@ const ProfilePage = () => {
                 {educations && educations.map(education => (
                 <div className='profileDetailList' key={education.id}>
                     <div className='profileLogo'>
-                        <img src={defaultLogo} />
+                        <img src={defaultLogo} alt='default'/>
                     </div>
                     <ul className='experienceDetail'>
                         <li className='detailHeading'>{education.school}</li>

@@ -4,7 +4,6 @@ import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
-import ForgotPage from './components/ForgotPage'
 import ProfilePage from './components/ProfilePage';
 import ExperiencePage from './components/ExperiencePage';
 import './index.css';
@@ -34,10 +33,6 @@ function App() {
 
         <Route path="/users/:userId/educations">
           <EducationPage />
-        </Route>
-
-        <Route path="/forgot">
-          <ForgotPage />
         </Route>
 
         <Route path="/login">

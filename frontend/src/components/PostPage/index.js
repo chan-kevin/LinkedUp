@@ -21,14 +21,11 @@ const PostPage = () => {
     const [postBody, setPostBody] = useState('');
     const [showMenu, setShowMenu] = useState(false);
     const [editModal, setEditModal] = useState(false);
-    const [editedBody, setEditBody] = useState('');
     const [deleteModal, setDeleteModal] = useState(false);
     const [body, setBody] = useState('');
     const [openCreateComment, setOpenCreateComment] = useState(false);
     const [photoUrl, setPhotoUrl] = useState(null);
-    const [likedOrNot, setLikedOrNot] = useState(null);
     const [loading, setLoading] = useState(false);
-    const likedUser = useSelector(state => state.posts.likesIds)
     const history = useHistory();
     const menuRef = useRef();
     const [photoFile, setPhotoFile] = useState(null);
@@ -63,15 +60,6 @@ const PostPage = () => {
     const listComments = (postId, index) => {
         dispatch(getOnePost(postId));
         setOpenCreateComment(index);
-    }
-
-    const handlePost = () => {
-        const newPost = {
-            body: postBody
-        }
-        dispatch(createPost(newPost));
-        setShowModal(false);
-        dispatch(getAllPosts());
     }
 
     const handleDelete = (id) => {
@@ -114,11 +102,6 @@ const PostPage = () => {
             postId
         }
         dispatch(createComment(commentNew))
-    }
-
-    const handleOpenCreateComment = (postId, index) => {
-        setOpenCreateComment(index);
-        listComments(postId);
     }
 
     const handleLike = (userId, postId) => {

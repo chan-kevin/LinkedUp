@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { createEducation, editEducation, removeEducation } from '../../store/education';
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -13,7 +13,7 @@ function EducationForm ({ onClose, education }) {
     const [startYear, setStartYear] = useState(education?.startYear ?? '');
     const [endMonth, setEndMonth] = useState(education?.endMonth ?? '');
     const [endYear, setEndYear] = useState(education?.endYear ?? '');
-    const [current, setCurrent] = useState(false);
+    const [current] = useState(false);
 
     const handleSubmit =  async (e) => {
         e.preventDefault();

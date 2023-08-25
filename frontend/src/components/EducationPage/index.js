@@ -57,7 +57,7 @@ const EducationPage = () => {
                 {educations && educations.map(education => (
                 <div className='profileDetailList' key={education.id}>
                     <div className='profileLogo'>
-                        <img src={defaultLogo} />
+                        <img src={defaultLogo} alt='default'/>
                     </div>
                     <ul className='educationDetail'>
 

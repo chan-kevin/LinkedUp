@@ -2,31 +2,9 @@ import csrfFetch from "./csrf";
 import { GET_POST } from "./post";
 import { getPost } from "./post";
 
-const GET_COMMENTS = 'comments/getComments'
 const ADD_COMMENT = 'comments/addComment'
 const EDIT_COMMENT = 'comments/editComment'
 const DELETE_COMMENT = 'posts/deleteComment'
-
-const getComments = (comment) => {
-    return {
-        type: GET_COMMENTS,
-        payload: comment
-    }
-}
-
-const addComment = (comment) => {
-    return {
-        type: ADD_COMMENT,
-        payload: comment
-    }
-}
-
-const editComment = (comment) => {
-    return {
-        type: EDIT_COMMENT,
-        payload: comment
-    }
-}
 
 const deleteComment = (commentId) => {
     return {
@@ -52,7 +30,6 @@ export const createComment = (comment) => async dispatch => {
 };
 
 export const updateComment = (id, body) => async dispatch => {
-    // const {id, body} = comment
     const response = await csrfFetch(`/api/comments/${id}`, {
     method: "PUT",
     body: JSON.stringify({
@@ -60,7 +37,6 @@ export const updateComment = (id, body) => async dispatch => {
     })
 });
     const data = await response.json();
-    // dispatch(editComment(data));
     dispatch(getPost(data));
     return response;
 };

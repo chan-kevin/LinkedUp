@@ -34,19 +34,11 @@ const editPost = (post) => {
     }
 }
 
-const deletePost = (postId) => {
-    return {
-        type: DELETE_POST,
-        payload: postId
-    }
-}
-
 export const createPost = (formData) => async dispatch => {
     const response = await csrfFetch("/api/posts", {
     method: "POST",
     body: formData
 });
-    const data = await response.json();
     dispatch(addPost(formData));
     return response;
 };
