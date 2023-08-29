@@ -37,9 +37,10 @@ function HomePage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    setErrors([]);
     if (!credential){
-      setEmpty(prevErrors => ({
-        ...prevErrors,
+      setEmpty(() => ({
         email: "Please enter an email address or phone number"
       }));
       return;
@@ -48,6 +49,27 @@ function HomePage() {
     if (!password){
       setEmpty(() => ({
         password: "Please enter a password"
+      }));
+      return;
+    }
+
+    if (!isNaN(credential) && !credential.includes('@') && credential.length < 3){
+      setEmpty(() => ({
+        email: "Please enter a valid username"
+      }));
+      return;
+    }
+
+    if (isNaN(credential) && !credential.includes('@')){
+      setEmpty(() => ({
+        email: "Please enter a valid username"
+      }));
+      return;
+    }
+
+    if (password.length < 6){
+      setEmpty(() => ({
+        password: "The password you provided must have at least 6 characters"
       }));
       return;
     }
@@ -92,9 +114,9 @@ function HomePage() {
     <div id='homeColor'>
       <div className='fontFamily' id='homePage'>
               <form onSubmit={handleSubmit} className='homeLogin'>
-                  {/* <ul>
+                  <ul>
                       {errors.map(error => <li key={error}>{error}</li>)}
-                  </ul> */}
+                  </ul>
 
                   <h1 id='homeHeading'>Welcome to your professional community</h1>
 
