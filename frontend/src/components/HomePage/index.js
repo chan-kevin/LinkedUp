@@ -10,7 +10,6 @@ function HomePage() {
   const sessionUser = useSelector(state => state.session.user);
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState([]);
   const [empty, setEmpty] = useState({});
   const emailEmptyInputRef = useRef(null);
   const passwordEmptyInputRef = useRef(null);
@@ -38,39 +37,38 @@ function HomePage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setErrors([]);
     if (!credential){
-      setEmpty(() => ({
+      setEmpty({
         email: "Please enter an email address or phone number"
-      }));
+      });
       return;
     }
 
     if (!password){
-      setEmpty(() => ({
+      setEmpty({
         password: "Please enter a password"
-      }));
+      });
       return;
     }
 
     if (!isNaN(credential) && !credential.includes('@') && credential.length < 3){
-      setEmpty(() => ({
+      setEmpty({
         email: "Please enter a valid username"
-      }));
+      });
       return;
     }
 
-    if (isNaN(credential) && !credential.includes('@')){
-      setEmpty(() => ({
+    if ((isNaN(credential) && !credential.includes('@')) || (credential[credential.length - 1] === '@')){
+      setEmpty({
         email: "Please enter a valid username"
-      }));
+      });
       return;
     }
 
     if (password.length < 6){
-      setEmpty(() => ({
+      setEmpty({
         password: "The password you provided must have at least 6 characters"
-      }));
+      });
       return;
     }
 
@@ -82,9 +80,9 @@ function HomePage() {
         } catch {
           data = await res.text();
         }
-        if (data?.errors) setErrors(data.errors);
-        else if (data) setErrors([data]);
-        else setErrors([res.statusText]);
+        if (data?.errors) setEmpty({email: data.errors});
+        // else if (data) setErrors([data]);
+        // else setErrors([res.statusText]);
       });
   }
 
@@ -114,9 +112,6 @@ function HomePage() {
     <div id='homeColor'>
       <div className='fontFamily' id='homePage'>
               <form onSubmit={handleSubmit} className='homeLogin'>
-                  <ul>
-                      {errors.map(error => <li key={error}>{error}</li>)}
-                  </ul>
 
                   <h1 id='homeHeading'>Welcome to your professional community</h1>
 
