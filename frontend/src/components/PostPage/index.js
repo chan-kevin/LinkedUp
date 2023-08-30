@@ -10,7 +10,7 @@ import profileBackground from '../ProfilePage/assets/profileBackground.jpeg';
 import CommentPage from "../CommentPage";
 import { createLike, removeLike } from "../../store/like";
 import logo from '../Navigation/assets/LinkedUp_Blue.png'
-import moment from 'moment';
+import TimeDisplay from "./time";
 
 const PostPage = () => {
     const dispatch = useDispatch();
@@ -257,7 +257,8 @@ const PostPage = () => {
                                 </div>
 
                                 <div className="timeAgo">
-                                    {moment(post.createdAt).fromNow()}
+                                    <TimeDisplay timestamp={post.createdAt} />
+                                    {/* {DateTime.fromISO(post.createAt).toRelative()} */}
                                 </div>
                             </div>
                             { post.authorId === sessionUser.id && 

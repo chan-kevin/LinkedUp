@@ -5,6 +5,8 @@ import './CommentPage.css'
 import { Modal } from "../../context/Modal";
 import EditCommentPage from "./edit";
 import { removeComment } from "../../store/comment";
+import moment from "moment";
+import TimeDisplay from "../PostPage/time";
 
 
 const CommentPage = ({postId}) => {
@@ -65,6 +67,7 @@ const CommentPage = ({postId}) => {
 
                 <div className="commentsDetail" key={comment.id}>
                     <div className="commentsEditContainer">
+                        <TimeDisplay timestamp = {comment.createdAt} />
                         <i className="fa-solid fa-ellipsis" onClick={(e) => {openMenu(e, index)}}></i>
                     </div>
                         { menu === index ? (
