@@ -9,12 +9,9 @@ function LoginFormPage() {
   const sessionUser = useSelector(state => state.session.user);
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState([]);
   const [empty, setEmpty] = useState({});
   const emailEmptyInputRef = useRef(null);
   const passwordEmptyInputRef = useRef(null);
-  const emailError = errors.find(error => error.includes('email'));
-  const passwordError = errors.find(error => error.includes('password'));
   const [passwordType, setPasswordType] = useState('password');
 
   useEffect(() => {
@@ -49,19 +46,40 @@ function LoginFormPage() {
     e.preventDefault();
 
     if (!credential){
-      setEmpty(prevErrors => ({
-        ...prevErrors,
+      setEmpty({
         email: "Please enter an email address or phone number"
-      }));
+      });
       return;
     }
 
     if (!password){
-      setEmpty(() => ({
+      setEmpty({
         password: "Please enter a password"
-      }));
+      });
       return;
     }
+
+    if (!isNaN(credential) && !credential.includes('@') && credential.length < 3){
+      setEmpty({
+        email: "Please enter a valid username"
+      });
+      return;
+    }
+
+    if ((isNaN(credential) && !credential.includes('@')) || (credential[credential.length - 1] === '@')){
+      setEmpty({
+        email: "Please enter a valid username"
+      });
+      return;
+    }
+
+    if (password.length < 6){
+      setEmpty({
+        password: "The password you provided must have at least 6 characters"
+      });
+      return;
+    }
+
     return dispatch(sessionActions.login({ credential, password }))
       .catch(async (res) => {
         let data;
@@ -70,9 +88,9 @@ function LoginFormPage() {
         } catch {
           data = await res.text();
         }
-        if (data?.errors) setErrors(data.errors);
-        else if (data) setErrors([data]);
-        else setErrors([res.statusText]);
+        if (data?.errors) setEmpty({email: data.errors});
+        // else if (data) setErrors([data]);
+        // else setErrors([res.statusText]);
       });
   }
 
@@ -80,9 +98,6 @@ function LoginFormPage() {
     <div id='signInBackground'>
     <div className='fontFamily' id='signInPage'>
       <form className="signInForm" onSubmit={handleSubmit}>
-        {/* <ul>
-          {errors.map(error => <li key={error}>{error}</li>)}
-        </ul> */}
 
         <h1 id='signIn'>Sign in</h1>
         <p id='signInDescription'>Stay updated on your professional world</p>
@@ -96,7 +111,6 @@ function LoginFormPage() {
             className='credentials-input'
         />
         {empty.email && <div className='emptySignIn'>{empty.email}</div>}
-        {emailError && <div className='emptySignIn'>{emailError}</div>}
 
         <div className='password-input'>
         <input
@@ -112,9 +126,6 @@ function LoginFormPage() {
                     <button type='button' onClick={changePasswordType}>Hide</button>}
         </div>
         {empty.password && <div className='emptySignIn'>{empty.password}</div>}
-        {passwordError && <div className='emptySignIn'>{passwordError}</div>}
-
-        {/* <NavLink to='/forgot' className='forgotSignup'>Forgot Password?</NavLink> */}
 
         <button type="submit" className='signInSubmit' id='withoutForgotPassword'>Sign in</button>
 
@@ -125,7 +136,6 @@ function LoginFormPage() {
         </div>
 
         <button type="submit" className='signUpSubmit' id='signUpGoogle' onClick={demoLogin}>Continue with Demo</button>
-        {/* <button type="submit" className='signUpSubmit' id='signInApple'> <img src={apple} alt='apple' id='google'/> Sign in with Apple</button> */}
       </form>
 
       <div id='newTo'> New to LinkedUp? <NavLink to="/signup" className='forgotSignup' id='signUpIn'>Join now</NavLink> </div>
