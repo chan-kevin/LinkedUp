@@ -54,6 +54,7 @@ const SearchBar = () => {
 
   const checkOutProfile = (userId) => {
     history.push(`/users/${userId}`);
+    window.scrollTo(0,0);
     document.getElementById('searchBar').value='';
     setShowModal(false);
   }

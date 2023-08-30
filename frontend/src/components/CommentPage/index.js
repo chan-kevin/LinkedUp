@@ -29,6 +29,7 @@ const CommentPage = ({postId}) => {
 
     const toProfile = (userId) => {
         history.push(`/users/${userId}`)
+        window.scrollTo(0,0);
     }
 
     const handleDelete = (id) => {

@@ -21,6 +21,7 @@ const EducationPage = () => {
     const goBackButton = (e) => {
         e.preventDefault();
         history.push(`/users/${userId}`);
+        window.scrollTo(0,0);
     }
 
     useEffect(() => {

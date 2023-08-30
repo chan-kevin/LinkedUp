@@ -23,6 +23,7 @@ function DropDown() {
   const goEditPage = (e) => {
     e.preventDefault();
     history.push(`/users/${userId}/experiences`)
+    window.scrollTo(0,0);
   }
 
   useEffect(() => {

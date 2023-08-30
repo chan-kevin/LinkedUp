@@ -19,6 +19,7 @@ function EditFormModal({experience}) {
     e.preventDefault();
     setShowModal(true)
     history.push(`/users/${userId}/experiences/${experience.id}`)
+    window.scrollTo(0,0);
   }
 
   useEffect(() => {
