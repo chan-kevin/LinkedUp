@@ -5,7 +5,6 @@ import './CommentPage.css'
 import { Modal } from "../../context/Modal";
 import EditCommentPage from "./edit";
 import { removeComment } from "../../store/comment";
-import moment from "moment";
 import TimeDisplay from "../PostPage/time";
 
 
