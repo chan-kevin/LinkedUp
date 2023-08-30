@@ -5,7 +5,15 @@ const TimeDisplay = ({ timestamp }) => {
     const approxTime = DateTime.fromISO(timestamp).toRelative();
 
     let approxTimeArr = approxTime.split(' ');
-    let shortTime = { 'seconds': 's', 'minutes': 'm', 'hours': 'h', 'days': 'd', 'weeks': 'w', 'months': 'mo'}
+    let shortTime = { 
+        'seconds': 's', 'second': 's', 
+        'minutes': 'm', 'minute': 'm', 
+        'hours': 'h', 'hour': 'h', 
+        'days': 'd', 'day': 'd',
+        'weeks': 'w', 'week': 'w',
+        'months': 'mo', 'month': 'mo',
+        'years': 'y', 'year': 'y'
+    }
 
     const formattedTime = approxTimeArr[0] + shortTime[approxTimeArr[1]];
 
