@@ -243,12 +243,12 @@ const PostPage = () => {
                     {orderedPosts && orderedPosts.map((post, index) => (
                     <div className='profileBoard' id='feedPost' key={index} >
 
-                        <div className="authorInfo">
-                            <div className='authorPic' onClick={() => toProfile(post.authorId)}>
+                        <div className="authorInfo" onClick={() => toProfile(post.authorId)}>
+                            <div className='authorPic'>
                                 <img src={post.authorPhoto} alt='defaultProfile' />
                             </div>
                             <div className="authorDetail">
-                                <div className="authorName" onClick={() => toProfile(post.authorId)}>
+                                <div className="authorName">
                                     {post.authorFirstName} {post.authorLastName}
                                 </div>
                                 <div className="authorHeadline">

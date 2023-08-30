@@ -63,8 +63,8 @@ const CommentPage = ({postId}) => {
                 </div>
 
                 <div className="commentsDetail" key={comment.id}>
-                    <div className="commentsEditContainer" onClick={(e) => {openMenu(e, index)}}>
-                        <i className="fa-solid fa-ellipsis"></i>
+                    <div className="commentsEditContainer">
+                        <i className="fa-solid fa-ellipsis" onClick={(e) => {openMenu(e, index)}}></i>
                     </div>
                         { menu === index ? (
                             <div className="editOptions" id="editCommentsOptions">
@@ -109,12 +109,14 @@ const CommentPage = ({postId}) => {
                             </div>
                         ): null }
 
-                    <div className="authorName" id="commenter-name">
-                        <p onClick={() => toProfile(comment.commenterId)}>{comment?.commenterFirstName} {comment?.commenterLastName}</p>
-                    </div>
+                    <div className="commenter-info" onClick={() => toProfile(comment.commenterId)}>
+                        <div className="authorName" id="commenter-name">
+                            <p>{comment?.commenterFirstName} {comment?.commenterLastName}</p>
+                        </div>
 
-                    <div className="authorHeadline">
-                        {comment?.commenterHeadline}
+                        <div className="authorHeadline">
+                            {comment?.commenterHeadline}
+                        </div>
                     </div>
 
                     <div className="commentBody">

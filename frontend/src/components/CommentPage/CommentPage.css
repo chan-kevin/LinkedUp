@@ -10,20 +10,21 @@
     position: relative;
 }
 
-.commentsEditContainer:hover {
-    background-color: white;
-}
-
 .commentsEditContainer i {
     transform: translateX(8px) translateY(4px);
+    cursor: pointer;
 }
 
 #editCommentsOptions {
     width: 50px;
-    transform: translateY(7px);
+    transform: translateY(22px) translateX(-10px);
     z-index: 1;
 }
 
-#commenter-name p {
-    width: 50%;
+#commenter-name {
+    margin-bottom: 5px;
+}
+
+.commenter-info {
+    cursor: pointer;
 }

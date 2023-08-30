@@ -144,6 +144,17 @@
     font-size: 14px;
 }
 
+.authorHeadline {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 450px;
+}
+
+.authorDetail:hover {
+    cursor: pointer;
+}
+
 .postBody {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -265,7 +276,7 @@
 }
 
 .commentsDetail {
-    border-radius: 0 8px 0 0;
+    border-radius: 0 8px 8px 8px;
     margin-bottom: 25px;
     flex-grow: 1;
     padding: 10px;
