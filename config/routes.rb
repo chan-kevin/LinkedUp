@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show, :index, :update] do
       collection do
         get :search
+        get :random
       end
     end
     resources :connections, only: [:create, :destroy]

@@ -9,6 +9,8 @@ import { connectionReducer } from './connection';
 import postsReducer from './post';
 import { commentReducer } from './comment';
 import { likeReducer } from './like';
+import randomUsersReducer from './random';
+
 
 const rootReducer = combineReducers({
   connection: connectionReducer,
@@ -19,7 +21,8 @@ const rootReducer = combineReducers({
   educations: educationReducer,
   posts: postsReducer,
   comments: commentReducer,
-  likes: likeReducer
+  likes: likeReducer,
+  random: randomUsersReducer
 });
 
 let enhancer;

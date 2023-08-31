@@ -42,6 +42,11 @@ class Api::UsersController < ApplicationController
     render 'api/users/search'
   end
 
+  def random
+    @users = User.order("RANDOM()").limit(5)
+    render 'api/users/random'
+  end
+
   private
 
   def user_params
