@@ -9,6 +9,7 @@ const SearchBar = () => {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const users = useSelector(state => Object.values(state.search));
+  // const users = useSelector(state => state.search);
   const history = useHistory();
   const [randUsers, setRandUsers] = useState([]);
 
@@ -60,13 +61,13 @@ const SearchBar = () => {
     setShowModal(false);
   }
 
-// const matchedWord = (word) => {
-//     if (query.toLowerCase().includes(word.toLowerCase())) return word
-// }
-
-// const unmatchedWord = (word) => {
-//     if (!query.toLowerCase().includes(word.toLowerCase())) return word
-// }
+const matchedWord = (word) => {
+    if (word.toLowerCase().includes(query.toLowerCase())) {
+      return <div><span className='matched'>{word.slice(0, query.length)}</span><span>{word.slice(query.length, word.length)}</span></div>
+    } else {
+      return <div><p>{word}</p></div>
+    }
+}
 
   return (
     <div className='fontFamily'>
@@ -79,7 +80,22 @@ const SearchBar = () => {
         <div className="modal-background" id='searchModalBackground' onClick={onClose} />
             <div className="modal-content" id='searchModalConetent'>
                 {(query !== '') ? (
-                  <div>{console.log('hi')}</div>
+                  <ul>
+                    {users.map((user, index) => (
+                      <li key={index} onClick={() => checkOutProfile(user.id)} className='searchResult'>
+                        <i className="fa-solid fa-magnifying-glass" id='insideSearch'></i>
+                        <div className='fullName'>
+                          {matchedWord(user.firstName)}
+                          <p>&nbsp;</p>
+                          {matchedWord(user.lastName)}
+                          <div className='headlineSearch'>&nbsp; &bull; &nbsp;{user.headline}</div>
+                        </div>
+                        <div className='authorPic' id='searchPhoto'>
+                          <img src={user.photoUrl} alt='defaultProfile' />
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 // <ul>
                 //     {users.filter(user => {
                 //         const parts = query.toLowerCase().split(' ');
