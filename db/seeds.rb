@@ -409,8 +409,7 @@ require "open-uri"
     })
 
     post2 = Post.create!({
-      body: "Excited to announce that our team has just launched a new product! 🚀 It's been months of hard work and dedication, but we're thrilled to see it come to life." + "\n" +
-      "#productlaunch #innovation #tech",
+      body: "Excited to announce that our team has just launched a new product! 🚀 It's been months of hard work and dedication, but we're thrilled to see it come to life.",
       author_id: 2
     })
 
@@ -418,13 +417,13 @@ require "open-uri"
     # filename: "Squidward.jpeg"
     # )
 
-    # post2.photo.attach( io: File.open(Rails.root.join("db", "assets", "Squidward.jpeg")),
-    # filename: "Squidward.jpeg"
-    # )
+    post2.photo.attach( io: File.open(Rails.root.join("db", "assets", "congrats.gif")),
+    filename: "congrats.gif"
+    )
 
     post3 = Post.create!({
-      body: "🚀 Thrilled to share my incredible App Academy experience! From web development fundamentals to advanced coding techniques, it's been a life-changing journey. Grateful for the supportive community and top-notch curriculum. Highly recommend App Academy! 💻 " + "\n" +
-      "#AppAcademy #CodingBootcamp #TechEducation",
+      body: "🚀 Thrilled to share my incredible App Academy experience! From web development fundamentals to advanced coding techniques, it's been a life-changing journey." + "\n" + 
+      "Grateful for the supportive community and top-notch curriculum. Highly recommend App Academy! 💻 ",
       author_id: 3
     })
 
@@ -446,96 +445,150 @@ require "open-uri"
     # )
 
     post4.photo.attach( io: File.open(Rails.root.join("db", "assets", "git_command.jpeg")),
-    filename: "HR.jpg"
+    filename: "git_command.jpeg"
     )
 
     post5 = Post.create!({
-      body: "Just found a game that's good!",
-      author_id: 10
+      body: "Thrilled to announce my role at VivoTech Solutions as [Your Job Title]! Ready to dive into exciting tech projects and embrace new opportunities." + "\n" + 
+      "Grateful for the journey that led me here. Let's innovate together! 🚀👩‍💻",
+      author_id: 13
     })
 
-    # post5.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/gary.png"),
-    # filename: "gary.jpg"
+    # post4.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/timeBlockinHR.jpg"),
+    # filename: "HR.jpg"
     # )
 
-    post5.photo.attach( io: File.open(Rails.root.join("db", "assets", "gary.png")),
-    filename: "gary.jpg"
+    post5.photo.attach( io: File.open(Rails.root.join("db", "assets", "congrats.gif")),
+    filename: "congrats.gif"
     )
 
     post6 = Post.create!({
-      body: "The course is really good!",
-      author_id: 6
+      body: "Just found a game that's good!🐌" + "\n" + 
+      "The Adventures of Gary the Snail is a 2D interactive puzzle game where Gary the snail is lost underwater. The main objective of the game is to help Gary get to home to SpongeBob in Bikini Bottom." + "\n" +
+      "- Use Patrick's house to change Gary's direction." + "\n" +
+      "- Colliding with jellyfish results in a game over.",
+      author_id: 10
     })
 
-    # post6.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/aaCampus.png"),
-    # filename: "aaCampus.jpg"
+    # post6.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/gary.png"),
+    # filename: "gary.jpg"
     # )
 
-    post6.photo.attach( io: File.open(Rails.root.join("db", "assets", "aaCampus.png")),
-    filename: "aaCampus.jpg"
+    post6.photo.attach( io: File.open(Rails.root.join("db", "assets", "gary.png")),
+    filename: "gary.jpg"
     )
 
     post7 = Post.create!({
+      body: "App Academy is a top-tier coding bootcamp known for its intensive curriculum, hands-on learning, and exceptional career outcomes. With a focus on practical skills and real-world projects, it prepares students for success in the software development industry." + "\n" + 
+      "Its strong track record of placing graduates in prominent tech companies underscores its effectiveness in launching successful tech careers.",
+      author_id: 6
+    })
+
+    # post7.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/aaCampus.png"),
+    # filename: "aaCampus.jpg"
+    # )
+
+    post7.photo.attach( io: File.open(Rails.root.join("db", "assets", "aaCampus.png")),
+    filename: "aaCampus.jpg"
+    )
+
+    post8 = Post.create!({
       body: "A big thank you to @Demo User for giving me the opportunity to take on these new responsibilities at XYZ Company",
       author_id: 7
     })
 
-    post8 = Post.create!({
+    post8.photo.attach( io: File.open(Rails.root.join("db", "assets", "congrats.gif")),
+    filename: "congrats.gif"
+    )
+
+    post9 = Post.create!({
       body: "I am happy to share that I am starting a new position as Senior Associate, Private Equity!",
       author_id: 8
     })
 
-    post9 = Post.create!({
+    post9.photo.attach( io: File.open(Rails.root.join("db", "assets", "congrats.gif")),
+    filename: "congrats.gif"
+    )
+
+    post10 = Post.create!({
       body: "A beautiful place to relax my day." + "\n" +
       "Location: Windermere, United Kingdom",
       author_id: 1
     })
 
-    # post9.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/recursion.png"),
+    # post10.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/recursion.png"),
     # filename: "recursion.jpg"
     # )
 
-    post9.photo.attach( io: File.open(Rails.root.join("db", "assets", "windermere.jpeg")),
+    post10.photo.attach( io: File.open(Rails.root.join("db", "assets", "windermere.jpeg")),
     filename: "windermere.jpeg"
     )
 
-    post10 = Post.create!({
+    post11 = Post.create!({
       body: "CSS Border Radius 💡",
       author_id: 1
     })
 
-    # post10.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/codeDoes.JPG"),
+    # post11.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/codeDoes.JPG"),
     # filename: "codedoes.jpg"
     # )
 
-    post10.photo.attach( io: File.open(Rails.root.join("db", "assets", "css-border.jpeg")),
+    post11.photo.attach( io: File.open(Rails.root.join("db", "assets", "css-border.jpeg")),
     filename: "css-border.jpeg"
     )
 
-    post11 = Post.create!({
+    post12 = Post.create!({
       body: "A wonderful splash page",
       author_id: 5
     })
 
-    # post11.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/itWorks.webp"),
+    # post12.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/itWorks.webp"),
     # filename: "question.jpg"
     # )
 
-    post11.photo.attach( io: File.open(Rails.root.join("db", "assets", "artifacts.gif")),
+    post12.photo.attach( io: File.open(Rails.root.join("db", "assets", "artifacts.gif")),
     filename: "artifacts.gif"
     )
 
-    post12 = Post.create!({
+    post13 = Post.create!({
+      body: "Thrilled to announce my new adventure: I've just joined the tech team at BitStream Innovations! 🚀👩‍💻" + "\n" + 
+      "Excited to contribute and learn in this dynamic space. Thanks for the support! ",
+      author_id: 12
+    })
+
+    post13.photo.attach( io: File.open(Rails.root.join("db", "assets", "congrats.gif")),
+    filename: "congrats.gif"
+    )
+
+    post14 = Post.create!({
+      body: "I'm excited to announce that I've earned the Innovator's Codebreaker Certification!",
+      author_id: 6
+    })
+
+    post14.photo.attach( io: File.open(Rails.root.join("db", "assets", "certificate.gif")),
+    filename: "certificate.gif"
+    )
+
+    post15 = Post.create!({
+      body: "Explain Structure of URL",
+      author_id: 8
+    })
+
+    post15.photo.attach( io: File.open(Rails.root.join("db", "assets", "structure_of_url.jpeg")),
+    filename: "structure_of_url.jpeg"
+    )
+
+    post16 = Post.create!({
       body: "Here's the gameplay for The Adventures of Gary the Snail" + "\n" +
       "Level 4 is quite challenging",
       author_id: 1
     })
 
-    # post12.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/fullStack.jpeg"),
+    # post13.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/fullStack.jpeg"),
     # filename: "fullStack.jpg"
     # )
 
-    post12.photo.attach( io: File.open(Rails.root.join("db", "assets", "gary.gif")),
+    post16.photo.attach( io: File.open(Rails.root.join("db", "assets", "gary.gif")),
     filename: "gary.gif"
     )
 
