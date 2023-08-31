@@ -31,8 +31,8 @@ export const fetchAllUser = () => async dispatch => {
     return response;
 }
 
-export const searchUser = (query) => async dispatch => {
-    const response = await csrfFetch(`/api/users/search?q=${query}`)
+export const searchAllUser = (query) => async dispatch => {
+    const response = await csrfFetch(`/api/users/search?users=${query}`)
     const data = await response.json();
     dispatch(findUser(data));
     return response;
@@ -45,7 +45,7 @@ export const clearResult = () => async dispatch => {
 const searchReducer = (state = {}, action) => {
     switch (action.type) {
         case SEARCH_USER:
-            return { ...state, ...action.payload }
+            return action.payload
         case CLEAR_SEARCH:
             return {}
         case FETCH_USERS:

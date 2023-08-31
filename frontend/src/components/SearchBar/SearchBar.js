@@ -12,9 +12,9 @@ const SearchBar = () => {
   const history = useHistory();
   const [randUsers, setRandUsers] = useState([]);
 
-  useEffect (() => {
-    dispatch(searchActions.fetchAllUser());
-  }, [dispatch, query])
+  // useEffect (() => {
+  //   dispatch(searchActions.fetchAllUser());
+  // }, [dispatch, query])
 
   const randomNumber = () => {
     return Math.floor(Math.random() * (users.length));
@@ -37,7 +37,7 @@ const SearchBar = () => {
 
   const startSearch =() => {
     setShowModal(true);
-    userArr();
+    // userArr();
   }
 
   const onClose = () => {
@@ -47,9 +47,10 @@ const SearchBar = () => {
 
   const searchUser = (e) => {
     setQuery(e.target.value);
-    if (query === '') {
-      userArr();
-    }
+    dispatch(searchActions.searchAllUser(e.target.value))
+    // if (query === '') {
+    //   userArr();
+    // }
   };
 
   const checkOutProfile = (userId) => {
@@ -59,13 +60,13 @@ const SearchBar = () => {
     setShowModal(false);
   }
 
-const matchedWord = (word) => {
-    if (query.toLowerCase().includes(word.toLowerCase())) return word
-}
+// const matchedWord = (word) => {
+//     if (query.toLowerCase().includes(word.toLowerCase())) return word
+// }
 
-const unmatchedWord = (word) => {
-    if (!query.toLowerCase().includes(word.toLowerCase())) return word
-}
+// const unmatchedWord = (word) => {
+//     if (!query.toLowerCase().includes(word.toLowerCase())) return word
+// }
 
   return (
     <div className='fontFamily'>
@@ -78,33 +79,34 @@ const unmatchedWord = (word) => {
         <div className="modal-background" id='searchModalBackground' onClick={onClose} />
             <div className="modal-content" id='searchModalConetent'>
                 {(query !== '') ? (
-                <ul>
-                    {users.filter(user => {
-                        const parts = query.toLowerCase().split(' ');
-                        return parts.every(part => user.firstName.toLowerCase().includes(part) || user.lastName.toLowerCase().includes(part));
-                    }).map((user, index) => (
-                        <li key={index} onClick={() => checkOutProfile(user.id)} className='searchResult'>
-                            <i className="fa-solid fa-magnifying-glass" id='insideSearch'></i> 
-                            <div className='fullName'>
-                                {user.firstName.split('').map((letter) => 
-                                    <div>
-                                        <p className='matched'>{matchedWord(letter)}</p> <p>{unmatchedWord(letter)}</p>
-                                    </div>)} 
+                  <div>{console.log('hi')}</div>
+                // <ul>
+                //     {users.filter(user => {
+                //         const parts = query.toLowerCase().split(' ');
+                //         return parts.every(part => user.firstName.toLowerCase().includes(part) || user.lastName.toLowerCase().includes(part));
+                //     }).map((user, index) => (
+                //         <li key={index} onClick={() => checkOutProfile(user.id)} className='searchResult'>
+                //             <i className="fa-solid fa-magnifying-glass" id='insideSearch'></i> 
+                //             <div className='fullName'>
+                //                 {user.firstName.split('').map((letter) => 
+                //                     <div>
+                //                         <p className='matched'>{matchedWord(letter)}</p> <p>{unmatchedWord(letter)}</p>
+                //                     </div>)} 
 
-                                <p>&nbsp;</p>
+                //                 <p>&nbsp;</p>
 
-                                {user.lastName.split('').map((letter) => 
-                                    <div>
-                                        <p className='matched'>{matchedWord(letter)}</p> <p>{unmatchedWord(letter)}</p>
-                                    </div>)}
-                                    <div className='headlineSearch'>&nbsp; &bull; &nbsp;{user.headline}</div>
-                            </div>
-                            <div className='authorPic' id='searchPhoto'>
-                                <img src={user.photoUrl} alt='defaultProfile' />
-                            </div>
-                        </li>
-                    ))}
-                </ul>
+                //                 {user.lastName.split('').map((letter) => 
+                //                     <div>
+                //                         <p className='matched'>{matchedWord(letter)}</p> <p>{unmatchedWord(letter)}</p>
+                //                     </div>)}
+                //                     <div className='headlineSearch'>&nbsp; &bull; &nbsp;{user.headline}</div>
+                //             </div>
+                //             <div className='authorPic' id='searchPhoto'>
+                //                 <img src={user.photoUrl} alt='defaultProfile' />
+                //             </div>
+                //         </li>
+                //     ))}
+                // </ul>
                 ): (
                   <ul>
                     <li className='searchResult seachTitle'> Try Searching for</li>
