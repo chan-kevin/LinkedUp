@@ -13,7 +13,8 @@
 }
 
 #feedBackground {
-    height: 13vh;
+    height: 8vh;
+    position: relative;
 }
 
 #homeProfile {
@@ -105,17 +106,53 @@
     justify-content: center;
 }
 
-.feed-grid {
-    display: grid;
-    grid-template-areas: 'left main right';
-    grid-template-columns: minmax(0, 225px) minmax(0, auto) minmax(0, 300px);
-    column-gap: 2.4vw;
-}
-
 .feedProfile {
-    grid-area: left;
+    grid-area: feedProfile;
 }
 
+.feedBody {
+    grid-area: feedBody;
+}
+
+.homeFoot {
+    grid-area: homeFoot;
+}
+
+@media screen and (min-width: 1153px) {
+    .feed-grid {
+        display: grid;
+        grid-template-areas: 'feedProfile feedBody homeFoot';
+        grid-template-columns: minmax(0, 225px) minmax(0, auto) minmax(0, 300px);
+        column-gap: 2.4vw;
+    }
+}
+
+@media screen and (max-width: 1153px) {
+    .feed-grid {
+        display: grid;
+        grid-template-areas:    
+                            'feedProfile feedBody'
+                            '. homeFoot';
+        grid-template-columns: minmax(0, 225px) minmax(0, auto);
+        row-gap: 2.4vw;
+        column-gap: 2.4vw;
+    }
+    
+}
+
+@media screen and (max-width: 853px) {
+    .feed-grid {
+        display: grid;
+        grid-template-areas:    
+                            'feedProfile'
+                            'feedBody'
+                            'homeFoot';
+        grid-template-columns: minmax(300px, 600px);
+        row-gap: 2.4vw;
+        column-gap: 2.4vw;
+    }
+    
+}
 
 #feedPost, #createPost {
     padding: 20px;
@@ -266,9 +303,10 @@
 #sessionUserPic {
     width: 70px;
     height: 70px;
-    position: absolute;
+    margin: -38px auto 1.2rem;
+    /* position: absolute;
     left: 33.5%;
-    top: 5%;
+    top: 5%; */
 }
 
 .comments {
