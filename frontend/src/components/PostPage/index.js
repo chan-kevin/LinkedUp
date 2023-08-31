@@ -165,6 +165,7 @@ const PostPage = () => {
         ) : (
         <div className='fontFamily' id='homeFeed'>
             
+            <div className="feed-grid">
             <div className="feedProfile">
                 <div className='profileBoard' id="homeProfile">
 
@@ -394,6 +395,7 @@ const PostPage = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         )}
     </>

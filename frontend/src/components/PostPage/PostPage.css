@@ -1,7 +1,6 @@
-#postList {
-    width: 1128px;
-    display: flex;
-    flex-direction: column;
+.postList {
+    padding-top: 15px;
+    border-top: 1px solid rgb(0,0,0,0.2);
 }
 
 #createPost, #feedPost {
@@ -14,25 +13,20 @@
 }
 
 #feedBackground {
-    height: 130px;
-}
-
-.feedProfile {
-    padding-right: 30px;
+    height: 13vh;
 }
 
 #homeProfile {
-    width: 250px;
+    width: inherit;
     position: relative;
     margin: 0;
 }
 
 #homeFoot {
-    width: 300px;
+    width: inherit;
     position: relative; 
     padding: 15px;
     margin: 0;
-    margin-left: 30px;
 }
 
 .news {
@@ -47,13 +41,7 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    left: 50px;
-}
-
-.bottomDetails {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
 
 .developed {
@@ -96,6 +84,8 @@
     color: rgb(0,0,0,0.6);
     padding-bottom: 20px;
     border-bottom: 1px solid rgb(0,0,0,0.08);
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .sessionUserAbout {
@@ -113,6 +103,17 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.feed-grid {
+    display: grid;
+    grid-template-areas: 'left main right';
+    grid-template-columns: minmax(0, 225px) minmax(0, auto) minmax(0, 300px);
+    column-gap: 2.4vw;
+}
+
+.feedProfile {
+    grid-area: left;
 }
 
 
@@ -266,8 +267,8 @@
     width: 70px;
     height: 70px;
     position: absolute;
-    left: 90px;
-    top: 30px;
+    left: 33.5%;
+    top: 5%;
 }
 
 .comments {
@@ -311,11 +312,7 @@
 #createPost {
     display: flex;
     flex-direction: row;
-    margin-bottom: 40px;
-}
-
-.homeFoot {
-    margin: 0;
+    margin-bottom: 15px;
 }
 
 .createPostFoot {
