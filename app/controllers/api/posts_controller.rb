@@ -18,7 +18,6 @@ class Api::PostsController < ApplicationController
         @comments = @post.comments
         
         if @post.save 
-            # render json: 'api/posts/show'
             render :show
         else
             render json: @post.errors.full_messages, status: 422

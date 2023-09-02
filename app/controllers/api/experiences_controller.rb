@@ -6,13 +6,6 @@ class Api::ExperiencesController < ApplicationController
 
     def create
         @experience = Experience.new(experience_params)
-        # if !(@experience.current)
-          # @experience.start_year = @experience.start_year.to_i
-          # @experience.end_year = @experience.end_year.to_i
-        # end
-    
-        # fetch_company_logo(@experience.company)
-        # @experience.logo = @logo
         if @experience.save
           render :show
         else
@@ -39,19 +32,7 @@ class Api::ExperiencesController < ApplicationController
 
     private
 
-    # def fetch_company_logo(company)
-    #     response = HTTParty.get("https://company.clearbit.com/v1/domains/find?name=#{company}",
-    #       headers: { Authorization: "Bearer #{ENV['CLEARBIT_API_KEY']}" })
-    
-    #     data = JSON.parse(response.body)
-    #     @logo = data["logo"]
-    # end
-
     def experience_params
         params.require(:experience).permit(:title, :company, :location, :logo, :current, :description, :start_month, :start_year, :end_month, :end_year, :user_id)
-        # .tap do |params|
-          # params[:startYear] = params[:startYear].to_i
-          # params[:endYear] = params[:endYear].to_i
-        # end
     end
 end

@@ -3,7 +3,6 @@ class Api::ConnectionsController < ApplicationController
 
     def create
         @connection = Connection.new(connection_params)
-        # @connection = Connection.new(connecter_id: current_user.id, connectee_id: connection_params)
         if @connection.save
             @user = User.find(connection_params[:connectee_id])
             render 'api/users/show'

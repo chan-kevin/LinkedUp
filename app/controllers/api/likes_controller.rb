@@ -12,7 +12,6 @@ class Api::LikesController < ApplicationController
     end
 
     def destroy 
-        # @post = Post.find(params[:id])
         @like = Like.find_by({likeable_id: params[:id], liker_id: current_user.id})
         @like.destroy
         @post = Post.find(params[:id])

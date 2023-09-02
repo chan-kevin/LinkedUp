@@ -118,7 +118,6 @@ class User < ApplicationRecord
 
   def generate_default_pic
     unless self.photo.attached?
-      # file = URI.open("https://linkedup-seeds.s3.amazonaws.com/default-profile.jpeg");
       file = File.open(Rails.root.join("db", "assets", "default-profile.jpeg"));
       self.photo.attach(io: file, filename: "default.png")
     end

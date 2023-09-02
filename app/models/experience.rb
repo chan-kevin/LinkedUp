@@ -27,12 +27,6 @@ class Experience < ApplicationRecord
   validate :start_end_dates, if: -> { all_present? && !current }
   
   belongs_to :user
-  
-  # def initialize(attributes={})
-  #   attributes[:end_year] = nil if attributes[:end_year].blank?
-  #   attributes[:end_month] = "January" if attributes[:end_month].blank?
-  #   super(attributes)
-  # end
 
   def all_present?
     [title, company, start_month, start_year, user_id, end_month, end_year].all?(&:present?)
