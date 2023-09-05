@@ -226,9 +226,7 @@ const PostPage = () => {
                             </div>
 
                             <footer className="createPostFoot">
-                                <div className="uploadPhoto">
-                                    {/* for uploading picture for post */}
-                                    
+                                <div className="uploadPhoto">           
                                     <label htmlFor='uploadPostPic' className="uploadPhotoIcon"><i className="fa-regular fa-image"></i>
                                     <input type='file' id='uploadPostPic' onChange={changePostPic}></input></label>
                                 </div>
@@ -259,7 +257,6 @@ const PostPage = () => {
 
                                 <div className="timeAgo">
                                     <TimeDisplay timestamp={post.createdAt} />
-                                    {/* {DateTime.fromISO(post.createAt).toRelative()} */}
                                 </div>
                             </div>
                             { post.authorId === sessionUser.id && 
@@ -293,7 +290,7 @@ const PostPage = () => {
                                     </div>
                                     
                                     {deleteModal ?
-                                    (<div className="modal" id="deleteOutside">
+                                    (<div className="modal" id="deleteOutside" onClick={e => e.stopPropagation()}>
                                         <div className="modal-background" onClick={closeDeleteModal} />
                                         <div className="deleteModal">
                                             <div className="deleteModalContent">

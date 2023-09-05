@@ -17,7 +17,7 @@ const EditPage = ({onClose, post}) => {
     }
 
     return (
-        <div className='profileModal' id='secondModal'>
+        <div className='profileModal' id='secondModal' onClick={(e) => {e.stopPropagation()}}>
             <button onClick={onClose} className='closeButton' id='changeProfileCloseButton2'>
                 <i className="fa-solid fa-xmark" id='changeProfileClose2'></i>
             </button>
@@ -38,7 +38,9 @@ const EditPage = ({onClose, post}) => {
 
             <footer className="createPostFoot">
                 <div className="uploadPhoto">
-                    <label className="uploadPhotoIcon"><i className="fa-regular fa-image"></i></label>
+                    <label className="uploadPhotoIcon">
+                        {/* <i className="fa-regular fa-image"></i> */}
+                    </label>
                 </div>
                 <div className="submitPost">
                     <button className='submit' onClick={saveEdited}>Save</button>

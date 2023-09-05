@@ -2,6 +2,9 @@ import React from "react";
 import { DateTime } from "luxon";
 
 const TimeDisplay = ({ timestamp }) => {
+    if (!timestamp) {
+        return null;
+    }
     const approxTime = DateTime.fromISO(timestamp).toRelative();
 
     let approxTimeArr = approxTime.split(' ');
