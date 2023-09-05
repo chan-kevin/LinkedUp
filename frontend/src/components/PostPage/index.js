@@ -84,12 +84,15 @@ const PostPage = () => {
         setPhotoUrl(null);
     }
 
-    const closeEditModal = () => {
+    const closeEditModal = (e) => {
+        e.stopPropagation();
         setEditModal(false);
+        setShowMenu(false);
     }
 
     const closeDeleteModal = () => {
         setDeleteModal(false);
+        setShowMenu(false);
     }
 
     const commentOnChange = (e) => {

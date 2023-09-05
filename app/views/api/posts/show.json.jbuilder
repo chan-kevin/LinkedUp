@@ -14,14 +14,18 @@ json.post do
 end
 
 json.comments do 
-    @comments.each do |comment|
+    if @comments
+      @comments.each do |comment|
         json.set! comment.id do
-            json.commenter_first_name comment.commenter.first_name
-            json.commenter_last_name comment.commenter.last_name
-            json.commenter_headline comment.commenter.headline
-            json.commenter_photo comment.commenter.photo.attached? ? comment.commenter.photo.url : nil
-            json.extract! comment, :id, :body, :commenter_id, :post_id, :created_at
+          json.commenter_first_name comment.commenter.first_name
+          json.commenter_last_name comment.commenter.last_name
+          json.commenter_headline comment.commenter.headline
+          json.commenter_photo comment.commenter.photo.attached? ? comment.commenter.photo.url : nil
+          json.extract! comment, :id, :body, :commenter_id, :post_id, :created_at
         end
+      end
+      json.commentIds @comments.map { |comment| comment.id }
+    else
+      json.array! []
     end
-    json.commentIds @comments.map {|comment| comment.id}
 end
