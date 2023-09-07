@@ -87,19 +87,19 @@
     margin: 0 auto;
     min-height: 100%;
     max-width: 1210px;
-    width: auto;
+    width: 100vw;
 }
 
 .left-nav {
     display: flex;
     position: absolute;
-    left: 0;
+    margin-left:1vw;
 }
 
 #withUserHomeLogo {
     height: 37px;
     width: 37px;
-    margin: 0 4px 0 -4px;
+    margin: 2px 4px 0 -4px;
 }
 
 #withUserHome > ul {

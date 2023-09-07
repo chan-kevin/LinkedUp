@@ -1,21 +1,44 @@
-#searchBar {
-    width: 150%;
-    line-height: 1.75;
-    font-weight: 400;
-    font-size: 14px;
-    height: 34px;
-    background-color: #eef3f8;
-    border-radius: 4px;
-    padding: 0 8px 0 40px;
-    border-style: none;
-    z-index: 501;
-    transition: all 0.5s ease-in-out;
-    box-sizing: border-box;
+@media screen and (min-width: 804px){
+    #searchBar {
+        width: 150%;
+        line-height: 1.75;
+        font-weight: 400;
+        font-size: 14px;
+        height: 37px;
+        background-color: #eef3f8;
+        border-radius: 4px;
+        padding: 0 8px 0 40px;
+        border-style: none;
+        z-index: 501;
+        transition: all 0.5s ease-in-out;
+        box-sizing: border-box;
+    }
+
+    #searchBar:focus {
+        border: 2px solid rgb(57, 118, 171);
+        width: 230%;
+    }
 }
 
-#searchBar:focus {
-    border: 2px solid rgb(57, 118, 171);
-    width: 230%;
+@media screen and (max-width: 804px){
+    #searchBar {
+        min-width: 90vw;
+        line-height: 1.75;
+        font-weight: 400;
+        font-size: 14px;
+        height: 37px;
+        background-color: #eef3f8;
+        border-radius: 4px;
+        padding: 0 8px 0 40px;
+        border-style: none;
+        z-index: 501;
+        transition: all 0.5s ease-in-out;
+        box-sizing: border-box;
+    }
+
+    #searchBar:focus {
+        border: 2px solid rgb(57, 118, 171);
+    }
 }
 
 .searchWithIcon {
@@ -25,6 +48,7 @@
     margin-top: 2px;
     margin-left: 5px;
     position: relative;
+    z-index: 1000;
 }
 
 #insideSearch {

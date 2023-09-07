@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as searchActions from '../../store/search'
 import './SearchBar.css'
@@ -12,6 +12,21 @@ const SearchBar = () => {
   const users = useSelector(state => Object.values(state.search));
   const randomUsers = useSelector(state => Object.values(state.random));
   const history = useHistory();
+  const [smallScreen, setSmallScreen] = useState(window.innerWidth <= 804);
+  const [mobileSearch, setMobileSearch] = useState(false);
+
+  const handleResize = () => {
+    setSmallScreen(window.innerWidth <= 804);
+    
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    }
+  }, []);
 
   const startSearch =() => {
     setShowModal(true);
@@ -20,6 +35,7 @@ const SearchBar = () => {
 
   const onClose = () => {
     setShowModal(false);
+    setMobileSearch(false);
     document.getElementById('searchBar').value='';
   }
 
@@ -35,6 +51,11 @@ const SearchBar = () => {
     setShowModal(false);
   }
 
+  const openMobileSearch = () => {
+    setMobileSearch(true);
+    setShowModal(true);
+  }
+
 const matchedWord = (word) => {
     if (word.toLowerCase().includes(query.toLowerCase())) {
       return <div><span className='matched'>{word.slice(0, query.length)}</span><span>{word.slice(query.length, word.length)}</span></div>
@@ -45,10 +66,17 @@ const matchedWord = (word) => {
 
   return (
     <div className='fontFamily'>
+      {!smallScreen || (smallScreen && mobileSearch) || showModal? 
       <div className='searchWithIcon'>
-        <i className="fa-solid fa-magnifying-glass" id='searchIcon'></i>
-        <input type="text" onChange={searchUser} onClick={startSearch} placeholder='Search' id='searchBar'/>
+          <i className="fa-solid fa-magnifying-glass" id='searchIcon'></i> 
+          <input type="text" onChange={searchUser} onClick={startSearch} placeholder='Search' id='searchBar'/>
       </div>
+      : 
+      <label className='navButtons' id='network' onClick={openMobileSearch}>
+          <i className="fa-solid fa-magnifying-glass"></i>
+          <span className='navTitle navlink'>Search</span>
+      </label> }
+
       {showModal && (
         <div className="modal" id='searchModal'>
         <div className="modal-background" id='searchModalBackground' onClick={onClose} />
