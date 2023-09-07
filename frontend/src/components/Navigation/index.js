@@ -7,11 +7,13 @@ import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import SearchBar from '../SearchBar/SearchBar';
+import { useHistory } from "react-router-dom";
 
 function Navigation() {
 
   const location = useLocation();
   const sessionUser = useSelector(state => state.session.user);
+  const history = useHistory();
 
   return (
       <nav className="fontFamily">
@@ -19,28 +21,28 @@ function Navigation() {
             <header className='fontFamily' id='loginHeader'>
               <div className='nav' id='withUserHome'>
                 <div className='left-nav'>
-                  <NavLink exact to="/"><img src={smallLogo} alt="home" id='withUserHomeLogo'/></NavLink>
+                  <img src={smallLogo} alt="home" id='withUserHomeLogo' onClick={() => history.push(history.push('/'))}/>
                   <SearchBar />
                 </div>
 
                 <div className='choices'>
                   <ul className='diffButtons'>
                     <li>
-                      <a href='/' className='navButtons' id='home'>
+                      <a href='/' className='navButtons network'>
                         <i className="fa-solid fa-house-chimney navlogo"></i>
                         <span className='navTitle navlink'>Home</span>
                       </a>
                     </li>
 
                     <li>
-                      <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/in/kevin-chan-426203158/' className='navButtons' id='network'>
+                      <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/in/kevin-chan-426203158/' className='navButtons network'>
                         <i className="fa-brands fa-linkedin navlogo"></i>
                         <span className='navTitle navlink'>My LinkedIn</span>
                       </a>
                     </li>
 
                     <li>
-                      <a target='_blank' rel='noreferrer' href='https://github.com/kchannn13' className='navButtons' id='network'>
+                      <a target='_blank' rel='noreferrer' href='https://github.com/kchannn13' className='navButtons network'>
                         <i className="fa-brands fa-github navlogo"></i>
                         <span className='navTitle navlink'>My GitHub</span>
                       </a>

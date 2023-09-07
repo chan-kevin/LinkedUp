@@ -93,13 +93,19 @@
 .left-nav {
     display: flex;
     position: absolute;
-    margin-left:1vw;
+    margin-left: 2vw;
 }
 
 #withUserHomeLogo {
     height: 37px;
     width: 37px;
-    margin: 2px 4px 0 -4px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 804px) {
+    #withUserHomeLogo {
+        margin-top: 8px;
+    }
 }
 
 #withUserHome > ul {

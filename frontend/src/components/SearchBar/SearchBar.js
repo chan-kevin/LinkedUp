@@ -72,7 +72,7 @@ const matchedWord = (word) => {
           <input type="text" onChange={searchUser} onClick={startSearch} placeholder='Search' id='searchBar'/>
       </div>
       : 
-      <label className='navButtons' id='network' onClick={openMobileSearch}>
+      <label className='navButtons network' onClick={openMobileSearch}>
           <i className="fa-solid fa-magnifying-glass"></i>
           <span className='navTitle navlink'>Search</span>
       </label> }

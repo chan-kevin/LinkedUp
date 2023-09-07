@@ -151,11 +151,11 @@ body {
     padding-top: 3px;
 }
 
-#home:hover, #network:hover, #notifications:hover, #drop:hover{
+.network:hover, #notifications:hover, #drop:hover, .navButtons:hover{
     color: rgba(0,0,0,0.9);
 }
 
-.navButtons::before, .navButtons::after {
+.network::before, .network::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -165,7 +165,7 @@ body {
     transition: all 0.2s ease-in-out;
 }
 
-.navButtons:hover::before, .navButtons:hover::after {
+.network:hover::before, .network:hover::after {
     width: 100%;
 }
 
