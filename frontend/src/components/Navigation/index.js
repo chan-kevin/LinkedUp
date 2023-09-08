@@ -21,7 +21,9 @@ function Navigation() {
             <header className='fontFamily' id='loginHeader'>
               <div className='nav' id='withUserHome'>
                 <div className='left-nav'>
-                  <img src={smallLogo} alt="home" id='withUserHomeLogo' onClick={() => history.push(history.push('/'))}/>
+                  <label className='navButtons' id='homeLogo'>
+                    <img src={smallLogo} alt="home" className='withUserHomeLogo' onClick={() => history.push(history.push('/'))}/>
+                  </label>
                   <SearchBar />
                 </div>
 

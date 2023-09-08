@@ -96,16 +96,14 @@
     margin-left: 2vw;
 }
 
-#withUserHomeLogo {
+.withUserHomeLogo {
     height: 37px;
     width: 37px;
     cursor: pointer;
 }
 
-@media screen and (max-width: 804px) {
-    #withUserHomeLogo {
-        margin-top: 8px;
-    }
+#homeLogo {
+    min-width: 60px;
 }
 
 #withUserHome > ul {
