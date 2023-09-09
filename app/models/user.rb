@@ -44,45 +44,11 @@ class User < ApplicationRecord
   class_name: :Like,
   dependent: :destroy
 
-  # has_many :sent_connections,
-  #   class_name: :Connection,
-  #   foreign_key: :connecter_id,
-  #   dependent: :destroy
-
-  # has_many :received_connections,
-  #   class_name: :Connection,
-  #   foreign_key: :connectee_id,
-  #   dependent: :destroy
-
-
-  # has_many :connections, 
-  #   class_name: :Connection,
-  #   foreign_key: :connecter_id,
-  #   dependent: :destroy
-
-  # has_many :connected_users,
-  #   through: :connections,
-  #   source: :connectee,
-  #   foreign_key: :connectee_id
-
   has_one_attached :photo
-  # has_many_attached :photos //will be an array
 
   def connections
     Connection.where("connecter_id = ? OR connectee_id = ?", self.id, self.id)
   end
-
-  ### for pending connections
-  ###  def pending conections
-  ### find all the pending connections
-
-  ### def is_pending(id)
-  ### find whether a user has a pending connection with you
-
-
-  # def connected_users
-  #   self.joins(:Connection).joins(:User)
-  # end
 
   def is_connected(id)
     !self.connections.where("connecter_id = ? OR connectee_id = ?", id, id).empty?

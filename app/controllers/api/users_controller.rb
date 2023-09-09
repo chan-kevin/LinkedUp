@@ -1,11 +1,6 @@
 class Api::UsersController < ApplicationController
   wrap_parameters include: User.attribute_names + ['password'] + [:photo]
 
-  def search
-    @users = User.where("first_name ILIKE ? OR last_name ILIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
-    render 'api/users/search'
-  end
-
   def index
     @users = User.all
     render 'api/users/index'
