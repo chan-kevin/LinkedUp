@@ -421,6 +421,30 @@ require "open-uri"
     filename: "congrats.gif"
     )
 
+    Comment.create!({
+      post_id: post2.id,
+      commenter_id: user1.id,
+      body: "Absolutely fantastic news! 🎉 Huge congratulations to you and your team on this remarkable achievement! Can't wait to see the amazing impact your new product will have! 🚀💫 "
+    })
+
+    Comment.create!({
+      post_id: post2.id,
+      commenter_id: user4.id,
+      body: "What an incredible accomplishment! 🥳 The dedication and hard work truly paid off. Looking forward to experiencing the magic your new product brings! Congratulations to the entire team! 🌟🚀 "
+    })
+
+    Comment.create!({
+      post_id: post2.id,
+      commenter_id: user6.id,
+      body: "Amazing news! Congratulations to the team!"
+    })
+
+    Comment.create!({
+      post_id: post2.id,
+      commenter_id: user9.id,
+      body: "Wow, that's fantastic! Congrats on the launch!"
+    })
+
     post3 = Post.create!({
       body: "🚀 Thrilled to share my incredible App Academy experience! From web development fundamentals to advanced coding techniques, it's been a life-changing journey." + "\n" + 
       "Grateful for the supportive community and top-notch curriculum. Highly recommend App Academy! 💻 ",
@@ -435,6 +459,24 @@ require "open-uri"
     filename: "aa101.jpg"
     )
 
+    Comment.create!({
+      post_id: post3.id,
+      commenter_id: user12.id,
+      body: "Impressive journey! 🚀 Congrats!"
+    })
+
+    Comment.create!({
+      post_id: post3.id,
+      commenter_id: user15.id,
+      body: "Sounds amazing! 💡 Well done!"
+    })
+
+    Comment.create!({
+      post_id: post3.id,
+      commenter_id: user5.id,
+      body: "Way to go! Your hard work paid off!"
+    })
+
     post4 = Post.create!({
       body: "Git Commands🔥",
       author_id: 4
@@ -448,8 +490,32 @@ require "open-uri"
     filename: "git_command.jpeg"
     )
 
+    Comment.create!({
+      post_id: post4.id,
+      commenter_id: user2.id,
+      body: "Love this cheat sheet! 🙌 Thanks for sharing!"
+    })
+
+    Comment.create!({
+      post_id: post4.id,
+      commenter_id: user8.id,
+      body: "This is pure gold! Thanks for sharing the Git wisdom!"
+    })
+
+    Comment.create!({
+      post_id: post4.id,
+      commenter_id: user16.id,
+      body: "Such a handy reference! 🚀 Git mastery in one glance!"
+    })
+
+    Comment.create!({
+      post_id: post4.id,
+      commenter_id: user7.id,
+      body: "Git essentials in one pic! Saving this for quick reference!"
+    })
+
     post5 = Post.create!({
-      body: "Thrilled to announce my role at VivoTech Solutions as [Your Job Title]! Ready to dive into exciting tech projects and embrace new opportunities." + "\n" + 
+      body: "Thrilled to announce my role at VivoTech Solutions as Senior Software Engineer! Ready to dive into exciting tech projects and embrace new opportunities." + "\n" + 
       "Grateful for the journey that led me here. Let's innovate together! 🚀👩‍💻",
       author_id: 13
     })
@@ -461,6 +527,25 @@ require "open-uri"
     post5.photo.attach( io: File.open(Rails.root.join("db", "assets", "congrats.gif")),
     filename: "congrats.gif"
     )
+
+
+    Comment.create!({
+      post_id: post5.id,
+      commenter_id: user1.id,
+      body: "This is fantastic news! Congratulations on your new position as Senior Software Engineer at VivoTech Solutions! Wishing you all the best in your exciting endeavors. 🚀👩‍💻"
+    })
+
+    Comment.create!({
+      post_id: post5.id,
+      commenter_id: user6.id,
+      body: "Congratulations on the new role! 🎉 Exciting times ahead, and VivoTech Solutions is lucky to have you! 🚀💼"
+    })
+
+    Comment.create!({
+      post_id: post5.id,
+      commenter_id: user10.id,
+      body: "What an exciting announcement! You're going to do great things at VivoTech Solutions. Congratulations on this well-deserved opportunity!"
+    })
 
     post6 = Post.create!({
       body: "Just found a game that's good!🐌" + "\n" + 
@@ -478,6 +563,31 @@ require "open-uri"
     filename: "gary.jpg"
     )
 
+    Comment.create!({
+      post_id: post6.id,
+      commenter_id: user2.id,
+      body: "I've heard about that game! It's a classic. Enjoy helping Gary find his way home!"
+    })
+
+    Comment.create!({
+      post_id: post6.id,
+      commenter_id: user5.id,
+      body: "Gary's underwater adventure sounds intriguing! 🌊 I'll definitely check it out. Thanks for sharing!"
+    })
+
+    Comment.create!({
+      post_id: post6.id,
+      commenter_id: user9.id,
+      body: "A game with a beloved character! 🌟 Can't wait to give it a try. Thanks for sharing!"
+    })
+
+    Comment.create!({
+      post_id: post6.id,
+      commenter_id: user1.id,
+      body: "This brings back memories! Gary's adventure is a classic. Enjoy the game!"
+    })
+
+
     post7 = Post.create!({
       body: "App Academy is a top-tier coding bootcamp known for its intensive curriculum, hands-on learning, and exceptional career outcomes. With a focus on practical skills and real-world projects, it prepares students for success in the software development industry." + "\n" + 
       "Its strong track record of placing graduates in prominent tech companies underscores its effectiveness in launching successful tech careers.",
@@ -492,14 +602,44 @@ require "open-uri"
     filename: "aaCampus.jpg"
     )
 
+    Comment.create!({
+      post_id: post7.id,
+      commenter_id: user7.id,
+      body: "That's impressive! App Academy sounds like an excellent choice for aspiring developers. Thanks for sharing this valuable information!"
+    })
+
+    Comment.create!({
+      post_id: post7.id,
+      commenter_id: user10.id,
+      body: "I've been considering coding bootcamps, and App Academy looks like a top contender. Thanks for shedding light on their strong track record!"
+    })
+
     post8 = Post.create!({
-      body: "A big thank you to @Demo User for giving me the opportunity to take on these new responsibilities at XYZ Company",
+      body: "A big thank you to @Kevin Demo for giving me the opportunity to take on these new responsibilities at XYZ Company",
       author_id: 7
     })
 
     post8.photo.attach( io: File.open(Rails.root.join("db", "assets", "congrats.gif")),
     filename: "congrats.gif"
     )
+
+    Comment.create!({
+      post_id: post8.id,
+      commenter_id: user1.id,
+      body: "You're welcome! It's clear you'll excel in your new role at XYZ Company. Looking forward to seeing all the great things you'll accomplish!"
+    })
+
+    Comment.create!({
+      post_id: post8.id,
+      commenter_id: user14.id,
+      body: "That's fantastic news! 🎉 Wishing you all the best in your new role at XYZ Company. They're lucky to have you!"
+    })
+
+    Comment.create!({
+      post_id: post8.id,
+      commenter_id: user3.id,
+      body: "Such an exciting opportunity! 🌠 You're going to do great things at XYZ Company. Congratulations!"
+    })
 
     post9 = Post.create!({
       body: "I am happy to share that I am starting a new position as Senior Associate, Private Equity!",
@@ -509,6 +649,24 @@ require "open-uri"
     post9.photo.attach( io: File.open(Rails.root.join("db", "assets", "congrats.gif")),
     filename: "congrats.gif"
     )
+
+    Comment.create!({
+      post_id: post9.id,
+      commenter_id: user3.id,
+      body: "That's fantastic news! 🥳 Senior Associate in Private Equity is a significant achievement. Best of luck in your new role!"
+    })
+
+    Comment.create!({
+      post_id: post9.id,
+      commenter_id: user2.id,
+      body: "Wow, that's amazing! Senior Associate in Private Equity is a big step. Wishing you success and fulfillment in this new position!"
+    })
+
+    Comment.create!({
+      post_id: post9.id,
+      commenter_id: user6.id,
+      body: "What a milestone! 🚀 Your hard work has paid off. Congratulations on becoming Senior Associate in Private Equity!"
+    })
 
     post10 = Post.create!({
       body: "A beautiful place to relax my day." + "\n" +
@@ -524,6 +682,30 @@ require "open-uri"
     filename: "windermere.jpeg"
     )
 
+    Comment.create!({
+      post_id: post10.id,
+      commenter_id: user9.id,
+      body: "Absolutely breathtaking! 😍 Windermere looks like a slice of paradise. Enjoy your day of relaxation!"
+    })
+
+    Comment.create!({
+      post_id: post10.id,
+      commenter_id: user12.id,
+      body: "What a serene view! Windermere is truly a gem. Wishing you a peaceful and rejuvenating time there!"
+    })
+
+    Comment.create!({
+      post_id: post10.id,
+      commenter_id: user4.id,
+      body: "Nature at its finest! 🌳 Windermere looks like a dreamy escape. Thanks for sharing this tranquil moment!"
+    })
+
+    Comment.create!({
+      post_id: post10.id,
+      commenter_id: user13.id,
+      body: "Wow, what a view! Windermere is indeed a beautiful place to unwind. Enjoy every moment!"
+    })
+
     post11 = Post.create!({
       body: "CSS Border Radius 💡",
       author_id: 1
@@ -536,6 +718,18 @@ require "open-uri"
     post11.photo.attach( io: File.open(Rails.root.join("db", "assets", "css-border.jpeg")),
     filename: "css-border.jpeg"
     )
+
+    Comment.create!({
+      post_id: post11.id,
+      commenter_id: user7.id,
+      body: "Understanding and using CSS Border Radius effectively can make a huge difference in design. Great post!"
+    })
+
+    Comment.create!({
+      post_id: post11.id,
+      commenter_id: user6.id,
+      body: "A crucial design element! CSS Border Radius can add depth and style to any layout. Thanks for the insightful post!"
+    })
 
     post12 = Post.create!({
       body: "A wonderful splash page",
@@ -550,6 +744,24 @@ require "open-uri"
     filename: "artifacts.gif"
     )
 
+    Comment.create!({
+      post_id: post12.id,
+      commenter_id: user1.id,
+      body: "Love the design! 🚀 The splash page sets such an inviting tone."
+    })
+
+    Comment.create!({
+      post_id: post12.id,
+      commenter_id: user4.id,
+      body: "Wow, this splash page is top-notch! It really grabs your attention."
+    })
+
+    Comment.create!({
+      post_id: post12.id,
+      commenter_id: user8.id,
+      body: "Absolutely stunning! 🌟 The splash page looks so inviting and beautifully designed."
+    })
+
     post13 = Post.create!({
       body: "Thrilled to announce my new adventure: I've just joined the tech team at BitStream Innovations! 🚀👩‍💻" + "\n" + 
       "Excited to contribute and learn in this dynamic space. Thanks for the support! ",
@@ -560,6 +772,36 @@ require "open-uri"
     filename: "congrats.gif"
     )
 
+    Comment.create!({
+      post_id: post13.id,
+      commenter_id: user8.id,
+      body: "Congratulations on your new adventure! 🌟 BitStream Innovations is lucky to have you on their tech team. Best of luck in your new role!"
+    })
+
+    Comment.create!({
+      post_id: post13.id,
+      commenter_id: user14.id,
+      body: "That's fantastic news! 🎉 Your journey with BitStream Innovations is going to be filled with exciting experiences. Enjoy the ride!"
+    })
+
+    Comment.create!({
+      post_id: post13.id,
+      commenter_id: user11.id,
+      body: "Such a great move! BitStream Innovations is the place to be for tech enthusiasts. Wishing you a wonderful and fulfilling time there!"
+    })
+
+    Comment.create!({
+      post_id: post13.id,
+      commenter_id: user9.id,
+      body: "Wow, congrats on the new role! Your skills and enthusiasm will undoubtedly make a significant impact at BitStream Innovations. Go conquer, tech champion!"
+    })
+
+    Comment.create!({
+      post_id: post13.id,
+      commenter_id: user2.id,
+      body: "Your passion for tech will surely shine in this dynamic space. Cheers to your new adventure!"
+    })
+
     post14 = Post.create!({
       body: "I'm excited to announce that I've earned the Innovator's Codebreaker Certification!",
       author_id: 6
@@ -569,6 +811,25 @@ require "open-uri"
     filename: "certificate.gif"
     )
 
+    Comment.create!({
+      post_id: post14.id,
+      commenter_id: user1.id,
+      body: "Congratulations! 🌟 The Innovator's Codebreaker Certification is a testament to your skills and dedication. Well done!"
+    })
+
+    Comment.create!({
+      post_id: post14.id,
+      commenter_id: user5.id,
+      body: "Wow, that's fantastic news! Earning the Innovator's Codebreaker Certification is no small feat. You should be very proud!"
+    })
+
+    Comment.create!({
+      post_id: post14.id,
+      commenter_id: user8.id,
+      body: "Incredible achievement! The Innovator's Codebreaker Certification speaks volumes about your expertise. Way to go!"
+    })
+
+
     post15 = Post.create!({
       body: "Explain Structure of URL",
       author_id: 8
@@ -577,6 +838,18 @@ require "open-uri"
     post15.photo.attach( io: File.open(Rails.root.join("db", "assets", "structure_of_url.jpeg")),
     filename: "structure_of_url.jpeg"
     )
+
+    Comment.create!({
+      post_id: post15.id,
+      commenter_id: user13.id,
+      body: "This is a great way to break down the components of a URL! Very helpful for those learning about web development. Thanks for sharing!"
+    })
+
+    Comment.create!({
+      post_id: post15.id,
+      commenter_id: user9.id,
+      body: "Clear and concise explanation with a visual aid! This will be super helpful for beginners. Thanks for sharing!"
+    })
 
     post16 = Post.create!({
       body: "Here's the gameplay for The Adventures of Gary the Snail" + "\n" +
@@ -591,6 +864,48 @@ require "open-uri"
     post16.photo.attach( io: File.open(Rails.root.join("db", "assets", "gary.gif")),
     filename: "gary.gif"
     )
+
+    Comment.create!({
+      post_id: post16.id,
+      commenter_id: user2.id,
+      body: "Thanks for sharing this gameplay update! 🎮 Level 4 sounds like it's going to be an exciting challenge. Can't wait to see how it unfolds!"
+    })
+
+    Comment.create!({
+      post_id: post16.id,
+      commenter_id: user5.id,
+      body: "Level 3 also seems a little tricky"
+    })
+
+    Comment.create!({
+      post_id: post16.id,
+      commenter_id: user6.id,
+      body: "Is this the Gary from Spongebob?"
+    })
+
+    Comment.create!({
+      post_id: post16.id,
+      commenter_id: user9.id,
+      body: "Love the background music"
+    })
+
+    Comment.create!({
+      post_id: post16.id,
+      commenter_id: user12.id,
+      body: "Omg, I can't even pass level 3"
+    })
+
+    Comment.create!({
+      post_id: post16.id,
+      commenter_id: user6.id,
+      body: "Meow"
+    })
+
+    Comment.create!({
+      post_id: post16.id,
+      commenter_id: user10.id,
+      body: "Impressive work on developing the game! 🚀 Level 4 is piquing my interest. Keep up the fantastic job!"
+    })
 
     user1.photo.attach( io: File.open(Rails.root.join("db", "assets", "kc.png")),
     filename: "kc.png"
@@ -719,6 +1034,17 @@ require "open-uri"
     # Post.first.photo.attach( io: URI.open("https://linkedup-seeds.s3.amazonaws.com/cat.jpg"),
     # filename: "cat.jpg"
     # )
+
+    Post.all.each do |post| 
+      likes_num = rand(8..20)
+      users = User.order("RANDOM()").limit(likes_num)
+      users.each do |user|
+        Like.create!({
+          liker_id: user.id,
+          likeable_id: post.id
+        })
+      end
+    end
   
     puts "Done!"
   # end
