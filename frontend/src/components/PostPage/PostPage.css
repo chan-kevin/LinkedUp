@@ -304,14 +304,13 @@
     width: 70px;
     height: 70px;
     margin: -38px auto 1.2rem;
-    /* position: absolute;
-    left: 33.5%;
-    top: 5%; */
 }
 
 .comments {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-areas: 'profile comment';
+    grid-template-columns: 50px minmax(510px, 510px);
+    column-gap: 10px;
 }
 
 .commentsDetail {
