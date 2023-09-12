@@ -89,8 +89,6 @@ function LoginFormPage() {
           data = await res.text();
         }
         if (data?.errors) setEmpty({email: data.errors});
-        // else if (data) setErrors([data]);
-        // else setErrors([res.statusText]);
       });
   }
 

@@ -189,25 +189,11 @@ const ProfilePage = () => {
                     </Modal>
                 )}
 
-                {/* <input type="file" onChange={changeProfilePic} />
-                <button onClick={handleSubmit}>submitTest</button>
-                {photoUrl ? <img src={photoUrl} alt="test" /> : null} */}
-
                 <div className='userInfo'>
                     {user && 
                     <div>
                         <div className='userInfoSchool'>
-                            {/* <div className='headlineWithAdd'> */}
                             <h1>{user.firstName + ' ' + user.lastName}</h1>
-                            {/* </div> */}
-
-                            {/* <div className='userInfoCompanyTotal'>
-                                { experiences &&
-                                <div className='userInfoCompany'>
-                                    <img src={experiences[experiences.length - 1]?.logo} alt='companyLogo' />
-                                    <p>{experiences[experiences.length - 1]?.company}</p>
-                                </div> }
-                            </div> */}
                             { sessionUser.id === parseInt(userId) ? 
                                 <button onClick={() => setShowInfoModal(true)} className='addPosition' id='edit-profile'>
                                     <i className="fa-solid fa-pen" id="editIcon"></i>
@@ -266,7 +252,6 @@ const ProfilePage = () => {
                         <h1>Experience</h1>
                         { sessionUser.id === parseInt(userId) ? <DropDown /> : null}
                     </div>
-                    {/* <ExperienceFormModal /> */}
                 </div>
 
                 {experiences && experiences.map(experience => (
@@ -290,7 +275,6 @@ const ProfilePage = () => {
                                 </span>
                             ))}    
                         </li>
-                        {/* <li className='skills'><p>Skills: </p>{experience.skills}</li> */}
                     </ul>
                 </div>
                 ))}

@@ -67,7 +67,6 @@ const ExperiencePage = () => {
                                 </span>
                             ))}    
                         </li>
-                        {/* <li className='skills'><p>Skills: </p>{experience.skills}</li> */}
                     </ul>
                 </div>
                 ))}
