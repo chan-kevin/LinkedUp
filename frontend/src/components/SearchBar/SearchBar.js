@@ -12,12 +12,11 @@ const SearchBar = () => {
   const users = useSelector(state => Object.values(state.search));
   const randomUsers = useSelector(state => Object.values(state.random));
   const history = useHistory();
-  const [smallScreen, setSmallScreen] = useState(window.innerWidth <= 804);
+  const [smallScreen, setSmallScreen] = useState(window.innerWidth <= 853);
   const [mobileSearch, setMobileSearch] = useState(false);
 
   const handleResize = () => {
-    setSmallScreen(window.innerWidth <= 804);
-    
+    setSmallScreen(window.innerWidth <= 853);
   }
 
   useEffect(() => {
@@ -80,7 +79,7 @@ const matchedWord = (word) => {
       {showModal && (
         <div className="modal" id='searchModal'>
         <div className="modal-background" id='searchModalBackground' onClick={onClose} />
-            <div className="modal-content" id='searchModalConetent'>
+            <div className="modal-content" id='searchModalContent'>
                 {(query !== '') ? (
                   <ul>
                     {users.map((user, index) => (

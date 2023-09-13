@@ -115,6 +115,13 @@ body {
     padding-inline-start: 40px;
 }
 
+.small-screen-buttons{
+    display: grid;
+    grid-template-areas: "logo search home linkedin github profile";
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 .diffButtons li{
     display: flex;
     align-items: center;

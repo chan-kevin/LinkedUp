@@ -19,7 +19,7 @@
         width: 30vw;
     }
 
-    #searchModalConetent {
+    #searchModalContent {
         width: 37vw;
         display: flex;
         z-index: 100000;
@@ -31,6 +31,7 @@
         border: 1px solid rgba(0,0,0,0.08);
         margin-top: 1.9vh;
         margin-left: 0.2vw;
+        top: 32px;
     }
 }
 
@@ -54,7 +55,7 @@
         border: 2px solid rgb(57, 118, 171);
     }
 
-    #searchModalConetent {
+    #searchModalContent {
         width: 88vw;
         display: flex;
         z-index: 100000;
@@ -66,6 +67,7 @@
         border: 1px solid rgba(0,0,0,0.08);
         margin-top: 1.9vh;
         margin-left: 0.2vw;
+        top: 32px;
     }
 }
 
