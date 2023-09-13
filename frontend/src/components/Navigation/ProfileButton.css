@@ -31,6 +31,7 @@ body {
 }
 
 #viewProfile {
+    display: flex;
     height: 20px;
     padding-left: 30%;
     padding-right: 30%;
@@ -118,8 +119,8 @@ body {
 .small-screen-buttons{
     display: grid;
     grid-template-areas: "logo search home linkedin github profile";
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
 }
 
 .diffButtons li{
