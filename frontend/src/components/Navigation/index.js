@@ -112,15 +112,17 @@ function Navigation() {
 
 
 
-        {location.pathname === '/' && !sessionUser ? (
+        {!sessionUser ? (
           <header className='fontFamily' id='headBackground'>
-          <div className='nav' id='withoutUserHome'>
-            <NavLink exact to="/"><img src={logo} alt="home" className='logo'/></NavLink>
-          <ul>
-            <li><NavLink to="/signup" className="homenav" id='signUpButton'>Join now</NavLink></li>
-            <li><NavLink to="/login" className="homenav" id='signInButton'>Sign in</NavLink></li>
-          </ul>
-          </div></header>
+            <div className='nav' id='withoutUserHome'>
+              <NavLink exact to="/"><img src={logo} alt="home" className='logo'/></NavLink>
+            {location.pathname === '/'?
+            <ul>
+              <li><NavLink to="/signup" className="homenav" id='signUpButton'>Join now</NavLink></li>
+              <li><NavLink to="/login" className="homenav" id='signInButton'>Sign in</NavLink></li>
+            </ul>: null}
+            </div>
+          </header>
       ) : null }
           
       </nav>

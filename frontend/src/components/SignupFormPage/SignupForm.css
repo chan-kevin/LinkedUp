@@ -26,6 +26,8 @@
 
     .subSignUpPage {
         padding-top: 20px;
+        padding-left: 2vw;
+        padding-right: 2vw;
         display: flex;
         flex-direction: column;
     }
@@ -52,7 +54,6 @@
     }
 
     .subSignUpPage > #terms {
-        width: 250%;
         height: 30px;
         max-width: 800px;
         margin: 0 auto;
@@ -60,6 +61,7 @@
         padding-top: 3%;
         color: rgba(0,0,0,0.6);
         font-size: 12px;
+        padding-bottom: 1vh;
     }
 
     #signUpTitle {
@@ -68,6 +70,7 @@
         line-height: 40px;
         display: flex;
         justify-content: center;
+        padding-left: 2vw;
     }
 
     .signUpSubmit {
