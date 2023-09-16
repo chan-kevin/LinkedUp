@@ -4,6 +4,7 @@
     'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
+
 #withoutUserHome {
     display: flex;
     align-items: center;
@@ -18,7 +19,7 @@
 }
 
 .logo {
-    height: 80px;
+    height: 9vh;
 }
 
 #withoutUserHome ul {
@@ -35,12 +36,12 @@
 
 .homenav {
     text-decoration: none;
-    font-weight: 550;
+    font-weight: 500;
 }
 
 #signInButton {
     color: #0a66c2;
-    padding: 15px 25px;
+    padding: 13px 25px;
     border-radius: 50px;
     border: #0a66c2;
     border-style: solid;
@@ -57,7 +58,7 @@
 
 #signUpButton {
     color: #5e5d5d;
-    padding: 15px 20px;
+    padding: 13px 20px;
     border-radius: 50px;
 }
 
@@ -114,4 +115,16 @@
 #withUserHome > ul > li {
     display: flex;
     align-items: center;
+}
+
+@media screen and (max-width: 735px) {
+    .logo {
+        height: 7vh;
+    }
+
+    #withoutUserHome {
+        padding-top: 2vh;
+        padding-right: 2vw;
+        padding-left: 2vw;
+    }
 }

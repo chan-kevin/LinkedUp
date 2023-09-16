@@ -101,12 +101,7 @@ input:focus{
 }
 
 #homeGoogle, #homeNew {
-    width:410px;
     margin-bottom: 30px;
-}
-
-#homeBorder {
-    width:410px;
 }
 
 #homeGoogle, #homeNew {
@@ -127,11 +122,6 @@ input:focus{
     background:rgb(236, 233, 229)
 }
 
-#google {
-    width: 5%;
-    padding-right: 3%;
-}
-
 .empty {
     padding-top: 18px;
     color: rgb(201, 20, 20);
@@ -150,10 +140,6 @@ input:focus{
     display: flex;
     flex-direction: column;
     position: relative;
-}
-
-.home-email, .home-password {
-    width: 410px;
 }
 
 .password-input button {
@@ -184,6 +170,37 @@ input:focus{
     margin: 0 10px;
 }
 
-#home-divider {
-    width: 410px;
+@media screen and (min-width: 735px) {
+    #home-divider, .home-email, .home-password, #homeBorder, #homeGoogle, #homeNew {
+        width: 410px;
+    }
+}
+
+@media screen and (max-width: 735px) {
+    #homePage {
+        display: block;
+    }
+
+    .homeLogin {
+        width: 100%;
+        padding-left: 2vw;
+    }
+
+    #home-divider, .home-email, .home-password, #homeBorder, #homeGoogle, #homeNew {
+        margin-right: 4vw;
+    }
+
+    .divider-container {
+        width: 95%;
+    }
+
+    #homeHeading {
+        font-size: 30px;
+    }
+
+    #homeImg {
+        width: 100vw;
+        height: 100vh;
+        transform: translateX(0);
+    }
 }
