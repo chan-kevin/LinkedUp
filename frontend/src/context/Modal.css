@@ -27,5 +27,6 @@
     background-color:white;
     width: 55vw;
     border-radius: 8px;
-    /* top: 32px; */
+    max-height: 80%;
+    overflow-y: scroll;
 }

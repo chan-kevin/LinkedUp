@@ -72,7 +72,7 @@ const matchedWord = (word) => {
       </div>
       : 
       <label className='navButtons network' onClick={openMobileSearch}>
-          <i className="fa-solid fa-magnifying-glass"></i>
+          <i className="fa-solid fa-magnifying-glass navlogo"></i>
           <span className='navTitle navlink'>Search</span>
       </label> }
 

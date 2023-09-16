@@ -18,7 +18,7 @@
 }
 
 .profileBoard {
-    width: 800px;
+    width: 66vw;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -382,7 +382,6 @@ h3 {
     padding-top: 15px;
     text-align: center;
     line-height: 23px;
-    width: 500px;
 }
 
 #changeProfileFoot2 {
@@ -391,7 +390,7 @@ h3 {
 
 .uploadWrapper{
     position: relative;
-    padding-left: 610px;
+    float: right;
 }
 
 #uploadPhoto {
