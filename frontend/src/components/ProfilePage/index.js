@@ -43,7 +43,7 @@ const ProfilePage = () => {
             dispatch(restoreSession());
         }
         fetchUser();
-    }, [dispatch, userId, saveProfile, showAboutModal, showInfoModal]);
+    }, [dispatch, userId, saveProfile, showAboutModal, showInfoModal, showModal]);
 
 
     const handleConnect = () => {

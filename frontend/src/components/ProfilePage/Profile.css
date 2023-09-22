@@ -288,7 +288,7 @@ h3 {
 
 .profileModal {
     background-color: #09223b;
-    max-width: 744px;
+    max-width: 55vw;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
