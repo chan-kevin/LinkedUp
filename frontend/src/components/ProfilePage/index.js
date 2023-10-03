@@ -118,7 +118,7 @@ const ProfilePage = () => {
 
     return (
         <div className='fontFamily' id='profileContent'>
-            <div className='profileBoard2'>
+            <div className='profileBoard profile-margin'>
                 {user && 
                 <>
                     <div className='profileBackground'>
@@ -225,7 +225,7 @@ const ProfilePage = () => {
                 </div>
             </div>
 
-            <div className='profileBoard2'>
+            <div className='profileBoard profile-margin'>
                 <div className='headline'>
                     <div className='headlineWithAdd'>
                         <h1>About</h1>
@@ -246,7 +246,7 @@ const ProfilePage = () => {
                 </div> : null }
             </div>
 
-            <div className='profileBoard2'>
+            <div className='profileBoard profile-margin'>
                 <div className='headline'>
                     <div className='headlineWithAdd'>
                         <h1>Experience</h1>
@@ -280,7 +280,7 @@ const ProfilePage = () => {
                 ))}
             </div>
 
-            <div className='profileBoard2'>
+            <div className='profileBoard profile-margin'>
                 <div className='headline'>
                     <div className='headlineWithAdd'>
                         <h1>Education</h1>

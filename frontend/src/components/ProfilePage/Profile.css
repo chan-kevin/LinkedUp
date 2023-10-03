@@ -4,19 +4,6 @@
     flex-direction: column;
 }
 
-.profileBoard2 {
-    width: 66vw;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 10px auto;
-    box-sizing: border-box;
-    background-color: white;
-    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.08);
-    line-height: 1.25;
-}
-
 .profileBoard {
     width: 66vw;
     border-radius: 8px;
@@ -28,6 +15,10 @@
     background-color: white;
     box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.08);
     line-height: 1.25;
+}
+
+.profile-margin {
+    margin: 10px auto;
 }
 
 .profileBackground {
