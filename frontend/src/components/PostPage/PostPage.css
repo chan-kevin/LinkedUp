@@ -80,22 +80,18 @@
     text-decoration: underline;
 }
 
-.sessionUserHeadline {
-    font-size: 14px;
-    color: rgb(0,0,0,0.6);
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgb(0,0,0,0.08);
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.sessionUserAbout {
+.sessionUserAbout, .sessionUserHeadline {
     font-size: 14px;
     color: rgb(0,0,0,0.6);
     padding-bottom: 20px;
     padding-top: 20px;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.sessionUserHeadline {
+    border-bottom: 1px solid rgb(0,0,0,0.08);
+    padding-top: 0;
 }
 
 #homeFeed {
