@@ -381,7 +381,7 @@ const PostPage = () => {
                     <div className="news">LinkedUp News</div>
                         <ul className="newsList">
                             <li>&bull; <a target='_blank' rel='noreferrer' href='https://linkedup-ptj7.onrender.com/'>LinkedUp is now live!</a></li>
-                            <li>&bull; <a target='_blank' rel='noreferrer' href='https://kchannn13.github.io/The-Adventures-of-Gary-the-Snail/'>New Game check it out</a></li>
+                            <li>&bull; <a target='_blank' rel='noreferrer' href='https://chan-kevin.github.io/The-Adventures-of-Gary-the-Snail/'>New Game check it out</a></li>
                         </ul>
                 </div>
                 <div className="linkedUpbottom">

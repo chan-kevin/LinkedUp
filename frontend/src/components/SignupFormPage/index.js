@@ -114,8 +114,8 @@ function SignupFormPage() {
                 {errors.password && <div className='signUpError'>{errors.password}</div>}
 
                 <p id='terms'>By clicking Agree & Join, you have read the 
-                LinkedUp <a target='_blank' rel='noreferrer' href='https://github.com/kchannn13/LinkedUp/blob/main/README.md'>README</a>
-                , <a target='_blank' rel='noreferrer' href='https://github.com/kchannn13/LinkedUp/wiki'>Wiki Page</a>, 
+                LinkedUp <a target='_blank' rel='noreferrer' href='https://github.com/chan-kevin/LinkedUp/blob/main/README.md'>README</a>
+                , <a target='_blank' rel='noreferrer' href='https://github.com/chan-kevin/LinkedUp/wiki'>Wiki Page</a>, 
                 and <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/in/kevin-chan-426203158/'>My LinkedIn</a>.</p>
   
                 <button type="submit" className='signUpSubmit' onClick={handlePage1Submit}>Agree & Join</button>

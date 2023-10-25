@@ -57,7 +57,7 @@ function Navigation() {
                     </li>
 
                     <li>
-                      <a target='_blank' rel='noreferrer' href='https://github.com/kchannn13' className='navButtons network'>
+                      <a target='_blank' rel='noreferrer' href='https://github.com/chan-kevin' className='navButtons network'>
                         <i className="fa-brands fa-github navlogo"></i>
                         <span className='navTitle navlink'>My GitHub</span>
                       </a>
@@ -98,7 +98,7 @@ function Navigation() {
                 </li>
 
                 <li>
-                  <a target='_blank' rel='noreferrer' href='https://github.com/kchannn13' className='navButtons network'>
+                  <a target='_blank' rel='noreferrer' href='https://github.com/chan-kevin' className='navButtons network'>
                     <i className="fa-brands fa-github navlogo"></i>
                     <span className='navTitle navlink'>My GitHub</span>
                   </a>

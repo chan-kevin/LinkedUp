@@ -53,11 +53,11 @@ function ProfileButton({ user }) {
           </li>
           <li><NavLink to={`/users/${user.id}`} id='viewProfile'><p>View Profile</p></NavLink></li>
           <li>Account</li>
-          <li><a target='_blank' rel='noreferrer' href='https://kchannn13.github.io/The-Adventures-of-Gary-the-Snail/' className='dropdownOptions'>Try Gary Adventure for free</a></li>
-          <li><a target='_blank' rel='noreferrer' href='https://github.com/kchannn13/LinkedUp/blob/main/README.md' className='dropdownOptions'>Help - ReadMe</a></li>
+          <li><a target='_blank' rel='noreferrer' href='https://chan-kevin.github.io/The-Adventures-of-Gary-the-Snail/' className='dropdownOptions'>Try Gary Adventure for free</a></li>
+          <li><a target='_blank' rel='noreferrer' href='https://github.com/chan-kevin/LinkedUp/blob/main/README.md' className='dropdownOptions'>Help - ReadMe</a></li>
           <li>Manage</li>
           <li><a target='_blank' rel='noreferrer' href='https://www.linkedin.com/in/kevin-chan-426203158/' className='dropdownOptions'>Contact Me</a></li>
-          <li><a target='_blank' rel='noreferrer' href='https://github.com/kchannn13' className='dropdownOptions'>More App</a></li>
+          <li><a target='_blank' rel='noreferrer' href='https://github.com/chan-kevin' className='dropdownOptions'>More App</a></li>
           <li>
             <button onClick={logout} className='dropdownOptions'>Sign Out</button>
           </li>
