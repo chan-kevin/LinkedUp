@@ -4,7 +4,7 @@ Check out the [Live Site](https://linkedup-ptj7.onrender.com/)
 
 ### Introduction
 
-LinkedUp is a clone of the LinkedIn website at the time of creation. LinkedIn is a social media platform that focuses on professional networking and job searching. It allows users to create profiles, connect with other professionals, and share content related to their industry.  The technologies implemented in this project include:
+LinkedUp is a clone of the LinkedIn website at the time of creation. LinkedIn is a social media platform that focuses on professional networking. It allows users to create profiles, connect with other professionals, and share content related to their industry.  The technologies implemented in this project include:
 
 * Languages: Javascript, Ruby, HTML, and CSS
 * Frontend: React-Redux
