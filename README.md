@@ -90,7 +90,7 @@ On any page after signed in, a LinkedUp user can also search for user by typing 
 
 ![gif of search](app/assets/search.gif)
 
-```
+<!-- ```
 <div className="modal-content" id='searchModalConetent'>
     {(query !== '') && (
     <ul>
@@ -122,7 +122,7 @@ On any page after signed in, a LinkedUp user can also search for user by typing 
     </ul>
     )}
 </div>
-```
+``` -->
 
 ## Connections
 
