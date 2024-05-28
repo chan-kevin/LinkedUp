@@ -39,8 +39,10 @@ const SearchBar = () => {
   };
 
   const searchUser = (e) => {
-    setQuery(e.target.value);
-    dispatch(searchActions.searchAllUser(e.target.value));
+    if (e.target.value !== "") {
+      setQuery(e.target.value);
+      dispatch(searchActions.searchAllUser(e.target.value));
+    }
   };
 
   const checkOutProfile = (userId) => {
@@ -100,6 +102,7 @@ const SearchBar = () => {
             onClick={onClose}
           />
           <div className="modal-content" id="searchModalContent">
+            {console.log(users)}
             {query !== "" ? (
               <ul>
                 {users.map((user, index) => (
