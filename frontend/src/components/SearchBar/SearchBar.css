@@ -160,3 +160,9 @@
   padding: 15px;
   padding-bottom: 5px;
 }
+
+.no-user-found {
+  font-weight: normal;
+  color: grey;
+  font-style: italic;
+}

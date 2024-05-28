@@ -14,6 +14,7 @@ const SearchBar = () => {
   const history = useHistory();
   const [smallScreen, setSmallScreen] = useState(window.innerWidth <= 853);
   const [mobileSearch, setMobileSearch] = useState(false);
+  const [startedSearch, setStartedSearch] = useState(false);
 
   const handleResize = () => {
     setSmallScreen(window.innerWidth <= 853);
@@ -35,12 +36,14 @@ const SearchBar = () => {
   const onClose = () => {
     setShowModal(false);
     setMobileSearch(false);
-    document.getElementById("searchBar").value = "";
+    setQuery("");
+    setStartedSearch(false);
   };
 
   const searchUser = (e) => {
+    setQuery(e.target.value);
+    setStartedSearch(true);
     if (e.target.value !== "") {
-      setQuery(e.target.value);
       dispatch(searchActions.searchAllUser(e.target.value));
     }
   };
@@ -48,7 +51,8 @@ const SearchBar = () => {
   const checkOutProfile = (userId) => {
     history.push(`/users/${userId}`);
     window.scrollTo(0, 0);
-    document.getElementById("searchBar").value = "";
+    setQuery("");
+    setStartedSearch(false);
     setShowModal(false);
   };
 
@@ -84,6 +88,7 @@ const SearchBar = () => {
             onChange={searchUser}
             onClick={startSearch}
             placeholder="Search"
+            value={query}
             id="searchBar"
           />
         </div>
@@ -102,8 +107,7 @@ const SearchBar = () => {
             onClick={onClose}
           />
           <div className="modal-content" id="searchModalContent">
-            {console.log(users)}
-            {query !== "" ? (
+            {query !== "" && users.length !== 0 ? (
               <ul>
                 {users.map((user, index) => (
                   <li
@@ -131,6 +135,9 @@ const SearchBar = () => {
               </ul>
             ) : (
               <ul>
+                {startedSearch && (
+                  <li className="searchResult no-user-found">No Users Found</li>
+                )}
                 <li className="searchResult seachTitle"> Try Searching for</li>
 
                 {randomUsers.map((user, index) => (
