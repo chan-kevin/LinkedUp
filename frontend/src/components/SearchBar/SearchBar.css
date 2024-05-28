@@ -1,157 +1,162 @@
-@media screen and (min-width: 804px){
-    #searchBar {
-        width: 18vw;
-        line-height: 1.75;
-        font-weight: 400;
-        font-size: 14px;
-        height: 37px;
-        background-color: #eef3f8;
-        border-radius: 4px;
-        padding: 0 8px 0 40px;
-        border-style: none;
-        z-index: 501;
-        transition: all 0.5s ease-in-out;
-        box-sizing: border-box;
-    }
+@media screen and (min-width: 804px) {
+  #searchBar {
+    width: 18vw;
+    line-height: 1.75;
+    font-weight: 400;
+    font-size: 14px;
+    height: 37px;
+    background-color: #eef3f8;
+    border-radius: 4px;
+    padding: 0 8px 0 40px;
+    border-style: none;
+    z-index: 501;
+    transition: all 0.5s ease-in-out;
+    box-sizing: border-box;
+  }
 
-    #searchBar:focus {
-        border: 2px solid rgb(57, 118, 171);
-        width: 30vw;
-    }
+  #searchBar:focus {
+    border: 2px solid rgb(57, 118, 171);
+    width: 30vw;
+  }
 
-    #searchModalContent {
-        width: 37vw;
-        display: flex;
-        z-index: 100000;
-        flex-direction: column;
-        justify-content: center;
-        box-sizing: border-box;
-        box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.08);
-        line-height: 1.25;
-        border: 1px solid rgba(0,0,0,0.08);
-        margin-top: 1.9vh;
-        margin-left: 0.2vw;
-        top: 32px;
-    }
+  #searchModalContent {
+    width: 37vw;
+    display: flex;
+    z-index: 100000;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08);
+    line-height: 1.25;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    margin-top: 1.9vh;
+    margin-left: 0.2vw;
+    top: 32px;
+  }
 }
 
-@media screen and (max-width: 804px){
-    #searchBar {
-        min-width: 88vw;
-        line-height: 1.75;
-        font-weight: 400;
-        font-size: 14px;
-        height: 37px;
-        background-color: #eef3f8;
-        border-radius: 4px;
-        padding: 0 8px 0 40px;
-        border-style: none;
-        z-index: 501;
-        transition: all 0.5s ease-in-out;
-        box-sizing: border-box;
-    }
+@media screen and (max-width: 804px) {
+  #searchBar {
+    min-width: 88vw;
+    line-height: 1.75;
+    font-weight: 400;
+    font-size: 14px;
+    height: 37px;
+    background-color: #eef3f8;
+    border-radius: 4px;
+    padding: 0 8px 0 40px;
+    border-style: none;
+    z-index: 501;
+    transition: all 0.5s ease-in-out;
+    box-sizing: border-box;
+  }
 
-    #searchBar:focus {
-        border: 2px solid rgb(57, 118, 171);
-    }
+  #searchBar:focus {
+    border: 2px solid rgb(57, 118, 171);
+  }
 
-    #searchModalContent {
-        width: 88vw;
-        display: flex;
-        z-index: 100000;
-        flex-direction: column;
-        justify-content: center;
-        box-sizing: border-box;
-        box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.08);
-        line-height: 1.25;
-        border: 1px solid rgba(0,0,0,0.08);
-        margin-top: 1.9vh;
-        margin-left: 0.2vw;
-        top: 32px;
-    }
+  #searchModalContent {
+    width: 88vw;
+    display: flex;
+    z-index: 100000;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08);
+    line-height: 1.25;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    margin-top: 1.9vh;
+    margin-left: 0.2vw;
+    top: 32px;
+    height: auto;
+  }
 }
 
 .searchWithIcon {
-    box-sizing: border-box;
-    color: rgba(0,0,0,0.6);
-    position: relative;
-    z-index: 1000;
-    align-items: center;
-    display: flex;
-    min-height: 6vh;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 1000;
+  align-items: center;
+  display: flex;
+  min-height: 6vh;
 }
 
 #insideSearch {
-    font-size: 14px;
-    color: rgba(0,0,0,0.6);
-    padding-top: 4px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  padding-top: 4px;
 }
 
 #searchIcon {
-    position: absolute;
-    font-size: 14px;
-    left: 0;
-    z-index: 1000;
-    padding: 12px 8px 10px 16px;
+  position: absolute;
+  font-size: 14px;
+  left: 0;
+  z-index: 1000;
+  padding: 12px 8px 10px 16px;
 }
 
-#searchModal, #searchModalBackground {
-    top: 6.3%;
+#searchModal,
+#searchModalBackground {
+  top: 6.3%;
 }
 
 #searchModal {
-    justify-content: flex-start;
-    overflow-y: visible;
-    position: initial;
+  justify-content: flex-start;
+  overflow-y: visible;
+  position: absolute;
+  height: 100vh;
+  left: 5vw;
 }
 
 .searchResult {
-    padding: 15px;
-    display: flex;
-    flex-direction: row;
-    font-weight: 700;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  font-weight: 700;
 }
 
 .searchResult:hover {
-    cursor: pointer;
-    background-color: rgba(0,0,0,0.08);
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 .matched {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .fullName {
-    display: flex;
-    flex-direction: row;
-    padding-left: 13px;
-    width: 83%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  display: flex;
+  flex-direction: row;
+  padding-left: 13px;
+  width: 83%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #searchPhoto {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    margin-right: 0;
-    margin-left: 8px;
-    transform: translateY(-3px);
-    right: 10px;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  margin-right: 0;
+  margin-left: 8px;
+  transform: translateY(-3px);
+  right: 10px;
+  min-width: 30px;
 }
 
 .headlineSearch {
-    font-weight: 400;
-    color: rgba(0,0,0,0.6);
-    font-size: 14px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .seachTitle {
-    font-weight: 600;
-    padding: 15px;
-    padding-bottom: 5px;
+  font-weight: 600;
+  padding: 15px;
+  padding-bottom: 5px;
 }
