@@ -11,11 +11,13 @@ import {
 } from "../../store/post";
 import EditPage from "./edit";
 import "./PostPage.css";
-import profileBackground from "../ProfilePage/assets/profileBackground.jpeg";
 import CommentPage from "../CommentPage";
 import { createLike, removeLike } from "../../store/like";
-import logo from "../Navigation/assets/LinkedUp_Blue.png";
+
 import TimeDisplay from "./time";
+import Footer from "./Footer";
+import UserInfo from "./UserInfo";
+import StartPost from "./StartPost";
 
 const PostPage = () => {
   const dispatch = useDispatch();
@@ -37,7 +39,9 @@ const PostPage = () => {
 
   useEffect(() => {
     dispatch(getAllPosts());
+  }, []);
 
+  useEffect(() => {
     const closeMenu = () => {
       if (!editModal) {
         setShowMenu(false);
@@ -47,7 +51,7 @@ const PostPage = () => {
     document.addEventListener("click", closeMenu);
 
     return () => document.removeEventListener("click", closeMenu);
-  }, [dispatch, posts.length, showMenu, editModal, showModal, body]);
+  }, [showMenu, editModal, showModal, body]);
 
   const toProfile = (userId) => {
     history.push(`/users/${userId}`);
@@ -139,7 +143,7 @@ const PostPage = () => {
     if (photoFile) {
       formData.append("post[photo]", photoFile);
     }
-    dispatch(createPost(formData));
+    await dispatch(createPost(formData));
     setShowModal(false);
     setPhotoUrl(null);
     dispatch(getAllPosts());
@@ -165,120 +169,20 @@ const PostPage = () => {
       ) : (
         <div className="fontFamily" id="homeFeed">
           <div className="feed-grid">
-            <div className="feedProfile">
-              <div className="profileBoard" id="homeProfile">
-                <div className="profileBackground" id="feedBackground">
-                  <img src={profileBackground} alt="background" />
-                </div>
-
-                <div className="authorPic" id="sessionUserPic">
-                  <img
-                    src={sessionUser?.photoUrl}
-                    alt="defaultProfile"
-                    onClick={() => toProfile(sessionUser.id)}
-                  />
-                </div>
-
-                <div className="sessionUserInfo">
-                  <div
-                    className="sessionUserName"
-                    onClick={() => toProfile(sessionUser.id)}
-                  >
-                    {sessionUser.firstName} {sessionUser.lastName}
-                  </div>
-
-                  <div className="sessionUserHeadline">
-                    {sessionUser.headline}
-                  </div>
-
-                  <div className="sessionUserAbout">{sessionUser.about}</div>
-                </div>
-              </div>
-            </div>
+            <UserInfo toProfile={toProfile} sessionUser={sessionUser} />
 
             <div className="feedBody">
-              <div className="profileBoard" id="createPost">
-                <div className="authorPic">
-                  <img
-                    src={sessionUser.photoUrl}
-                    alt="defaultProfile"
-                    onClick={() => toProfile(sessionUser.id)}
-                  />
-                </div>
-
-                <button
-                  className="startPost"
-                  onClick={() => setShowModal(true)}
-                >
-                  <p>Start a post</p>
-                </button>
-
-                {showModal && (
-                  <Modal onClose={onClose}>
-                    <div className="profileModal" id="secondModal">
-                      <button
-                        onClick={onClose}
-                        className="closeButton"
-                        id="changeProfileCloseButton2"
-                      >
-                        <i
-                          className="fa-solid fa-xmark"
-                          id="changeProfileClose2"
-                        ></i>
-                      </button>
-
-                      <div
-                        className="changeProfileTitle"
-                        id="changeProfileTitle2"
-                      >
-                        Create a post
-                      </div>
-
-                      <div className="createPostBody">
-                        <div className="createPostUserDetail">
-                          <div className="authorPic">
-                            <img
-                              src={sessionUser.photoUrl}
-                              alt="defaultProfile"
-                            />
-                          </div>
-                          <div className="createPostUserName">
-                            {sessionUser.firstName} {sessionUser.lastName}
-                          </div>
-                        </div>
-                        <textarea
-                          type="text"
-                          placeholder="What do you want to talk about?"
-                          onChange={(e) => setPostBody(e.target.value)}
-                          className="createPostInput"
-                        />
-                        {preview}
-                      </div>
-
-                      <footer className="createPostFoot">
-                        <div className="uploadPhoto">
-                          <label
-                            htmlFor="uploadPostPic"
-                            className="uploadPhotoIcon"
-                          >
-                            <i className="fa-regular fa-image"></i>
-                            <input
-                              type="file"
-                              id="uploadPostPic"
-                              onChange={changePostPic}
-                            ></input>
-                          </label>
-                        </div>
-                        <div className="submitPost">
-                          <button className="submit" onClick={handleSubmit}>
-                            Post
-                          </button>
-                        </div>
-                      </footer>
-                    </div>
-                  </Modal>
-                )}
-              </div>
+              <StartPost
+                sessionUser={sessionUser}
+                toProfile={toProfile}
+                setShowModal={setShowModal}
+                onClose={onClose}
+                setPostBody={setPostBody}
+                changePostPic={changePostPic}
+                handleSubmit={handleSubmit}
+                showModal={showModal}
+                preview={preview}
+              />
 
               <div className="postList">
                 {orderedPosts &&
@@ -520,43 +424,7 @@ const PostPage = () => {
               </div>
             </div>
 
-            <div className="homeFoot">
-              <div className="profileBoard" id="homeFoot">
-                <div className="news">LinkedUp News</div>
-                <ul className="newsList">
-                  <li>
-                    &bull;{" "}
-                    <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href="https://linkedup-ptj7.onrender.com/"
-                    >
-                      LinkedUp is now live!
-                    </a>
-                  </li>
-                  <li>
-                    &bull;{" "}
-                    <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href="https://chan-kevin.github.io/The-Adventures-of-Gary-the-Snail/"
-                    >
-                      New Game check it out
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="linkedUpbottom">
-                <div className="bottomDetails">
-                  <p className="developed">developed by Kevin Chan</p>
-
-                  <div className="logoAnd2023">
-                    <img src={logo} alt="logo" id="bottomlogo"></img>
-                    <p>LinkedUp Corporation © 2023</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Footer />
           </div>
         </div>
       )}

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
 import "./HomePage.css";
 import background from "./HomePage.svg";
+import { setLoading } from "../../store/status";
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -100,11 +101,14 @@ function HomePage() {
     );
   };
 
-  const demoLogin = (e) => {
+  const demoLogin = async (e) => {
     e.preventDefault();
+    dispatch(setLoading(true));
+    console.log(sessionUser);
     dispatch(
       sessionActions.login({ credential: "demo@user.io", password: "password" })
     );
+    console.log(sessionUser);
   };
 
   const changeCredential = (e) => {

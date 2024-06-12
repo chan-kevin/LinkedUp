@@ -36,11 +36,13 @@ const editPost = (post) => {
 };
 
 export const createPost = (formData) => async (dispatch) => {
+  dispatch(setLoading(true));
   const response = await csrfFetch("/api/posts", {
     method: "POST",
     body: formData,
   });
   dispatch(addPost(formData));
+  dispatch(setLoading(false));
   return response;
 };
 
@@ -81,7 +83,6 @@ export const removePost = (postId) => async (dispatch) => {
 const postsReducer = (state = {}, action) => {
   switch (action.type) {
     case FETCH_ALL_POSTS:
-      console.log(state);
       return { ...action.payload.posts };
     case ADD_POST:
       return { ...state, [action.payload.id]: action.payload };
