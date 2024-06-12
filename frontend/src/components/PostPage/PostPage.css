@@ -1,612 +1,610 @@
 .postList {
-    padding-top: 15px;
-    border-top: 1px solid rgb(0,0,0,0.2);
+  padding-top: 15px;
+  border-top: 1px solid rgb(0, 0, 0, 0.2);
 }
 
-#createPost, #feedPost {
-    width: inherit;
-    margin: 0;
+#createPost,
+#feedPost {
+  width: inherit;
+  margin: 0;
 }
 
 #feedPost {
-    margin-top: 8px;
+  margin-top: 8px;
 }
 
 #feedBackground {
-    height: 8vh;
-    position: relative;
+  height: 8vh;
+  position: relative;
 }
 
 #homeProfile {
-    width: inherit;
-    position: relative;
-    margin: 0;
+  width: inherit;
+  position: relative;
+  margin: 0;
 }
 
 #homeFoot {
-    width: inherit;
-    position: relative; 
-    padding: 15px;
-    margin: 0;
+  width: inherit;
+  position: relative;
+  padding: 15px;
+  margin: 0;
 }
 
 .news {
-    font-weight: 600;
+  font-weight: 600;
 }
 
-.newsList li{
-    padding: 5px;
+.newsList li {
+  padding: 5px;
 }
 
 .linkedUpbottom {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .developed {
-    padding: 15px;
-    padding-left: 70px;
+  padding: 15px;
+  padding-left: 70px;
 }
 
 .logoAnd2023 {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .linkedUpbottom p {
-    transform: translateY(12px);
-    font-size: 12px;
-    color: rgb(0,0,0,0.6);
+  transform: translateY(12px);
+  font-size: 12px;
+  color: rgb(0, 0, 0, 0.6);
 }
 
 #bottomlogo {
-    height: 40px;
-    left: 80px;
+  height: 40px;
+  left: 80px;
 }
 
 .sessionUserInfo {
-    text-align: center;
+  text-align: center;
 }
 
 .sessionUserName {
-    font-weight: 600;
-    padding-bottom: 10px;
-    cursor: pointer;
+  font-weight: 600;
+  padding-bottom: 10px;
+  cursor: pointer;
 }
 
 .sessionUserName:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-.sessionUserAbout, .sessionUserHeadline {
-    font-size: 14px;
-    color: rgb(0,0,0,0.6);
-    padding-bottom: 20px;
-    padding-top: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
+.sessionUserAbout,
+.sessionUserHeadline {
+  font-size: 14px;
+  color: rgb(0, 0, 0, 0.6);
+  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .sessionUserHeadline {
-    border-bottom: 1px solid rgb(0,0,0,0.08);
-    padding-top: 0;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.08);
+  padding-top: 0;
 }
 
 #homeFeed {
-    margin-top: 75px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+  margin-top: 75px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .feedProfile {
-    grid-area: feedProfile;
+  grid-area: feedProfile;
 }
 
 .feedBody {
-    grid-area: feedBody;
+  grid-area: feedBody;
 }
 
 .homeFoot {
-    grid-area: homeFoot;
+  grid-area: homeFoot;
 }
 
 @media screen and (min-width: 1153px) {
-    .feed-grid {
-        display: grid;
-        grid-template-areas: 'feedProfile feedBody homeFoot';
-        grid-template-columns: minmax(0, 225px) minmax(0, 35vw) minmax(0, 300px);
-        column-gap: 2.4vw;
-    }
+  .feed-grid {
+    display: grid;
+    grid-template-areas: "feedProfile feedBody homeFoot";
+    grid-template-columns: minmax(0, 225px) minmax(0, 35vw) minmax(0, 300px);
+    column-gap: 2.4vw;
+  }
 
-    .authorHeadline {
-        width: 25vw;
-    }
+  .authorHeadline {
+    width: 25vw;
+  }
 }
 
 @media screen and (max-width: 1153px) {
-    .feed-grid {
-        display: grid;
-        grid-template-areas:    
-                            'feedProfile feedBody'
-                            '. homeFoot';
-        grid-template-columns: minmax(0, 225px) minmax(0, auto);
-        row-gap: 2.4vw;
-        column-gap: 2.4vw;
-    }   
+  .feed-grid {
+    display: grid;
+    grid-template-areas:
+      "feedProfile feedBody"
+      ". homeFoot";
+    grid-template-columns: minmax(0, 225px) minmax(0, auto);
+    row-gap: 2.4vw;
+    column-gap: 2.4vw;
+  }
 }
 
 @media screen and (max-width: 853px) {
-    .feed-grid {
-        display: grid;
-        grid-template-areas:    
-                            'feedProfile'
-                            'feedBody'
-                            'homeFoot';
-        grid-template-columns: minmax(300px, 600px);
-        row-gap: 2.4vw;
-        column-gap: 2.4vw;
-    }
+  .feed-grid {
+    display: grid;
+    grid-template-areas:
+      "feedProfile"
+      "feedBody"
+      "homeFoot";
+    grid-template-columns: minmax(300px, 600px);
+    row-gap: 2.4vw;
+    column-gap: 2.4vw;
+  }
 
-    .authorHeadline {
-        width: 60vw;
-    }
-    
-    .navButtons {
-        min-width: 0;
-    }
+  .authorHeadline {
+    width: 60vw;
+  }
 
-    .profileBoard {
-        width: 100%;
-        margin: 10px auto;
-    }
+  .navButtons {
+    min-width: 0;
+  }
 
-    .footer {
-        width: 100%;
-    }
+  .profileBoard {
+    width: 100%;
+    margin: 10px auto;
+  }
 
-    #edit-profile {
-        position: relative;
-    }
+  .footer {
+    width: 100%;
+  }
 
-    .modal-content {
-        width: 100vw;
-        height: 80%;
-        overflow-y: scroll;
-    }
+  #edit-profile {
+    position: relative;
+  }
+
+  .modal-content {
+    width: 100vw;
+    height: 80%;
+    overflow-y: scroll;
+  }
 }
 
-#feedPost, #createPost {
-    padding: 20px;
+#feedPost,
+#createPost {
+  padding: 20px;
 }
 
 .authorName {
-    width: fit-content;
+  width: fit-content;
 }
 
 .authorInfo {
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    align-items: center;
-    position: relative;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  position: relative;
 }
 
 .authorName:hover {
-    text-decoration: underline;
-    cursor: pointer;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-.authorHeadline, .timeAgo {
-    color: rgba(0,0,0,0.6);
-    font-size: 14px;
+.authorHeadline,
+.timeAgo {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
 }
 
 .authorHeadline {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 25vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 25vw;
 }
 
 .authorDetail:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .postBody {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .postBody p {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-bottom: 25px;
-    width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 25px;
+  width: 100%;
 }
 
 .postBody img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
 }
 
 .postLikesComments {
-    color: rgba(0,0,0,0.6);
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    padding-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
+  color: rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .likesCount {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 #likesCountIcon {
-    padding-right: 10px;
+  padding-right: 10px;
 }
 
 .commentsCount {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .commentsCount:hover {
-    text-decoration: underline;
-    color: #0a66c2;
+  text-decoration: underline;
+  color: #0a66c2;
 }
 
 .postInteract {
-    padding-top: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .postButtons {
-    align-items: center;
-    background: transparent;
-    color: rgba(0,0,0,0.6);
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    font-size: 18px;
-    font-weight: 400;
-    justify-content: center;
-    text-align: center;
-    min-height: 50px;
-    width: 100%;
-    position: relative;
-    border: none;
+  align-items: center;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  font-weight: 400;
+  justify-content: center;
+  text-align: center;
+  min-height: 50px;
+  width: 100%;
+  position: relative;
+  border: none;
 }
 
 .postButtons:hover {
-    background-color: rgba(0,0,0,0.08);
-    border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
 }
 
-.likeButton, #commentButton {
-    padding-right: 10px;
+.likeButton,
+#commentButton {
+  padding-right: 10px;
 }
 
 .liked {
-    color: #0a66c2;
+  color: #0a66c2;
 }
 
 .unliked {
-    color: rgba(0,0,0,0.6);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .authorPic {
-    width: 50px;
-    height: 50px;
-    border-radius: 100px;
-    overflow: hidden;
-    z-index: 4;
-    cursor: pointer;
-    margin-right: 10px;
-    min-width: 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  overflow: hidden;
+  z-index: 4;
+  cursor: pointer;
+  margin-right: 10px;
+  min-width: 50px;
 }
 
 .authorPic img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 #sessionUserPic {
-    width: 70px;
-    height: 70px;
-    margin: -38px auto 1.2rem;
+  width: 70px;
+  height: 70px;
+  margin: -38px auto 1.2rem;
 }
 
 .comments {
-    display: flex;
+  display: flex;
 }
 
 .commentsDetail {
-    border-radius: 0 8px 8px 8px;
-    margin-bottom: 25px;
-    flex-grow: 1;
-    padding: 10px;
-    background-color: rgba(0,0,0,0.08);
+  border-radius: 0 8px 8px 8px;
+  margin-bottom: 25px;
+  flex-grow: 1;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 .commentBody {
-    padding-bottom: 15px;
-    padding-top: 15px;
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 .startPost {
-    background-color: white;
-    margin: 4px 0;
-    font-size: 14px;
-    flex-grow: 1;
-    height: 45px;
-    max-width: none;
-    line-height: 1.5;
-    border: 1px solid rgba(0,0,0,0.3);
-    border-radius: 35px;
-    padding-left: 16px;
-    text-align: left;
-    color: rgba(0,0,0,0.6);
-    cursor: pointer;
+  background-color: white;
+  margin: 4px 0;
+  font-size: 14px;
+  flex-grow: 1;
+  height: 45px;
+  max-width: none;
+  line-height: 1.5;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 35px;
+  padding-left: 16px;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
 }
 
 .startPost:hover {
-    background-color: rgba(0,0,0,0.08);
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 #createPost {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
 }
 
 .createPostFoot {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.uploadPhoto, .submitPost {
-    display: flex;
-    align-items: center;
+.uploadPhoto,
+.submitPost {
+  display: flex;
+  align-items: center;
 }
 
 .submitPost {
-    padding-right: 20px;
-    padding-bottom: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
 }
 
 .uploadPhotoIcon {
-    background-color: transparent;
-    border-radius: 100%;
-    border: none;
-    cursor: pointer;
-    height: 35px;
-    width: 35px;
+  background-color: transparent;
+  border-radius: 100%;
+  border: none;
+  cursor: pointer;
+  height: 35px;
+  width: 35px;
 }
 
 .uploadPhotoIcon i {
-    color: rgba(0,0,0,0.6);
-    width: 24px;
-    height: 24px;
-    font-size: 20px;
-    transform: translateY(8px) translateX(8px);
+  color: rgba(0, 0, 0, 0.6);
+  width: 24px;
+  height: 24px;
+  font-size: 20px;
+  transform: translateY(8px) translateX(8px);
 }
 
 .uploadPhotoIcon:hover {
-    background-color: rgba(0,0,0,0.08);
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 .uploadPhoto {
-    height: 35px;
-    width: 35px;
-    border-radius: 100%;
-    padding-left: 20px;
+  height: 35px;
+  width: 35px;
+  border-radius: 100%;
+  padding-left: 20px;
 }
 
 .createPostBody {
-    padding: 25px;
-    padding-right: 35px;
+  padding: 25px;
+  padding-right: 35px;
 }
 
 .createPostInput {
-    width: 100%;
-    height: 300px;
-    font-size: 16px;
-    border: none;
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 
-    'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 
-    'Lucida Grande', Helvetica, Arial, sans-serif;
-    resize: none;
-    outline: 0;
+  width: 100%;
+  height: 300px;
+  font-size: 16px;
+  border: none;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell,
+    "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+  resize: none;
+  outline: 0;
 }
 
 .createPostInput:focus {
-    border: none;
+  border: none;
 }
 
 .createPostUserDetail {
-    display: flex;
-    flex-direction: row;
-    padding-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 20px;
 }
 
 .createPostUserName {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .optionsContainer {
-    margin-left: auto;
-    transform: translateY(-80%);
-    color: rgba(0,0,0,0.6);
-    border-radius: 100%;
-    height: 30px;
-    width: 30px;
-    background-color: white;
-    border: none;
-    font-size: 18px;
+  margin-left: auto;
+  transform: translateY(-80%);
+  color: rgba(0, 0, 0, 0.6);
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  border: none;
+  font-size: 18px;
 }
 
 .optionsContainer:hover {
-    background-color: rgba(0,0,0,0.08);
-    cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.08);
+  cursor: pointer;
 }
 
 .editOptions {
-    background-color: white;
-    box-shadow: none;
-    border-radius: 100%;
-    cursor: pointer;
-    min-width: max-content;
-    max-width: none;
-    width: 300px;
-    border-radius: 8px 0 8px 8px;
-    box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 6px 9px rgba(0,0,0,.2);
-    display: flex;
-    flex-direction: column;
-    color: rgb(0,0,0,0.6);
-    position: absolute;
-    top: 20px;
-    right: 0;
+  background-color: white;
+  box-shadow: none;
+  border-radius: 100%;
+  cursor: pointer;
+  min-width: max-content;
+  max-width: none;
+  width: 300px;
+  border-radius: 8px 0 8px 8px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 6px 9px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  color: rgb(0, 0, 0, 0.6);
+  position: absolute;
+  top: 20px;
+  right: 0;
 }
 
 .editChoices {
-    padding: 20px;
+  padding: 20px;
 }
 
 .editChoices:hover {
-    background-color: rgba(0,0,0,0.08);
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
-#editPost, #deletePost {
-    color: rgb(0,0,0,0.6);
+#editPost,
+#deletePost {
+  color: rgb(0, 0, 0, 0.6);
 }
 
-#editPostIcon, #deleteIcon {
-    margin-right: 10px;
+#editPostIcon,
+#deleteIcon {
+  margin-right: 10px;
 }
 
 .deleteModal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    width: 300px;
-    border-radius: 8px;
-    padding-left: 15px;
-    padding-right: 15px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 300px;
+  border-radius: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .deleteModalContent {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgb(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.08);
 }
 
 .deleteModalContent p:first-child {
-    font-weight: 600;
-    padding: 30px;
-    font-size: 18px;
+  font-weight: 600;
+  padding: 30px;
+  font-size: 18px;
 }
 .deleteModalContent p:last-child {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .deleteConfirm {
-    padding: 10px;
-    float: right
+  padding: 10px;
+  float: right;
 }
 
 .deleteConfirm button {
-    margin: 5px;
+  margin: 5px;
 }
 
 .deleteConfirm button:first-child {
-    background-color: white;
-    color:rgb(0,0,0,0.6);
-    border: 1px solid rgb(0,0,0,0.6);
+  background-color: white;
+  color: rgb(0, 0, 0, 0.6);
+  border: 1px solid rgb(0, 0, 0, 0.6);
 }
 
 .deleteConfirm button:first-child:hover {
-    background-color: rgb(0,0,0,0.08)
+  background-color: rgb(0, 0, 0, 0.08);
 }
 
 #deleteOutside {
-    cursor: default;
+  cursor: default;
 }
 
 .createComment {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
 }
 
 .addComment {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
 #postComment {
-    margin-top: 10px;
-    width: 50px;
-    margin-left: 60px;
-    min-height: 26px;
+  margin-top: 10px;
+  width: 50px;
+  margin-left: 60px;
+  min-height: 26px;
 }
 
 #startComment:hover {
-    cursor: text;
-    background-color: white;
+  cursor: text;
+  background-color: white;
 }
 
 #startComment:focus {
-    border: 2px solid rgb(0,0,0,0.6)
+  border: 2px solid rgb(0, 0, 0, 0.6);
 }
 
 #startComment {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #uploadPostPic {
-    position: absolute;
-    width: 35px;
-    height: 35px;
-    z-index: 2;
-    opacity: 0;
-    cursor: pointer;
-    top: 0;
-    left: 0;
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+  top: 0;
+  left: 0;
 }
 
 #postOptionsIcon {
-    transform: translateX(7px) translateY(3px);
-}
-
-.loader-container {
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    background: white
-        url("./assets/linkedUpLoading.gif") center
-        no-repeat;
-    background-size: 20%;
-    z-index: 1000;
+  transform: translateX(7px) translateY(3px);
 }

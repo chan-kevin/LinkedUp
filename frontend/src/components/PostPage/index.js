@@ -18,6 +18,7 @@ import TimeDisplay from "./time";
 import Footer from "./Footer";
 import UserInfo from "./UserInfo";
 import StartPost from "./StartPost";
+import Loading from "../LoadingPage/Loading";
 
 const PostPage = () => {
   const dispatch = useDispatch();
@@ -163,9 +164,7 @@ const PostPage = () => {
   return (
     <>
       {isLoading ? (
-        <div className="loader-container">
-          <div className="spinner"></div>
-        </div>
+        <Loading />
       ) : (
         <div className="fontFamily" id="homeFeed">
           <div className="feed-grid">

@@ -5,6 +5,7 @@ import { NavLink, Redirect } from "react-router-dom";
 import "./HomePage.css";
 import background from "./HomePage.svg";
 import { setLoading } from "../../store/status";
+import Loading from "../LoadingPage/Loading";
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ function HomePage() {
   const emailEmptyLabelRef = useRef(null);
   const passwordEmptyLabelRef = useRef(null);
   const [passwordType, setPasswordType] = useState("password");
+  const isLoading = useSelector((state) => state.status.isLoading);
 
   useEffect(() => {
     if (emailEmptyInputRef.current) {
@@ -104,11 +106,9 @@ function HomePage() {
   const demoLogin = async (e) => {
     e.preventDefault();
     dispatch(setLoading(true));
-    console.log(sessionUser);
     dispatch(
       sessionActions.login({ credential: "demo@user.io", password: "password" })
     );
-    console.log(sessionUser);
   };
 
   const changeCredential = (e) => {
@@ -129,88 +129,94 @@ function HomePage() {
   };
 
   return (
-    <div id="homeColor">
-      <div className="fontFamily" id="homePage">
-        <form onSubmit={handleSubmit} className="homeLogin">
-          <h1 id="homeHeading">Welcome to your professional community</h1>
+    <>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div id="homeColor">
+          <div className="fontFamily" id="homePage">
+            <form onSubmit={handleSubmit} className="homeLogin">
+              <h1 id="homeHeading">Welcome to your professional community</h1>
 
-          <div className="email-input home-email">
-            <label
-              className="homeLabel"
-              id="emailEmptyLabel"
-              ref={emailEmptyLabelRef}
-            >
-              Email or phone
-            </label>
-            <input
-              id="emailEmptyInput"
-              ref={emailEmptyInputRef}
-              type="text"
-              value={credential}
-              onChange={changeCredential}
-            />
-          </div>
-          {empty.email && <div className="empty">{empty.email}</div>}
+              <div className="email-input home-email">
+                <label
+                  className="homeLabel"
+                  id="emailEmptyLabel"
+                  ref={emailEmptyLabelRef}
+                >
+                  Email or phone
+                </label>
+                <input
+                  id="emailEmptyInput"
+                  ref={emailEmptyInputRef}
+                  type="text"
+                  value={credential}
+                  onChange={changeCredential}
+                />
+              </div>
+              {empty.email && <div className="empty">{empty.email}</div>}
 
-          <div className="password-input home-password">
-            <label
-              className="homeLabel"
-              id="passwordEmptyLabel"
-              ref={passwordEmptyLabelRef}
-            >
-              Password
-            </label>
-            <input
-              id="passwordEmptyInput"
-              ref={passwordEmptyInputRef}
-              type={passwordType}
-              value={password}
-              onChange={changePassword}
-            />
-            {passwordType === "password" ? (
-              <button type="button" onClick={changePasswordType}>
-                Show
+              <div className="password-input home-password">
+                <label
+                  className="homeLabel"
+                  id="passwordEmptyLabel"
+                  ref={passwordEmptyLabelRef}
+                >
+                  Password
+                </label>
+                <input
+                  id="passwordEmptyInput"
+                  ref={passwordEmptyInputRef}
+                  type={passwordType}
+                  value={password}
+                  onChange={changePassword}
+                />
+                {passwordType === "password" ? (
+                  <button type="button" onClick={changePasswordType}>
+                    Show
+                  </button>
+                ) : (
+                  <button type="button" onClick={changePasswordType}>
+                    Hide
+                  </button>
+                )}
+              </div>
+              {empty.password && <div className="empty">{empty.password}</div>}
+
+              <div id="homeBorder">
+                <button
+                  type="submit"
+                  className="signInSubmit"
+                  id="homeSign"
+                  onClick={handleSubmit}
+                >
+                  Sign in
+                </button>
+              </div>
+
+              <div className="divider-container" id="home-divider">
+                <div className="divider-item"></div>
+                <div className="divider-text">or</div>
+                <div className="divider-item"></div>
+              </div>
+
+              <button
+                type="submit"
+                className="signInSubmit"
+                id="homeGoogle"
+                onClick={demoLogin}
+              >
+                Sign in as Demo
               </button>
-            ) : (
-              <button type="button" onClick={changePasswordType}>
-                Hide
-              </button>
-            )}
+              <NavLink to="/signup" className="signInSubmit" id="homeNew">
+                New to LinkedUp? Join now
+              </NavLink>
+            </form>
+            <img src={background} alt="background" id="homeImg"></img>
           </div>
-          {empty.password && <div className="empty">{empty.password}</div>}
-
-          <div id="homeBorder">
-            <button
-              type="submit"
-              className="signInSubmit"
-              id="homeSign"
-              onClick={handleSubmit}
-            >
-              Sign in
-            </button>
-          </div>
-
-          <div className="divider-container" id="home-divider">
-            <div className="divider-item"></div>
-            <div className="divider-text">or</div>
-            <div className="divider-item"></div>
-          </div>
-
-          <button
-            type="submit"
-            className="signInSubmit"
-            id="homeGoogle"
-            onClick={demoLogin}
-          >
-            Sign in as Demo
-          </button>
-          <NavLink to="/signup" className="signInSubmit" id="homeNew">
-            New to LinkedUp? Join now
-          </NavLink>
-        </form>
-        <img src={background} alt="background" id="homeImg"></img>
-      </div>
-    </div>
+        </div>
+      )}
+    </>
   );
 }
 
