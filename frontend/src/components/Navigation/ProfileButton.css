@@ -1,209 +1,220 @@
 body {
-    background-color:rgba(0,0,0,0.06);
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 
-    'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 
-    'Lucida Grande', Helvetica, Arial, sans-serif;
+  background-color: rgba(0, 0, 0, 0.06);
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell,
+    "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 #dropdownbutton {
-    border: none;
-    cursor: pointer;
+  border: none;
+  cursor: pointer;
 }
 
 #dropIcon {
-    height: 16px;
-    width: 16px;
-    transform: scale(1);
-    transition: transform .2s ease-in-out;
+  height: 16px;
+  width: 16px;
+  transform: scale(1);
+  transition: transform 0.2s ease-in-out;
 }
 
 .profile-dropdown {
-    position: absolute;
-    background-color: #fff;
-    top: calc(100% + 8px);
-    display: inline-block;
-    box-sizing: border-box;
-    border-radius: 8px 0px 8px 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    right: 10%;
-    width: 250px;
-    font-size: 100%;
+  position: absolute;
+  background-color: #fff;
+  top: calc(100% + 8px);
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: 8px 0px 8px 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  right: 10%;
+  width: 250px;
+  font-size: 100%;
 }
 
 #viewProfile {
-    display: flex;
-    height: 20px;
-    padding-left: 30%;
-    padding-right: 30%;
-    color: #0a66c2;
-    border-radius: 28px;
-    background-color: #fff;
-    border: 1px solid #0a66c2;
-    text-align: center;
-    font-size: 14px;
-    cursor: pointer;
-    font-weight: 550;
-    transition: background-color 2s;
-    box-sizing: border-box;
-    text-decoration: none;
+  display: flex;
+  height: 20px;
+  padding-left: 30%;
+  padding-right: 30%;
+  color: #0a66c2;
+  border-radius: 28px;
+  background-color: #fff;
+  border: 1px solid #0a66c2;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 550;
+  transition: background-color 2s;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
 #viewProfile p {
-    display: flex;
-    align-items: center;
-    padding-top: 1.5px;
+  display: flex;
+  align-items: center;
+  padding-top: 1.5px;
 }
 
 #viewProfile:hover {
-    background-color: #0a66c2;
-    transition: none;
-    animation: changeBack 0.2s forwards;
-    border-width: 2px;
+  background-color: #0a66c2;
+  transition: none;
+  animation: changeBack 0.2s forwards;
+  border-width: 2px;
 }
 
 @keyframes changeBack {
-    0% {background-color: #759ac0}
-    100% {background-color: #fff}
+  0% {
+    background-color: #759ac0;
+  }
+  100% {
+    background-color: #fff;
+  }
 }
 
 .profile-dropdown > li {
-    padding-top: 10px;
-    padding-left: 10px;
-    font-weight: 600;
+  padding-top: 10px;
+  padding-left: 10px;
+  font-weight: 600;
 }
 
 .profile-dropdown > li:nth-child(2),
-.profile-dropdown > li:nth-child(7), 
+.profile-dropdown > li:nth-child(7),
 .profile-dropdown > li:nth-last-child(2) {
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .profile-dropdown > li:last-child {
-    padding-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 .dropdownOptions {
-    background-color: transparent;
-    border: none;
-    color: rgba(0,0,0,0.6);
-    cursor: pointer;
-    font-size: 90%;
-    text-decoration: none;
-    font-weight: 400;
-    padding-left: 5px;
+  background-color: transparent;
+  border: none;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  font-size: 90%;
+  text-decoration: none;
+  font-weight: 400;
+  padding-left: 5px;
 }
 
 .dropdownOptions:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .choices {
-    margin-left: auto;
-    min-height: 52px;
-    display: block;
+  margin-left: auto;
+  min-height: 52px;
+  display: block;
 }
 
 .diffButtons {
-    opacity: 1;
-    display: flex;
-    flex-wrap: nowrap;
-    list-style-type: none;
-    margin-block-start: 1px;
-    margin-block-end: 1px;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
+  opacity: 1;
+  display: flex;
+  flex-wrap: nowrap;
+  list-style-type: none;
+  margin-block-start: 1px;
+  margin-block-end: 1px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
 }
 
-.small-screen-buttons{
-    display: grid;
-    grid-template-areas: "logo search home linkedin github profile";
-    padding-top: 1vh;
-    padding-bottom: 1vh;
+.small-screen-buttons {
+  display: grid;
+  /* grid-template-areas: "logo search home linkedin github profile"; */
+  grid-template-areas: "logo search home github profile";
+  padding-top: 1vh;
+  padding-bottom: 1vh;
 }
 
-.diffButtons li{
-    display: flex;
-    align-items: center;
+.diffButtons li {
+  display: flex;
+  align-items: center;
 }
 
 .navButtons {
-    align-items: center;
-    background: transparent;
-    color: rgba(0,0,0,0.6);
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    font-size: 18px;
-    font-weight: 400;
-    justify-content: center;
-    text-align: center;
-    min-height: 6vh;
-    min-width: 80px;
-    position: relative;
-    text-decoration: none;
+  align-items: center;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  font-weight: 400;
+  justify-content: center;
+  text-align: center;
+  min-height: 6vh;
+  min-width: 80px;
+  position: relative;
+  text-decoration: none;
 }
 
 .navTitle {
-    font-size: 12px;
-    display: flex;
-    align-items: center;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
 }
 
 .navlink {
-    padding-top: 5px;
+  padding-top: 5px;
 }
 
 .navlogo {
-    padding-top: 3px;
+  padding-top: 3px;
 }
 
-.network:hover, #notifications:hover, #drop:hover, .navButtons:hover{
-    color: rgba(0,0,0,0.9);
+.network:hover,
+#notifications:hover,
+#drop:hover,
+.navButtons:hover {
+  color: rgba(0, 0, 0, 0.9);
 }
 
-.network::before, .network::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background-color: rgba(0,0,0,0.9);
-    transition: all 0.2s ease-in-out;
+.network::before,
+.network::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.9);
+  transition: all 0.2s ease-in-out;
 }
 
-.network:hover::before, .network:hover::after {
-    width: 100%;
+.network:hover::before,
+.network:hover::after {
+  width: 100%;
 }
 
 .navPic {
-    width: 23px;
-    height: 23px;
-    border-radius: 100px;
-    overflow: hidden;
-    z-index: 4;
-    margin-right: 10px;
+  width: 23px;
+  height: 23px;
+  border-radius: 100px;
+  overflow: hidden;
+  z-index: 4;
+  margin-right: 10px;
 }
 
 .navPic img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .navProfile {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
 }
 
 .navHeadline {
-    font-size: 14px;
-    color: rgba(0,0,0,0.6);
-    font-weight: 400;
-    padding-top: 3px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 400;
+  padding-top: 3px;
 }
 
 #dropdown {
-    position: relative;
+  position: relative;
 }
