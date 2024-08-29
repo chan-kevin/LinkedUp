@@ -136,9 +136,16 @@ function SignupFormPage() {
             >
               Wiki Page
             </a>
+            , and{" "}
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.linkedin.com/in/kevin-chan-426203158/"
+            >
+              My LinkedIn
+            </a>
             .
           </p>
-          {/* , and <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/in/kevin-chan-426203158/'>My LinkedIn</a>.</p> */}
 
           <button
             type="submit"
@@ -170,7 +177,7 @@ function SignupFormPage() {
             </NavLink>
           </p>
         </form>
-        {/* <p id="businessPage">
+        <p id="businessPage">
           Looking to create a page for a business?{" "}
           <a
             target="_blank"
@@ -179,7 +186,7 @@ function SignupFormPage() {
           >
             Get help
           </a>
-        </p> */}
+        </p>
       </div>
     );
   };

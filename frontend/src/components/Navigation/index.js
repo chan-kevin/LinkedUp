@@ -54,17 +54,17 @@ function Navigation() {
                   </a>
                 </li>
 
-                {/* <li>
+                <li>
                   <a
                     target="_blank"
                     rel="noreferrer"
-                    href=""
+                    href="https://www.linkedin.com/in/kevin-chan-426203158/"
                     className="navButtons network"
                   >
                     <i className="fa-brands fa-linkedin navlogo"></i>
                     <span className="navTitle navlink">My LinkedIn</span>
                   </a>
-                </li> */}
+                </li>
 
                 <li>
                   <a
@@ -110,17 +110,17 @@ function Navigation() {
                   </a>
                 </li>
 
-                {/* <li>
+                <li>
                   <a
                     target="_blank"
                     rel="noreferrer"
-                    href=""
+                    href="https://www.linkedin.com/in/kevin-chan-426203158/"
                     className="navButtons network"
                   >
                     <i className="fa-brands fa-linkedin navlogo"></i>
                     <span className="navTitle navlink">My LinkedIn</span>
                   </a>
-                </li> */}
+                </li>
 
                 <li>
                   <a
