@@ -1,22 +1,22 @@
 # WELCOME TO LINKEDUP
 
-Check out the [Live Site](https://linkedup-ptj7.onrender.com/)
+Check out the [Live Site](https://linkedup-n4xe.onrender.com//)
 
 ### Introduction
 
-LinkedUp is a clone of the LinkedIn website at the time of creation. LinkedIn is a social media platform that focuses on professional networking. It allows users to create profiles, connect with other professionals, and share content related to their industry.  The technologies implemented in this project include:
+LinkedUp is a clone of the LinkedIn website at the time of creation. LinkedIn is a social media platform that focuses on professional networking. It allows users to create profiles, connect with other professionals, and share content related to their industry. The technologies implemented in this project include:
 
-* Languages: Javascript, Ruby, HTML, and CSS
-* Frontend: React-Redux
-* Database: PostgreSQL
-* Hosting: Render
-* Asset Storage: AWS Simple Cloud Storage (S3)
+- Languages: Javascript, Ruby, HTML, and CSS
+- Frontend: React-Redux
+- Database: PostgreSQL
+- Hosting: Render
+- Asset Storage: AWS Simple Cloud Storage (S3)
 
 # MVPs
 
 ## Profiles
 
-A LinkedUp user is able to create new profiles, which persist to both the front and backend, and select existing or newly created profiles in order to begin: 
+A LinkedUp user is able to create new profiles, which persist to both the front and backend, and select existing or newly created profiles in order to begin:
 
 ![gif of profiles](app/assets/userAuth.gif)
 
@@ -36,7 +36,7 @@ A LinkedUp user can also manage their profile's show page, which is their experi
         <li className='detailHeading'>{experience.title}</li>
         <li className='detailSubHeading'>{experience.company}</li>
         <li className='period'>
-            {experience.startMonth + ' ' + experience.startYear + ' - '} 
+            {experience.startMonth + ' ' + experience.startYear + ' - '}
             {experience.current ? 'Present' : (experience.endMonth + ' ' + experience.endYear)}
         </li>
         <li className='detailLocation'>{experience.location}</li>
@@ -64,7 +64,7 @@ On the home page, a LinkedUp user can views all the posts on the feed. They are 
     <div className="likesCount">
         <i className="fa-regular fa-thumbs-up" id="likesCountIcon"></i>
         {post.likesCount}
-    </div>) : 
+    </div>) :
     <div className="likesCount">
         <i className="fa-regular fa-thumbs-up" id="likesCountIcon"></i>
         0
@@ -74,7 +74,7 @@ On the home page, a LinkedUp user can views all the posts on the feed. They are 
     <div className="commentsCount" onClick={() => listComments(post.id, index)}>
         {post.comments.length} comments
     </div>) : null}
-    
+
 </div>
 ```
 
@@ -99,19 +99,19 @@ On any page after signed in, a LinkedUp user can also search for user by typing 
             return parts.every(part => user.firstName.toLowerCase().includes(part) || user.lastName.toLowerCase().includes(part));
         }).map((user, index) => (
             <li key={index} onClick={() => checkOutProfile(user.id)} className='searchResult'>
-                <i className="fa-solid fa-magnifying-glass" id='insideSearch'></i> 
+                <i className="fa-solid fa-magnifying-glass" id='insideSearch'></i>
                 <div className='authorPic' id='searchPhoto'>
                     <img src={user.photoUrl} alt='defaultProfile' />
                 </div>
                 <div className='fullName'>
-                    {user.firstName.split('').map((letter) => 
+                    {user.firstName.split('').map((letter) =>
                         <div>
                             <p className='matched'>{matchedWord(letter)}</p> <p>{unmatchedWord(letter)}</p>
-                        </div>)} 
+                        </div>)}
 
                     <p>&nbsp;</p>
 
-                    {user.lastName.split('').map((letter) => 
+                    {user.lastName.split('').map((letter) =>
                         <div>
                             <p className='matched'>{matchedWord(letter)}</p> <p>{unmatchedWord(letter)}</p>
                         </div>)}
@@ -137,7 +137,7 @@ A LinkedUp user can also connect and unconnect other user on LinkedUp
     <button onClick={unconnect} className='submit' id='connectButton'>
         <i className="fa-solid fa-user-plus" id='connectIcon'></i>
         <p>Unconnect</p>
-    </button> : 
+    </button> :
     <button onClick={handleConnect} className='submit' id='connectButton'>
     <i className="fa-solid fa-user-plus" id='connectIcon'></i>
     <p>Connect</p>
