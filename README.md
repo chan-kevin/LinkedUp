@@ -1,6 +1,6 @@
 # WELCOME TO LINKEDUP
 
-Check out the [Live Site](https://linkedup-n4xe.onrender.com/)
+Check out the [Live Site](https://linkedup-bf9w.onrender.com/)
 
 ### Introduction
 
